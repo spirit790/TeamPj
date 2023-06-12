@@ -23,13 +23,6 @@ public class Mode : MonoBehaviour
     protected bool isGameOver = false;
     protected List<Player> playerList = new List<Player>();
 
-    public Mode(int playerCount, float timeLimit)
-    {
-        this.playerCount = playerCount;
-        this.timeLimit = timeLimit;
-    }
-
-
     protected virtual void Start()
     {
         CreateMap();
@@ -44,6 +37,12 @@ public class Mode : MonoBehaviour
         {
             isGameOver = true;
         }
+    }
+
+    public void Set(int playerCount,float time)
+    {
+        this.playerCount = playerCount;
+        this.timeLimit = time;
     }
 
     void CreateMap()

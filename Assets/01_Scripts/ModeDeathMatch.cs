@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class ModeDeathMatch : Mode
 {
-    public ModeDeathMatch(int playerCount, float timeLimit) : base(playerCount,timeLimit)
-    {
-        this.timeLimit = timeLimit;
-        this.playerCount = playerCount;
-    }
+    Queue<Player> deadPlayerList = new Queue<Player>();
+    
     protected override void Start()
     {
         base.Start();
@@ -22,11 +19,10 @@ public class ModeDeathMatch : Mode
     }
     public override void GameOver()
     {
-
+        
     }
-    public void Respawn(Player player)
+    public void RespawnPlayer(Player player)
     {
-        player = new Player();
-        playerList.Add(player);
+        player = deadPlayerList.Dequeue();
     }
 }
