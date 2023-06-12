@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class JoyStick : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler
 {
-    Image imgeBackGround;
+    Image imageBackGround;
+    Image imageController;
 
     private void Awake()
     {
-        imgeBackGround = GetComponent<Image>();
+        imageBackGround = GetComponent<Image>();
+        imageController = transform.GetChild(0).GetComponent<Image>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -27,12 +29,12 @@ public class JoyStick : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHan
         // touchPositon의 위치값은 이미지의 현재 위치를 기준으로
         //얼마나 떨어져 있는지에 따라 다르게 나온다.
         if(RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            imgeBackGround.rectTransform,eventData.position,eventData.pressEventCamera,out touchPosition))
+            imageBackGround.rectTransform,eventData.position,eventData.pressEventCamera,out touchPosition))
         {
             //toucPosition 값의 정규화[0~1]
             //touchPosition을 이미지 크기로 나눔
-            touchPosition.x = (touchPosition.x / imgeBackGround.rectTransform.sizeDelta.x);
-            touchPosition.y = (touchPosition.y / imgeBackGround.rectTransform.sizeDelta.y);
+            touchPosition.x = (touchPosition.x / imageBackGround.rectTransform.sizeDelta.x);
+            touchPosition.y = (touchPosition.y / imageBackGround.rectTransform.sizeDelta.y);
 
             //touchPosition 값의 정규화 [-n ~ n]
             //왼쪽(-1), 중심(0), 오른쪽(1)로 변경하기 위해 touchPosition.x*2-1
@@ -45,6 +47,10 @@ public class JoyStick : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHan
             //이 때 normailzed를 이용해 -1 ~ 1사이의 값으로 정규화
             touchPosition = (touchPosition.magnitude > 1) ? touchPosition.normalized : touchPosition;
 
+            //가상 조이스틱 컨트롤러 이미지 이동
+            imageController.rectTransform.anchoredPosition = new Vector2(
+                touchPosition.x = imageBackGround.rectTransform.sizeDelta.x / 2,
+                touchPosition.y = imageBackGround.rectTransform.sizeDelta.y / 2);
             
             Debug.Log("터치엔드래그 :" + eventData);
         }
