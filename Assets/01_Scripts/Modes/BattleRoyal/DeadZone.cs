@@ -20,6 +20,7 @@ public class DeadZone : MonoBehaviour
         else if (other.gameObject.CompareTag("AI"))
         {
             // AI óġ
+            Destroy(other.gameObject);
         }
     }
 
