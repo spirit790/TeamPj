@@ -287,6 +287,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shrinkTime: 10
   deadZone: {fileID: 1985049430}
+  playerPrefab: {fileID: 4804734173775219183, guid: b6a97e8e6693ded43be803a28258c407,
+    type: 3}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
