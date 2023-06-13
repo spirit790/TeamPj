@@ -31,12 +31,12 @@ public class Mode : MonoBehaviour
         this.timeLimit = time;
     }
 
-    void CreateMap()
+    protected void CreateMap()
     {
 
     }
 
-    void CreatePlayer()
+    protected void CreatePlayer()
     {
         for (int i = 0; i < playerCount; i++)
         {
@@ -45,7 +45,7 @@ public class Mode : MonoBehaviour
         }
     }
 
-    void CreateAI()
+    protected void CreateAI()
     {
         for (int i = 0; i < AICount; i++)
         {

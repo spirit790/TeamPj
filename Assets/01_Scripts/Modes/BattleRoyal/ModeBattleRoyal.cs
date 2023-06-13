@@ -24,13 +24,21 @@ public class ModeBattleRoyal : Mode
     }
 
     public DeadZone deadZone;
+    public GameObject playerPrefab;
 
-    protected override void Start()
+    void Awake()
     {
+        Debug.Log("awake");
         Set(8, 60f); // test
     }
 
-    protected override void Update()
+    
+    private void Start()
+    {
+
+    }
+
+    void Update()
     {
         timer += Time.deltaTime;
         if (timer >= shrinkTime)
