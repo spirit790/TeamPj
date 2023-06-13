@@ -1,16 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CarrotMove : MonoBehaviour
 {
     Transform kTr;
     RaycastHit hit;
     public float atkLength = 1.5f;
+    Button attackBtn;
+
+    public float curTime;
+    public float coolTime;
 
     void Start()
     {
         kTr = GetComponent<Transform>();
+        attackBtn = GameObject.FindGameObjectWithTag("AttackBtn").GetComponent<Button>();
+        attackBtn.onClick.AddListener(OnClickAtk);
+
     }
 
 

@@ -7,6 +7,8 @@ TagManager:
   - AI
   - JoyStick
   - PlayerCanvas
+  - AttackBtn
+  - DashBtn
   layers:
   - Default
   - TransparentFX
