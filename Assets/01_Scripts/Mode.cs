@@ -5,16 +5,18 @@ using UnityEngine;
 public class Mode : MonoBehaviour
 {
     protected int playerCount;
-    int AIRatio;
-    int AICount 
+    int aiRatio;
+    int aiCount;
+
+    public int AICount
     {
         get
         {
-            return AICount;
+            return aiCount;
         }
         set
         {
-            AICount = playerCount * AIRatio;
+            aiCount = playerCount * aiRatio;
         }
     }
 
@@ -22,23 +24,7 @@ public class Mode : MonoBehaviour
 
     protected bool isGameOver = false;
     protected List<Player> playerList = new List<Player>();
-
-    protected virtual void Start()
-    {
-        CreateMap();
-        CreatePlayer();
-        CreateAI();
-    }
-
-    protected virtual void Update()
-    {
-        timeLimit -= Time.deltaTime;
-        if(timeLimit <= 0)
-        {
-            isGameOver = true;
-        }
-    }
-
+    
     public void Set(int playerCount,float time)
     {
         this.playerCount = playerCount;

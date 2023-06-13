@@ -5,18 +5,14 @@ using UnityEngine;
 public class ModeDeathMatch : Mode
 {
     Queue<Player> deadPlayerList = new Queue<Player>();
-    
-    protected override void Start()
+
+    float AIRespawnTime;
+
+    private void Awake()
     {
-        base.Start();
+        
     }
 
-    protected override void Update()
-    {
-        base.Update();
-        if (isGameOver)
-            GameOver();
-    }
     public override void GameOver()
     {
         
@@ -24,5 +20,9 @@ public class ModeDeathMatch : Mode
     public void RespawnPlayer(Player player)
     {
         player = deadPlayerList.Dequeue();
+    }
+    public void RespawnAI()
+    {
+
     }
 }
