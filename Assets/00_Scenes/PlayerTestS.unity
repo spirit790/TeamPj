@@ -1234,7 +1234,7 @@ GameObject:
   - component: {fileID: 1217276204}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: PlayerCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1638,6 +1638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3044aeb9126c94ea08349535c11df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joyStick: {fileID: 0}
   playerAnim: {fileID: 0}
   moveSpeed: 5
   dashSpeed: 0

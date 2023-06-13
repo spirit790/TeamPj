@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    JoyStick joyStick;
 
     public Animator playerAnim;
 
@@ -18,6 +20,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        joyStick = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponentInChildren<JoyStick>();
         tr = GetComponent<Transform>();
 
     }
@@ -33,10 +36,15 @@ public class Player : MonoBehaviour
     /// </summary>
     public void PlayerMove()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        float h = joyStick.Horizontal();
+        float v = joyStick.Vertical();
 
-        Vector3 moveDiection = new Vector3(h, 0, v).normalized;
-        tr.position += moveDiection * moveSpeed * Time.deltaTime;
+        if(h !=0 || v != 0)
+        {
+            Vector3 moveDiection = new Vector3(h, 0, v).normalized;
+            tr.position += moveDiection * moveSpeed * Time.deltaTime;
+        }
+
+       
     }
 }
