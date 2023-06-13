@@ -6,13 +6,23 @@ public class ModeDeathMatch : Mode
 {
     Queue<Player> deadPlayerList = new Queue<Player>();
 
-    float AIRespawnTime;
+    float aiRespawnTime;
+
 
     private void Awake()
+    {
+        InvokeRepeating("RespawnAI", timeLimit, aiRespawnTime);
+    }
+
+    private void Start()
     {
         
     }
 
+    private void Update()
+    {
+        
+    }
     public override void GameOver()
     {
         
