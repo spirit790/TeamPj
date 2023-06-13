@@ -15,6 +15,7 @@ public class PlayerSimpleMove : MonoBehaviour
 
     void Update()
     {
+        /*
         float h = rotSpeed * Input.GetAxis("Mouse X");
         float v = rotSpeed * Input.GetAxis("Mouse Y");
 
@@ -35,6 +36,28 @@ public class PlayerSimpleMove : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             characterCtrl.SimpleMove(moveSpeed * transform.right);
+        }
+        */
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            characterCtrl.SimpleMove(moveSpeed * transform.forward);
+            characterCtrl.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            characterCtrl.SimpleMove(moveSpeed * transform.forward);
+            characterCtrl.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            characterCtrl.SimpleMove(moveSpeed * transform.forward);
+            characterCtrl.transform.rotation = Quaternion.Euler(0, -90, 0);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            characterCtrl.SimpleMove(moveSpeed * transform.forward);
+            characterCtrl.transform.rotation = Quaternion.Euler(0, 90, 0);
         }
 
 

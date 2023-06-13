@@ -6,10 +6,9 @@ using UnityEngine.Rendering;
 
 [System.Serializable]
 public class MeshShadow_test : MonoBehaviour
-{   [SerializeField]
-    public List<Vector3> vertices = new List<Vector3>();
-    [SerializeField]
-    public List<int> triangles = new List<int>();
+{  
+    private List<Vector3> vertices = new List<Vector3>();
+    private List<int> triangles = new List<int>();
 
     [Header("VisionArea")]
     public Transform targetTr;
@@ -51,7 +50,7 @@ public class MeshShadow_test : MonoBehaviour
         verticesIdx = 0;
         triangleIdx = 1;
 
-        for (int i = -(int)lightAngle/2; i < (int)lightAngle/2; i++)
+        for (int i = -(int)lightAngle/2; i < (int)lightAngle/2; i ++)
         {
             RaycastHit hit;
 
@@ -71,6 +70,7 @@ public class MeshShadow_test : MonoBehaviour
                     vertices.Add(hit.point);
                     triangles.Add(++verticesIdx);
                     triangleIdx++;
+
                 }
             }
             else
