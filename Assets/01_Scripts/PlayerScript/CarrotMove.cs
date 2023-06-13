@@ -18,7 +18,9 @@ public class CarrotMove : MonoBehaviour
     {
         
     }
-
+    /// <summary>
+    /// 버튼을 눌렀을시 콜라이더 z축으로 atkLength만큼 ray를 발사하여 공격판정을합니다.
+    /// </summary>
     public void OnClickAtk()
     {
         if (Physics.Raycast(transform.position,transform.forward,out hit, atkLength))

@@ -28,7 +28,9 @@ public class Player : MonoBehaviour
         PlayerMove();
     }
 
-
+    /// <summary>
+    /// 플레이어 이동입니다. GetAxis로 받아 이동합니다.
+    /// </summary>
     public void PlayerMove()
     {
         float h = Input.GetAxis("Horizontal");
