@@ -6,7 +6,7 @@ public class Mode : MonoBehaviour
 {
     protected int playerCount;
     int aiRatio;
-    int aiCount;
+    public int aiCount;
 
     public int AICount
     {
@@ -24,7 +24,9 @@ public class Mode : MonoBehaviour
 
     protected bool isGameOver = false;
     protected List<Player> playerList = new List<Player>();
-    
+
+    public GameObject aiPrefab;
+
     public void Set(int playerCount,float time)
     {
         this.playerCount = playerCount;
@@ -49,6 +51,7 @@ public class Mode : MonoBehaviour
     {
         for (int i = 0; i < AICount; i++)
         {
+            aiPrefab.GetComponent<AI>().CreateAI(new Vector3(Random.Range(0,41),0, Random.Range(0, 41)));
         }
     }
     public virtual void GameOver(){}

@@ -11,12 +11,13 @@ public class ModeDeathMatch : Mode
 
     private void Awake()
     {
+        Set(4, 60);
         InvokeRepeating("RespawnAI", timeLimit, aiRespawnTime);
     }
 
     private void Start()
     {
-        
+        CreateAI();
     }
 
     private void Update()
