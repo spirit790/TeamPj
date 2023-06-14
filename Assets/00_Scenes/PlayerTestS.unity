@@ -1097,6 +1097,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4804734173775219177, guid: b6a97e8e6693ded43be803a28258c407,
+        type: 3}
+      propertyPath: moveX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804734173775219177, guid: b6a97e8e6693ded43be803a28258c407,
+        type: 3}
+      propertyPath: moveY
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804734173775219177, guid: b6a97e8e6693ded43be803a28258c407,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804734173775219177, guid: b6a97e8e6693ded43be803a28258c407,
+        type: 3}
+      propertyPath: normalSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4804734173775219180, guid: b6a97e8e6693ded43be803a28258c407,
         type: 3}
       propertyPath: m_Constraints
@@ -1594,7 +1614,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   check: 0
-  playerSpeed: {fileID: 0}
 --- !u!114 &1700104706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1611,11 +1630,35 @@ MonoBehaviour:
   - eventID: 2
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1700104705}
+          m_TargetAssemblyTypeName: DashBtn, Assembly-CSharp
+          m_MethodName: PointerDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 3
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1700104705}
+          m_TargetAssemblyTypeName: DashBtn, Assembly-CSharp
+          m_MethodName: PointerUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1966584790
 GameObject:
   m_ObjectHideFlags: 0
