@@ -6,15 +6,14 @@ using UnityEngine.UI;
 
 public class JoyStick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
-    GameObject joyStick;
     Image imageBackGround;
     Image imageController;
+
     Vector2 touchPosition;
     Vector2 touchScreenPosition;
     void Start()
     {
-        joyStick = transform.GetChild(0).gameObject;
-        imageBackGround = joyStick.transform.GetChild(0).gameObject.GetComponent<Image>();
+        imageBackGround = transform.GetChild(0).gameObject.GetComponent<Image>();
         imageController = imageBackGround.transform.GetChild(0).gameObject.GetComponent<Image>();
     }
 
@@ -22,11 +21,12 @@ public class JoyStick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     public void OnPointerDown(PointerEventData eventData)
     {
         touchScreenPosition = Vector2.zero;
-
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
             GetComponent<Image>().rectTransform, eventData.position, eventData.pressEventCamera, out touchScreenPosition))
         {
-            joyStick.transform.position = touchScreenPosition;
+            touchScreenPosition.x -= imageBackGround.rectTransform.sizeDelta.x / 2;
+            touchScreenPosition.y -= imageBackGround.rectTransform.sizeDelta.y / 2;
+            imageBackGround.transform.position = touchScreenPosition;
         }
         imageBackGround.enabled = true;
         imageController.enabled = true;
@@ -68,5 +68,4 @@ public class JoyStick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     {
         return touchPosition.normalized.y;
     }
-
 }

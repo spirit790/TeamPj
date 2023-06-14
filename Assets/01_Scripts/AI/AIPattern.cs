@@ -7,7 +7,7 @@ public class AIPattern : MonoBehaviour
 {
     NavMeshAgent agent;
 
-    [Header("MapSize")]
+    [Header("맵 사이즈")]
     public float mapWidth;
     public float mapHeight;
 
@@ -27,8 +27,10 @@ public class AIPattern : MonoBehaviour
         }
     }
 
+    // 목표지점과 거리 측정 변수
     public float targetDistance;
 
+    [Header("행동 속도")]
     public float moveSpeed;
     public float runSpeed;
     public bool isDone 

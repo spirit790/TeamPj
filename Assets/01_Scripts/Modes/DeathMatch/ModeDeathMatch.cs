@@ -6,7 +6,7 @@ public class ModeDeathMatch : Mode
 {
     Queue<Player> deadPlayerList = new Queue<Player>();
 
-    [Header("AIRespawnTime")]
+    [Header("AI 리스폰 시간")]
     [SerializeField]
     float aiRespawnMinTime;
     [SerializeField]
@@ -42,7 +42,6 @@ public class ModeDeathMatch : Mode
             float aiRespawnTime = Random.Range(aiRespawnMinTime, aiRespawnMaxTime);
             yield return new WaitForSeconds(aiRespawnTime);
             aiPool.CreateAI(aiSpawnPos);
-            Debug.Log($"Respawn[{aiSpawnPos.x} , {aiSpawnPos.z}]");
         }
     }
 }

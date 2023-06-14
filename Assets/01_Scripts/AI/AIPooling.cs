@@ -42,6 +42,10 @@ public class AIPooling : MonoBehaviour
         Destroy(aiObj);
     }
 
+    /// <summary>
+    /// createPos 위치에 AI 생성
+    /// </summary>
+    /// <param name="createPos"></param>
     public void CreateAI(Vector3 createPos)
     {
         if (count >= maxSize)
@@ -49,6 +53,7 @@ public class AIPooling : MonoBehaviour
         GameObject ai = AIPool.Get();
         ai.transform.position = createPos;
         ai.transform.SetParent(gameObject.transform);
+        Debug.Log($"Respawn[{createPos.x} , {createPos.z}]");
         count++;
     }
 }

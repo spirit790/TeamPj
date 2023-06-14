@@ -16,7 +16,7 @@ public class Mode : MonoBehaviour
     int aiRatio;
     int aiCount { get { return playerCount * aiRatio; } }
 
-    [Header("MapSize")]
+    [Header("맵 사이즈")]
     public float mapWidth;
     public float mapHeight;
 
@@ -25,12 +25,19 @@ public class Mode : MonoBehaviour
     protected float timeLimit;
     protected bool isGameOver = false;
 
+    /// <summary>
+    /// Mode 초기화 및 변수 할당 함수
+    /// </summary>
+    /// <param name="playerCount">플레이어 숫자</param>
+    /// <param name="aiRatio">플레이어와 AI 비율</param>
+    /// <param name="timeLimit">제한 시간</param>
     public void Set(int playerCount,int aiRatio, float timeLimit)
     {
         this.playerCount = playerCount;
         this.aiRatio = aiRatio;
         this.timeLimit = timeLimit;
     }
+
 
     protected void CreateMap()
     {
