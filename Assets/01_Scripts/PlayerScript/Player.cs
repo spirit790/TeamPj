@@ -52,9 +52,14 @@ public class Player : MonoBehaviour
         if (h != 0 || v != 0)
         {
             if (dashBtn.check)
+            {
                 moveSpeed = dashSpeed;
+            }                
             else
+            {
                 moveSpeed = normalSpeed;
+            }
+                
 
             rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
             //transform.position으로 이동
@@ -69,11 +74,20 @@ public class Player : MonoBehaviour
         float fall = rBody.velocity.y;
 
         if (dashBtn.check)
+        {
             moveSpeed = dashSpeed;
+        }
         else
+        {
             moveSpeed = normalSpeed;
+        }
+        if (h == 0 && v == 0)
+            return;
 
         rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
+
+        Quaternion newRote = Quaternion.LookRotation(rBody.velocity);
+        rBody.MoveRotation(newRote);
         //Vector3 moveDiection = new Vector3(h, 0, v).normalized;
         //tr.position += moveDiection * moveSpeed * Time.deltaTime;
     }
