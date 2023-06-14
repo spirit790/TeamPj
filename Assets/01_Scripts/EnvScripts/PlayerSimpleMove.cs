@@ -7,6 +7,7 @@ public class PlayerSimpleMove : MonoBehaviour
     public CharacterController characterCtrl;
     public float moveSpeed = 3f;
     public float rotSpeed = 3f;
+    public float rotConst = 0.5f;
 
     void Start()
     {
@@ -42,22 +43,22 @@ public class PlayerSimpleMove : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             characterCtrl.SimpleMove(moveSpeed * transform.forward);
-            characterCtrl.transform.rotation = Quaternion.Slerp(characterCtrl.transform.rotation, Quaternion.Euler(0, 0, 0), 0.5f);
+            characterCtrl.transform.rotation = Quaternion.Slerp(characterCtrl.transform.rotation, Quaternion.Euler(0, 0, 0), rotConst);
         }
         if (Input.GetKey(KeyCode.S))
         {
             characterCtrl.SimpleMove(moveSpeed * transform.forward);
-            characterCtrl.transform.rotation = Quaternion.Slerp(characterCtrl.transform.rotation, Quaternion.Euler(0, 180, 0), 0.5f);
+            characterCtrl.transform.rotation = Quaternion.Slerp(characterCtrl.transform.rotation, Quaternion.Euler(0, 180, 0), rotConst);
         }
         if (Input.GetKey(KeyCode.A))
         {
             characterCtrl.SimpleMove(moveSpeed * transform.forward);
-            characterCtrl.transform.rotation = Quaternion.Slerp(characterCtrl.transform.rotation, Quaternion.Euler(0, -90, 0), 0.5f);
+            characterCtrl.transform.rotation = Quaternion.Slerp(characterCtrl.transform.rotation, Quaternion.Euler(0, -90, 0), rotConst);
         }
         if (Input.GetKey(KeyCode.D))
         {
             characterCtrl.SimpleMove(moveSpeed * transform.forward);
-            characterCtrl.transform.rotation = Quaternion.Slerp(characterCtrl.transform.rotation, Quaternion.Euler(0, 90, 0), 0.5f);
+            characterCtrl.transform.rotation = Quaternion.Slerp(characterCtrl.transform.rotation, Quaternion.Euler(0, 90, 0), rotConst);
         }
 
 
