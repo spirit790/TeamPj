@@ -1,21 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
+
 [RequireComponent(typeof(AIPattern))]
 public class AI : MonoBehaviour
 {
+    IObjectPool<GameObject> AIPool { get; set; }
 
-    void Start()
+    public void SetPool(IObjectPool<GameObject> aiPooling)
     {
-        
+        this.AIPool = aiPooling;
     }
-
-    void Update()
+    
+    public void ReleasePool(GameObject aiObj)
     {
-        
+        AIPool.Release(aiObj);
     }
-    public void CreateAI(Vector3 createPos)
+    
+    private void OnTriggerEnter(Collider other)
     {
-        Instantiate(gameObject, createPos, Quaternion.identity);
+        Debug.Log("Dead");
+        ReleasePool(this.gameObject);
     }
 }

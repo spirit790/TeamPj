@@ -1,36 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
+
 
 public class Mode : MonoBehaviour
 {
-    protected int playerCount;
-    int aiRatio;
-    public int aiCount;
+    [SerializeField]
+    protected AIPooling aiPool;
 
-    public int AICount
-    {
-        get
-        {
-            return aiCount;
-        }
-        set
-        {
-            aiCount = playerCount * aiRatio;
-        }
-    }
+    [SerializeField]
+    protected List<GameObject> playerList = new List<GameObject>();
+
+    int playerCount;
+    int aiRatio;
+    int aiCount { get { return playerCount * aiRatio; } }
+
+    [Header("MapSize")]
+    public float mapWidth;
+    public float mapHeight;
+
+    protected Vector3 aiSpawnPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
 
     protected float timeLimit;
-
     protected bool isGameOver = false;
-    protected List<Player> playerList = new List<Player>();
 
-    public GameObject aiPrefab;
-
-    public void Set(int playerCount,float time)
+    public void Set(int playerCount,int aiRatio, float timeLimit)
     {
         this.playerCount = playerCount;
-        this.timeLimit = time;
+        this.aiRatio = aiRatio;
+        this.timeLimit = timeLimit;
     }
 
     protected void CreateMap()
@@ -42,16 +41,14 @@ public class Mode : MonoBehaviour
     {
         for (int i = 0; i < playerCount; i++)
         {
-            Player player = new Player();
-            playerList.Add(player);
         }
     }
 
     protected void CreateAI()
     {
-        for (int i = 0; i < AICount; i++)
+        for (int i = 0; i < aiCount; i++)
         {
-            aiPrefab.GetComponent<AI>().CreateAI(new Vector3(Random.Range(0,41),0, Random.Range(0, 41)));
+            aiPool.CreateAI(aiSpawnPos);
         }
     }
     public virtual void GameOver(){}

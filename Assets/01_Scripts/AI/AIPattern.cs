@@ -7,8 +7,13 @@ public class AIPattern : MonoBehaviour
 {
     NavMeshAgent agent;
 
-    int RandomX { get { return Random.Range(0, 41); } }
-    int RandomZ { get { return Random.Range(0, 41); } }
+    [Header("MapSize")]
+    public float mapWidth;
+    public float mapHeight;
+
+    Vector3 targetPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
+
+
     float randomStopTime { get { return Random.Range(0, 5); } }
     public bool isRunning
     {
@@ -23,8 +28,6 @@ public class AIPattern : MonoBehaviour
     }
 
     public float targetDistance;
-
-    public Vector3 targetPos;
 
     public float moveSpeed;
     public float runSpeed;
@@ -45,12 +48,10 @@ public class AIPattern : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         agent.speed = moveSpeed;
-        targetPos = new Vector3(RandomX, 0, RandomZ);
     }
 
     void Start()
     {
-        MoveTo(targetPos);
     }
 
     void Update()
@@ -60,7 +61,6 @@ public class AIPattern : MonoBehaviour
         if (isDone)
         {
             isDone = false;
-            targetPos = new Vector3(RandomX, 0, RandomZ);
             MoveTo(targetPos);
             if (isRunning)
                 agent.speed = runSpeed;
@@ -86,5 +86,9 @@ public class AIPattern : MonoBehaviour
         agent.isStopped = true;
         yield return new WaitForSeconds(stopTime);
         agent.isStopped = false;
+    }
+    private void OnEnable()
+    {
+        MoveTo(targetPos);
     }
 }
