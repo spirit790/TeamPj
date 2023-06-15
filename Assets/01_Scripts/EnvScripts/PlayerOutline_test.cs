@@ -45,8 +45,6 @@ public class PlayerOutline_test : MonoBehaviour
         outlineObject.GetComponent<CharacterController>().enabled = false;
         outlineObject.GetComponent<PlayerSimpleMove>().enabled = false;
 
-
-
         rend.enabled = false;
 
         return rend;

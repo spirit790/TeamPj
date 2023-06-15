@@ -31,7 +31,7 @@ public class WallVisualizer_test : MonoBehaviour
         {
             if (hit.transform.gameObject.layer == 9)
             {
-                Debug.Log("in wall");
+                //Debug.Log("in wall");
 
                 currentWall = hit.transform;
 
@@ -54,33 +54,38 @@ public class WallVisualizer_test : MonoBehaviour
 
         if (Physics.Raycast(transform.position, dir, out hit, dist, visibleWallLayer))
         {
-            if (hit.transform.gameObject.layer == 10)
+            //if (hit.transform.gameObject.layer == 10)
+            //{
+            //    float savedDist = Vector3.Distance(transform.position, currentWall.position);
+            //    float nowDist = Vector3.Distance(transform.position, hit.transform.position);
+
+            //    wallRenderer = hit.transform.GetComponent<Renderer>();
+
+            //    if (savedDist > nowDist)
+            //    {
+            //        Debug.Log("savedDist > nowDist");
+            //        ChangeMatAlpha(visibleWalls[visibleWalls.Count], 1.0f);
+            //        visibleWalls[visibleWalls.Count].gameObject.layer = 10;
+            //    }
+            //    else if (savedDist < nowDist)
+            //    {
+            //        Debug.Log("savedDist < nowDist");
+            //        ChangeMatAlpha(wallRenderer, 1.0f);
+            //        wallRenderer.transform.gameObject.layer = 10;
+
+            //    }
+            //}
+            if(hit.transform.gameObject.layer == 0 && visibleWalls.Count != 0)
             {
-                float savedDist = Vector3.Distance(transform.position, currentWall.position);
-                float nowDist = Vector3.Distance(transform.position, hit.transform.position);
+                //Debug.Log("out wall");
+                //ChangeMatAlpha(wallRenderer, 1.0f);
+                //wallRenderer.transform.gameObject.layer = 10;
 
-                wallRenderer = hit.transform.GetComponent<Renderer>();
-
-                if (savedDist > nowDist)
+                foreach (Renderer renderer in visibleWalls)
                 {
-                    Debug.Log("savedDist > nowDist");
-                    ChangeMatAlpha(visibleWalls[visibleWalls.Count], 1.0f);
-                    visibleWalls[visibleWalls.Count].gameObject.layer = 10;
+                    ChangeMatAlpha(renderer, 1.0f);
+                    renderer.transform.gameObject.layer = 9;
                 }
-                else if (savedDist < nowDist)
-                {
-                    Debug.Log("savedDist < nowDist");
-                    ChangeMatAlpha(wallRenderer, 1.0f);
-                    wallRenderer.transform.gameObject.layer = 10;
-
-                }
-            }
-            else if(hit.transform.gameObject.layer == 0 && visibleWalls.Count != 0)
-            {
-                Debug.Log("out out");
-                ChangeMatAlpha(wallRenderer, 1.0f);
-                wallRenderer.transform.gameObject.layer = 10;
-
                 visibleWalls.Clear();
             }
 
