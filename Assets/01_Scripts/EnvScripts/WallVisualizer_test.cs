@@ -10,10 +10,11 @@ public class WallVisualizer_test : MonoBehaviour
 
     public Transform character;
     private Renderer wallRenderer;
+    private int detectingLayer = 1 << 9 | 1 << 10;
     private int camToPlayerLayer = 1 << 9 | 1 << 10;
     private int playerToCamLayer = 1 << 9 | 1 << 10;
 
-
+    //public RaycastHit[] hits;
 
     private Transform _camHit;
     public Transform CamHit
@@ -71,8 +72,7 @@ public class WallVisualizer_test : MonoBehaviour
 
     void Update()
     {
-        WallDetectingByCam();
-        //WallDetectingByPlayer();
+        DetectingByCam();
 
     }
 
@@ -82,65 +82,51 @@ public class WallVisualizer_test : MonoBehaviour
 
         Vector3 dir = (character.position - transform.position).normalized;
 
-        RaycastHit[] hits = Physics.RaycastAll(transform.position, dir, dist, camToPlayerLayer);
-        
-        if(hits[1].transform != null)
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, dir, dist, detectingLayer);
+
+        for (int i = 0; i < hits.Length; i++)
         {
-
-        }
-
-    }
-
-    public void WallDetectingByCam()
-    {
-        float dist = Vector3.Distance(transform.position, character.position);
-
-        Vector3 dir = (character.position - transform.position).normalized;
-
-        RaycastHit hit;
-
-        //cam -> player ray
-        if (Physics.Raycast(transform.position, dir, out hit, dist, camToPlayerLayer))
-        {
-            if (hit.transform.gameObject.layer == 9)
+            if(hits[i].transform.gameObject.layer == 9)
             {
-                //Debug.Log("in wall");
-                WallAlphaChange(hit.transform, 0.5f);
-                visibleWalls.Add(hit.transform);
+                WallAlphaChange(hits[i].transform, 0.5f);
+                visibleWalls.Add(hits[i].transform);
 
-                hit.transform.gameObject.layer = 10;
+                hits[i].transform.gameObject.layer = 10;
             }
-            else if (hit.transform.gameObject.layer == 10)
+            else if(hits[i].transform.gameObject.layer == 10)
             {
-                CamHit = hit.transform;
+               if(hits.Length == 1)
+                {
+                    for (int j = 0; j < visibleWalls.Count - 1; j++)
+                    {
+                        WallAlphaChange(visibleWalls[j].transform, 1.0f);
+                        visibleWalls[j].transform.gameObject.layer = 9;
+                        visibleWalls.Remove(visibleWalls[j]);
+                    }
+                }
             }
         }
 
-    }
-    public void WallDetectingByPlayer()
-    {
-        float dist = Vector3.Distance(transform.position, character.position);
-
-        Vector3 dir = (transform.position - character.position).normalized;
-
-        RaycastHit hit;
-
-        //player -> cam ray
-        if (Physics.Raycast(character.position, dir, out hit, dist, playerToCamLayer))
+        if(hits.Length != 0 && hits[hits.Length - 1].transform.gameObject.layer == 10)
         {
-            if (hit.transform.gameObject.layer == 9)
-            {
-                //Debug.Log("in wall");
-                WallAlphaChange(hit.transform, 0.5f);
-                visibleWalls.Add(hit.transform);
+            Debug.Log("In wall");
 
-                hit.transform.gameObject.layer = 10;
-            }
-            else if (hit.transform.gameObject.layer == 10)
+
+        }
+
+        if (hits.Length == 0)
+        {
+            Debug.Log("Out wall");
+
+            for (int i = 0; i < visibleWalls.Count; i++)
             {
-                PlayerHit = hit.transform;
+                WallAlphaChange(visibleWalls[i].transform, 1.0f);
+                visibleWalls[i].transform.gameObject.layer = 9;
+                visibleWalls.Remove(visibleWalls[i]);
             }
         }
+
+
     }
 
     private void WallAlphaChange(Transform wall, float alpha)
@@ -148,7 +134,6 @@ public class WallVisualizer_test : MonoBehaviour
         wallRenderer = wall.GetComponent<Renderer>();
         // Material의 Alpha를 바꾼다.
         ChangeMatAlpha(wallRenderer, alpha);
-
     }
 
 
