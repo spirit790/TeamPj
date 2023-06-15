@@ -285,6 +285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e5eae6a4983e041b24cb3f36166169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aiPool: {fileID: 0}
+  playerList: []
+  mapWidth: 0
+  mapHeight: 0
   shrinkTime: 10
   deadZone: {fileID: 1985049430}
   playerPrefab: {fileID: 4804734173775219183, guid: b6a97e8e6693ded43be803a28258c407,
@@ -485,7 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7811360b6448f43429d2329adc444293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
+  radius: 50
 --- !u!136 &1985049431
 CapsuleCollider:
   m_ObjectHideFlags: 0
