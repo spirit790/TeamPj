@@ -40,6 +40,7 @@ public class PlayerOutline_test : MonoBehaviour
         rend.material.SetFloat("_Scale", scaleFactor);
         rend.shadowCastingMode = ShadowCastingMode.Off;
 
+        //테스트용
         outlineObject.GetComponent<PlayerOutline_test>().enabled = false;
         outlineObject.GetComponent<Collider>().enabled = false;
         outlineObject.GetComponent<CharacterController>().enabled = false;
