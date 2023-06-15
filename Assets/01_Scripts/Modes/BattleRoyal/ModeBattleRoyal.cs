@@ -29,7 +29,7 @@ public class ModeBattleRoyal : Mode
     void Awake()
     {
         Debug.Log("awake");
-        Set(8, 60f); // test
+        Set(8, 5, 60f); // test
     }
 
     
