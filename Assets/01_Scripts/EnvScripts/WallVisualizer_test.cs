@@ -71,9 +71,23 @@ public class WallVisualizer_test : MonoBehaviour
 
     void Update()
     {
-
         WallDetectingByCam();
-        WallDetectingByPlayer();
+        //WallDetectingByPlayer();
+
+    }
+
+    public void DetectingByCam()
+    {
+        float dist = Vector3.Distance(transform.position, character.position);
+
+        Vector3 dir = (character.position - transform.position).normalized;
+
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, dir, dist, camToPlayerLayer);
+        
+        if(hits[1].transform != null)
+        {
+
+        }
 
     }
 
