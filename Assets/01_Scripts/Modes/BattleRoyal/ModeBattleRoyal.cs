@@ -5,7 +5,6 @@ using UnityEngine;
 public class ModeBattleRoyal : Mode
 {
 
-    public float shrinkTime;
     private float timer;
     private int timeCount;
     private int TimeCount
@@ -17,14 +16,19 @@ public class ModeBattleRoyal : Mode
         set
         {
             timeCount = value;
-            Debug.Log(timeCount);
+            //Debug.Log(timeCount);
             float newRadius = ((timeLimit - timeCount * shrinkTime) / timeLimit) * deadZone.radius;
             deadZone.SetDeadZoneRadius(newRadius, shrinkTime / 2);
         }
     }
 
+    [Header("DeadZone")]
     public DeadZone deadZone;
+    public float shrinkTime;
+
+    [Header("Player")]
     public GameObject playerPrefab;
+    public int playersLeft;
 
     void Awake()
     {
@@ -35,7 +39,8 @@ public class ModeBattleRoyal : Mode
     
     private void Start()
     {
-
+        CreatePlayer();
+        //playersLeft = playerList.Count; gm에서 처리?
     }
 
     void Update()
