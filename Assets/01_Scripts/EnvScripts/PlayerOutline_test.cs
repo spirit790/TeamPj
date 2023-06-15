@@ -10,8 +10,7 @@ public class PlayerOutline_test : MonoBehaviour
     public Material outlineMat;
     public float outLineScale;
     public Color outlineColor;
-    public Renderer outlineRenderer;
-
+    private Renderer outlineRenderer;
 
     void Start()
     {
@@ -33,6 +32,7 @@ public class PlayerOutline_test : MonoBehaviour
     public Renderer CreateOutline(Material outlineMat, float scaleFactor, Color color)
     {
         GameObject outlineObject = Instantiate(gameObject, transform.position, transform.rotation, transform);
+        outlineObject.name = "Outline";
         Renderer rend = outlineObject.GetComponent<Renderer>();
 
         rend.material = outlineMat;
@@ -40,11 +40,7 @@ public class PlayerOutline_test : MonoBehaviour
         rend.material.SetFloat("_Scale", scaleFactor);
         rend.shadowCastingMode = ShadowCastingMode.Off;
 
-        //테스트용
         outlineObject.GetComponent<PlayerOutline_test>().enabled = false;
-        outlineObject.GetComponent<Collider>().enabled = false;
-        outlineObject.GetComponent<CharacterController>().enabled = false;
-        outlineObject.GetComponent<PlayerSimpleMove>().enabled = false;
 
         rend.enabled = false;
 

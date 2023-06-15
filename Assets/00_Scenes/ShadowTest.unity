@@ -3027,9 +3027,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1763601615011000421, guid: 85d39f62c732c394c9cd5a1c2fa00c5a,
         type: 3}
+      propertyPath: offset
+      value: -0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763601615011000421, guid: 85d39f62c732c394c9cd5a1c2fa00c5a,
+        type: 3}
       propertyPath: targetTr
       value: 
       objectReference: {fileID: 1506251292}
+    - target: {fileID: 1763601615011000421, guid: 85d39f62c732c394c9cd5a1c2fa00c5a,
+        type: 3}
+      propertyPath: lightRange
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763601615011000421, guid: 85d39f62c732c394c9cd5a1c2fa00c5a,
+        type: 3}
+      propertyPath: sensitivity
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1763601615011000422, guid: 85d39f62c732c394c9cd5a1c2fa00c5a,
         type: 3}
       propertyPath: m_RootOrder
@@ -3085,5 +3100,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1763601615011000424, guid: 85d39f62c732c394c9cd5a1c2fa00c5a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c126ca1bf9859d408b87db71d363044, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85d39f62c732c394c9cd5a1c2fa00c5a, type: 3}

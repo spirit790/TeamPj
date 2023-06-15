@@ -12,14 +12,18 @@ public class MeshShadow_test : MonoBehaviour
 
     [Header("VisionArea")]
     public Transform targetTr;
-    public float offset = 0;
+    public float positionOffset = 0;
     public int lightAngle = 160;
     public float lightRange = 10f;
+    public int visionDensity = 2;
 
-    [Header("LightMesh")]
-    public Mesh lightMesh;
+    //[Header("LightMesh")]
+    private Mesh lightMesh;
     private int verticesIdx = 0;
     private int triangleIdx = 1;
+
+    private Transform currentHit;
+    private Vector3 currentHitPoint;
 
     void Start()
     {
@@ -43,14 +47,16 @@ public class MeshShadow_test : MonoBehaviour
     ///</summary>
     public void DrawMeshByAngle()
     {
-        Vector3 originPos = targetTr.position + new Vector3(0, offset, 0);
+        Vector3 originPos = targetTr.position + new Vector3(0, positionOffset, 0);
         vertices.Add(originPos);
         triangles.Add(0);
 
         verticesIdx = 0;
         triangleIdx = 1;
 
-        for (int i = -(int)lightAngle/2; i < (int)lightAngle/2; i ++)
+        int searchAngle = (int)lightAngle/2 * visionDensity;
+
+        for (int i = -searchAngle ; i < searchAngle; i ++)
         {
             RaycastHit hit;
 
@@ -60,29 +66,74 @@ public class MeshShadow_test : MonoBehaviour
                 angle += 360;
             }
 
-            //라디안 단위로 변경 후 벡터화
-            Vector3 rayDir = ConvertAngleToVector(angle + i);
+            //수색범위를 라디안 단위로 변경 후 방향벡터화
+            Vector3 rayDir = ConvertAngleToVector(angle + (float)i/visionDensity);
 
             if (Physics.Raycast(originPos, rayDir, out hit, lightRange))
             {
-                if (hit.transform != null)
-                {
+                //코너 전환
+                //if (currentHit != null && currentHit != hit.transform)
+                //{
+                //    //코너에서 생성되는 폴리곤 보정
+                //    vertices.Add(InterpolateCornerVertex(originPos, currentHitPoint, hit.point));
+                //    triangles.Add(++verticesIdx);
+                //    triangleIdx++;
+
+                //    triangles.Add(0);
+                //    triangleIdx++;
+
+                //    vertices.Add(originPos + InterpolateCornerVertex(originPos, currentHitPoint, hit.point).normalized * (currentHitPoint + hit.point).magnitude/2);
+                //    triangles.Add(++verticesIdx);
+                //    triangleIdx++;
+
+                //    vertices.Add(hit.point);
+                //    triangles.Add(++verticesIdx);
+                //    triangleIdx++;
+                //}
+                //else
+                //{
                     vertices.Add(hit.point);
                     triangles.Add(++verticesIdx);
                     triangleIdx++;
+                //}
 
-                }
+                //currentHit = hit.transform;
+                //currentHitPoint = hit.point;
             }
             else
             {   
                 //범위 안에 hit가 없는 경우 수색 범위 표시
-                vertices.Add(originPos + rayDir * lightRange);
-                //Debug.Log(originTr.position + rayDir * lightRange);
-                triangles.Add(++verticesIdx);
-                triangleIdx++;
+                //if (currentHit != null)
+                //{
+                //    //코너에서 생성되는 폴리곤 보정
+                //    vertices.Add(InterpolateCornerVertex(originPos, currentHitPoint, originPos + rayDir * lightRange));
+                //    triangles.Add(++verticesIdx);
+                //    triangleIdx++;
+
+                //    triangles.Add(0);
+                //    triangleIdx++;
+                    
+                //    vertices.Add(originPos + InterpolateCornerVertex(originPos, currentHitPoint, originPos + rayDir * lightRange).normalized * (currentHitPoint + hit.point).magnitude / 2);
+                //    triangles.Add(++verticesIdx);
+                //    triangleIdx++;
+
+                //    vertices.Add(originPos + rayDir * lightRange);
+                //    triangles.Add(++verticesIdx);
+                //    triangleIdx++;
+                //}
+                //else
+                //{
+                    vertices.Add(originPos + rayDir * lightRange);
+                    //Debug.Log(originTr.position + rayDir * lightRange);
+                    triangles.Add(++verticesIdx);
+                    triangleIdx++;
+                //}
+
+                //currentHit = null;
+
             }
 
-            //폴리곤 노드 연결
+            //폴리곤끼리 연속하도록 노드 연결
             if (triangleIdx % 3 == 0)
             {
                 triangles.Add(0);
@@ -114,7 +165,7 @@ public class MeshShadow_test : MonoBehaviour
         // Debug.Log(vertices.Count);
         // Debug.Log(triangles.Count);
 
-        //꼭지점과 폴리곤 노드 초기화
+        //정점과 폴리곤 노드 초기화
         vertices.Clear();
         triangles.Clear();
 
@@ -129,6 +180,25 @@ public class MeshShadow_test : MonoBehaviour
         return new Vector3(Mathf.Sin(rad), 0, MathF.Cos(rad));
     }
 
+
+
+    /// <summary>
+    /// 코너 보정용 함수
+    ///
+    /// </summary>
+    /// <param name="pointO">원점</param>
+    /// <param name="pointA">코너 전 정점</param>
+    /// <param name="pointB">코너 후 정점</param>
+    /// <returns></returns>
+    private Vector3 InterpolateCornerVertex(Vector3 pointO, Vector3 pointA, Vector3 pointB)
+    {
+        float newPointLength = (pointA + pointB).magnitude / 2;
+        Vector3 newPointDir = (pointA + pointA).normalized;
+
+        Vector3 newPoint = pointO + newPointDir * newPointLength;
+
+        return newPoint;
+    }
 
 }
 
