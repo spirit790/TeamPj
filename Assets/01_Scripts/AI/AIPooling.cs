@@ -27,18 +27,21 @@ public class AIPooling : MonoBehaviour
     // 사용
     private void OnTakeFromPool(GameObject aiObj)
     {
+        count++;
         aiObj.SetActive(true);
     }
 
     // 반환
     private void OnReturnedToPool(GameObject aiObj)
     {
+        count--;
         aiObj.SetActive(false);
     }
 
     // 삭제
     private void OnDestroyPoolObject(GameObject aiObj)
     {
+        count--;
         Destroy(aiObj);
     }
 
@@ -54,6 +57,5 @@ public class AIPooling : MonoBehaviour
         ai.transform.position = createPos;
         ai.transform.SetParent(gameObject.transform);
         Debug.Log($"Respawn[{createPos.x} , {createPos.z}]");
-        count++;
     }
 }
