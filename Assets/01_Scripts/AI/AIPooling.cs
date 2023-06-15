@@ -25,37 +25,37 @@ public class AIPooling : MonoBehaviour
     }
 
     // 사용
-    private void OnTakeFromPool(GameObject aiObj)
+    private void OnTakeFromPool(GameObject ai)
     {
         count++;
-        aiObj.SetActive(true);
+        ai.SetActive(true);
+        ai.GetComponent<AIPattern>().RespawnAI();
     }
 
     // 반환
-    private void OnReturnedToPool(GameObject aiObj)
+    private void OnReturnedToPool(GameObject ai)
     {
         count--;
-        aiObj.SetActive(false);
+        ai.SetActive(false);
     }
 
     // 삭제
-    private void OnDestroyPoolObject(GameObject aiObj)
+    private void OnDestroyPoolObject(GameObject ai)
     {
         count--;
-        Destroy(aiObj);
+        Destroy(ai);
     }
 
     /// <summary>
     /// createPos 위치에 AI 생성
     /// </summary>
     /// <param name="createPos"></param>
-    public void CreateAI(Vector3 createPos)
+    public void PoolAI(Vector3 createPos)
     {
         if (count >= maxSize)
             return;
         GameObject ai = AIPool.Get();
         ai.transform.position = createPos;
         ai.transform.SetParent(gameObject.transform);
-        Debug.Log($"Respawn[{createPos.x} , {createPos.z}]");
     }
 }

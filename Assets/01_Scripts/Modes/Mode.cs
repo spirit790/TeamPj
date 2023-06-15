@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Pool;
 
 
@@ -14,7 +15,7 @@ public class Mode : MonoBehaviour
 
     int playerCount;
     int aiRatio;
-    int aiCount { get { return playerCount * aiRatio; } }
+    int AICount { get { return playerCount * aiRatio; } }
 
     [Header("맵 사이즈")]
     public float mapWidth;
@@ -24,6 +25,21 @@ public class Mode : MonoBehaviour
 
     protected float timeLimit;
     protected bool isGameOver = false;
+    
+    protected bool IsGameOver
+    {
+        get
+        {
+            return isGameOver;
+        }
+        set
+        {
+            isGameOver = value;
+            GameOver();
+        }
+    }
+    [Header("테스트용")]
+    public Text txt;
 
     /// <summary>
     /// Mode 초기화 및 변수 할당 함수
@@ -31,13 +47,24 @@ public class Mode : MonoBehaviour
     /// <param name="playerCount">플레이어 숫자</param>
     /// <param name="aiRatio">플레이어와 AI 비율</param>
     /// <param name="timeLimit">제한 시간</param>
-    public void Set(int playerCount,int aiRatio, float timeLimit)
+    public virtual void Set(int playerCount,int aiRatio, float timeLimit)
     {
         this.playerCount = playerCount;
         this.aiRatio = aiRatio;
         this.timeLimit = timeLimit;
     }
+    protected IEnumerator GameStarted()
+    {
+        while (!isGameOver)
+        {
+            timeLimit -= Time.deltaTime;
+            txt.text = string.Format("{0:0}", timeLimit);
 
+            if (timeLimit <= 0)
+                isGameOver = true;
+            yield return null;
+        }
+    }
 
     protected void CreateMap()
     {
@@ -53,10 +80,13 @@ public class Mode : MonoBehaviour
 
     protected void CreateAI()
     {
-        for (int i = 0; i < aiCount; i++)
+        for (int i = 0; i < AICount; i++)
         {
-            aiPool.CreateAI(aiSpawnPos);
+            aiPool.PoolAI(aiSpawnPos);
         }
     }
-    public virtual void GameOver(){}
+    public virtual void GameOver()
+    {
+
+    }
 }
