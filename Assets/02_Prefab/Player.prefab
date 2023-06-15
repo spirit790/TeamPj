@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atkLength: 1.5
+  curTime: 0
+  coolTime: 0
 --- !u!1 &4804734173252090920
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,9 +221,9 @@ GameObject:
   - component: {fileID: 4804734173775219176}
   - component: {fileID: 4804734173775219179}
   - component: {fileID: 4804734173775219178}
-  - component: {fileID: 4804734173775219181}
   - component: {fileID: 4804734173775219180}
   - component: {fileID: 4804734173775219177}
+  - component: {fileID: 827988887816546017}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -296,19 +298,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4804734173775219181
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4804734173775219183}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4804734173775219180
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -339,7 +328,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnim: {fileID: 0}
   moveSpeed: 5
-  dashSpeed: 0
+  normalSpeed: 5
+  dashSpeed: 10
+  roteSpeed: 0
   atkSpeed: 0
-  curTime: 0
-  coolTime: 0
+--- !u!143 &827988887816546017
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4804734173775219183}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
