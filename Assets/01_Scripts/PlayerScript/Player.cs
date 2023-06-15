@@ -7,28 +7,29 @@ using UnityEngine.EventSystems;
 public class Player : MonoBehaviour
 {
     JoyStick joyStick;
+    DashBtn dashBtn;
+    Rigidbody rBody;
+    Transform tr;
 
     public Animator playerAnim;
 
     public float moveSpeed;
     public float normalSpeed;
     public float dashSpeed;
-    public float atkSpeed;
-    public GameObject dashBtn;
-    bool check;
+    public float roteSpeed;
 
-    public float curTime;
-    public float coolTime;
-    Transform tr;
-    Rigidbody rBody;
+    public float atkSpeed;
+    
+
+    
+    
 
     private void Awake()
     {
         tr = GetComponent<Transform>();
         rBody = GetComponent<Rigidbody>();
         joyStick = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponentInChildren<JoyStick>();
-        dashBtn = GameObject.FindGameObjectWithTag("DashBtn");
-        dashBtn.GetComponent<DashBtn>();
+        dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
     }
 
     void Start()
@@ -50,9 +51,16 @@ public class Player : MonoBehaviour
 
         if (h != 0 || v != 0)
         {
-            
+            if (dashBtn.check)
+            {
+                moveSpeed = dashSpeed;
+            }                
+            else
+            {
+                moveSpeed = normalSpeed;
+            }
+                
 
-            //velocity로 이동
             rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
             //transform.position으로 이동
             //Vector3 moveDiection = new Vector3(h, 0, v).normalized;
@@ -64,15 +72,22 @@ public class Player : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         float fall = rBody.velocity.y;
-        if (check)
+
+        if (dashBtn.check)
         {
-            Debug.Log("~!!!");
-            rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
+            moveSpeed = dashSpeed;
         }
-        else if (!check)
+        else
         {
-            rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
+            moveSpeed = normalSpeed;
         }
+        if (h == 0 && v == 0)
+            return;
+
+        rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
+
+        Quaternion newRote = Quaternion.LookRotation(rBody.velocity);
+        rBody.MoveRotation(newRote);
         //Vector3 moveDiection = new Vector3(h, 0, v).normalized;
         //tr.position += moveDiection * moveSpeed * Time.deltaTime;
     }
