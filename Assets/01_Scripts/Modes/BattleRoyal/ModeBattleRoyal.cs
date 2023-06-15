@@ -19,7 +19,7 @@ public class ModeBattleRoyal : Mode
             timeCount = value;
             Debug.Log(timeCount);
             float newRadius = ((timeLimit - timeCount * shrinkTime) / timeLimit) * deadZone.radius;
-            deadZone.SetDeadZoneRadius(newRadius);
+            deadZone.SetDeadZoneRadius(newRadius, shrinkTime / 2);
         }
     }
 
