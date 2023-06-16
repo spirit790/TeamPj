@@ -86,7 +86,7 @@ public class GoogleManager : MonoBehaviour
             { "NickName", nickName },
             { "Kills", 0 },
             { "Wins", 0 },
-            { "UpdateTime", FieldValue.ServerTimestamp }
+            { "SignUpDate", FieldValue.ServerTimestamp }
         };
 
         yield return docRef.SetAsync(user).ContinueWithOnMainThread(task =>
