@@ -81,7 +81,6 @@ public class Player : MonoBehaviour
             return;
 
         rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
-
         //Vector3 moveDiection = new Vector3(h, 0, v).normalized;
         //tr.position += moveDiection * moveSpeed * Time.deltaTime;
     }

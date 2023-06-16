@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class CarrotMove : MonoBehaviour
 {
     Transform kTr;
-    RaycastHit hit;
-    public float atkLength = 1.5f;
+    RaycastHit hit;    
     Button attackBtn;
+    public float atkLength = 1.5f;
 
     public float curTime;
     public float coolTime;
@@ -31,10 +31,13 @@ public class CarrotMove : MonoBehaviour
     /// </summary>
     public void OnClickAtk()
     {
-        if (Physics.Raycast(transform.position,transform.forward,out hit, atkLength))
+        if(Physics.Raycast(transform.position, transform.forward, out hit, atkLength))
         {
+
+            Debug.Log(hit.collider.tag);
             Debug.Log(hit.collider.name);
         }
+        
     }
     
 }
