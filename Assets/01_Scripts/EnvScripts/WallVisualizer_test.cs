@@ -8,81 +8,29 @@ public class WallVisualizer_test : MonoBehaviour
     [SerializeField]
     private List<Transform> visibleWalls = new List<Transform>();
 
+    private Transform camTr;
     public Transform character;
     private Renderer wallRenderer;
     private int detectingLayer = 1 << 9 | 1 << 10;
-    private int camToPlayerLayer = 1 << 9 | 1 << 10;
-    private int playerToCamLayer = 1 << 9 | 1 << 10;
 
     //public RaycastHit[] hits;
 
-    private Transform _camHit;
-    public Transform CamHit
+    private void Start()
     {
-        get => _camHit;
-        set
-        {
-            if (_camHit == null)
-            {
-                _camHit = value;
-            }
-
-            float curDist = Vector3.Distance(_camHit.position, character.position);
-            float newDist = Vector3.Distance(value.position, character.position);
-            
-            if (curDist != newDist )
-            {
-                Debug.Log("New wall for cam");
-
-
-
-
-
-                _camHit = value;
-            }
-
-        }
-
+        camTr = Camera.main.transform;
     }
-
-    private Transform _playerHit;
-    public Transform PlayerHit
-    {
-        get => _playerHit;
-        set
-        {
-            if (_playerHit == null)
-            {
-                _playerHit = value;
-            }
-
-            float curDist = Vector3.Distance(_playerHit.position, character.position);
-            float newDist = Vector3.Distance(value.position, character.position);
-
-            if (curDist != newDist)
-            {
-                Debug.Log("New wall for player");
-                
-                
-                
-                _playerHit = value;
-            }
-        }
-    }
-
     void Update()
     {
         DetectingByCam();
-
     }
 
     public void DetectingByCam()
     {
-        float dist = Vector3.Distance(transform.position, character.position);
+        float dist = Vector3.Distance(camTr.position, character.position);
 
-        Vector3 dir = (character.position - transform.position).normalized;
+        Vector3 dir = (character.position - camTr.position).normalized;
 
-        RaycastHit[] hits = Physics.RaycastAll(transform.position, dir, dist, detectingLayer);
+        RaycastHit[] hits = Physics.RaycastAll(camTr.position, dir, dist, detectingLayer);
 
         for (int i = 0; i < hits.Length; i++)
         {
@@ -107,17 +55,8 @@ public class WallVisualizer_test : MonoBehaviour
             }
         }
 
-        if(hits.Length != 0 && hits[hits.Length - 1].transform.gameObject.layer == 10)
-        {
-            Debug.Log("In wall");
-
-
-        }
-
         if (hits.Length == 0)
         {
-            Debug.Log("Out wall");
-
             for (int i = 0; i < visibleWalls.Count; i++)
             {
                 WallAlphaChange(visibleWalls[i].transform, 1.0f);
