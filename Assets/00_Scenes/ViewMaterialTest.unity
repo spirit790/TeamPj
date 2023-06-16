@@ -565,6 +565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 2125079813}
+  visibleWalls: []
 --- !u!1 &1119194227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,6 +1392,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMat: {fileID: 2100000, guid: 92b22c011d0c71e429e68ef58d1ccbd5, type: 2}
-  outLineScale: 0
+  outLineScale: 2.56
   outlineColor: {r: 1, g: 0, b: 0.7351265, a: 0}
   outlineRenderer: {fileID: 0}

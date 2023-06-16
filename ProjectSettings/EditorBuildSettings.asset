@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/00_Scenes/PlayerTestS.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Scenes/ShadowTest.unity
     guid: 190f4a31ea9301a4d8c38dfa4c202c14
+  - enabled: 0
+    path: Assets/00_Scenes/Song/FirebaseTest.unity
+    guid: 7c9dd19496d89944fa7d94bc8bc5b86f
+  - enabled: 1
+    path: Assets/00_Scenes/Song/DeadZoneTestScene.unity
+    guid: 1abdd28753de65845ae1ccd1ca5e260f
   m_configObjects: {}
