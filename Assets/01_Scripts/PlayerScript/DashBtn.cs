@@ -4,45 +4,33 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DashBtn : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class DashBtn : MonoBehaviour
 {
+    
     public bool check;
-    public GameObject playerSpeed;
     private void Awake()
     {
 
     }
     public void Update()
     {
-        if(check)
-        {
-            Debug.Log("dash");
-        }
     }
-
     /// <summary>
-    /// 눌렀을때 확인되는곳
+    /// Dash버튼은 오로지 check의 true false값만 확인 이 값을 가져다가 Player에서 상태변환
     /// </summary>
-    /// <param name="eventData"></param>
-    public void OnPointerDown(PointerEventData eventData)
+    public void PointerDown()
     {
-        Debug.Log("Begin");
+        Debug.Log("버튼눌림");
         check = true;
     }
-
-
     /// <summary>
-    /// 터치를 떼었을때 상태를 종료
+    /// Dash버튼은 오로지 check의 true false값만 확인 이 값을 가져다가 Player에서 상태변환
     /// </summary>
-    /// <param name="eventData"></param>
-    public void OnPointerUp(PointerEventData eventData)
+    public void PointerUp()
     {
-        Debug.Log("End");
+        Debug.Log("버튼땜");
         check = false;
     }
 
-    public void DashOn()
-    {
-    }
 
 }
