@@ -30,12 +30,6 @@ public class ModeBattleRoyal : Mode
     public GameObject playerPrefab;
     public int playersLeft;
 
-    void Awake()
-    {
-        Debug.Log("awake");
-        Set(8, 5, 60f); // test
-    }
-
     
     private void Start()
     {
