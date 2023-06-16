@@ -29,7 +29,7 @@ public class AIPooling : MonoBehaviour
     {
         count++;
         ai.SetActive(true);
-        ai.GetComponent<AIPattern>().RespawnAI();
+        ai.GetComponent<AIPattern>().SpawnAI();
     }
 
     // ¹ÝÈ¯

@@ -17,7 +17,7 @@ public class ModeDeathMatch : Mode
 
     private void Awake()
     {
-        Set(1, 1, 10);
+        Set(4, 5, 60);
         CreateAI();
     }
 
@@ -43,9 +43,10 @@ public class ModeDeathMatch : Mode
     
     IEnumerator RespawnAI()
     {
+        yield return new WaitForSeconds(2f);
         while (!isGameOver)
         {
-            aiPool.PoolAI(aiSpawnPos);
+            aiPool.PoolAI(AISpawnPos);
             yield return new WaitForSeconds(AIRespawnTime);
         }
     }

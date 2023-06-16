@@ -21,7 +21,7 @@ public class Mode : MonoBehaviour
     public float mapWidth;
     public float mapHeight;
 
-    protected Vector3 aiSpawnPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
+    protected Vector3 AISpawnPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
 
     protected float timeLimit;
     public bool isGameOver = false;
@@ -88,7 +88,7 @@ public class Mode : MonoBehaviour
     {
         for (int i = 0; i < AICount; i++)
         {
-            aiPool.PoolAI(aiSpawnPos);
+            aiPool.PoolAI(AISpawnPos);
         }
     }
 

@@ -57,10 +57,6 @@ public class AIPattern : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
-    void Start()
-    {
-    }
-
     void Update()
     {
         if (IsDone)
@@ -68,13 +64,22 @@ public class AIPattern : MonoBehaviour
             IsDone = false;
         }
     }
-    
-    
+
+    /// <summary>
+    /// AI 스폰시 처리 함수
+    /// TODO : 일정 시간 무적 처리
+    /// </summary>
+    public void SpawnAI()
+    {
+        StartCoroutine(StopMove(2f));
+    }
+
     void MoveTo(Vector3 target)
     {
         agent.SetDestination(target);
         StrangeBehaviour();
     }
+
     void StrangeBehaviour()
     {
         float rand = Random.Range(0, 100);
@@ -89,11 +94,6 @@ public class AIPattern : MonoBehaviour
         agent.isStopped = true;
         yield return new WaitForSeconds(stopTime);
         agent.isStopped = false;
-    }
-
-    public void RespawnAI()
-    {
-        StartCoroutine(StopMove(2f));
     }
 
     private void OnEnable()
