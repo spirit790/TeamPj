@@ -6,7 +6,7 @@ using DG.Tweening;
 public class DeadZone : MonoBehaviour
 {
     public float radius = 5f;
-
+    public float deadZoneTime = 2f;
     void Start()
     {
         DOTween.Init();
@@ -18,6 +18,7 @@ public class DeadZone : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             // 플레이어 처치
+            StartCoroutine(PlayerDeadByDeadZone());
         }
         else if (other.gameObject.CompareTag("AI"))
         {
@@ -26,6 +27,18 @@ public class DeadZone : MonoBehaviour
         }
     }
 
+    IEnumerator PlayerDeadByDeadZone()
+    {
+        yield return new WaitForSeconds(deadZoneTime);
+        Debug.Log("데드존에 플레이어 사망");
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            StopCoroutine(PlayerDeadByDeadZone());
+        }
+    }
     /// <summary>
     /// 트윈 사용해 분기마다 줄이기
     /// </summary>
