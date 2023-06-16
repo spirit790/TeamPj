@@ -49,7 +49,6 @@ public class Mode : MonoBehaviour
     {
         while (!isGameOver)
         {
-            timeLimit -= Time.deltaTime;
             txt.text = string.Format("{0:0}", timeLimit);
 
             GameOverControl();
@@ -97,6 +96,8 @@ public class Mode : MonoBehaviour
     /// </summary>
     protected virtual void GameOverControl()
     {
+        timeLimit -= Time.deltaTime;
+
         if (timeLimit <= 0)
             isGameOver = true;
     }
