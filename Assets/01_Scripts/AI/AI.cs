@@ -11,24 +11,18 @@ public class AI : MonoBehaviour
     /// <summary>
     /// Pooling 초기화용 함수
     /// </summary>
-    /// <param name="aiPooling"></param>
-    public void SetPool(IObjectPool<GameObject> aiPooling)
+    /// <param name="aiPool"></param>
+    public void SetPool(IObjectPool<GameObject> aiPool)
     {
-        this.AIPool = aiPooling;
+        AIPool = aiPool;
     }
     
     /// <summary>
     /// 풀링된 객체 반환 함수
     /// </summary>
     /// <param name="aiObj"></param>
-    public void ReleasePool(GameObject aiObj)
+    public void ReleaseAI(GameObject aiObj)
     {
         AIPool.Release(aiObj);
-    }
-    
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Dead");
-        ReleasePool(this.gameObject);
     }
 }
