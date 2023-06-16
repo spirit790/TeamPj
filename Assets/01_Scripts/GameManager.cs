@@ -12,7 +12,14 @@ public class GameManager : MonoBehaviour
         set
         {
             if (instance == null)
+            {
                 instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -27,6 +34,14 @@ public class GameManager : MonoBehaviour
         get { return playersLeft; }
         set { playersLeft = value; }
     }
+    
+    public enum Modes
+    {
+        BATTLEROYAL,
+        AREA,
+        DEATHMATCH
+    }
+    public Modes gameMode;
 
     [Header("BattleRoyal")]
     public int battleAIRatio = 10;
@@ -42,7 +57,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     void Start()
@@ -57,11 +71,15 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        switch (scene.buildIndex)
+        // 게임 시작 단계에서 모드 정해지고 실행되도록 
+        switch (gameMode)
         {
-            // Scene 순서 추후에 구현되고 정해지면 변경
-            case 0:
+            case Modes.BATTLEROYAL:
                 StartBattleRoyal();
+                break;
+            case Modes.AREA:
+                break;
+            case Modes.DEATHMATCH:
                 break;
             default:
                 break;
