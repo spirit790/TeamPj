@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a81e80e42d682c47a1488119b42b528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  check: 0
+
 --- !u!114 &49323499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2535,6 +2535,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804734173775219177, guid: b6a97e8e6693ded43be803a28258c407,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804734173775219177, guid: b6a97e8e6693ded43be803a28258c407,
+        type: 3}
+      propertyPath: normalSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4804734173775219180, guid: b6a97e8e6693ded43be803a28258c407,
         type: 3}
@@ -5528,7 +5538,7 @@ GameObject:
   - component: {fileID: 1861097863}
   m_Layer: 5
   m_Name: JoyStick
-  m_TagString: Untagged
+  m_TagString: JoyStick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
