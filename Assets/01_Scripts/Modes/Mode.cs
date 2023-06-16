@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
-using UnityEngine.Pool;
 
 
 public class Mode : MonoBehaviour
@@ -24,20 +24,8 @@ public class Mode : MonoBehaviour
     protected Vector3 aiSpawnPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
 
     protected float timeLimit;
-    protected bool isGameOver = false;
-    
-    protected bool IsGameOver
-    {
-        get
-        {
-            return isGameOver;
-        }
-        set
-        {
-            isGameOver = value;
-            GameOver();
-        }
-    }
+    public bool isGameOver = false;
+
     [Header("테스트용")]
     public Text txt;
 
@@ -53,7 +41,7 @@ public class Mode : MonoBehaviour
         this.aiRatio = aiRatio;
         this.timeLimit = timeLimit;
     }
-    protected IEnumerator GameStarted()
+    protected IEnumerator GamePlaying()
     {
         while (!isGameOver)
         {
@@ -64,6 +52,11 @@ public class Mode : MonoBehaviour
                 isGameOver = true;
             yield return null;
         }
+
+        yield return null;
+
+        if (isGameOver)
+            GameOver();
     }
 
     protected void CreateMap()
@@ -85,8 +78,12 @@ public class Mode : MonoBehaviour
             aiPool.PoolAI(aiSpawnPos);
         }
     }
-    public virtual void GameOver()
+    protected virtual void GameOver()
     {
-
+        foreach (var item in aiPool.GetComponentsInChildren<AIPattern>())
+        {
+            item.enabled = false;
+        }
+        Debug.Log("게임종료");
     }
 }

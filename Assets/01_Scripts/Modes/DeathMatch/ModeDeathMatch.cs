@@ -17,14 +17,13 @@ public class ModeDeathMatch : Mode
 
     private void Awake()
     {
-        Set(1, 1, 60);
+        Set(1, 1, 10);
+        CreateAI();
     }
 
     private void Start()
     {
-        CreateAI();
-        
-        StartCoroutine(GameStarted());
+        StartCoroutine(GamePlaying());
         StartCoroutine(RespawnAI());
     }
 
@@ -33,9 +32,9 @@ public class ModeDeathMatch : Mode
         
     }
 
-    public override void GameOver()
+    protected override void GameOver()
     {
-        
+        base.GameOver();
     }
     void RespawnPlayer(Player player)
     {
@@ -46,8 +45,8 @@ public class ModeDeathMatch : Mode
     {
         while (!isGameOver)
         {
-            yield return new WaitForSeconds(AIRespawnTime);
             aiPool.PoolAI(aiSpawnPos);
+            yield return new WaitForSeconds(AIRespawnTime);
         }
     }
 }

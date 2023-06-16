@@ -100,6 +100,12 @@ public class AIPattern : MonoBehaviour
     {
         MoveTo(TargetPos);
     }
+
+    private void OnDisable()
+    {
+        agent.speed = 0;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("d");
