@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 560436c4bb0f9964fb31bec3b535b450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSize: 80
+  maxSize: 50
   aiPrefab: {fileID: 6704662259976244331, guid: 16ac2beace8ce9d48956491bb1aca0c3,
     type: 3}
+  count: 0

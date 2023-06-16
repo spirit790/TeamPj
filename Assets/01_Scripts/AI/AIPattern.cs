@@ -10,12 +10,18 @@ public class AIPattern : MonoBehaviour
     [Header("맵 사이즈")]
     public float mapWidth;
     public float mapHeight;
+    [Header("이동")]
+    public float moveSpeed;
+    public float runSpeed;
 
-    Vector3 targetPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
+    [SerializeField]
+    float targetDistance;
 
+    Vector3 TargetPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
 
-    float randomStopTime { get { return Random.Range(0, 5); } }
-    public bool isRunning
+    float RandomStopTime { get { return Random.Range(0, 3); } }
+
+    public bool IsRunning
     {
         get
         {
@@ -26,30 +32,29 @@ public class AIPattern : MonoBehaviour
                 return false;
         }
     }
-
-    // 목표지점과 거리 측정 변수
-    public float targetDistance;
-
-    [Header("행동 속도")]
-    public float moveSpeed;
-    public float runSpeed;
-    public bool isDone 
+    public bool IsDone 
     {
         get
         {
-            float distance = Vector3.Distance(targetPos, transform.position);
+            float distance = Vector3.Distance(TargetPos, transform.position);
             if (distance < targetDistance)
                 return true;
             else
                 return false;
         }
-        set {}
+        set 
+        {
+            MoveTo(TargetPos);
+            if (IsRunning)
+                agent.speed = runSpeed;
+            else
+                agent.speed = moveSpeed;
+        }
     }
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = moveSpeed;
     }
 
     void Start()
@@ -58,29 +63,25 @@ public class AIPattern : MonoBehaviour
 
     void Update()
     {
-        StrangeBehaviour();
-
-        if (isDone)
+        if (IsDone)
         {
-            isDone = false;
-            MoveTo(targetPos);
-            if (isRunning)
-                agent.speed = runSpeed;
-            else
-                agent.speed = moveSpeed;
+            IsDone = false;
         }
-
     }
-    void StrangeBehaviour()
-    {
-        int rand = Random.Range(0, 200);
-        if (rand < 1)
-            StartCoroutine(StopMove(randomStopTime));
-    }
+    
     
     void MoveTo(Vector3 target)
     {
         agent.SetDestination(target);
+        StrangeBehaviour();
+    }
+    void StrangeBehaviour()
+    {
+        float rand = Random.Range(0, 100);
+        if (rand < 5)
+        {
+            StartCoroutine(StopMove(RandomStopTime));
+        }
     }
 
     IEnumerator StopMove(float stopTime)
@@ -89,8 +90,25 @@ public class AIPattern : MonoBehaviour
         yield return new WaitForSeconds(stopTime);
         agent.isStopped = false;
     }
+
+    public void RespawnAI()
+    {
+        StartCoroutine(StopMove(2f));
+    }
+
     private void OnEnable()
     {
-        MoveTo(targetPos);
+        MoveTo(TargetPos);
+    }
+
+    private void OnDisable()
+    {
+        agent.speed = 0;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("d");
+        agent.speed = 0;
     }
 }

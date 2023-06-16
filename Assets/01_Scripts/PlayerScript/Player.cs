@@ -19,10 +19,7 @@ public class Player : MonoBehaviour
     public float roteSpeed;
 
     public float atkSpeed;
-    
 
-    
-    
 
     private void Awake()
     {
@@ -51,15 +48,14 @@ public class Player : MonoBehaviour
 
         if (h != 0 || v != 0)
         {
-            if (dashBtn.check)
+            if (dashBtn.IsCheck)
             {
                 moveSpeed = dashSpeed;
             }                
             else
             {
                 moveSpeed = normalSpeed;
-            }
-                
+            }                
 
             rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
             //transform.position으로 이동
@@ -73,7 +69,7 @@ public class Player : MonoBehaviour
         float v = Input.GetAxis("Vertical");
         float fall = rBody.velocity.y;
 
-        if (dashBtn.check)
+        if (dashBtn.IsCheck)
         {
             moveSpeed = dashSpeed;
         }
@@ -86,8 +82,6 @@ public class Player : MonoBehaviour
 
         rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
 
-        Quaternion newRote = Quaternion.LookRotation(rBody.velocity);
-        rBody.MoveRotation(newRote);
         //Vector3 moveDiection = new Vector3(h, 0, v).normalized;
         //tr.position += moveDiection * moveSpeed * Time.deltaTime;
     }
