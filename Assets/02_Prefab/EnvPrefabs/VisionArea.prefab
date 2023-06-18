@@ -47,10 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTr: {fileID: 0}
-  offset: -0.9
   lightAngle: 170
   lightRange: 15
-  lightMesh: {fileID: 0}
+  visionDensity: 2
 --- !u!33 &1763601615011000423
 MeshFilter:
   m_ObjectHideFlags: 0

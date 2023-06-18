@@ -12,7 +12,7 @@ public class MeshShadow_test : MonoBehaviour
 
     [Header("VisionArea")]
     public Transform targetTr;
-    public float positionOffset = 0;
+    // public float positionOffset = 0;
     public int lightAngle = 160;
     public float lightRange = 10f;
     public int visionDensity = 2;
@@ -28,10 +28,11 @@ public class MeshShadow_test : MonoBehaviour
     void Start()
     {
         //--------------------------
-        // player°¡ ÁöÁ¤µÇ±â Àü¿£
-        // targetTrÀº ÀÎ½ºÆåÅÍ »ó¿¡¼­ ÁöÁ¤
+        // playerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç±ï¿½ ï¿½ï¿½ï¿½ï¿½
+        // targetTrï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½
         //--------------------------
-        //targetTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        //targetTr = GameObject.FindWithTag("Player").GetComponent<Transform>();\
+     
         lightMesh = GetComponent<MeshFilter>().mesh;
 
     }
@@ -39,16 +40,17 @@ public class MeshShadow_test : MonoBehaviour
     void Update()
     {
         DrawMeshByAngle();
+        transform.position = targetTr.position;
     }
 
     ///<summary>
-    ///°¢µµ¸¸Å­ ·¹ÀÌ¸¦ ½÷¼­ È÷Æ® Á¡°ú ¿À¸®ÁøÀ» ¿¬°á½ÃÄÑ Æú¸®°ïÀ» ¸¸µé°í
-    ///ÀÌ¸¦ ¿«¾î ¸Þ½¬·Î ¸¸µê
+    ///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å­ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+    ///ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     ///</summary>
     public void DrawMeshByAngle()
     {
-        Vector3 originPos = targetTr.position + new Vector3(0, positionOffset, 0);
-        vertices.Add(originPos);
+        Vector3 originPos = targetTr.position;
+        vertices.Add(originPos - targetTr.position);
         triangles.Add(0);
 
         verticesIdx = 0;
@@ -66,15 +68,15 @@ public class MeshShadow_test : MonoBehaviour
                 angle += 360;
             }
 
-            //¼ö»ö¹üÀ§¸¦ ¶óµð¾È ´ÜÀ§·Î º¯°æ ÈÄ ¹æÇâº¤ÅÍÈ­
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½âº¤ï¿½ï¿½È­
             Vector3 rayDir = ConvertAngleToVector(angle + (float)i/visionDensity);
 
             if (Physics.Raycast(originPos, rayDir, out hit, lightRange))
             {
-                //ÄÚ³Ê ÀüÈ¯
+                //ï¿½Ú³ï¿½ ï¿½ï¿½È¯
                 //if (currentHit != null && currentHit != hit.transform)
                 //{
-                //    //ÄÚ³Ê¿¡¼­ »ý¼ºµÇ´Â Æú¸®°ï º¸Á¤
+                //    //ï¿½Ú³Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 //    vertices.Add(InterpolateCornerVertex(originPos, currentHitPoint, hit.point));
                 //    triangles.Add(++verticesIdx);
                 //    triangleIdx++;
@@ -92,7 +94,7 @@ public class MeshShadow_test : MonoBehaviour
                 //}
                 //else
                 //{
-                    vertices.Add(hit.point);
+                    vertices.Add(hit.point - targetTr.position);
                     triangles.Add(++verticesIdx);
                     triangleIdx++;
                 //}
@@ -102,10 +104,10 @@ public class MeshShadow_test : MonoBehaviour
             }
             else
             {   
-                //¹üÀ§ ¾È¿¡ hit°¡ ¾ø´Â °æ¿ì ¼ö»ö ¹üÀ§ Ç¥½Ã
+                //ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ hitï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
                 //if (currentHit != null)
                 //{
-                //    //ÄÚ³Ê¿¡¼­ »ý¼ºµÇ´Â Æú¸®°ï º¸Á¤
+                //    //ï¿½Ú³Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 //    vertices.Add(InterpolateCornerVertex(originPos, currentHitPoint, originPos + rayDir * lightRange));
                 //    triangles.Add(++verticesIdx);
                 //    triangleIdx++;
@@ -123,7 +125,7 @@ public class MeshShadow_test : MonoBehaviour
                 //}
                 //else
                 //{
-                    vertices.Add(originPos + rayDir * lightRange);
+                    vertices.Add(originPos + rayDir * lightRange - targetTr.position);
                     //Debug.Log(originTr.position + rayDir * lightRange);
                     triangles.Add(++verticesIdx);
                     triangleIdx++;
@@ -133,7 +135,7 @@ public class MeshShadow_test : MonoBehaviour
 
             }
 
-            //Æú¸®°ï³¢¸® ¿¬¼ÓÇÏµµ·Ï ³ëµå ¿¬°á
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï³¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (triangleIdx % 3 == 0)
             {
                 triangles.Add(0);
@@ -144,7 +146,7 @@ public class MeshShadow_test : MonoBehaviour
 
         }
 
-        //Æú¸®°ï ³ëµå´Â 3ÀÇ ¹è¼ö·Î Á¶Á¤
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (triangleIdx > 3 && triangleIdx % 3 == 1)
         {
             triangles.RemoveAt(triangleIdx - 1);
@@ -155,7 +157,7 @@ public class MeshShadow_test : MonoBehaviour
             triangles.RemoveAt(triangleIdx - 2);
         }
 
-        //Æú¸®°ïÀÌ ¿Ï¼ºµÇ¸é ¸Þ½¬ ¾÷µ¥ÀÌÆ®
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¼ï¿½ï¿½Ç¸ï¿½ ï¿½Þ½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
         if (triangleIdx > 3)
         {
             lightMesh.vertices = vertices.ToArray();
@@ -165,14 +167,14 @@ public class MeshShadow_test : MonoBehaviour
         // Debug.Log(vertices.Count);
         // Debug.Log(triangles.Count);
 
-        //Á¤Á¡°ú Æú¸®°ï ³ëµå ÃÊ±âÈ­
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
         vertices.Clear();
         triangles.Clear();
 
     }
 
     ///<summary>
-    ///deg°ªÀ» ¹Þ¾Æ ¶óµð¾È(Mathf)À¸·Î º¯°æ ÈÄ yÃà ±âÁØ ¹æÇâº¤ÅÍÈ­ 
+    ///degï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾ï¿½ ï¿½ï¿½ï¿½ï¿½(Mathf)ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ yï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½âº¤ï¿½ï¿½È­ 
     ///</summary>
     private Vector3 ConvertAngleToVector(float deg)
     {
@@ -183,12 +185,12 @@ public class MeshShadow_test : MonoBehaviour
 
 
     /// <summary>
-    /// ÄÚ³Ê º¸Á¤¿ë ÇÔ¼ö
+    /// ï¿½Ú³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
     ///
     /// </summary>
-    /// <param name="pointO">¿øÁ¡</param>
-    /// <param name="pointA">ÄÚ³Ê Àü Á¤Á¡</param>
-    /// <param name="pointB">ÄÚ³Ê ÈÄ Á¤Á¡</param>
+    /// <param name="pointO">ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="pointA">ï¿½Ú³ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="pointB">ï¿½Ú³ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½</param>
     /// <returns></returns>
     private Vector3 InterpolateCornerVertex(Vector3 pointO, Vector3 pointA, Vector3 pointB)
     {
