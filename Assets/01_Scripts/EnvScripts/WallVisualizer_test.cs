@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [System.Serializable]
 public class WallVisualizer_test : MonoBehaviour
@@ -12,6 +13,8 @@ public class WallVisualizer_test : MonoBehaviour
     public Transform character;
     private Renderer wallRenderer;
     private int detectingLayer = 1 << 9 | 1 << 10;
+
+    public Material[] mats;
 
     //public RaycastHit[] hits;
 
@@ -71,8 +74,20 @@ public class WallVisualizer_test : MonoBehaviour
     private void WallAlphaChange(Transform wall, float alpha)
     {
         wallRenderer = wall.GetComponent<Renderer>();
-        // Material의 Alpha를 바꾼다.
-        ChangeMatAlpha(wallRenderer, alpha);
+ 
+        if(wallRenderer != null)
+        {
+            if(alpha != 1.0f)
+            {
+                wallRenderer.material = mats[1];
+            }
+            else
+            {
+                wallRenderer.material = mats[0];
+            }
+            // Material의 Alpha를 바꾼다.
+            ChangeMatAlpha(wallRenderer, alpha);
+        }
     }
 
 
