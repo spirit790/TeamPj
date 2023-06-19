@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using Unity.Netcode;
 using UnityEngine.UI;
-
 
 public class Mode : MonoBehaviour
 {
     [SerializeField]
-    protected AIPooling aiPool;
+    protected AIPool aiPool;
 
+    [SerializeField]
+    GameObject playerPrefab;
+    
     [SerializeField]
     protected List<GameObject> playerList = new List<GameObject>();
 
@@ -41,6 +43,13 @@ public class Mode : MonoBehaviour
         this.aiRatio = aiRatio;
         this.timeLimit = timeLimit;
     }
+
+    public virtual void GameStart()
+    {
+        CreateAI();
+        StartCoroutine(GamePlaying());
+    }
+
     /// <summary>
     /// 메인게임 시작시 호출
     /// </summary>
@@ -75,8 +84,10 @@ public class Mode : MonoBehaviour
     /// </summary>
     protected void CreatePlayer()
     {
-        for (int i = 0; i < playerCount; i++)
+        playerCount = NetworkManager.Singleton.ConnectedClientsList.Count;
+        foreach (var item in NetworkManager.Singleton.ConnectedClientsList)
         {
+
         }
     }
 
@@ -87,7 +98,7 @@ public class Mode : MonoBehaviour
     {
         for (int i = 0; i < AICount; i++)
         {
-            aiPool.PoolAI(AISpawnPos);
+           aiPool.Spawn(AISpawnPos);
         }
     }
 
@@ -107,10 +118,11 @@ public class Mode : MonoBehaviour
     /// </summary>
     protected virtual void GameOver()
     {
-        foreach (var item in aiPool.GetComponentsInChildren<AIPattern>())
+        foreach (var item in GameObject.FindGameObjectsWithTag("AI"))
         {
-            item.enabled = false;
+            item.GetComponent<AIPattern>().enabled = false;
         }
         Debug.Log("게임종료");
     }
+
 }

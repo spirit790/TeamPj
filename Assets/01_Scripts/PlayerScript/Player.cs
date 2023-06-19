@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.Netcode;
 
-public class Player : MonoBehaviour
+
+public class Player : NetworkBehaviour
 {
     JoyStick joyStick;
     DashBtn dashBtn;
@@ -13,13 +15,13 @@ public class Player : MonoBehaviour
 
     private Animator playerAnim;
 
+
     private float moveSpeed;
     public float normalSpeed;
     public float dashSpeed;
     public float roteSpeed;
 
     public float atkSpeed;
-
 
     private void Awake()
     {
@@ -29,15 +31,21 @@ public class Player : MonoBehaviour
         dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
     }
 
-    void Start()
+    public override void OnNetworkSpawn()
     {
-        
+        base.OnNetworkSpawn();
     }
 
     void Update()
     {
-        PlayerKeyBordMove();
+        if (!IsOwner) return;
+
+#if UNITY_ANDROID
         PlayerJoyStickMove();
+#endif
+#if UNITY_EDITOR_WIN
+        PlayerKeyBordMove();
+#endif
     }
 
     public void PlayerJoyStickMove()
@@ -45,8 +53,6 @@ public class Player : MonoBehaviour
         float h = joyStick.Horizontal();
         float v = joyStick.Vertical();
         float fall = rBody.velocity.y;
-
-
 
         if (h != 0 || v != 0)
         {
@@ -72,7 +78,12 @@ public class Player : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         float fall = rBody.velocity.y;
+        Vector3 dir = new Vector3(h, 0, v);
 
+        if (!(h == 0 && v == 0))
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), roteSpeed);
+        }
         if (dashBtn.IsCheck)
         {
             moveSpeed = dashSpeed;
