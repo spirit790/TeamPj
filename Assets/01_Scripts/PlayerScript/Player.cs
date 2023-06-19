@@ -11,9 +11,9 @@ public class Player : MonoBehaviour
     Rigidbody rBody;
     Transform tr;
 
-    public Animator playerAnim;
+    private Animator playerAnim;
 
-    public float moveSpeed;
+    private float moveSpeed;
     public float normalSpeed;
     public float dashSpeed;
     public float roteSpeed;
@@ -46,6 +46,8 @@ public class Player : MonoBehaviour
         float v = joyStick.Vertical();
         float fall = rBody.velocity.y;
 
+
+
         if (h != 0 || v != 0)
         {
             if (dashBtn.IsCheck)
@@ -55,7 +57,9 @@ public class Player : MonoBehaviour
             else
             {
                 moveSpeed = normalSpeed;
-            }                
+            }
+            Vector3 dir = new Vector3(h, 0, v);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), roteSpeed);
 
             rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
             //transform.position으로 이동
@@ -81,7 +85,6 @@ public class Player : MonoBehaviour
             return;
 
         rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
-
         //Vector3 moveDiection = new Vector3(h, 0, v).normalized;
         //tr.position += moveDiection * moveSpeed * Time.deltaTime;
     }
