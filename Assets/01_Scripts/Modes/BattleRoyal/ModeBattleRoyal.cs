@@ -27,7 +27,6 @@ public class ModeBattleRoyal : Mode
     public float shrinkTime;
 
     [Header("Player")]
-    public GameObject playerPrefab;
     public int playersLeft;
 
     
