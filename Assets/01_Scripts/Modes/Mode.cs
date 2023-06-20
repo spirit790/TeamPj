@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using Unity.Netcode;
 using UnityEngine.UI;
-
 
 public class Mode : MonoBehaviour
 {
     [SerializeField]
-    protected AIPooling aiPool;
+    protected AIPool aiPool;
 
+    [SerializeField]
+    GameObject playerPrefab;
+    
     [SerializeField]
     protected List<GameObject> playerList = new List<GameObject>();
 
@@ -21,7 +23,7 @@ public class Mode : MonoBehaviour
     public float mapWidth;
     public float mapHeight;
 
-    protected Vector3 aiSpawnPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
+    protected Vector3 AISpawnPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
 
     protected float timeLimit;
     public bool isGameOver = false;
@@ -41,6 +43,13 @@ public class Mode : MonoBehaviour
         this.aiRatio = aiRatio;
         this.timeLimit = timeLimit;
     }
+
+    public virtual void GameStart()
+    {
+        CreateAI();
+        StartCoroutine(GamePlaying());
+    }
+
     /// <summary>
     /// 메인게임 시작시 호출
     /// </summary>
@@ -49,7 +58,6 @@ public class Mode : MonoBehaviour
     {
         while (!isGameOver)
         {
-            timeLimit -= Time.deltaTime;
             txt.text = string.Format("{0:0}", timeLimit);
 
             GameOverControl();
@@ -76,9 +84,7 @@ public class Mode : MonoBehaviour
     /// </summary>
     protected void CreatePlayer()
     {
-        for (int i = 0; i < playerCount; i++)
-        {
-        }
+        
     }
 
     /// <summary>
@@ -88,7 +94,7 @@ public class Mode : MonoBehaviour
     {
         for (int i = 0; i < AICount; i++)
         {
-            aiPool.PoolAI(aiSpawnPos);
+           aiPool.Spawn(AISpawnPos);
         }
     }
 
@@ -97,6 +103,8 @@ public class Mode : MonoBehaviour
     /// </summary>
     protected virtual void GameOverControl()
     {
+        timeLimit -= Time.deltaTime;
+
         if (timeLimit <= 0)
             isGameOver = true;
     }
@@ -106,10 +114,11 @@ public class Mode : MonoBehaviour
     /// </summary>
     protected virtual void GameOver()
     {
-        foreach (var item in aiPool.GetComponentsInChildren<AIPattern>())
+        foreach (var item in GameObject.FindGameObjectsWithTag("AI"))
         {
-            item.enabled = false;
+            item.GetComponent<AIPattern>().enabled = false;
         }
         Debug.Log("게임종료");
     }
+
 }

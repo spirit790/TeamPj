@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 using UnityEngine.UI;
 
 public class ModeDeathMatch : Mode
@@ -17,13 +18,12 @@ public class ModeDeathMatch : Mode
 
     private void Awake()
     {
-        Set(1, 1, 10);
-        CreateAI();
+        Set(4, 5, 60);
     }
 
-    private void Start()
+    public override void GameStart()
     {
-        StartCoroutine(GamePlaying());
+        base.GameStart();
         StartCoroutine(RespawnAI());
     }
 
@@ -43,9 +43,10 @@ public class ModeDeathMatch : Mode
     
     IEnumerator RespawnAI()
     {
+        yield return new WaitForSeconds(2f);
         while (!isGameOver)
         {
-            aiPool.PoolAI(aiSpawnPos);
+            aiPool.Spawn(AISpawnPos);
             yield return new WaitForSeconds(AIRespawnTime);
         }
     }
