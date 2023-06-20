@@ -1,34 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 using UnityEngine.Pool;
 
 [RequireComponent(typeof(AIPattern))]
-public class AI : MonoBehaviour
+public class AI : NetworkBehaviour
 {
-    IObjectPool<GameObject> AIPool { get; set; }
-
-    /// <summary>
-    /// Pooling 초기화용 함수
-    /// </summary>
-    /// <param name="aiPooling"></param>
-    public void SetPool(IObjectPool<GameObject> aiPooling)
+    public override void OnNetworkSpawn()
     {
-        this.AIPool = aiPooling;
-    }
-    
-    /// <summary>
-    /// 풀링된 객체 반환 함수
-    /// </summary>
-    /// <param name="aiObj"></param>
-    public void ReleasePool(GameObject aiObj)
-    {
-        AIPool.Release(aiObj);
-    }
-    
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Dead");
-        ReleasePool(this.gameObject);
+        base.OnNetworkSpawn();
     }
 }
