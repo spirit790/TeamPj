@@ -84,11 +84,7 @@ public class Mode : MonoBehaviour
     /// </summary>
     protected void CreatePlayer()
     {
-        playerCount = NetworkManager.Singleton.ConnectedClientsList.Count;
-        foreach (var item in NetworkManager.Singleton.ConnectedClientsList)
-        {
-
-        }
+        
     }
 
     /// <summary>
