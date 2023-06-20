@@ -26,7 +26,15 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// 멀티플레이 넘겨받은 플레이어 수
     /// </summary>
-    public int playerCount;
+    private int playerCount;
+    public int PlayerCount
+    {
+        get { return playerCount; }
+        set
+        {
+            playerCount = value;
+        }
+    }
 
     private int playersLeft;
     public int PlayersLeft
@@ -55,6 +63,9 @@ public class GameManager : MonoBehaviour
     public int deathAIRatio = 10;
     public float deathTimeLimit = 300f;
 
+    List<Player> livePlayers = new List<Player>();
+    List<Player> deadPlayers = new List<Player>();
+
     private void Awake()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -71,19 +82,24 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // 게임 시작 단계에서 모드 정해지고 실행되도록 
-        switch (gameMode)
+        // 게임 시작 단계에서 모드 정해지고 실행되도록, game scene에서 실행되도록
+        // scene 순서는 추후 구현하면서 변경 및 확정하도록 함
+        if(scene.buildIndex == 0)
         {
-            case Modes.BATTLEROYAL:
-                StartBattleRoyal();
-                break;
-            case Modes.AREA:
-                break;
-            case Modes.DEATHMATCH:
-                break;
-            default:
-                break;
+            switch (gameMode)
+            {
+                case Modes.BATTLEROYAL:
+                    StartBattleRoyal();
+                    break;
+                case Modes.AREA:
+                    break;
+                case Modes.DEATHMATCH:
+                    break;
+                default:
+                    break;
+            }
         }
+
     }
 
     private void StartBattleRoyal()
