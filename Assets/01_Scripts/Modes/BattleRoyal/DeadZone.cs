@@ -13,7 +13,7 @@ public class DeadZone : MonoBehaviour
         SetDeadZoneRadius(radius, 0);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -32,7 +32,7 @@ public class DeadZone : MonoBehaviour
         yield return new WaitForSeconds(deadZoneTime);
         Debug.Log("데드존에 플레이어 사망");
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
