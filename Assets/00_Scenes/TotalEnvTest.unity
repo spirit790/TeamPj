@@ -8510,7 +8510,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiPool: {fileID: 902110349}
-  playerPrefab: {fileID: 0}
   playerList: []
   mapWidth: 0
   mapHeight: 0
