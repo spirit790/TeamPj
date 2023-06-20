@@ -14,4 +14,10 @@ public class ModeAreaConquer : Mode
     void Update()
     {
      }
+
+    public IEnumerator AreaCountDown()
+    {
+        yield return new WaitForSeconds(areaTimeLimit);
+        // °ÔÀÓ ½Â¸®
+    }
 }

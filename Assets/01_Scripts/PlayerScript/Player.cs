@@ -3,43 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.Netcode;
 
-public class Player : MonoBehaviour
+
+public class Player : NetworkBehaviour
 {
     JoyStick joyStick;
+    DashBtn dashBtn;
+    Rigidbody rBody;
+    Transform tr;
 
-    public Animator playerAnim;
+    private Animator playerAnim;
 
-    public float moveSpeed;
+
+    private float moveSpeed;
     public float normalSpeed;
     public float dashSpeed;
-    public float atkSpeed;
-    public GameObject dashBtn;
-    bool check;
+    public float roteSpeed;
 
-    public float curTime;
-    public float coolTime;
-    Transform tr;
-    Rigidbody rBody;
+    public float atkSpeed;
 
     private void Awake()
     {
         tr = GetComponent<Transform>();
         rBody = GetComponent<Rigidbody>();
         joyStick = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponentInChildren<JoyStick>();
-        dashBtn = GameObject.FindGameObjectWithTag("DashBtn");
-        dashBtn.GetComponent<DashBtn>();
+        dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
     }
 
-    void Start()
+    public override void OnNetworkSpawn()
     {
-        
+        base.OnNetworkSpawn();
     }
 
     void Update()
     {
-        PlayerKeyBordMove();
+        if (!IsOwner) return;
+
+#if UNITY_ANDROID
         PlayerJoyStickMove();
+#endif
+#if UNITY_EDITOR_WIN
+        PlayerKeyBordMove();
+#endif
     }
 
     public void PlayerJoyStickMove()
@@ -50,9 +56,17 @@ public class Player : MonoBehaviour
 
         if (h != 0 || v != 0)
         {
-            
+            if (dashBtn.IsCheck)
+            {
+                moveSpeed = dashSpeed;
+            }                
+            else
+            {
+                moveSpeed = normalSpeed;
+            }
+            Vector3 dir = new Vector3(h, 0, v);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), roteSpeed);
 
-            //velocity로 이동
             rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
             //transform.position으로 이동
             //Vector3 moveDiection = new Vector3(h, 0, v).normalized;
@@ -64,15 +78,24 @@ public class Player : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         float fall = rBody.velocity.y;
-        if (check)
+        Vector3 dir = new Vector3(h, 0, v);
+
+        if (!(h == 0 && v == 0))
         {
-            Debug.Log("~!!!");
-            rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), roteSpeed);
         }
-        else if (!check)
+        if (dashBtn.IsCheck)
         {
-            rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
+            moveSpeed = dashSpeed;
         }
+        else
+        {
+            moveSpeed = normalSpeed;
+        }
+        if (h == 0 && v == 0)
+            return;
+
+        rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
         //Vector3 moveDiection = new Vector3(h, 0, v).normalized;
         //tr.position += moveDiection * moveSpeed * Time.deltaTime;
     }

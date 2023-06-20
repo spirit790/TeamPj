@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
+using UnityEngine.UI;
 
 public class ModeDeathMatch : Mode
 {
@@ -12,36 +14,40 @@ public class ModeDeathMatch : Mode
     [SerializeField]
     float aiRespawnMaxTime;
 
+    float AIRespawnTime { get { return Random.Range(aiRespawnMinTime, aiRespawnMaxTime); } }
+
     private void Awake()
     {
         Set(4, 5, 60);
     }
 
-    private void Start()
+    public override void GameStart()
     {
-        CreateAI();
+        base.GameStart();
         StartCoroutine(RespawnAI());
     }
 
-    private void Update()
+    protected override void GameOverControl()
     {
-        
+        base.GameOverControl();
     }
-    public override void GameOver()
+
+    protected override void GameOver()
     {
-        
+        base.GameOver();
     }
     void RespawnPlayer(Player player)
     {
         player = deadPlayerList.Dequeue();
     }
+    
     IEnumerator RespawnAI()
     {
+        yield return new WaitForSeconds(2f);
         while (!isGameOver)
         {
-            float aiRespawnTime = Random.Range(aiRespawnMinTime, aiRespawnMaxTime);
-            yield return new WaitForSeconds(aiRespawnTime);
-            aiPool.CreateAI(aiSpawnPos);
+            aiPool.Spawn(AISpawnPos);
+            yield return new WaitForSeconds(AIRespawnTime);
         }
     }
 }
