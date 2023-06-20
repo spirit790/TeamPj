@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.Netcode;
 using UnityEngine.UI;
 
 public class Mode : MonoBehaviour
@@ -9,8 +8,8 @@ public class Mode : MonoBehaviour
     [SerializeField]
     protected AIPool aiPool;
 
-    [SerializeField]
-    GameObject playerPrefab;
+    //[SerializeField]
+    //GameObject playerPrefab;
     
     [SerializeField]
     protected List<GameObject> playerList = new List<GameObject>();
@@ -44,6 +43,9 @@ public class Mode : MonoBehaviour
         this.timeLimit = timeLimit;
     }
 
+    /// <summary>
+    /// 게임 시작 시 호출될 함수
+    /// </summary>
     public virtual void GameStart()
     {
         CreateAI();

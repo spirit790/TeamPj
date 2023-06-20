@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using Unity.Netcode;
 
 
-public class Player : NetworkBehaviour
+public class Player : MonoBehaviour
 {
     JoyStick joyStick;
     DashBtn dashBtn;
@@ -31,15 +30,10 @@ public class Player : NetworkBehaviour
         dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
     }
 
-    public override void OnNetworkSpawn()
-    {
-        base.OnNetworkSpawn();
-    }
+    
 
     void Update()
     {
-        if (!IsOwner) return;
-
 #if UNITY_ANDROID
         PlayerJoyStickMove();
 #endif
