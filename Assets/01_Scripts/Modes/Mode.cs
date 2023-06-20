@@ -41,6 +41,10 @@ public class Mode : MonoBehaviour
         this.aiRatio = aiRatio;
         this.timeLimit = timeLimit;
     }
+    /// <summary>
+    /// 메인게임 시작시 호출
+    /// </summary>
+    /// <returns></returns>
     protected IEnumerator GamePlaying()
     {
         while (!isGameOver)
@@ -48,8 +52,8 @@ public class Mode : MonoBehaviour
             timeLimit -= Time.deltaTime;
             txt.text = string.Format("{0:0}", timeLimit);
 
-            if (timeLimit <= 0)
-                isGameOver = true;
+            GameOverControl();
+
             yield return null;
         }
 
@@ -59,11 +63,17 @@ public class Mode : MonoBehaviour
             GameOver();
     }
 
+    /// <summary>
+    /// 맵 생성
+    /// </summary>
     protected void CreateMap()
     {
 
     }
 
+    /// <summary>
+    /// 플레이어 생성
+    /// </summary>
     protected void CreatePlayer()
     {
         for (int i = 0; i < playerCount; i++)
@@ -71,6 +81,9 @@ public class Mode : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// AI 생성
+    /// </summary>
     protected void CreateAI()
     {
         for (int i = 0; i < AICount; i++)
@@ -78,6 +91,19 @@ public class Mode : MonoBehaviour
             aiPool.PoolAI(aiSpawnPos);
         }
     }
+
+    /// <summary>
+    /// 게임오버 조건 처리
+    /// </summary>
+    protected virtual void GameOverControl()
+    {
+        if (timeLimit <= 0)
+            isGameOver = true;
+    }
+
+    /// <summary>
+    /// 게임오버시 호출 및 처리
+    /// </summary>
     protected virtual void GameOver()
     {
         foreach (var item in aiPool.GetComponentsInChildren<AIPattern>())

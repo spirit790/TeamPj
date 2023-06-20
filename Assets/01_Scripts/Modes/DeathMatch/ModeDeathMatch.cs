@@ -27,9 +27,9 @@ public class ModeDeathMatch : Mode
         StartCoroutine(RespawnAI());
     }
 
-    private void Update()
+    protected override void GameOverControl()
     {
-        
+        base.GameOverControl();
     }
 
     protected override void GameOver()
