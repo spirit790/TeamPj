@@ -83,10 +83,11 @@ public class GoogleManager : MonoBehaviour
         DocumentReference docRef = db.Collection("users").Document(Social.localUser.id);
         Dictionary<string, object> user = new Dictionary<string, object>
         {
+            { "UserName", Social.localUser.userName },
             { "NickName", nickName },
             { "Kills", 0 },
             { "Wins", 0 },
-            { "UpdateTime", FieldValue.ServerTimestamp }
+            { "SignUpDate", FieldValue.ServerTimestamp }
         };
 
         yield return docRef.SetAsync(user).ContinueWithOnMainThread(task =>
