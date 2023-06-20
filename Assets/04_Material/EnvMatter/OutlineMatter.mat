@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BlueOutline
+  m_Name: OutlineMatter
   m_Shader: {fileID: -6465566751694194690, guid: 33924712bcaf28b4aa3e76655242495d,
     type: 3}
   m_ValidKeywords: []

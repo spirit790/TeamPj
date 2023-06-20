@@ -19,27 +19,13 @@ public class PlayerSimpleMove : MonoBehaviour
         /*
         float h = rotSpeed * Input.GetAxis("Mouse X");
         float v = rotSpeed * Input.GetAxis("Mouse Y");
-
-        transform.Rotate(0, h, 0);
-
-        if(Input.GetKey(KeyCode.W))
-        {
-            characterCtrl.SimpleMove(moveSpeed * transform.forward);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            characterCtrl.SimpleMove(moveSpeed * -transform.forward);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            characterCtrl.SimpleMove(moveSpeed * -transform.right);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            characterCtrl.SimpleMove(moveSpeed * transform.right);
-        }
         */
 
+#if UNITY_ANDROID
+
+#endif
+
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
         if (Input.GetKey(KeyCode.W))
         {
             characterCtrl.SimpleMove(moveSpeed * transform.forward);
@@ -60,6 +46,8 @@ public class PlayerSimpleMove : MonoBehaviour
             characterCtrl.SimpleMove(moveSpeed * transform.forward);
             characterCtrl.transform.rotation = Quaternion.Slerp(characterCtrl.transform.rotation, Quaternion.Euler(0, 90, 0), rotConst);
         }
+#endif
+
 
 
 
