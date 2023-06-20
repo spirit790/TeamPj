@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - AI
+  - JoyStick
+  - PlayerCanvas
+  - AttackBtn
+  - DashBtn
   layers:
   - Default
   - TransparentFX
