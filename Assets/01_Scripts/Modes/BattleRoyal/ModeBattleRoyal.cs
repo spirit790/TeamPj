@@ -27,7 +27,6 @@ public class ModeBattleRoyal : Mode
     public float shrinkTime;
 
     [Header("Player")]
-    public GameObject playerPrefab;
     public int playersLeft;
 
     
@@ -45,5 +44,10 @@ public class ModeBattleRoyal : Mode
             timer = 0;
             TimeCount++;
         }
+    }
+
+    public void DeSpawnAI()
+    {
+        aiPool.DeSpawn();
     }
 }
