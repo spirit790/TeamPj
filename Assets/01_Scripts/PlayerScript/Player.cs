@@ -51,7 +51,6 @@ public class Player : MonoBehaviour
     private void Start()
     {
         playerState = PLAYERSTATE.IDLE;
-        OnPlayerDie(this);
     }
 
     
