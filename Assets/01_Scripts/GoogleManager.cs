@@ -28,8 +28,10 @@ public class GoogleManager : MonoBehaviour
     }
     void Start()
     {
+#if UNITY_ANDROID
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
+#endif
         Login();
     }
 
@@ -49,8 +51,10 @@ public class GoogleManager : MonoBehaviour
 
     public void LogOut()
     {
+#if UNITY_ANDROID
         ((PlayGamesPlatform)Social.Active).SignOut();
         logText.text = "logout";
+#endif
     }
 
     IEnumerator CheckUserInfo(string userId)
