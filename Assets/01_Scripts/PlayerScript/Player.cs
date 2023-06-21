@@ -11,8 +11,13 @@ public class Player : MonoBehaviour
     DashBtn dashBtn;
     Rigidbody rBody;
     Transform tr;
+    PLAYERSTATE playerState;
 
     private Animator playerAnim;
+    public enum PLAYERSTATE { NONE=-1,IDLE=0,MOVE=1,DASH,ATTACK,DIE }
+
+    public float curTime;
+    public float coolTime;
 
     private float moveSpeed;
     public float normalSpeed;
@@ -20,13 +25,32 @@ public class Player : MonoBehaviour
     public float roteSpeed;
 
     public float atkSpeed;
+    public bool IsDead
+    {
+        get { return IsDead; }
+        set
+        {
+            if (value == true)
+            {
+                PlayerDead();
+            }
+        }
+    }
+
+    // Player 사망 이벤트
+    public delegate void PlayerDie(Player player);
+    public static event PlayerDie OnPlayerDie;
 
     private void Awake()
     {
         tr = GetComponent<Transform>();
         rBody = GetComponent<Rigidbody>();
         joyStick = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponentInChildren<JoyStick>();
-        dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
+        dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();        
+    }
+    private void Start()
+    {
+        playerState = PLAYERSTATE.IDLE;
     }
 
     
@@ -39,10 +63,12 @@ public class Player : MonoBehaviour
 #if UNITY_EDITOR_WIN
         PlayerKeyBordMove();
 #endif
+
     }
 
     public void PlayerJoyStickMove()
     {
+        playerState = PLAYERSTATE.MOVE;
         float h = joyStick.Horizontal();
         float v = joyStick.Vertical();
         float fall = rBody.velocity.y;
@@ -76,20 +102,32 @@ public class Player : MonoBehaviour
         if (!(h == 0 && v == 0))
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), roteSpeed);
+            if (dashBtn.IsCheck)
+            {
+                moveSpeed = dashSpeed;
+            }
+            else
+            {
+                moveSpeed = normalSpeed;
+            }
         }
-        if (dashBtn.IsCheck)
+        
+        else if (h == 0 && v == 0)
         {
-            moveSpeed = dashSpeed;
+            playerState = PLAYERSTATE.IDLE;
         }
-        else
-        {
-            moveSpeed = normalSpeed;
-        }
-        if (h == 0 && v == 0)
-            return;
-
         rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
+
         //Vector3 moveDiection = new Vector3(h, 0, v).normalized;
         //tr.position += moveDiection * moveSpeed * Time.deltaTime;
+    }
+    /// <summary>
+    /// CarrotMove함수에서RayCast로 맞은대상의 데미지
+    /// </summary>
+    public void PlayerDead()
+    {
+        Debug.Log("죽음!!!!!!!!!!!!");
+        playerState = PLAYERSTATE.NONE;
+        Destroy(gameObject);
     }
 }

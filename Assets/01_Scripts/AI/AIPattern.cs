@@ -17,6 +17,8 @@ public class AIPattern : MonoBehaviour
     [SerializeField]
     float targetDistance;
 
+    private bool isDead;
+
     Vector3 TargetPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
 
     float RandomStopTime { get { return Random.Range(0, 3); } }
@@ -111,4 +113,23 @@ public class AIPattern : MonoBehaviour
         Debug.Log("d");
         agent.speed = 0;
     }
+
+    public bool IsAiDead
+    {
+        get { return IsAiDead; }
+        set
+        {
+            if(value == true)
+            {
+                AiDead();
+            }
+        }
+    }
+
+    public void AiDead()
+    {
+        Debug.Log("AI °¡ Á×À½!!!!!!!!!!!!");
+        Destroy(gameObject);
+    }
+
 }
