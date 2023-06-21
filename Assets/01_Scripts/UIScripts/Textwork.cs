@@ -30,7 +30,7 @@ public class Textwork : MonoBehaviour
     [Range(0.3f, 1f)]
     public float linearFadeInTime = 0.4f;
     [Range(0.1f, 0.3f)]
-    public float linearFadeOutTime = 0.2f;
+    public float linearFadeOutTime = 0.3f;
 
     public Shader fontShader;
 
@@ -60,6 +60,7 @@ public class Textwork : MonoBehaviour
         sqBtn.onClick.AddListener(OnClickSceneCall);
     }
 
+    //Test Buttons
     public void OnClickCountDown()
     {
         StartCoroutine(StartCountDown(5, 1));
@@ -111,17 +112,17 @@ public class Textwork : MonoBehaviour
     }
 
     /// <summary>
-    /// 4방향 텍스트워크
+    /// 4방향 텍스트 무브
     /// </summary>
     /// <param name="txt">움직일 텍스트(TMP)</param>
     /// <param name="textString"></param>
     /// <param name="dir">1 = rightward, 2 = leftward, 3 = upward, 4 = downward</param>
-    /// <param name="fontSizeRatio"></param>
-    /// <param name="posOffset"></param>
+    /// <param name="fontSizeRatio">폰트 사이즈와 반비례</param>
+    /// <param name="posOffset">움직임 시작위치 조정</param>
     /// <param name="fadeIn"></param>
     /// <param name="fadeOut"></param>
     /// <returns></returns>
-    public IEnumerator LinearTextwork(TextMeshProUGUI txt, string textString, int dir = 1, int fontSizeRatio = 3, float posOffset = 0f, float fadeIn = 0.4f, float fadeOut = 0.2f)
+    public IEnumerator LinearTextwork(TextMeshProUGUI txt, string textString, int dir = 1, int fontSizeRatio = 3, float posOffset = 0f, float fadeIn = 0.4f, float fadeOut = 0.3f)
     {
         if (dir < 1 || dir > 4) yield break;
        
@@ -132,7 +133,7 @@ public class Textwork : MonoBehaviour
         switch (dir)
         {
             case 1:
-                txt.rectTransform.position = new Vector3(this.originPos.x / 3 + posOffset, this.originPos.y, 0);
+                txt.rectTransform.position = new Vector3(this.originPos.x * 2 / 3 + posOffset, this.originPos.y, 0);
 
                 txt.rectTransform.DOMoveX(this.originPos.x, fadeIn);
 
@@ -148,11 +149,11 @@ public class Textwork : MonoBehaviour
 
                 yield return new WaitForSeconds(fadeIn);
 
-                txt.rectTransform.DOMoveX(this.originPos.x / 3 + posOffset, fadeOut);
+                txt.rectTransform.DOMoveX(this.originPos.x * 2 / 3 + posOffset, fadeOut);
 
                 break;
             case 3:
-                txt.rectTransform.position = new Vector3(this.originPos.x, this.originPos.y / 3 + posOffset, 0);
+                txt.rectTransform.position = new Vector3(this.originPos.x, this.originPos.y * 2 / 3 + posOffset, 0);
 
                 txt.rectTransform.DOMoveY(this.originPos.y, fadeIn);
 
@@ -168,7 +169,7 @@ public class Textwork : MonoBehaviour
 
                 yield return new WaitForSeconds(fadeIn);
 
-                txt.rectTransform.DOMoveY(this.originPos.y / 3 + posOffset, fadeOut);
+                txt.rectTransform.DOMoveY(this.originPos.y * 2 / 3 + posOffset, fadeOut);
 
                 break;
             default:
@@ -176,7 +177,7 @@ public class Textwork : MonoBehaviour
         }
 
         txt.DOFade(0, fadeOut);
-        yield return new WaitForSeconds(fadeOut / 1.3f);
+        yield return new WaitForSeconds(fadeOut);
     }
 
     /// <summary>
@@ -192,24 +193,7 @@ public class Textwork : MonoBehaviour
         switch (mode)
         {
             case 1:
-                txts[0] = InitText(Color.white, defaultFontSize/4, 0.0f, 1.5f, 0.65f);
-                txts[0].text = "'Til";
-                txts[0].DOFade(0.5f, fadeIn);
-                txts[0].transform.DOMoveX(txts[0].rectTransform.position.x - posOffset / 1.5f, fadeIn);
 
-                yield return new WaitForSeconds(fadeIn/3);
-
-                txts[1] = InitText(Color.white, defaultFontSize / 4, 0.0f, 0.75f, 1);
-                txts[1].text = "THE LAST";
-                txts[1].DOFade(0.5f, fadeIn);
-                txts[1].transform.DOMoveX(txts[1].rectTransform.position.x + posOffset/3f, fadeIn);
-
-                yield return new WaitForSeconds(fadeIn/3);
-
-                txts[2] = InitText(Color.white, defaultFontSize / 4, 0.0f, 1.3f, 2f);
-                txts[2].text = "STANDING";
-                txts[2].DOFade(0.5f, fadeIn);
-                txts[2].transform.DOMoveX(txts[2].rectTransform.position.x - posOffset / 2f, fadeIn);
 
                 break;
 
@@ -229,12 +213,6 @@ public class Textwork : MonoBehaviour
 
         yield return new WaitForSeconds(fadeIn);
 
-        txts[0].transform.DOMoveX(-2f * (txts[0].rectTransform.position.x + posOffset), fadeOut);
-        txts[1].transform.DOMoveX(2f * (txts[1].rectTransform.position.x + posOffset), fadeOut);
-        txts[2].transform.DOMoveX(-2f*(txts[2].rectTransform.position.x - posOffset), fadeOut);
-        txts[0].DOFade(0f, fadeOut);
-        txts[1].DOFade(0f, fadeOut);
-        txts[2].DOFade(0f, fadeOut);
 
         yield return new WaitForSeconds(fadeOut);
 

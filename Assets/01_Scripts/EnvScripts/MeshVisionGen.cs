@@ -14,7 +14,8 @@ public class MeshVisionGen : MonoBehaviour
     public int lightAngle = 160;
     public float lightRange = 10f;
     public int visionDensity = 2;
-    private int visionLayer = 1 << 9 | 1 << 10;
+    private int visionLayer = 1 << 6 | 1 << 9 | 1 << 10;
+    private List<Transform> visibleActors = new List<Transform>();
 
     [Header("LightMesh")]
     private Mesh lightMesh;
@@ -32,6 +33,7 @@ public class MeshVisionGen : MonoBehaviour
     {
         DrawMeshByAngle();
         transform.position = targetTr.position;
+        VailActors(visibleActors);
     }
 
     ///<summary>
@@ -63,6 +65,16 @@ public class MeshVisionGen : MonoBehaviour
 
             if (Physics.Raycast(originPos, rayDir, out hit, lightRange, visionLayer))
             {
+
+                if (hit.transform.gameObject.layer == 6)
+                {                
+                    /*
+                    레이캐스트가 유저나 AI에 맞았을 때
+
+                    */
+                    hit.transform.gameObject.layer = 7;
+                    visibleActors.Add(hit.transform);
+                }
 
                 vertices.Add(hit.point - targetTr.position);
                 triangles.Add(++verticesIdx);
@@ -112,6 +124,21 @@ public class MeshVisionGen : MonoBehaviour
         //정점, 삼각형노드 초기화
         vertices.Clear();
         triangles.Clear();
+    }
+
+    private void VailActors(List<Transform> trs)
+    {
+        if (trs.Count > 0)
+        {
+            for (int i = 0; i < trs.Count; i++)
+            {
+                if (Mathf.Acos(Vector3.Dot(targetTr.forward, (trs[i].position - transform.position).normalized)) * Mathf.Rad2Deg >= lightAngle/2)
+                {
+                    trs[i].gameObject.layer = 6;
+                    trs.Remove(trs[i]);
+                }
+            }
+        }
     }
 
     ///<summary>

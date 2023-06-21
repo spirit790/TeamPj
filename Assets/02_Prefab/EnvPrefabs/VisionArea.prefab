@@ -292,4 +292,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightAngle: 160
   lightRange: 15
-  visionDensity: 3
+  visionDensity: 2
