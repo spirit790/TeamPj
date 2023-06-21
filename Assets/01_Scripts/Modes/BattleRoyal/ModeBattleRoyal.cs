@@ -45,4 +45,9 @@ public class ModeBattleRoyal : Mode
             TimeCount++;
         }
     }
+
+    public void DeSpawnAI()
+    {
+        aiPool.DeSpawn();
+    }
 }
