@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         playerState = PLAYERSTATE.IDLE;
-        OnPlayerDie(this);
+        //OnPlayerDie(this);
     }
 
     
@@ -122,12 +122,9 @@ public class Player : MonoBehaviour
         //Vector3 moveDiection = new Vector3(h, 0, v).normalized;
         //tr.position += moveDiection * moveSpeed * Time.deltaTime;
     }
-    /// <summary>
-    /// CarrotMove함수에서RayCast로 맞은대상의 데미지
-    /// </summary>
     public void PlayerDead()
     {
-        Debug.Log("죽음!!!!!!!!!!!!");
+        Debug.Log("Player죽음!!!!!!!!!!!!");
         playerState = PLAYERSTATE.NONE;
         Destroy(gameObject);
     }

@@ -8,7 +8,6 @@ public class CarrotMove : MonoBehaviour
     Transform kTr;
     RaycastHit hit;    
     Button attackBtn;
-    public Player player;
     public float atkLength = 1.5f;
 
     public float curTime;
@@ -19,7 +18,6 @@ public class CarrotMove : MonoBehaviour
         kTr = GetComponent<Transform>();
         attackBtn = GameObject.FindGameObjectWithTag("AttackBtn").GetComponent<Button>();
         attackBtn.onClick.AddListener(OnClickAtk);
-        player = GetComponentInParent<Player>();
     }
 
 
@@ -44,9 +42,6 @@ public class CarrotMove : MonoBehaviour
             {
                 hitObj.GetComponent<AIPattern>().IsAiDead = true;
             }
-            
-            Debug.Log(hit.collider.tag);
-            Debug.Log(hit.collider.name);
         }
         
     }
