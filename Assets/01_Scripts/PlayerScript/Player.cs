@@ -127,8 +127,8 @@ public class Player : MonoBehaviour
     /// </summary>
     public void PlayerDead()
     {
-            Debug.Log("Á×À½!!!!!!!!!!!!");
-            playerState = PLAYERSTATE.NONE;
-            Destroy(gameObject);
+        Debug.Log("Á×À½!!!!!!!!!!!!");
+        playerState = PLAYERSTATE.NONE;
+        Destroy(gameObject);
     }
 }

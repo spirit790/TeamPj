@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe717b7c91a1d0d4995f570145b716be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   atkLength: 1.5
   curTime: 0
   coolTime: 0
@@ -260,6 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3044aeb9126c94ea08349535c11df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curTime: 0
+  coolTime: 0
   normalSpeed: 5
   dashSpeed: 10
   roteSpeed: 5
