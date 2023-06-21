@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
-public class Mode : MonoBehaviour
+public class Mode : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     protected AIPool aiPool;
@@ -30,6 +31,7 @@ public class Mode : MonoBehaviour
     [Header("테스트용")]
     public Text txt;
 
+
     /// <summary>
     /// Mode 초기화 및 변수 할당 함수
     /// </summary>
@@ -48,10 +50,9 @@ public class Mode : MonoBehaviour
     /// </summary>
     public virtual void GameStart()
     {
-        CreateAI();
         StartCoroutine(GamePlaying());
     }
-
+    
     /// <summary>
     /// 메인게임 시작시 호출
     /// </summary>
@@ -89,6 +90,7 @@ public class Mode : MonoBehaviour
         
     }
 
+
     /// <summary>
     /// AI 생성
     /// </summary>
@@ -122,5 +124,5 @@ public class Mode : MonoBehaviour
         }
         Debug.Log("게임종료");
     }
-
+    
 }

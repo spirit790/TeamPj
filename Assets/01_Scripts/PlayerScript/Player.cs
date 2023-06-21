@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
 
     private Animator playerAnim;
 
-
     private float moveSpeed;
     public float normalSpeed;
     public float dashSpeed;

@@ -20,10 +20,15 @@ public class ModeDeathMatch : Mode
         Set(4, 5, 60);
     }
 
+    private void Start()
+    {
+        GameStart();
+    }
+
     public override void GameStart()
     {
         base.GameStart();
-        StartCoroutine(RespawnAI());
+        //StartCoroutine(RespawnAI());
     }
 
     protected override void GameOverControl()
