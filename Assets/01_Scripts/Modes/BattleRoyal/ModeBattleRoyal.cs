@@ -48,6 +48,6 @@ public class ModeBattleRoyal : Mode
 
     public void DeSpawnAI()
     {
-        aiPool.DeSpawn();
+        
     }
 }

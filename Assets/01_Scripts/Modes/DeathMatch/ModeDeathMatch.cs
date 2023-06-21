@@ -50,7 +50,6 @@ public class ModeDeathMatch : Mode
         yield return new WaitForSeconds(2f);
         while (!isGameOver)
         {
-            aiPool.Spawn(AISpawnPos);
             yield return new WaitForSeconds(AIRespawnTime);
         }
     }

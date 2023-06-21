@@ -7,7 +7,7 @@ using Photon.Pun;
 public class Mode : MonoBehaviourPunCallbacks
 {
     [SerializeField]
-    protected AIPool aiPool;
+    protected GameObject aiPrefab;
 
     //[SerializeField]
     //GameObject playerPrefab;
@@ -50,6 +50,7 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     public virtual void GameStart()
     {
+        CreateAI();
         StartCoroutine(GamePlaying());
     }
     
@@ -98,7 +99,7 @@ public class Mode : MonoBehaviourPunCallbacks
     {
         for (int i = 0; i < AICount; i++)
         {
-           aiPool.Spawn(AISpawnPos);
+            PhotonNetwork.InstantiateRoomObject(aiPrefab.name, AISpawnPos, Quaternion.identity);
         }
     }
 
