@@ -8,7 +8,7 @@ public class DashGauge : MonoBehaviour
     public Transform sliderTransform;
     Slider dGauge;
     DashBtn dashBtn;
-    Player player;
+
 
     public int maxDashGauge;
     public int nowDashGauge;
