@@ -37,6 +37,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Player ªÁ∏¡ ¿Ã∫•∆Æ
+    public delegate void PlayerDie(Player player);
+    public static event PlayerDie OnPlayerDie;
+
     private void Awake()
     {
         tr = GetComponent<Transform>();
@@ -47,6 +51,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         playerState = PLAYERSTATE.IDLE;
+        OnPlayerDie(this);
     }
 
     
