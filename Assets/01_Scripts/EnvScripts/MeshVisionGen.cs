@@ -25,7 +25,7 @@ public class MeshVisionGen : MonoBehaviour
     void Start()
     {
         targetTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
-     
+
         lightMesh = GetComponent<MeshFilter>().mesh;
     }
 
@@ -69,17 +69,18 @@ public class MeshVisionGen : MonoBehaviour
                 if (hit.transform.gameObject.layer == 6)
                 {                
                     /*
-                    레이캐스트가 유저나 AI에 맞았을 때
+                    시야 영역에 유저나 AI에 있을 때
 
                     */
                     hit.transform.gameObject.layer = 7;
                     visibleActors.Add(hit.transform);
                 }
-
-                vertices.Add(hit.point - targetTr.position);
-                triangles.Add(++verticesIdx);
-                triangleIdx++;
-
+                else
+                {
+                    vertices.Add(hit.point - targetTr.position);
+                    triangles.Add(++verticesIdx);
+                    triangleIdx++;
+                }
             }
             else
             {   
@@ -89,7 +90,7 @@ public class MeshVisionGen : MonoBehaviour
                 triangleIdx++;
             }
 
-            //삼각형 정점을 중첩해 연결
+            //정점 노드를 중첩해 연결
             if (triangleIdx % 3 == 0)
             {
                 triangles.Add(0);
@@ -126,19 +127,21 @@ public class MeshVisionGen : MonoBehaviour
         triangles.Clear();
     }
 
+
+    //시야각 밖의 오브젝트 레이어 변경
     private void VailActors(List<Transform> trs)
     {
-        if (trs.Count > 0)
+        if (trs.Count <= 0) return;
+
+        foreach (var visible in visibleActors)
         {
-            for (int i = 0; i < trs.Count; i++)
+            if (Mathf.Acos(Vector3.Dot(targetTr.forward, (visible.position - transform.position).normalized)) * Mathf.Rad2Deg >= lightAngle / 2)
             {
-                if (Mathf.Acos(Vector3.Dot(targetTr.forward, (trs[i].position - transform.position).normalized)) * Mathf.Rad2Deg >= lightAngle/2)
-                {
-                    trs[i].gameObject.layer = 6;
-                    trs.Remove(trs[i]);
-                }
+                visible.gameObject.layer = 6;
+                trs.Remove(visible);
             }
         }
+        
     }
 
     ///<summary>
