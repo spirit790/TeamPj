@@ -34,6 +34,7 @@ public class ModeBattleRoyal : Mode
     {
         CreatePlayer();
         //playersLeft = playerList.Count; gm에서 처리?
+        Player.OnPlayerDie += PlayerDie;
     }
 
     void Update()
@@ -49,5 +50,15 @@ public class ModeBattleRoyal : Mode
     public void DeSpawnAI()
     {
         aiPool.DeSpawn();
+    }
+
+    public void PlayerDie(Player player, bool isDead)
+    {
+        if (isDead)
+        {
+            GameManager.Instance.livePlayers.Remove(player);
+            GameManager.Instance.deadPlayers.Add(player);
+            GameManager.Instance.PlayersLeft = GameManager.Instance.livePlayers.Count;
+        }
     }
 }

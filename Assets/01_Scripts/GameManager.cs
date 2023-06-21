@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// 멀티플레이 넘겨받은 플레이어 수
     /// </summary>
-    private int playerCount;
+    private int playerCount = 8;
     public int PlayerCount
     {
         get { return playerCount; }
@@ -117,11 +117,14 @@ public class GameManager : MonoBehaviour
         modeBattleRoyal.Set(playerCount, battleAIRatio, battleTimeLimit);
     }
 
-    public void PlayerDie(Player player)
+    public void PlayerDie(Player player, bool isDead)
     {
-        livePlayers.Remove(player);
-        deadPlayers.Add(player);
-        PlayerCount++;
+        if (isDead)
+        {
+            livePlayers.Remove(player);
+            deadPlayers.Add(player);
+            PlayersLeft--;
+        }
     }
 
     /// <summary>

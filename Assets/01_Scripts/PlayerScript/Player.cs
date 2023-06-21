@@ -25,9 +25,10 @@ public class Player : MonoBehaviour
     public float roteSpeed;
 
     public float atkSpeed;
+    private bool isDead = false;
     public bool IsDead
     {
-        get { return IsDead; }
+        get { return isDead; }
         set
         {
             if (value == true)
@@ -38,7 +39,7 @@ public class Player : MonoBehaviour
     }
 
     // Player »ç¸Á ÀÌº¥Æ®
-    public delegate void PlayerDie(Player player);
+    public delegate void PlayerDie(Player player, bool isDead);
     public static event PlayerDie OnPlayerDie;
 
     private void Awake()
@@ -46,7 +47,8 @@ public class Player : MonoBehaviour
         tr = GetComponent<Transform>();
         rBody = GetComponent<Rigidbody>();
         joyStick = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponentInChildren<JoyStick>();
-        dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();        
+        dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
+        OnPlayerDie(this, IsDead);
     }
     private void Start()
     {
@@ -128,6 +130,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Á×À½!!!!!!!!!!!!");
         playerState = PLAYERSTATE.NONE;
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

@@ -16,7 +16,7 @@ public class ModeAreaConquer : Mode
     {
      }
 
-    public void AreaOwnerDie(Player player)
+    public void AreaOwnerDie(Player player, bool isDead)
     {
         if(areaOwner == player)
         {
