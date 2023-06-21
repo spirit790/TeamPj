@@ -55,8 +55,9 @@ public class GameManager : MonoBehaviour
     public int deathAIRatio = 10;
     public float deathTimeLimit = 300f;
 
-    List<Player> livePlayers = new List<Player>();
-    List<Player> deadPlayers = new List<Player>();
+    [Header("GameUsers")]
+    public List<Player> livePlayers = new List<Player>();
+    public List<Player> deadPlayers = new List<Player>();
     [Header("UserInfo")]
     public Dictionary<string, object> userInfo = new Dictionary<string, object>();
     public bool isWin = false;
@@ -79,7 +80,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
+        Player.OnPlayerDie += PlayerDie;
     }
 
     void Update()
@@ -116,6 +117,16 @@ public class GameManager : MonoBehaviour
         modeBattleRoyal.Set(playerCount, battleAIRatio, battleTimeLimit);
     }
 
+    public void PlayerDie(Player player)
+    {
+        livePlayers.Remove(player);
+        deadPlayers.Add(player);
+        PlayerCount++;
+    }
+
+    /// <summary>
+    /// firebase 데이터 업데이트 테스트용 함수
+    /// </summary>
     public void OnUpdateTest()
     {
         isWin = true;
