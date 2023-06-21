@@ -56,8 +56,8 @@ public class Textwork : MonoBehaviour
 
         DOTween.Init();
 
-        sqBtn.onClick.AddListener(OnClickCountDown);
-        sqBtn.onClick.AddListener(OnClickSceneCall);
+        //sqBtn.onClick.AddListener(OnClickCountDown);
+        //sqBtn.onClick.AddListener(OnClickSceneCall);
     }
 
     //Test Buttons
@@ -78,6 +78,12 @@ public class Textwork : MonoBehaviour
     {
         int mode = 1;
         StartCoroutine(SceneCall(mode));
+    }
+    public void OnClickDiedCall()
+    {
+        TextMeshProUGUI txt = InitText(Color.white, 1200, 0.4f);
+
+        StartCoroutine(LinearTextwork(txt, "COPYCAT", 0.8f, 1, 3, 0, 0.8f, 0.4f));
     }
 
     /// <summary>
@@ -122,7 +128,7 @@ public class Textwork : MonoBehaviour
     /// <param name="fadeIn"></param>
     /// <param name="fadeOut"></param>
     /// <returns></returns>
-    public IEnumerator LinearTextwork(TextMeshProUGUI txt, string textString, int dir = 1, int fontSizeRatio = 3, float posOffset = 0f, float fadeIn = 0.4f, float fadeOut = 0.3f)
+    public IEnumerator LinearTextwork(TextMeshProUGUI txt, string textString, float startAlpha = 1, int dir = 1, int fontSizeRatio = 3, float posOffset = 0f, float fadeIn = 0.4f, float fadeOut = 0.3f)
     {
         if (dir < 1 || dir > 4) yield break;
        
@@ -136,7 +142,7 @@ public class Textwork : MonoBehaviour
                 txt.rectTransform.position = new Vector3(this.originPos.x * 2 / 3 + posOffset, this.originPos.y, 0);
 
                 txt.rectTransform.DOMoveX(this.originPos.x, fadeIn);
-
+                txt.DOFade(startAlpha, fadeIn);
                 yield return new WaitForSeconds(fadeIn);
 
                 txt.rectTransform.DOMoveX(this.originPos.x * 4 / 3 + posOffset, fadeOut);
@@ -146,7 +152,7 @@ public class Textwork : MonoBehaviour
                 txt.rectTransform.position = new Vector3(this.originPos.x * 4 / 3 + posOffset, this.originPos.y, 0);
 
                 txt.rectTransform.DOMoveX(this.originPos.x, fadeIn);
-
+                txt.DOFade(startAlpha, fadeIn);
                 yield return new WaitForSeconds(fadeIn);
 
                 txt.rectTransform.DOMoveX(this.originPos.x * 2 / 3 + posOffset, fadeOut);
@@ -156,7 +162,7 @@ public class Textwork : MonoBehaviour
                 txt.rectTransform.position = new Vector3(this.originPos.x, this.originPos.y * 2 / 3 + posOffset, 0);
 
                 txt.rectTransform.DOMoveY(this.originPos.y, fadeIn);
-
+                txt.DOFade(startAlpha, fadeIn);
                 yield return new WaitForSeconds(fadeIn);
 
                 txt.rectTransform.DOMoveY(this.originPos.y * 4 / 3 + posOffset, fadeOut);
@@ -166,7 +172,7 @@ public class Textwork : MonoBehaviour
                 txt.rectTransform.position = new Vector3(this.originPos.x, this.originPos.y * 4 / 3 + posOffset, 0);
 
                 txt.rectTransform.DOMoveY(this.originPos.y, fadeIn);
-
+                txt.DOFade(startAlpha, fadeIn);
                 yield return new WaitForSeconds(fadeIn);
 
                 txt.rectTransform.DOMoveY(this.originPos.y * 2 / 3 + posOffset, fadeOut);
@@ -176,8 +182,10 @@ public class Textwork : MonoBehaviour
                 break;
         }
 
+
         txt.DOFade(0, fadeOut);
         yield return new WaitForSeconds(fadeOut);
+
     }
 
     /// <summary>
@@ -246,7 +254,7 @@ public class Textwork : MonoBehaviour
 
         //txt.DOCounter(count, 1, delay * count);
 
-        yield return StartCoroutine(LinearTextwork(txt, "START!", 1));
+        yield return StartCoroutine(LinearTextwork(txt, "START!", 0.5f, 1, 1));
 
         Destroy(txt.gameObject);
     }
@@ -257,7 +265,7 @@ public class Textwork : MonoBehaviour
     /// </summary>
     /// <param name="remainsNum"></param>
     /// <returns></returns>
-    public IEnumerator RemainsCountText(int remainsNum, float fadeIn = 0.6f, float fadeOut = 0.2f)
+    public IEnumerator RemainsCountText(int remainsNum, float alpha = 0.8f, float fadeIn = 0.8f, float fadeOut = 0.3f)
     {
         if (remainsNum <= 0) yield break;
 
@@ -265,14 +273,12 @@ public class Textwork : MonoBehaviour
 
         txt.text = remainsNum.ToString();
 
-        txt.DOFade(0.5f, fadeIn);
+        txt.DOFade(alpha, fadeIn);
 
         int rnd = Random.Range(1, 5);
 
-        yield return StartCoroutine(LinearTextwork(txt, remainsNum.ToString(), rnd, 1));
+        yield return StartCoroutine(LinearTextwork(txt, remainsNum.ToString(), 0.8f, rnd, 1));
 
-        txt.DOFade(0, fadeOut);
-        yield return new WaitForSeconds(fadeOut);
 
         Destroy(txt.gameObject);
     }
