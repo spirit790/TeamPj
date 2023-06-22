@@ -16,26 +16,8 @@ public class AreaIndicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(Vector3.Distance(area.position, transform.position));
-        if (Vector3.Distance(area.position, transform.position) > displayDistance)
-        {
-            //float angle = Vector3.Dot(player.transform.forward, area.forward);
-            float angle = Vector3.Dot(gameObject.transform.forward, area.forward);
-            Debug.Log(angle);
-            if (angle <0.5)
-            {
-                gameObject.SetActive(true);
-            }
-            else
-                gameObject.SetActive(false);
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
-
-        if (gameObject.activeSelf)
-            gameObject.transform.LookAt(area);
-
+        Vector3 v = area.position - player.transform.position;
+        float angle = Mathf.Atan2(v.x, v.y) * Mathf.Rad2Deg;
+        Debug.Log(angle);
     }
 }

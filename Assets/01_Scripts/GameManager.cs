@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// 멀티플레이 넘겨받은 플레이어 수
     /// </summary>
-    private int playerCount;
+    private int playerCount = 8;
     public int PlayerCount
     {
         get { return playerCount; }
@@ -32,7 +32,14 @@ public class GameManager : MonoBehaviour
     public int PlayersLeft
     {
         get { return playersLeft; }
-        set { playersLeft = value; }
+        set 
+        {
+            playersLeft = value; 
+            if(playersLeft == 1)
+            {
+                OnPlayersLeftOne();
+            }
+        }
     }
     
     public enum Modes
@@ -65,6 +72,9 @@ public class GameManager : MonoBehaviour
     public int playerKills = 0;
     public int aiKills = 0;
     public string nickNamne;
+
+    public delegate void PlayersLeftOne();
+    public static PlayersLeftOne OnPlayersLeftOne;
     private void Awake()
     {
         if (instance == null)
@@ -100,7 +110,7 @@ public class GameManager : MonoBehaviour
                     StartBattleRoyal();
                     break;
                 case Modes.AREA:
-                    GoogleManager.Instance.OnGetUserInfo();
+                    StartAreaConquer();
                     break;
                 case Modes.DEATHMATCH:
                     break;
@@ -117,11 +127,17 @@ public class GameManager : MonoBehaviour
         modeBattleRoyal.Set(playerCount, battleAIRatio, battleTimeLimit);
     }
 
+    private void StartAreaConquer()
+    {
+        ModeAreaConquer modeArea = GameObject.Find("ModeArea").GetComponent<ModeAreaConquer>();
+        modeArea.Set(playerCount, battleAIRatio, battleTimeLimit);
+    }
+
     public void PlayerDie(Player player)
     {
         livePlayers.Remove(player);
         deadPlayers.Add(player);
-        PlayerCount++;
+        PlayersLeft = livePlayers.Count;
     }
 
     /// <summary>

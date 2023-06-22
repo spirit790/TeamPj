@@ -9,12 +9,10 @@ public class ModeAreaConquer : Mode
 
     void Start()
     {
+        CreatePlayer();
         Player.OnPlayerDie += AreaOwnerDie;
+        GameManager.OnPlayersLeftOne += WinGameByKill;
     }
-
-    void Update()
-    {
-     }
 
     public void AreaOwnerDie(Player player)
     {
@@ -24,18 +22,19 @@ public class ModeAreaConquer : Mode
             areaOwner = null;
         }
     }
-
     public IEnumerator AreaCountDown()
     {
         yield return new WaitForSeconds(areaTimeLimit);
         // °ÔÀÓ ½Â¸®
+        WinGameByArea();
     }
 
-    void WinByLastSurvive()
+    public void WinGameByArea()
     {
-        if(GameManager.Instance.livePlayers.Count == 1)
-        {
-            Player winner = GameManager.Instance.livePlayers[0];
-        }
+        Debug.Log($"WinGameByArea : {areaOwner.name}");
+    }
+    public void WinGameByKill()
+    {
+
     }
 }

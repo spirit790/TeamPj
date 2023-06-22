@@ -4,22 +4,34 @@ using UnityEngine;
 
 public class TargetArea : MonoBehaviour
 {
-    public string ownerName;
     ModeAreaConquer modeArea;
 
     void Start()
     {
-            
+        modeArea = GameObject.Find("ModeArea").GetComponent<ModeAreaConquer>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && !string.Equals(other.gameObject.name, ownerName))
+        if (modeArea.areaOwner == null)
         {
-            StopCoroutine(modeArea.AreaCountDown());
-            ownerName = other.gameObject.name; // nick name
-            StartCoroutine(modeArea.AreaCountDown());
+            if (other.gameObject.CompareTag("Player"))
+            {
+                modeArea.areaOwner = other.gameObject.GetComponent<Player>();
+                StartCoroutine(modeArea.AreaCountDown());
+            }
         }
+        else
+        {
+            Player enteredPlayer = other.gameObject.GetComponent<Player>();
+            if(other.gameObject.CompareTag("Player") && modeArea.areaOwner != enteredPlayer)
+            {   
+                StopCoroutine(modeArea.AreaCountDown());
+                modeArea.areaOwner = enteredPlayer;
+                StartCoroutine(modeArea.AreaCountDown());
+            }
+        }
+
     }
 
 

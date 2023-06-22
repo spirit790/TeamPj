@@ -10,7 +10,7 @@ public class Mode : MonoBehaviourPunCallbacks
     protected GameObject aiPrefab;
 
     //[SerializeField]
-    //GameObject playerPrefab;
+    public GameObject playerPrefab;
     
     [SerializeField]
     protected List<GameObject> playerList = new List<GameObject>();
@@ -88,7 +88,13 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     protected void CreatePlayer()
     {
-        
+        for (int i = 0; i < playerCount; i++)
+        {
+            GameObject playerObj = Instantiate(playerPrefab);
+            playerList.Add(playerObj);
+            GameManager.Instance.livePlayers.Add(playerObj.GetComponent<Player>());
+        }
+        GameManager.Instance.PlayersLeft = playerCount;
     }
 
 

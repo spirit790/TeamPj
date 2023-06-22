@@ -33,6 +33,7 @@ public class ModeBattleRoyal : Mode
     private void Start()
     {
         CreatePlayer();
+        GameManager.OnPlayersLeftOne += WinGame;
         //playersLeft = playerList.Count; gm에서 처리?
     }
 
@@ -49,5 +50,10 @@ public class ModeBattleRoyal : Mode
     public void DeSpawnAI()
     {
         
+    }
+
+    public void WinGame()
+    {
+        Debug.Log($"Winner: {GameManager.Instance.livePlayers[0].name}");
     }
 }
