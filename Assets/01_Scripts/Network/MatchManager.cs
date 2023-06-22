@@ -11,6 +11,7 @@ public class MatchManager : MonoBehaviourPunCallbacks
     
     public PhotonView playerPrefab;
     private bool isMatchSuccess = false;
+    private bool isNewPlayerInMatch = false;
     private bool IsMatchSuccess
     {
         get { return isMatchSuccess; }
@@ -25,22 +26,18 @@ public class MatchManager : MonoBehaviourPunCallbacks
         }
     }
     private float matchTimer;
-    private float waitMatchTime = 10f;
-
-    private int playerCount = 0;
-
     [SerializeField] Text matchTxt;
     [SerializeField] Text matchTimeTxt;
 
-    const int MATCH_COUNT_MIN = 2;
-    const int MATCH_COUNT_MAX = 8;
+    const int MATCHNUM_MIN = 2;
+    const int MATCHNUM_MAX = 8;
 
     private void Awake()
     {
         if (instance == null)
             instance = this;
         else
-            Destroy(this);
+            Destroy(instance);
     }
 
     public void Match()
@@ -69,21 +66,22 @@ public class MatchManager : MonoBehaviourPunCallbacks
     }
     IEnumerator WaitMatch()
     {
-        Debug.Log("WaitMatch");
-        while (waitMatchTime >= 0)
+        float waitTime = 10f;
+        while (waitTime >= 0)
         {
-            waitMatchTime -= Time.deltaTime;
-
-            if(PhotonNetwork.CurrentRoom.PlayerCount == MATCH_COUNT_MAX)
-                IsMatchSuccess = true;
+            waitTime -= Time.deltaTime;
+            if (isNewPlayerInMatch)
+            {
+                waitTime = 10f;
+                isNewPlayerInMatch = false;
+            }
             yield return null;
         }
+        matchTxt.text = "Matcing Success";
         IsMatchSuccess = true;
     }
     IEnumerator MatchSuccess()
     {
-        StopCoroutine(Matching());
-        matchTxt.text = "Matcing Success";
         float waitTime = 5f;
         while (waitTime >= 0)
         {
@@ -96,7 +94,6 @@ public class MatchManager : MonoBehaviourPunCallbacks
         {
             Debug.Log("Master");
             PhotonNetwork.CurrentRoom.IsOpen = false;
-            yield return new WaitForSeconds(PhotonNetwork.LevelLoadingProgress);
             PhotonNetwork.LoadLevel(1);
         }
     }
@@ -108,7 +105,7 @@ public class MatchManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        if (PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN)
+        if (PhotonNetwork.CurrentRoom.PlayerCount >= MATCHNUM_MIN)
         {
             StartCoroutine(WaitMatch());
         }
@@ -122,11 +119,13 @@ public class MatchManager : MonoBehaviourPunCallbacks
 
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
     {
-        bool isWait = PhotonNetwork.CurrentRoom.Players[PhotonNetwork.LocalPlayer.ActorNumber + 1] == PhotonNetwork.CurrentRoom.Players[newPlayer.ActorNumber];
-            
-        if (PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN && isWait)
+        if (PhotonNetwork.CurrentRoom.PlayerCount >= MATCHNUM_MIN)
         {
             StartCoroutine(WaitMatch());
+        }
+        if(PhotonNetwork.CurrentRoom.PlayerCount >= MATCHNUM_MIN + 1)
+        {
+            isNewPlayerInMatch = true;
         }
     }
 }
