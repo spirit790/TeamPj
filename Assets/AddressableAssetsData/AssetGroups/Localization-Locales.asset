@@ -17,18 +17,21 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: c828232a96cfb9f44bba6dd2a64671aa
   m_SerializeEntries:
-  - m_GUID: be0c1a8c856e1b84faaf5652e57cf2f5
+  - m_GUID: f2b16e6f920cf394b8bce7fe952f241f
+    m_Address: Japanese (ja)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale
+  - m_GUID: 45b2ff0ddefd3ff4e8bb8ab35ef2044f
     m_Address: English (en)
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b9e8d0b353d505145beabce66dab3a0d
+  - m_GUID: 8dd6161cc8bfe7946ad7b48aebed98f4
     m_Address: Korean (ko)
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
-    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 49831b6d4d91486409165362a3053f10, type: 2}
   m_SchemaSet:
