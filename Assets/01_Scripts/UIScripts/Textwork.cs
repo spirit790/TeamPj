@@ -279,7 +279,6 @@ public class Textwork : MonoBehaviour
 
         yield return StartCoroutine(LinearTextwork(txt, remainsNum.ToString(), 0.8f, rnd, 1));
 
-
         Destroy(txt.gameObject);
     }
 
