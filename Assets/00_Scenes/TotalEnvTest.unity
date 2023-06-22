@@ -1242,6 +1242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 50
   deadZoneTime: 2
+  mode: {fileID: 0}
 --- !u!135 &136990087
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3230,21 +3231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6960e84d07fb87f47956e7a81d71c4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ProtocolType: 0
-  m_MaxPacketQueueSize: 128
-  m_MaxPayloadSize: 6144
-  m_HeartbeatTimeoutMS: 500
-  m_ConnectTimeoutMS: 1000
-  m_MaxConnectAttempts: 60
-  m_DisconnectTimeoutMS: 30000
-  ConnectionData:
-    Address: 127.0.0.1
-    Port: 7777
-    ServerListenAddress: 127.0.0.1
-  DebugSimulator:
-    PacketDelayMS: 0
-    PacketJitterMS: 0
-    PacketDropRate: 0
 --- !u!114 &505362947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3257,32 +3243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593a2fe42fa9d37498c96f9a383b6521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RunInBackground: 1
-  LogLevel: 0
-  NetworkConfig:
-    ProtocolVersion: 0
-    NetworkTransport: {fileID: 505362946}
-    PlayerPrefab: {fileID: 7591189770289149691, guid: 970a65f158b18b84e8f5dcb377dc668d,
-      type: 3}
-    Prefabs:
-      NetworkPrefabsLists:
-      - {fileID: 11400000, guid: 00f7a84f95dfe2c4aabaaeafc9f218e2, type: 2}
-    TickRate: 30
-    ClientConnectionBufferTimeout: 10
-    ConnectionApproval: 0
-    ConnectionData: 
-    EnableTimeResync: 0
-    TimeResyncInterval: 30
-    EnsureNetworkVariableLengthSafety: 0
-    EnableSceneManagement: 1
-    ForceSamePrefabs: 1
-    RecycleNetworkIds: 1
-    NetworkIdRecycleDelay: 120
-    RpcHashSize: 0
-    LoadSceneTimeOut: 120
-    SpawnTimeout: 1
-    EnableNetworkLogs: 1
-    OldPrefabList: []
 --- !u!4 &505362948
 Transform:
   m_ObjectHideFlags: 0
@@ -3780,8 +3740,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiPool: {fileID: 902110349}
-  playerPrefab: {fileID: 7591189770289149691, guid: 970a65f158b18b84e8f5dcb377dc668d,
-    type: 3}
   playerList: []
   mapWidth: 90
   mapHeight: 90
@@ -4849,13 +4807,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 4015032542
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!114 &902110351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4868,10 +4819,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43fe7672eec4d0949b6b7bd3f3f39bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PooledPrefabsList:
-  - Prefab: {fileID: 6704662259976244331, guid: 16ac2beace8ce9d48956491bb1aca0c3,
-      type: 3}
-    PrewarmCount: 30
 --- !u!4 &902110352
 Transform:
   m_ObjectHideFlags: 0
@@ -5795,9 +5742,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0fd10bcb10e9114987c8666b491c10a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btnServer: {fileID: 1765680586}
-  btnHost: {fileID: 1634488869}
-  btnClient: {fileID: 517775918}
 --- !u!1 &1332708132
 GameObject:
   m_ObjectHideFlags: 0
@@ -6497,7 +6441,7 @@ GameObject:
   - component: {fileID: 1506251293}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8242,6 +8186,13 @@ MonoBehaviour:
   areaTimeLimit: 300
   deathAIRatio: 10
   deathTimeLimit: 300
+  livePlayers: []
+  deadPlayers: []
+  isWin: 0
+  death: 0
+  playerKills: 0
+  aiKills: 0
+  nickNamne: 
 --- !u!4 &1863687686
 Transform:
   m_ObjectHideFlags: 0
@@ -8581,7 +8532,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiPool: {fileID: 0}
-  playerPrefab: {fileID: 0}
   playerList: []
   mapWidth: 0
   mapHeight: 0
