@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Player ÏÇ¨Îßù Ïù¥Î≤§Ìä∏
+    // Player ?¨Îßù ?¥Î≤§??
     public delegate void PlayerDie(Player player);
     /// <summary>
     /// Player ªÁ∏¡ ¿Ã∫•∆Æ∑Œ IsDead ∞° true∞° µ«∏È »£√‚µÀ¥œ¥Ÿ. ¿Ã∫•∆Æ ∏≈∞≥∫Øºˆ∑Œ ªÁ∏¡«— player ≥÷æÓ¡÷∏È µÀ¥œ¥Ÿ.
@@ -94,7 +94,6 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), roteSpeed);
 
             rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
-            //transform.positionÏúºÎ°ú Ïù¥Îèô
             //Vector3 moveDiection = new Vector3(h, 0, v).normalized;
             //tr.position += moveDiection * moveSpeed * Time.deltaTime;
         }
