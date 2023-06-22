@@ -11,7 +11,7 @@ public class ModeAreaConquer : Mode
     {
         CreatePlayer();
         Player.OnPlayerDie += AreaOwnerDie;
-        GameManager.OnPlayersLeftOne += WinGame;
+        GameManager.OnPlayersLeftOne += WinGameByKill;
     }
 
     public void AreaOwnerDie(Player player)
@@ -26,10 +26,14 @@ public class ModeAreaConquer : Mode
     {
         yield return new WaitForSeconds(areaTimeLimit);
         // °ÔÀÓ ½Â¸®
-        WinGame();
+        WinGameByArea();
     }
 
-    public void WinGame()
+    public void WinGameByArea()
+    {
+        Debug.Log($"WinGameByArea : {areaOwner.name}");
+    }
+    public void WinGameByKill()
     {
 
     }
