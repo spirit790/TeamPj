@@ -33,8 +33,8 @@ public class ModeBattleRoyal : Mode
     private void Start()
     {
         CreatePlayer();
+        GameManager.OnPlayersLeftOne += WinGame;
         //playersLeft = playerList.Count; gm에서 처리?
-        Player.OnPlayerDie += PlayerDie;
     }
 
     void Update()
@@ -52,13 +52,8 @@ public class ModeBattleRoyal : Mode
         aiPool.DeSpawn();
     }
 
-    public void PlayerDie(Player player, bool isDead)
+    public void WinGame()
     {
-        if (isDead)
-        {
-            GameManager.Instance.livePlayers.Remove(player);
-            GameManager.Instance.deadPlayers.Add(player);
-            GameManager.Instance.PlayersLeft = GameManager.Instance.livePlayers.Count;
-        }
+        Debug.Log($"Winner: {GameManager.Instance.livePlayers[0].name}");
     }
 }
