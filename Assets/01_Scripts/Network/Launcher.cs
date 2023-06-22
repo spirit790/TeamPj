@@ -1,50 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Photon.Pun;
+using UnityEngine.UI;
+using Photon.Realtime;
 
 [RequireComponent(typeof(PrefabPool))]
 public class Launcher : MonoBehaviourPunCallbacks
 {
-	private static Launcher instance;
-	public Launcher Instance
-    {
-        get
-        {
-			return instance;
-        }
-        set
-        {
-			DontDestroyOnLoad(gameObject);
-		}
-	}
+	string gameVersion = "1";
 
-
-	public PhotonView playerPrefab;
     private void Awake()
     {
-		if (Instance == null)
-			Instance = instance;
-		else
-			Destroy(gameObject);
-		PhotonNetwork.AutomaticallySyncScene = true;
-		PhotonNetwork.ConnectUsingSettings();
-	}
-	
-	public void StartGame()
-    {
-		if (PhotonNetwork.IsMasterClient)
-        {
-			Debug.Log(PhotonNetwork.CountOfRooms);
-			PhotonNetwork.LoadLevel(1);
-		}
-		else
-			Debug.Log("Not Master Client");
-	}
+        PhotonNetwork.AutomaticallySyncScene = true;
+    }
 
-	public override void OnConnectedToMaster()
-	{
-		Debug.Log("Connected to Master");
-	}
+    private void Start()
+    {
+		Connect();
+    }
+
+    private void Update()
+    {
+        
+    }
+
+    public void Connect()
+    {
+        PhotonNetwork.GameVersion = gameVersion;
+        PhotonNetwork.ConnectUsingSettings();
+    }
+    
+    public override void OnConnectedToMaster()
+    {
+        Debug.Log("User Id : " + PhotonNetwork.LocalPlayer.UserId);
+    }
 }
