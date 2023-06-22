@@ -17,18 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 59c53b1c63ceff140ac560f2bb30d741
   m_SerializeEntries:
-  - m_GUID: d93887b3f2e132f49883c98de617bc70
-    m_Address: UiText_en
+  - m_GUID: 3daa5e7eae425584dac8debb3e932f31
+    m_Address: HideCCountry_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9673527981ff11a4898914b4677dcb9f
-    m_Address: Language_en
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-    FlaggedDuringContentUpdateRestriction: 0
+    - Preload
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 49831b6d4d91486409165362a3053f10, type: 2}
   m_SchemaSet:
