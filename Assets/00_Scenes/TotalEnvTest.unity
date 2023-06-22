@@ -3740,6 +3740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiPool: {fileID: 902110349}
+  playerPrefab: {fileID: 0}
   playerList: []
   mapWidth: 90
   mapHeight: 90
@@ -8568,6 +8569,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiPool: {fileID: 0}
+  playerPrefab: {fileID: 7591189770289149691, guid: 970a65f158b18b84e8f5dcb377dc668d,
+    type: 3}
   playerList: []
   mapWidth: 0
   mapHeight: 0
