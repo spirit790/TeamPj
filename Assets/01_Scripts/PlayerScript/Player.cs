@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Photon.Pun;
 
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviourPun
 {
     JoyStick joyStick;
     DashBtn dashBtn;
     Rigidbody rBody;
     Transform tr;
+    NavMeshAgent playerAgent;
     PLAYERSTATE playerState;
 
     private Animator playerAnim;
@@ -39,7 +42,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Player ÏÇ¨Îßù Ïù¥Î≤§Ìä∏
+    // Player ?¨Îßù ?¥Î≤§??
     public delegate void PlayerDie(Player player);
     /// <summary>
     /// Player ªÁ∏¡ ¿Ã∫•∆Æ∑Œ IsDead ∞° true∞° µ«∏È »£√‚µÀ¥œ¥Ÿ. ¿Ã∫•∆Æ ∏≈∞≥∫Øºˆ∑Œ ªÁ∏¡«— player ≥÷æÓ¡÷∏È µÀ¥œ¥Ÿ.
@@ -50,6 +53,7 @@ public class Player : MonoBehaviour
     {
         tr = GetComponent<Transform>();
         rBody = GetComponent<Rigidbody>();
+        playerAgent = GetComponent<NavMeshAgent>();
         joyStick = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponentInChildren<JoyStick>();
         dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
  
@@ -64,6 +68,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (!photonView.IsMine)
+            return;
 #if UNITY_ANDROID
         PlayerJoyStickMove();
 #endif
@@ -78,7 +84,6 @@ public class Player : MonoBehaviour
         playerState = PLAYERSTATE.MOVE;
         float h = joyStick.Horizontal();
         float v = joyStick.Vertical();
-        float fall = rBody.velocity.y;
 
         if (h != 0 || v != 0)
         {
@@ -93,10 +98,7 @@ public class Player : MonoBehaviour
             Vector3 dir = new Vector3(h, 0, v);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), roteSpeed);
 
-            rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
-            //transform.positionÏúºÎ°ú Ïù¥Îèô
-            //Vector3 moveDiection = new Vector3(h, 0, v).normalized;
-            //tr.position += moveDiection * moveSpeed * Time.deltaTime;
+            playerAgent.Move(dir * moveSpeed * Time.deltaTime);
         }
     }
     public void PlayerKeyBordMove()

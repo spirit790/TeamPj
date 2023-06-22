@@ -60,15 +60,14 @@ public class Mode : MonoBehaviourPunCallbacks
     /// <returns></returns>
     protected IEnumerator GamePlaying()
     {
-        yield return new WaitForSeconds(5f);
-
+        CreatePlayer();
         CreateAI();
-        
+        yield return new WaitForSeconds(5f);
 
         while (!isGameOver)
         {
             txt.text = string.Format("{0:0}", timeLimit);
-         
+            
             GameOverControl();
             yield return null;
         }
@@ -92,13 +91,7 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     protected void CreatePlayer()
     {
-        for (int i = 0; i < playerCount; i++)
-        {
-            GameObject playerObj = Instantiate(playerPrefab);
-            playerList.Add(playerObj);
-            GameManager.Instance.livePlayers.Add(playerObj.GetComponent<Player>());
-        }
-        GameManager.Instance.PlayersLeft = playerCount;
+        PhotonNetwork.Instantiate(playerPrefab.name, AISpawnPos + new Vector3(0,0.5f,0), Quaternion.identity);
     }
 
 
@@ -112,7 +105,6 @@ public class Mode : MonoBehaviourPunCallbacks
             PhotonNetwork.InstantiateRoomObject(aiPrefab.name, AISpawnPos, Quaternion.identity);
         }
     }
-
     /// <summary>
     /// 게임오버 조건 처리
     /// </summary>

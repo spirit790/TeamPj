@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 using UnityEngine.UI;
 
 public class ModeDeathMatch : Mode
@@ -18,13 +19,12 @@ public class ModeDeathMatch : Mode
     private void Awake()
     {
         Set(4, 5, 60);
+        GameStart();
     }
 
     private void Start()
     {
-        GameStart();
     }
-
     public override void GameStart()
     {
         base.GameStart();

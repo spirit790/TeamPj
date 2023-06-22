@@ -235,6 +235,7 @@ GameObject:
   - component: {fileID: 37777570}
   - component: {fileID: 37777569}
   - component: {fileID: 37777568}
+  - component: {fileID: 37777574}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -266,7 +267,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37777567}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e567654a9a2a6545a4e958ce281b7f2, type: 3}
   m_Name: 
@@ -372,6 +373,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 53.482, y: 0, z: 0}
+--- !u!114 &37777574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37777567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ce5033928eb224b90c3c9dda311c76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &60893894
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,6 +694,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiPrefab: {fileID: 6704662259976244331, guid: 16ac2beace8ce9d48956491bb1aca0c3,
+    type: 3}
+  playerPrefab: {fileID: 7591189770289149691, guid: 970a65f158b18b84e8f5dcb377dc668d,
     type: 3}
   playerList: []
   mapWidth: 40

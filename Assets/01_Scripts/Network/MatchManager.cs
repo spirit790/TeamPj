@@ -10,6 +10,7 @@ public class MatchManager : MonoBehaviourPunCallbacks
     public static MatchManager instance;
     
     public PhotonView playerPrefab;
+    private bool isConnected = false;
     private bool isMatchSuccess = false;
     private bool IsMatchSuccess
     {
@@ -19,6 +20,7 @@ public class MatchManager : MonoBehaviourPunCallbacks
             isMatchSuccess = value;
             if (value == true)
             {
+                PhotonNetwork.CurrentRoom.IsOpen = false;
                 Debug.Log("Start");
                 StartCoroutine(MatchSuccess());
             }
@@ -35,6 +37,8 @@ public class MatchManager : MonoBehaviourPunCallbacks
     const int MATCH_COUNT_MIN = 2;
     const int MATCH_COUNT_MAX = 8;
 
+    Coroutine waitCoroutine;
+
     private void Awake()
     {
         if (instance == null)
@@ -45,9 +49,9 @@ public class MatchManager : MonoBehaviourPunCallbacks
 
     public void Match()
     {
-        this.enabled = true;
         if (PhotonNetwork.IsConnectedAndReady)
         {
+            this.enabled = true;
             PhotonNetwork.JoinRandomRoom();
             StartCoroutine(Matching());
         }
@@ -95,7 +99,6 @@ public class MatchManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             Debug.Log("Master");
-            PhotonNetwork.CurrentRoom.IsOpen = false;
             yield return new WaitForSeconds(PhotonNetwork.LevelLoadingProgress);
             PhotonNetwork.LoadLevel(1);
         }
@@ -110,7 +113,8 @@ public class MatchManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN)
         {
-            StartCoroutine(WaitMatch());
+            waitCoroutine = StartCoroutine(WaitMatch());
+            photonView.RPC("WaitMatchTimeSet", RpcTarget.All);
         }
         Debug.Log($"Join Room : {PhotonNetwork.CurrentRoom.Name} , {PhotonNetwork.CurrentRoom.PlayerCount}");
     }
@@ -119,14 +123,23 @@ public class MatchManager : MonoBehaviourPunCallbacks
     {
         Debug.Log($"CreateRoom{PhotonNetwork.CurrentRoom}");
     }
-
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
     {
-        bool isWait = PhotonNetwork.CurrentRoom.Players[PhotonNetwork.LocalPlayer.ActorNumber + 1] == PhotonNetwork.CurrentRoom.Players[newPlayer.ActorNumber];
-            
-        if (PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN && isWait)
+        if (PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN)
         {
-            StartCoroutine(WaitMatch());
+            if(waitCoroutine != null)
+                StopCoroutine(waitCoroutine);
+            waitCoroutine = StartCoroutine(WaitMatch());
         }
+        if (PhotonNetwork.CurrentRoom.PlayerCount >= (MATCH_COUNT_MIN + 1))
+        {
+            photonView.RPC("WaitMatchTimeSet", RpcTarget.All);
+        }
+    }
+    [PunRPC]
+    public void WaitMatchTimeSet()
+    {
+        waitMatchTime = 10f;
+        Debug.Log("waitWatchTime");
     }
 }
