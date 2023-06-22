@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 1763601615011000424}
   - component: {fileID: 1763601616056620338}
   m_Layer: 8
-  m_Name: VisionArea
+  m_Name: Vision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -292,4 +292,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightAngle: 160
   lightRange: 15
-  visionDensity: 2
+  visionDensity: 3

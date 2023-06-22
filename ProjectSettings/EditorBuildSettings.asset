@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/00_Scenes/PlayerTestS.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Scenes/TotalEnvTest.unity
     guid: 190f4a31ea9301a4d8c38dfa4c202c14
   - enabled: 0
@@ -56,7 +56,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/00_Scenes/TotalEnvTest.unity
     guid: 190f4a31ea9301a4d8c38dfa4c202c14
-  - enabled: 1
+  - enabled: 0
     path: Assets/00_Scenes/TotalEnvTest.unity
     guid: 190f4a31ea9301a4d8c38dfa4c202c14
   m_configObjects: {}

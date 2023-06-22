@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 [System.Serializable]
 public class MeshVisionGen : MonoBehaviour
@@ -33,8 +32,12 @@ public class MeshVisionGen : MonoBehaviour
     {
         DrawMeshByAngle();
         transform.position = targetTr.position;
+
+        //시야 내 액터들 확인
         VailActors(visibleActors);
+
     }
+
 
     ///<summary>
     ///range 만큼 레이캐스팅, 정점 생성, 연결 후 메시화 
@@ -65,9 +68,8 @@ public class MeshVisionGen : MonoBehaviour
 
             if (Physics.Raycast(originPos, rayDir, out hit, lightRange, visionLayer))
             {
-
                 if (hit.transform.gameObject.layer == 6)
-                {                
+                {
                     /*
                     시야 영역에 유저나 AI에 있을 때
 
@@ -98,7 +100,6 @@ public class MeshVisionGen : MonoBehaviour
                 triangles.Add(verticesIdx);
                 triangleIdx++;
             }
-
         }
 
         //삼각형 노드가 3의배수가 되도록
@@ -115,33 +116,32 @@ public class MeshVisionGen : MonoBehaviour
         //삼각형 생성
         if (triangleIdx > 3)
         {
+            lightMesh.Clear();
             lightMesh.vertices = vertices.ToArray();
             lightMesh.triangles = triangles.ToArray();
         }
 
-        // Debug.Log(vertices.Count);
-        // Debug.Log(triangles.Count);
+        //Debug.Log(vertices.Count);
+        //Debug.Log(triangles.Count);
 
         //정점, 삼각형노드 초기화
         vertices.Clear();
         triangles.Clear();
     }
 
-
     //시야각 밖의 오브젝트 레이어 변경
     private void VailActors(List<Transform> trs)
     {
         if (trs.Count <= 0) return;
 
-        foreach (var visible in visibleActors)
+        for (int i = 0; i < trs.Count; i++)
         {
-            if (Mathf.Acos(Vector3.Dot(targetTr.forward, (visible.position - transform.position).normalized)) * Mathf.Rad2Deg >= lightAngle / 2)
+            if (Mathf.Acos(Vector3.Dot(targetTr.forward, (trs[i].position - transform.position).normalized)) * Mathf.Rad2Deg >= lightAngle / 2)
             {
-                visible.gameObject.layer = 6;
-                trs.Remove(visible);
+                trs[i].gameObject.layer = 6;
+                trs.Remove(trs[i]);
             }
         }
-        
     }
 
     ///<summary>
@@ -152,7 +152,5 @@ public class MeshVisionGen : MonoBehaviour
         var rad = deg * Mathf.Deg2Rad;
         return new Vector3(Mathf.Sin(rad), 0, Mathf.Cos(rad));
     }
-
-
 }
 
