@@ -34,12 +34,13 @@ public class Player : MonoBehaviour
             if (value == true)
             {
                 PlayerDead();
+                OnPlayerDie(this);
             }
         }
     }
 
     // Player ªÁ∏¡ ¿Ã∫•∆Æ
-    public delegate void PlayerDie(Player player, bool isDead);
+    public delegate void PlayerDie(Player player);
     public static event PlayerDie OnPlayerDie;
 
     private void Awake()
@@ -48,7 +49,7 @@ public class Player : MonoBehaviour
         rBody = GetComponent<Rigidbody>();
         joyStick = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponentInChildren<JoyStick>();
         dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
-        OnPlayerDie(this, IsDead);
+ 
     }
     private void Start()
     {
