@@ -41,6 +41,9 @@ public class Player : MonoBehaviour
 
     // Player 사망 이벤트
     public delegate void PlayerDie(Player player);
+    /// <summary>
+    /// Player 사망 이벤트로 IsDead 가 true가 되면 호출됩니다. 이벤트 매개변수로 사망한 player 넣어주면 됩니다.
+    /// </summary>
     public static event PlayerDie OnPlayerDie;
 
     private void Awake()
