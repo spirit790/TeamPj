@@ -7,12 +7,8 @@ using Photon.Realtime;
 
 public class MatchManager : MonoBehaviourPunCallbacks
 {
-    public static MatchManager instance;
-    
     public PhotonView playerPrefab;
-    private bool isConnected = false;
     private bool isMatchSuccess = false;
-    private bool isNewPlayerInMatch = false;
     private bool IsMatchSuccess
     {
         get { return isMatchSuccess; }
@@ -27,23 +23,19 @@ public class MatchManager : MonoBehaviourPunCallbacks
             }
         }
     }
-    private float matchTimer;
     [SerializeField] Text matchTxt;
     [SerializeField] Text matchTimeTxt;
 
-    const int MATCH_COUNT_MIN = 2;
-    const int MATCH_COUNT_MAX = 8;
+    private float matchTimer;
+    private float waitTime;
+    public const float DEFAULT_WAIT_TIME = 10f;
+
+    [SerializeField] const int MATCH_COUNT_MIN = 2;
+    [SerializeField] const int MATCH_COUNT_MAX = 8;
 
     Coroutine waitCoroutine;
 
-    private void Awake()
-    {
-        if (instance == null)
-            instance = this;
-        else
-            Destroy(instance);
-    }
-
+    #region Match Method
     public void Match()
     {
         if (PhotonNetwork.IsConnectedAndReady)
@@ -70,15 +62,9 @@ public class MatchManager : MonoBehaviourPunCallbacks
     }
     IEnumerator WaitMatch()
     {
-        float waitTime = 10f;
         while (waitTime >= 0)
         {
             waitTime -= Time.deltaTime;
-            if (isNewPlayerInMatch)
-            {
-                waitTime = 10f;
-                isNewPlayerInMatch = false;
-            }
             yield return null;
         }
         matchTxt.text = "Matcing Success";
@@ -102,6 +88,18 @@ public class MatchManager : MonoBehaviourPunCallbacks
             PhotonNetwork.LoadLevel(1);
         }
     }
+    [PunRPC]
+    public void WaitTimeSet()
+    {
+        if (PhotonNetwork.CurrentRoom.PlayerCount != MATCH_COUNT_MAX)
+        {
+            waitTime = DEFAULT_WAIT_TIME;
+        }
+        Debug.Log("waitTimeSet");
+    }
+    #endregion
+
+    #region Photon Override Method
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         if (!PhotonNetwork.InRoom)
@@ -113,7 +111,7 @@ public class MatchManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN)
         {
             waitCoroutine = StartCoroutine(WaitMatch());
-            photonView.RPC("WaitMatchTimeSet", RpcTarget.All);
+            photonView.RPC("WaitTimeSet", RpcTarget.All);
         }
         Debug.Log($"Join Room : {PhotonNetwork.CurrentRoom.Name} , {PhotonNetwork.CurrentRoom.PlayerCount}");
     }
@@ -130,19 +128,8 @@ public class MatchManager : MonoBehaviourPunCallbacks
                 StopCoroutine(waitCoroutine);
             waitCoroutine = StartCoroutine(WaitMatch());
         }
-        if (PhotonNetwork.CurrentRoom.PlayerCount >= (MATCH_COUNT_MIN + 1))
-        {
-            photonView.RPC("WaitMatchTimeSet", RpcTarget.All);
-        }
-        if(PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN + 1)
-        {
-            isNewPlayerInMatch = true;
-        }
+        if(PhotonNetwork.CurrentRoom.PlayerCount >= (MATCH_COUNT_MIN + 1))
+            photonView.RPC("WaitTimeSet", RpcTarget.All);
     }
-    [PunRPC]
-    public void WaitMatchTimeSet()
-    {
-        waitMatchTime = 10f;
-        Debug.Log("waitWatchTime");
-    }
+    #endregion
 }
