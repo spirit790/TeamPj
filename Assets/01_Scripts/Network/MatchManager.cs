@@ -31,8 +31,8 @@ public class MatchManager : MonoBehaviourPunCallbacks
     [SerializeField] Text matchTxt;
     [SerializeField] Text matchTimeTxt;
 
-    const int MATCHNUM_MIN = 2;
-    const int MATCHNUM_MAX = 8;
+    const int MATCH_COUNT_MIN = 2;
+    const int MATCH_COUNT_MAX = 8;
 
     Coroutine waitCoroutine;
 
@@ -110,7 +110,7 @@ public class MatchManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        if (PhotonNetwork.CurrentRoom.PlayerCount >= MATCHNUM_MIN)
+        if (PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN)
         {
             waitCoroutine = StartCoroutine(WaitMatch());
             photonView.RPC("WaitMatchTimeSet", RpcTarget.All);
@@ -134,7 +134,7 @@ public class MatchManager : MonoBehaviourPunCallbacks
         {
             photonView.RPC("WaitMatchTimeSet", RpcTarget.All);
         }
-        if(PhotonNetwork.CurrentRoom.PlayerCount >= MATCHNUM_MIN + 1)
+        if(PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN + 1)
         {
             isNewPlayerInMatch = true;
         }

@@ -8,6 +8,41 @@ public class GameOptionManager : MonoBehaviour
 
 
 
+
+    private void Update()
+    {
+#if UNITY_ANDROID
+
+        AndroidQuitApp();
+
+#endif
+
+
+
+    }
+    //종료버튼
+    #region AppQuit
+
+    void AndroidQuitApp()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+    void WindowQuit()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
+
+
+#endregion
+
+
     //현지화 변수와 함수
     #region Localization
     bool isChanging = false;
