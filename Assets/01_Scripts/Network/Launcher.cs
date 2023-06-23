@@ -23,13 +23,16 @@ public class Launcher : MonoBehaviourPunCallbacks
     
     public void Connect()
     {
-        PhotonNetwork.LocalPlayer.NickName = Social.localUser.id;
+        PhotonNetwork.LocalPlayer.NickName = GoogleManager.Instance.userID;
         PhotonNetwork.GameVersion = gameVersion;
         PhotonNetwork.ConnectUsingSettings();
     }
     
     public override void OnConnectedToMaster()
     {
-        Debug.Log("User Id : " + PhotonNetwork.LocalPlayer.UserId);
+        Debug.Log("User Id : " + PhotonNetwork.LocalPlayer.UserId); 
+        Debug.Log("User Nick : " + PhotonNetwork.LocalPlayer.NickName);
+        Debug.Log("User Nick : " + Social.localUser.id);
+
     }
 }
