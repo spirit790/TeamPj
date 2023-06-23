@@ -475,9 +475,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 0}
-  matchTxt: {fileID: 686921133}
-  matchTimeTxt: {fileID: 1839230231}
-  nickNameTxt: {fileID: 1494157283}
+  txtMatch: {fileID: 686921133}
+  txtMatchTime: {fileID: 1839230231}
+  txtNickName: {fileID: 1494157283}
+  btnMatch: {fileID: 1782143026}
 --- !u!4 &744627159
 Transform:
   m_ObjectHideFlags: 0
@@ -970,7 +971,7 @@ GameObject:
   - component: {fileID: 1782143027}
   - component: {fileID: 1782143026}
   m_Layer: 5
-  m_Name: Match
+  m_Name: MatchBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -994,8 +995,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -120, y: -104}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -69.750916, y: -162.7572}
+  m_SizeDelta: {x: 300.4982, y: 167.5144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1782143026
 MonoBehaviour:
@@ -1142,9 +1143,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '00
-
-'
+  m_Text: 0
 --- !u!222 &1839230232
 CanvasRenderer:
   m_ObjectHideFlags: 0
