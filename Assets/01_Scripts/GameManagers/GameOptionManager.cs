@@ -2,10 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
+using UnityEngine.UI;
 
 public class GameOptionManager : MonoBehaviour
 {
+    GameObject optionPanel;
 
+
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            
+        }
+    }
 
 
     //현지화 변수와 함수
