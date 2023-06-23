@@ -6,7 +6,7 @@ public class AreaIndicator : MonoBehaviour
 {
     public Transform area;
     public float displayDistance = 5f;
-    public Player player;
+    public PlayerController player;
 
     void Start()
     {

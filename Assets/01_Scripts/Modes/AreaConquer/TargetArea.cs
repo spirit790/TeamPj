@@ -17,13 +17,13 @@ public class TargetArea : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                modeArea.areaOwner = other.gameObject.GetComponent<Player>();
+                modeArea.areaOwner = other.gameObject.GetComponent<PlayerController>();
                 StartCoroutine(modeArea.AreaCountDown());
             }
         }
         else
         {
-            Player enteredPlayer = other.gameObject.GetComponent<Player>();
+            PlayerController enteredPlayer = other.gameObject.GetComponent<PlayerController>();
             if(other.gameObject.CompareTag("Player") && modeArea.areaOwner != enteredPlayer)
             {   
                 StopCoroutine(modeArea.AreaCountDown());

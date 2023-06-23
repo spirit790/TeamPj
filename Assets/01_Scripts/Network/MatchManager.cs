@@ -10,7 +10,6 @@ public class MatchManager : MonoBehaviourPunCallbacks
     public static MatchManager instance;
     
     public PhotonView playerPrefab;
-    private bool isConnected = false;
     private bool isMatchSuccess = false;
     private bool IsMatchSuccess
     {
@@ -27,25 +26,20 @@ public class MatchManager : MonoBehaviourPunCallbacks
         }
     }
 
+    [Header("Match Time")]
     private float matchTimer;
-    private float waitTime;
-    const float DEFAULT_WAIT_TIME = 10f;
-
+    private float waitTime = DEFAULT_WAIT_TIME;
+    [SerializeField]const float DEFAULT_WAIT_TIME = 10f;
     [SerializeField] const int MATCH_COUNT_MIN = 2;
     [SerializeField] const int MATCH_COUNT_MAX = 8;
 
-
+    [Header("MatchTimeUI")]
     [SerializeField] Text matchTxt;
     [SerializeField] Text matchTimeTxt;
 
-
     Coroutine waitCoroutine;
 
-    private void Awake()
-    {
-        waitTime = DEFAULT_WAIT_TIME;
-    }
-
+    #region Match Method
     public void Match()
     {
         if (PhotonNetwork.IsConnectedAndReady)
@@ -59,7 +53,6 @@ public class MatchManager : MonoBehaviourPunCallbacks
             Debug.Log("Not ready");
         }
     }
-    
     IEnumerator Matching()
     {
         matchTxt.text = "Matcing";
@@ -106,11 +99,14 @@ public class MatchManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.CurrentRoom.PlayerCount != MATCH_COUNT_MAX)
         {
-            waitTime = DEFAULT_WAIT_TIME;
+            int matchTimeSet = PhotonNetwork.CurrentRoom.PlayerCount - MATCH_COUNT_MIN;
+            waitTime = DEFAULT_WAIT_TIME / matchTimeSet;
         }
         Debug.Log("waitTimeSet");
     }
+    #endregion
 
+    #region Photon Override Method
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         if (!PhotonNetwork.InRoom)
@@ -139,9 +135,6 @@ public class MatchManager : MonoBehaviourPunCallbacks
                 StopCoroutine(waitCoroutine);
             waitCoroutine = StartCoroutine(WaitMatch());
         }
-        //if (PhotonNetwork.CurrentRoom.PlayerCount >= (MATCH_COUNT_MIN + 1))
-        //{
-        //    photonView.RPC("WaitMatchTimeSet", RpcTarget.All);
-        //}
     }
+    #endregion
 }

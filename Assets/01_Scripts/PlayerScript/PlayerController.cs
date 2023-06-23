@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using Photon.Pun;
 
 
-public class Player : MonoBehaviourPun
+public class PlayerController : MonoBehaviourPun
 {
     JoyStick joyStick;
     DashBtn dashBtn;
@@ -43,7 +43,7 @@ public class Player : MonoBehaviourPun
     }
 
     // Player ?щ쭩 ?대깽??
-    public delegate void PlayerDie(Player player);
+    public delegate void PlayerDie(PlayerController player);
     /// <summary>
     /// Player 사망 이벤트로 IsDead 가 true가 되면 호출됩니다. 이벤트 매개변수로 사망한 player 넣어주면 됩니다.
     /// </summary>
@@ -63,8 +63,6 @@ public class Player : MonoBehaviourPun
         playerState = PLAYERSTATE.IDLE;
         //OnPlayerDie(this);
     }
-
-    
 
     void Update()
     {

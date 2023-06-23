@@ -63,8 +63,8 @@ public class GameManager : MonoBehaviour
     public float deathTimeLimit = 300f;
 
     [Header("GameUsers")]
-    public List<Player> livePlayers = new List<Player>();
-    public List<Player> deadPlayers = new List<Player>();
+    public List<PlayerController> livePlayers = new List<PlayerController>();
+    public List<PlayerController> deadPlayers = new List<PlayerController>();
     [Header("UserInfo")]
     public Dictionary<string, object> userInfo = new Dictionary<string, object>();
     public bool isWin = false;
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        Player.OnPlayerDie += PlayerDie;
+        PlayerController.OnPlayerDie += PlayerDie;
     }
 
     void Update()
@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour
         modeArea.Set(playerCount, battleAIRatio, battleTimeLimit);
     }
 
-    public void PlayerDie(Player player)
+    public void PlayerDie(PlayerController player)
     {
         livePlayers.Remove(player);
         deadPlayers.Add(player);

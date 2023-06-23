@@ -36,7 +36,7 @@ public class CarrotMove : MonoBehaviour
 
             if(hitObj.CompareTag("Player"))
             {
-                hitObj.GetComponent<Player>().IsDead = true;
+                hitObj.GetComponent<PlayerController>().IsDead = true;
             }
             if(hitObj.CompareTag("AI"))
             {

@@ -19,7 +19,7 @@ public class DeadZone : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Player player = other.gameObject.GetComponent<Player>();
+            PlayerController player = other.gameObject.GetComponent<PlayerController>();
             // 플레이어 처치
             StartCoroutine(PlayerDeadByDeadZone(player));
         }
@@ -30,7 +30,7 @@ public class DeadZone : MonoBehaviour
         }
     }
 
-    IEnumerator PlayerDeadByDeadZone(Player player)
+    IEnumerator PlayerDeadByDeadZone(PlayerController player)
     {
         yield return new WaitForSeconds(deadZoneTime);
         Debug.Log("데드존에 플레이어 사망");
@@ -40,7 +40,7 @@ public class DeadZone : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Player player = other.gameObject.GetComponent<Player>();
+            PlayerController player = other.gameObject.GetComponent<PlayerController>();
             StopAllCoroutines();
         }
     }

@@ -5,16 +5,16 @@ using UnityEngine;
 public class ModeAreaConquer : Mode
 {
     public float areaTimeLimit;
-    public Player areaOwner;
+    public PlayerController areaOwner;
 
     void Start()
     {
         CreatePlayer();
-        Player.OnPlayerDie += AreaOwnerDie;
+        PlayerController.OnPlayerDie += AreaOwnerDie;
         GameManager.OnPlayersLeftOne += WinGameByKill;
     }
 
-    public void AreaOwnerDie(Player player)
+    public void AreaOwnerDie(PlayerController player)
     {
         if(areaOwner == player)
         {

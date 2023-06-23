@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ModeDeathMatch : Mode
 {
-    Queue<Player> deadPlayerList = new Queue<Player>();
+    Queue<PlayerController> deadPlayerList = new Queue<PlayerController>();
 
     [Header("AI 리스폰 시간")]
     [SerializeField]
@@ -40,7 +40,7 @@ public class ModeDeathMatch : Mode
     {
         base.GameOver();
     }
-    void RespawnPlayer(Player player)
+    void RespawnPlayer(PlayerController player)
     {
         player = deadPlayerList.Dequeue();
     }
