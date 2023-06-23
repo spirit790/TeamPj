@@ -50,7 +50,6 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     public virtual void GameStart()
     {
-        CreateAI();
         StartCoroutine(GamePlaying());
     }
     
