@@ -10,6 +10,7 @@ TagManager:
   - AttackBtn
   - DashBtn
   - HeadUpDisplay
+  - OptionPanel
   layers:
   - Default
   - TransparentFX
