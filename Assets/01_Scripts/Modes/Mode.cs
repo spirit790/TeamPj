@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
-using Photon.Realtime;
-using ExitGames.Client.Photon;
 
 public class Mode : MonoBehaviourPunCallbacks
 {
@@ -33,6 +31,7 @@ public class Mode : MonoBehaviourPunCallbacks
     [Header("테스트용")]
     public Text txt;
 
+
     /// <summary>
     /// Mode 초기화 및 변수 할당 함수
     /// </summary>
@@ -51,9 +50,10 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     public virtual void GameStart()
     {
+        CreateAI();
         StartCoroutine(GamePlaying());
     }
-
+    
     /// <summary>
     /// 메인게임 시작시 호출
     /// </summary>
@@ -68,7 +68,9 @@ public class Mode : MonoBehaviourPunCallbacks
         {
             txt.text = string.Format("{0:0}", timeLimit);
             
+
             GameOverControl();
+
             yield return null;
         }
 
@@ -108,7 +110,6 @@ public class Mode : MonoBehaviourPunCallbacks
     /// <summary>
     /// 게임오버 조건 처리
     /// </summary>
-    /// 
     protected virtual void GameOverControl()
     {
         timeLimit -= Time.deltaTime;

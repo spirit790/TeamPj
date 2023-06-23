@@ -99,6 +99,7 @@ public class Player : MonoBehaviourPun
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), roteSpeed);
 
             playerAgent.Move(dir * moveSpeed * Time.deltaTime);
+
         }
     }
     public void PlayerKeyBordMove()
