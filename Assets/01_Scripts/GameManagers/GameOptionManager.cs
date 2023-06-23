@@ -2,45 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
+using UnityEngine.UI;
 
 public class GameOptionManager : MonoBehaviour
 {
-
+    GameObject optionPanel;
 
 
 
     private void Update()
     {
-#if UNITY_ANDROID
-
-        AndroidQuitApp();
-
-#endif
-
-
-
-    }
-    //종료버튼
-    #region AppQuit
-
-    void AndroidQuitApp()
-    {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            
         }
     }
-    void WindowQuit()
-    {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-    }
-
-
-
-#endregion
 
 
     //현지화 변수와 함수
