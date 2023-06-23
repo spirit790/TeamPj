@@ -10,8 +10,10 @@ public class Launcher : MonoBehaviourPunCallbacks
 {
 	string gameVersion = "1";
 
+    [SerializeField ]Button btnMatch;
     private void Awake()
     {
+        btnMatch.interactable = false;
         PhotonNetwork.AutomaticallySyncScene = true;
     }
 
@@ -29,6 +31,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     
     public override void OnConnectedToMaster()
     {
+        btnMatch.interactable = true;
         Debug.Log("User Id : " + PhotonNetwork.LocalPlayer.UserId);
     }
 }

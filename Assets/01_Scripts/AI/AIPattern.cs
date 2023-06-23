@@ -14,10 +14,8 @@ public class AIPattern : MonoBehaviour
     public float moveSpeed;
     public float runSpeed;
 
-    [SerializeField]
-    float targetDistance;
-
     private bool isDead;
+    const float TARGET_DISTANCE = 3;
 
     Vector3 TargetPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
 
@@ -39,7 +37,7 @@ public class AIPattern : MonoBehaviour
         get
         {
             float distance = Vector3.Distance(TargetPos, transform.position);
-            if (distance < targetDistance)
+            if (distance < TARGET_DISTANCE)
                 return true;
             else
                 return false;
