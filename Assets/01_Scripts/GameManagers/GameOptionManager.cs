@@ -7,19 +7,33 @@ using UnityEngine.Audio;
 
 public class GameOptionManager : MonoBehaviour
 {
+
     [SerializeField]
     GameObject option;
 
-    public AudioClip bgm;
-    public Slider bgmSlider;
 
+    AudioSource bgmPlayer;
+    AudioSource sfxPlayer;
+
+    public AudioClip[] audioClips;
     public AudioMixer audioMixer;
+
+    SFXCASE sfxCase;
+    public enum SFXCASE
+    {
+
+    }
+
+
+    private void Awake()
+    {
+        bgmPlayer = GameObject.Find("BGM Player").GetComponent<AudioSource>();
+        sfxPlayer = GameObject.Find("Sfx Player").GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
-        GetComponent<AudioSource>().clip = bgm;
-        GetComponent<AudioSource>().loop = true;
-        GetComponent<AudioSource>().Play();
+
     }
 
 
@@ -66,14 +80,10 @@ public class GameOptionManager : MonoBehaviour
 
     //사운드 옵션
     #region SoundOption
-    public void PlaySfx(AudioClip sfx)
-    {
-        GetComponent<AudioSource>().PlayOneShot(sfx);
-    }
-    public void SetBgmVolme()
-    {
-        audioMixer.SetFloat("BGM", Mathf.Log10(bgmSlider.value) * 20);
-    }
+
+
+
+
     #endregion
 
     public void CloseOptionPanelBtn()
