@@ -20,14 +20,10 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
 		Connect();
     }
-
-    private void Update()
-    {
-        
-    }
-
+    
     public void Connect()
     {
+        PhotonNetwork.LocalPlayer.NickName = Social.localUser.id;
         PhotonNetwork.GameVersion = gameVersion;
         PhotonNetwork.ConnectUsingSettings();
     }
