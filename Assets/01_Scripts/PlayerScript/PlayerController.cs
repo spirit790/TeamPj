@@ -77,6 +77,16 @@ public class PlayerController : MonoBehaviourPun
 
     }
 
+    public void PlayerMove()
+    {
+#if UNITY_ANDROID
+        float h = joyStick.Horizontal();
+        float v = joyStick.Vertical();
+#endif
+#if UNITY_EDITOR_WIN
+#endif
+    }
+
     public void PlayerJoyStickMove()
     {
         playerState = PLAYERSTATE.MOVE;
@@ -97,7 +107,6 @@ public class PlayerController : MonoBehaviourPun
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), roteSpeed);
 
             playerAgent.Move(dir * moveSpeed * Time.deltaTime);
-
         }
     }
     public void PlayerKeyBordMove()

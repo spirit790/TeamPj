@@ -26,18 +26,20 @@ public class MatchManager : MonoBehaviourPunCallbacks
         }
     }
 
-    [Header("Match Time")]
+    const float DEFAULT_WAIT_TIME = 10f;
+    const int MATCH_COUNT_MIN = 2;
+    const int MATCH_COUNT_MAX = 8;
     private float matchTimer;
     private float waitTime = DEFAULT_WAIT_TIME;
-    [SerializeField]const float DEFAULT_WAIT_TIME = 10f;
-    [SerializeField] const int MATCH_COUNT_MIN = 2;
-    [SerializeField] const int MATCH_COUNT_MAX = 8;
 
     [Header("MatchTimeUI")]
     [SerializeField] Text matchTxt;
     [SerializeField] Text matchTimeTxt;
 
+    [SerializeField] Text nickNameTxt;
+
     Coroutine waitCoroutine;
+
 
     #region Match Method
     public void Match()
@@ -91,7 +93,7 @@ public class MatchManager : MonoBehaviourPunCallbacks
             Debug.Log("Master");
             yield return new WaitForSeconds(PhotonNetwork.LevelLoadingProgress);
 
-            PhotonNetwork.LoadLevel(1);
+            PhotonNetwork.LoadLevel("MultiplayTest");
         }
     }
     [PunRPC]
@@ -100,7 +102,8 @@ public class MatchManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.CurrentRoom.PlayerCount != MATCH_COUNT_MAX)
         {
             int matchTimeSet = PhotonNetwork.CurrentRoom.PlayerCount - MATCH_COUNT_MIN;
-            waitTime = DEFAULT_WAIT_TIME / matchTimeSet;
+            if(matchTimeSet != 0)
+                waitTime = DEFAULT_WAIT_TIME / matchTimeSet;
         }
         Debug.Log("waitTimeSet");
     }
@@ -115,6 +118,8 @@ public class MatchManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        nickNameTxt.text = PhotonNetwork.LocalPlayer.NickName;
+
         if (PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN)
         {
             waitCoroutine = StartCoroutine(WaitMatch());
