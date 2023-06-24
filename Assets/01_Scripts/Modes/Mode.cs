@@ -25,9 +25,6 @@ public class Mode : MonoBehaviourPunCallbacks
     protected float timeLimit;
     public bool isGameOver = false;
 
-    [Header("테스트용")]
-    public Text txt;
-
     #region Initailize
     /// <summary>
     /// Mode 초기화 및 변수 할당 함수
@@ -89,8 +86,6 @@ public class Mode : MonoBehaviourPunCallbacks
 
         while (!isGameOver)
         {
-            txt.text = string.Format("{0:0}", timeLimit);
-            
 
             GameOverControl();
 

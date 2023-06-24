@@ -10,8 +10,10 @@ public class Launcher : MonoBehaviourPunCallbacks
 {
 	string gameVersion = "1";
 
+    [SerializeField ]Button btnMatch;
     private void Awake()
     {
+        btnMatch.interactable = false;
         PhotonNetwork.AutomaticallySyncScene = true;
     }
 
@@ -22,16 +24,14 @@ public class Launcher : MonoBehaviourPunCallbacks
     
     public void Connect()
     {
-        PhotonNetwork.LocalPlayer.NickName = GoogleManager.Instance.userID;
+        PhotonNetwork.LocalPlayer.NickName = Social.localUser.id;
         PhotonNetwork.GameVersion = gameVersion;
         PhotonNetwork.ConnectUsingSettings();
     }
     
     public override void OnConnectedToMaster()
     {
-        Debug.Log("User Id : " + PhotonNetwork.LocalPlayer.UserId); 
-        Debug.Log("User Nick : " + PhotonNetwork.LocalPlayer.NickName);
-        Debug.Log("User Nick : " + Social.localUser.id);
-
+        btnMatch.interactable = true;
+        Debug.Log("User Id : " + PhotonNetwork.LocalPlayer.UserId);
     }
 }

@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using UnityEngine.UI;
 using Photon.Realtime;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class MatchManager : MonoBehaviourPunCallbacks
 {
-    public static MatchManager instance;
-    
     public PhotonView playerPrefab;
     private bool isMatchSuccess = false;
     private bool isMatching = false;
@@ -21,7 +21,7 @@ public class MatchManager : MonoBehaviourPunCallbacks
             isMatchSuccess = value;
             if (value == true)
             {
-                btnMatch.enabled = false;
+                btnMatch.interactable = false;
                 PhotonNetwork.CurrentRoom.IsOpen = false;
                 Debug.Log("Start");
                 StartCoroutine(MatchSuccess());
@@ -56,7 +56,7 @@ public class MatchManager : MonoBehaviourPunCallbacks
 
     const float DEFAULT_WAIT_TIME = 10f;
     const int MATCH_COUNT_MIN = 2;
-    const int MATCH_COUNT_MAX = 8;
+    const int MATCH_COUNT_MAX = 3;
     private float matchTimer;
     private float waitTime = DEFAULT_WAIT_TIME;
 
@@ -95,8 +95,6 @@ public class MatchManager : MonoBehaviourPunCallbacks
         while (waitTime >= 0)
         {
             waitTime -= Time.deltaTime;
-            if(PhotonNetwork.CurrentRoom.PlayerCount == MATCH_COUNT_MAX)
-                IsMatchSuccess = true;
             yield return null;
         }
         IsMatchSuccess = true;
@@ -145,14 +143,24 @@ public class MatchManager : MonoBehaviourPunCallbacks
     #region Photon Override Method
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
+        RoomOptions roomOptions = new RoomOptions();
+        int randomMap = Random.Range(0, 3);
+        int randomMode = Random.Range(0, GameManager.Instance.modes.Count);
+
+        Hashtable roomProp = new Hashtable { { GameManager.Instance.KeyMap, randomMap }, { GameManager.Instance.KeyMode,randomMode} };
+        roomOptions.CustomRoomProperties = roomProp;
+
         if (!PhotonNetwork.InRoom)
-            PhotonNetwork.CreateRoom(null, new RoomOptions());
+            PhotonNetwork.CreateRoom(null, roomOptions);
     }
     public override void OnJoinedRoom()
     {
-        txtNickName.text = PhotonNetwork.LocalPlayer.NickName;
-
-        if (PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN)
+        if (PhotonNetwork.CurrentRoom.PlayerCount == MATCH_COUNT_MAX)
+        {
+            StopAllCoroutines();
+            StartCoroutine(MatchSuccess());
+        }
+        else if (PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN)
         {
             waitCoroutine = StartCoroutine(WaitMatch());
             photonView.RPC(nameof(WaitTimeSet), RpcTarget.All);
@@ -161,9 +169,14 @@ public class MatchManager : MonoBehaviourPunCallbacks
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        if (PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN)
+        if (PhotonNetwork.CurrentRoom.PlayerCount == MATCH_COUNT_MAX)
         {
-            if(waitCoroutine != null)
+            StopAllCoroutines();
+            StartCoroutine(MatchSuccess());
+        }
+        else if (PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN)
+        {
+            if (waitCoroutine != null)
                 StopCoroutine(waitCoroutine);
             waitCoroutine = StartCoroutine(WaitMatch());
         }
