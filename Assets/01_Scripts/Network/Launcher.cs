@@ -12,7 +12,6 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         PhotonNetwork.AutomaticallySyncScene = true;
     }
 

@@ -103,8 +103,9 @@ public class PlayerController : MonoBehaviourPun
             {
                 moveSpeed = normalSpeed;
             }
-            Vector3 dir = new Vector3(h, 0, v);
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), roteSpeed);
+            Vector3 dir = new Vector3(h, 0, v); 
+            if(transform.rotation != Quaternion.Euler(dir.normalized))
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), roteSpeed);
 
             playerAgent.Move(dir * moveSpeed * Time.deltaTime);
         }
