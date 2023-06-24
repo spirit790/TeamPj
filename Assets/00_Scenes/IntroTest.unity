@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &160406761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameMode: 0
+  modes:
+  - {fileID: 3812861490498283261, guid: bac10166c774df848ac94f3106b5c3ea, type: 3}
+  - {fileID: 3689139734589052143, guid: 325558b1933458d4aa6b8385b990e185, type: 3}
+  - {fileID: 3547377901982660813, guid: 7fd1888656fb0c549a67d5ce667d83a2, type: 3}
   battleAIRatio: 10
   battleTimeLimit: 300
   areaAIRatio: 10
@@ -474,7 +478,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a5f89434061d541a39bf981bbb5d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: {fileID: 0}
   playerPrefab: {fileID: 0}
   txtMatch: {fileID: 686921133}
   txtMatchTime: {fileID: 1839230231}

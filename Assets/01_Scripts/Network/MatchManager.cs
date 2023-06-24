@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using UnityEngine.UI;
 using Photon.Realtime;
@@ -58,9 +59,6 @@ public class MatchManager : MonoBehaviourPunCallbacks
     const int MATCH_COUNT_MAX = 3;
     private float matchTimer;
     private float waitTime = DEFAULT_WAIT_TIME;
-
-    const string KEY_MAP = "map";
-    const string KEY_MODE = "mode";
 
     [Header("MatchTimeUI")]
     [SerializeField] Text txtMatch;
@@ -147,9 +145,9 @@ public class MatchManager : MonoBehaviourPunCallbacks
     {
         RoomOptions roomOptions = new RoomOptions();
         int randomMap = Random.Range(0, 3);
-        int randomMode = Random.Range(0, 3);
+        int randomMode = Random.Range(0, GameManager.Instance.modes.Count);
 
-        Hashtable roomProp = new Hashtable { { KEY_MAP, randomMap }, { KEY_MODE,randomMode} };
+        Hashtable roomProp = new Hashtable { { GameManager.Instance.KeyMap, randomMap }, { GameManager.Instance.KeyMode,randomMode} };
         roomOptions.CustomRoomProperties = roomProp;
 
         if (!PhotonNetwork.InRoom)
@@ -157,7 +155,6 @@ public class MatchManager : MonoBehaviourPunCallbacks
     }
     public override void OnJoinedRoom()
     {
-        txtNickName.text = PhotonNetwork.LocalPlayer.NickName;
         if (PhotonNetwork.CurrentRoom.PlayerCount == MATCH_COUNT_MAX)
         {
             StopAllCoroutines();
@@ -179,7 +176,7 @@ public class MatchManager : MonoBehaviourPunCallbacks
         }
         else if (PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN)
         {
-            if(waitCoroutine != null)
+            if (waitCoroutine != null)
                 StopCoroutine(waitCoroutine);
             waitCoroutine = StartCoroutine(WaitMatch());
         }

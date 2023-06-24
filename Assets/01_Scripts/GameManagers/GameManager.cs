@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 public class GameManager : MonoBehaviour
 {
@@ -50,6 +51,9 @@ public class GameManager : MonoBehaviour
     }
     public Modes gameMode;
 
+    // 추가 부분
+    public List<Mode> modes;
+
     [Header("BattleRoyal")]
     public int battleAIRatio = 10;
     public float battleTimeLimit = 300f;
@@ -72,6 +76,12 @@ public class GameManager : MonoBehaviour
     public int playerKills = 0;
     public int aiKills = 0;
     public string nickNamne;
+
+    const string KEY_MAP = "map";
+    const string KEY_MODE = "mode";
+
+    public string KeyMap { get { return KEY_MAP; } }
+    public string KeyMode { get { return KEY_MODE; } }
 
     public delegate void PlayersLeftOne();
     public static PlayersLeftOne OnPlayersLeftOne;
@@ -102,21 +112,16 @@ public class GameManager : MonoBehaviour
     {
         // 게임 시작 단계에서 모드 정해지고 실행되도록, game scene에서 실행되도록
         // scene 순서는 추후 구현하면서 변경 및 확정하도록 함
-        if(scene.buildIndex == 0)
+
+        // 수정 부분
+        // 매치시작시 모드 선택,맵 생성
+        if(scene.buildIndex == 1)
         {
-            switch (gameMode)
-            {
-                case Modes.BATTLEROYAL:
-                    StartBattleRoyal();
-                    break;
-                case Modes.AREA:
-                    StartAreaConquer();
-                    break;
-                case Modes.DEATHMATCH:
-                    break;
-                default:
-                    break;
-            }
+            playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
+            int modeNum = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[KeyMode].ToString());
+            Instantiate(modes[modeNum]);
+
+            //TODO : 맵 설정
         }
 
     }
