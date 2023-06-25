@@ -60,9 +60,12 @@ public class AIPattern : MonoBehaviour
 
     void Update()
     {
-        if (IsDone)
+        if (PhotonNetwork.IsMasterClient)
         {
-            IsDone = false;
+            if (IsDone)
+            {
+                IsDone = false;
+            }
         }
     }
 
@@ -91,9 +94,9 @@ public class AIPattern : MonoBehaviour
 
     public IEnumerator StopMove(float stopTime)
     {
-        agent.isStopped = true;
+        enabled = false;
         yield return new WaitForSeconds(stopTime);
-        agent.isStopped = false;
+        enabled = true;
     }
 
     private void OnEnable()
