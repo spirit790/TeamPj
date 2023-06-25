@@ -121,16 +121,19 @@ public class RoadMaker : MonoBehaviour
                 for (int y = 0; y < height; y++)
                 {
                     //Gizmos.color = (map[x, y] == 1) ? Color.black : Color.white;
-                    Vector3 pos = new Vector3(-width / 2 + x + 0.5f, 0, -height / 2 + y + 0.5f);
+                    Vector3 pos = new Vector3(x, 0,  y);
+                    GameObject tile;
                     //Gizmos.DrawCube(pos, Vector3.one);
                     if(map[x,y] == 1)
                     {
-                        Instantiate(groundPrefab, pos, transform.rotation);
+                        tile = Instantiate(groundPrefab, pos, transform.rotation);
                     }
                     else
                     {
-                        Instantiate(roadPrefab, pos, transform.rotation);
+                        tile = Instantiate(roadPrefab, pos, transform.rotation);
                     }
+                    tile.isStatic = true;
+                    tile.transform.SetParent(gameObject.transform);
                 }
             }
         }

@@ -329,7 +329,6 @@ GameObject:
   m_Component:
   - component: {fileID: 355930674}
   - component: {fileID: 355930673}
-  - component: {fileID: 355930675}
   m_Layer: 0
   m_Name: MapGenerator
   m_TagString: Untagged
@@ -349,15 +348,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d2096cd70323e41b419f2f0b958b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chunkX: 4
+  chunkZ: 3
+  chunkWidth: 9
+  chunkHeight: 9
+  structurePrefabs:
+  - {fileID: 1289825284374926, guid: 5fc6091935383e9459b8e3f75557288b, type: 3}
+  - {fileID: 1855122608725610, guid: a75ba48ab7bee284cbfc05e8949f515d, type: 3}
+  - {fileID: 1673676435931376, guid: d731533867f740e4895f2899a25be282, type: 3}
   width: 9
   height: 9
-  groundPrefab: {fileID: 1979290889500462, guid: 98dd8e405a3f26848b63e1b78dfb7c5b,
+  seed: 
+  groundPrefab: {fileID: 1979290889500462, guid: 9cf098b9d4a0ffe4a83c5afa2c643086,
     type: 3}
-  structurePrefabs:
-  - {fileID: 1289825284374926, guid: 172ce52df11877a4c8a0772a29498dfe, type: 3}
-  - {fileID: 1673676435931376, guid: ed63c8c364471b54389d0f54e52fbcc1, type: 3}
-  - {fileID: 1855122608725610, guid: 045ab7d05f890d043bbc38da4c7742da, type: 3}
-  - {fileID: 1326051437780190, guid: e82c52646f4dcf34dae2ba194bdb9586, type: 3}
+  roadPrefab: {fileID: 1149535237560096, guid: 77baab57b69c72a4198d733118e24ab4, type: 3}
+  randomFillPercent: 52
 --- !u!4 &355930674
 Transform:
   m_ObjectHideFlags: 0
@@ -373,26 +378,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &355930675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 355930672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92b305f6d7f0c6c4190c820954f5cbe0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  width: 36
-  height: 27
-  seed: 
-  useRandomSeed: 1
-  randomFillPercent: 52
-  groundPrefab: {fileID: 1979290889500462, guid: 98dd8e405a3f26848b63e1b78dfb7c5b,
-    type: 3}
-  roadPrefab: {fileID: 1149535237560096, guid: c980d1f27dc965a44af9a3652477671c, type: 3}
 --- !u!1001 &362143972
 PrefabInstance:
   m_ObjectHideFlags: 0
