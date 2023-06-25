@@ -26,6 +26,7 @@ public class Mode : MonoBehaviourPunCallbacks
     [SerializeField] protected Text txtWaitStartTime;
 
     public GameObject myPlayerObject;
+    List<GameObject> aiList = new List<GameObject>();
     public string modeName;
 
     protected Vector3 AISpawnPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
@@ -78,6 +79,11 @@ public class Mode : MonoBehaviourPunCallbacks
         for (int i = 0; i < AICount; i++)
         {
             GameObject ai = PhotonNetwork.InstantiateRoomObject(aiPrefab.name, AISpawnPos, Quaternion.identity);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                StartCoroutine(ai.GetComponent<AIPattern>().StopMove(waitStartTime));
+            }
+            aiList.Add(ai);
         }
     }
     #endregion
@@ -98,16 +104,15 @@ public class Mode : MonoBehaviourPunCallbacks
     {
         CreatePlayer();
         CreateAI();
-
-        AIBehaviourStop(true);
         while (waitStartTime >= 0)
         {
             waitStartTime -= Time.deltaTime;
             txtWaitStartTime.text = Mathf.CeilToInt(waitStartTime).ToString() + "\n" + modeName;
             yield return null;
         }
-        AIBehaviourStop(false);
-        myPlayerObject.GetComponent<PlayerController>().enabled = true;
+        if(myPlayerObject.GetPhotonView().IsMine)
+            myPlayerObject.GetComponent<PlayerController>().enabled = true;
+
         txtWaitStartTime.text = null;
 
         while (!isGameOver)
@@ -144,11 +149,14 @@ public class Mode : MonoBehaviourPunCallbacks
         Debug.Log("게임종료");
     }
 
-    protected void AIBehaviourStop(bool iStop)
+    private void AIBehaviourStop(bool isStop)
     {
-        foreach (var item in GameObject.FindGameObjectsWithTag("AI"))
+        if (PhotonNetwork.IsMasterClient)
         {
-            item.GetComponent<AIPattern>().enabled = !iStop;
+            foreach (GameObject ai in aiList)
+            {
+                ai.GetComponent<AIPattern>().enabled = !isStop;
+            }
         }
     }
     #endregion

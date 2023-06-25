@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Photon.Pun;
 
 public class AIPattern : MonoBehaviour
 {
@@ -72,8 +73,11 @@ public class AIPattern : MonoBehaviour
     
     void MoveTo(Vector3 target)
     {
-        agent.SetDestination(target);
-        StrangeBehaviour();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            agent.SetDestination(target);
+            StrangeBehaviour();
+        }
     }
 
     void StrangeBehaviour()
@@ -85,7 +89,7 @@ public class AIPattern : MonoBehaviour
         }
     }
 
-    IEnumerator StopMove(float stopTime)
+    public IEnumerator StopMove(float stopTime)
     {
         agent.isStopped = true;
         yield return new WaitForSeconds(stopTime);
