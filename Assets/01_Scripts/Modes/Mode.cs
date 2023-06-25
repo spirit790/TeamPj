@@ -3,29 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class Mode : MonoBehaviourPunCallbacks
 {
-    [SerializeField]
-    protected GameObject aiPrefab;
+    [Header("Prefab")]
+    [SerializeField] protected GameObject aiPrefab;
+    [SerializeField] protected GameObject playerPrefab;
 
-    [SerializeField]
-    protected GameObject playerPrefab;
-
-    int playerCount;
-    int aiRatio;
+    [Header("Init Value")]
+    [SerializeField] protected int playerCount;
+    [SerializeField] protected float timeLimit;
+    [SerializeField] protected int aiRatio;
     int AICount { get { return playerCount * aiRatio; } }
 
-    [Header("맵 사이즈")]
+    [Header("Map Size")]
     public float mapWidth;
     public float mapHeight;
 
+    [Header("UI")]
+    [SerializeField] protected Text txtTimeLimit;
+    [SerializeField] protected Text txtWaitStartTime;
+
+    public GameObject myPlayerObject;
+    public string modeName;
+
     protected Vector3 AISpawnPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
 
-    protected float timeLimit;
     public bool isGameOver = false;
+    private float waitStartTime = 3f;
 
-    #region Initailize
+    #region Initialize
     /// <summary>
     /// Mode 초기화 및 변수 할당 함수
     /// </summary>
@@ -37,6 +45,9 @@ public class Mode : MonoBehaviourPunCallbacks
         this.playerCount = playerCount;
         this.aiRatio = aiRatio;
         this.timeLimit = timeLimit;
+        txtTimeLimit = GameObject.FindGameObjectWithTag("TimeLimit").GetComponent<Text>();
+        txtWaitStartTime = GameObject.FindGameObjectWithTag("WaitStartTime").GetComponent<Text>();
+        GameStart();
     }
     /// <summary>
     /// 맵 생성
@@ -51,7 +62,12 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     protected void CreatePlayer()
     {
-        PhotonNetwork.Instantiate(playerPrefab.name, AISpawnPos + new Vector3(0, 0.5f, 0), Quaternion.identity);
+        myPlayerObject = PhotonNetwork.Instantiate(playerPrefab.name, AISpawnPos + new Vector3(0, 0.5f, 0), Quaternion.identity);
+        myPlayerObject.GetComponent<PlayerController>().enabled = false;
+        // set name
+        myPlayerObject.name = PhotonNetwork.LocalPlayer.ActorNumber.ToString();
+        // set follow camera
+        Camera.main.GetComponent<FollowCam>().SetCamTarget(myPlayerObject);
     }
 
     /// <summary>
@@ -61,7 +77,7 @@ public class Mode : MonoBehaviourPunCallbacks
     {
         for (int i = 0; i < AICount; i++)
         {
-            PhotonNetwork.InstantiateRoomObject(aiPrefab.name, AISpawnPos, Quaternion.identity);
+            GameObject ai = PhotonNetwork.InstantiateRoomObject(aiPrefab.name, AISpawnPos, Quaternion.identity);
         }
     }
     #endregion
@@ -82,7 +98,17 @@ public class Mode : MonoBehaviourPunCallbacks
     {
         CreatePlayer();
         CreateAI();
-        yield return new WaitForSeconds(5f);
+
+        AIBehaviourStop(true);
+        while (waitStartTime >= 0)
+        {
+            waitStartTime -= Time.deltaTime;
+            txtWaitStartTime.text = Mathf.CeilToInt(waitStartTime).ToString() + "\n" + modeName;
+            yield return null;
+        }
+        AIBehaviourStop(false);
+        myPlayerObject.GetComponent<PlayerController>().enabled = true;
+        txtWaitStartTime.text = null;
 
         while (!isGameOver)
         {
@@ -102,6 +128,8 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     protected virtual void GameOverControl()
     {
+        txtTimeLimit.text = string.Format("{0:0}", timeLimit);
+
         timeLimit -= Time.deltaTime;
 
         if (timeLimit <= 0)
@@ -112,11 +140,16 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     protected virtual void GameOver()
     {
+        AIBehaviourStop(true);
+        Debug.Log("게임종료");
+    }
+
+    protected void AIBehaviourStop(bool iStop)
+    {
         foreach (var item in GameObject.FindGameObjectsWithTag("AI"))
         {
-            item.GetComponent<AIPattern>().enabled = false;
+            item.GetComponent<AIPattern>().enabled = !iStop;
         }
-        Debug.Log("게임종료");
     }
     #endregion
 }

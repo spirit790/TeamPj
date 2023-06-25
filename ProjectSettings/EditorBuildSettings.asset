@@ -15,10 +15,10 @@ EditorBuildSettings:
     path: Assets/00_Scenes/Song/DeadZoneTestScene.unity
     guid: 1abdd28753de65845ae1ccd1ca5e260f
   - enabled: 1
-    path: Assets/00_Scenes/IntroTest.unity
+    path: Assets/00_Scenes/MultiplayTest_Intro.unity
     guid: 37906bcf7e1507643a3ab4051a637220
   - enabled: 1
-    path: Assets/00_Scenes/MultiplayTest.unity
+    path: Assets/00_Scenes/MultiplayTest_Main.unity
     guid: 6397d89e577f0374c8a54a579897011a
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: db8ba05c2899dca4492261077ee8874f,

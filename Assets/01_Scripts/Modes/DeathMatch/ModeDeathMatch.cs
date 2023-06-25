@@ -16,15 +16,6 @@ public class ModeDeathMatch : Mode
 
     float AIRespawnTime { get { return Random.Range(aiRespawnMinTime, aiRespawnMaxTime); } }
 
-    private void Awake()
-    {
-        Set(4, 5, 60);
-        GameStart();
-    }
-
-    private void Start()
-    {
-    }
     public override void GameStart()
     {
         base.GameStart();

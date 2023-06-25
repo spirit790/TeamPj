@@ -69,11 +69,7 @@ public class AIPattern : MonoBehaviour
     /// AI 스폰시 처리 함수
     /// TODO : 일정 시간 무적 처리
     /// </summary>
-    public void SpawnAI()
-    {
-        StartCoroutine(StopMove(2f));
-    }
-
+    
     void MoveTo(Vector3 target)
     {
         agent.SetDestination(target);

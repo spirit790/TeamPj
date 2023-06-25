@@ -12,7 +12,7 @@ public class DeadZone : MonoBehaviour
     {
         DOTween.Init();
         SetDeadZoneRadius(radius, 0);
-        mode = GameObject.Find("ModeBattleRoyal").GetComponent<ModeBattleRoyal>();
+        mode = transform.parent.gameObject.GetComponent<ModeBattleRoyal>();
     }
 
     private void OnTriggerExit(Collider other)
