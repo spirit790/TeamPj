@@ -19,7 +19,14 @@ public class ModeAreaConquer : Mode
                 timeLimit = areaTimeLimit;
         }
     }
-
+    public MapGenerator mapGen;
+    public TargetArea area;
+    private void Start()
+    {
+        mapGen = GameObject.FindGameObjectWithTag("MapGen").GetComponent<MapGenerator>();
+        area = GetComponentInChildren<TargetArea>();
+        area.gameObject.transform.position = mapGen.areaZonePos;
+    }
     public override void GameStart()
     {
         PlayerController.OnPlayerDie += AreaOwnerDie;

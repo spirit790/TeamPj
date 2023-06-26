@@ -32,7 +32,20 @@ public class Mode : MonoBehaviourPunCallbacks
     protected Vector3 AISpawnPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
 
     public bool isGameOver = false;
+    public bool IsGameOver
+    {
+        get { return isGameOver; }
+        set
+        {
+            isGameOver = value;
+            if (isGameOver)
+                OnGameOver();
+        }
+    }
     private float waitStartTime = 3f;
+
+    public delegate void GameOverEvent();
+    public static event GameOverEvent OnGameOver;
 
     #region Initialize
     /// <summary>
@@ -48,6 +61,7 @@ public class Mode : MonoBehaviourPunCallbacks
         this.timeLimit = timeLimit;
         txtTimeLimit = GameObject.FindGameObjectWithTag("TimeLimit").GetComponent<Text>();
         txtWaitStartTime = GameObject.FindGameObjectWithTag("WaitStartTime").GetComponent<Text>();
+        GameManager.Instance.startTime = Firebase.Firestore.FieldValue.ServerTimestamp;
         GameStart();
     }
     /// <summary>
@@ -115,7 +129,7 @@ public class Mode : MonoBehaviourPunCallbacks
 
         txtWaitStartTime.text = null;
 
-        while (!isGameOver)
+        while (!IsGameOver)
         {
 
             GameOverControl();
@@ -125,7 +139,7 @@ public class Mode : MonoBehaviourPunCallbacks
 
         yield return null;
 
-        if (isGameOver)
+        if (IsGameOver)
             GameOver();
     }
     /// <summary>
@@ -138,7 +152,7 @@ public class Mode : MonoBehaviourPunCallbacks
         timeLimit -= Time.deltaTime;
 
         if (timeLimit <= 0)
-            isGameOver = true;
+            IsGameOver = true;
     }
     /// <summary>
     /// 게임오버시 호출 및 처리
