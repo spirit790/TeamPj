@@ -140,7 +140,6 @@ MonoBehaviour:
   mapHeight: 90
   moveSpeed: 3
   runSpeed: 5
-  targetDistance: 3
 --- !u!114 &-3070961142775548073
 MonoBehaviour:
   m_ObjectHideFlags: 0

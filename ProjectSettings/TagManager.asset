@@ -11,6 +11,8 @@ TagManager:
   - DashBtn
   - HeadUpDisplay
   - OptionPanel
+  - BgmPlayer
+  - SfxPlayer
   layers:
   - Default
   - TransparentFX

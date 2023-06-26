@@ -7,28 +7,28 @@ using UnityEngine.Audio;
 
 public class GameOptionManager : MonoBehaviour
 {
+    public static GameOptionManager instance;
 
     [SerializeField]
     GameObject option;
 
-
+    
     AudioSource bgmPlayer;
     AudioSource sfxPlayer;
-
+    [Header("Audio List")]
     public AudioClip[] audioClips;
     public AudioMixer audioMixer;
 
-    SFXCASE sfxCase;
-    public enum SFXCASE
-    {
-
-    }
-
-
+    public Slider bgmSlider;
+    public Slider sfxSlider;
+        
     private void Awake()
     {
-        bgmPlayer = GameObject.Find("BGM Player").GetComponent<AudioSource>();
-        sfxPlayer = GameObject.Find("Sfx Player").GetComponent<AudioSource>();
+        instance = this;
+        bgmPlayer = GameObject.FindWithTag("BgmPlayer").GetComponent<AudioSource>();
+        sfxPlayer = GameObject.FindWithTag("SfxPlayer").GetComponent<AudioSource>();
+
+        
     }
 
     private void Start()
@@ -81,7 +81,29 @@ public class GameOptionManager : MonoBehaviour
     //사운드 옵션
     #region SoundOption
 
+    public void PlaySound(string type)
+    {
+        int index = 0;
 
+        switch (type)
+        {
+            case "Touch": index = 0; break;
+            case "Attack": index = 1; break;
+            case "Dash": index = 2; break;
+            case "Close": index = 3; break;
+        }
+
+        sfxPlayer.clip = audioClips[index];
+        sfxPlayer.Play();
+    }
+
+    void OnMouseDown()
+    {
+        instance.PlaySound("Touch");
+        instance.PlaySound("Attack");
+        instance.PlaySound("Dash");
+        instance.PlaySound("Close");
+    }
 
 
     #endregion
