@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using GooglePlayGames;
 using Firebase.Firestore;
 using Firebase.Extensions;
+using Photon.Pun;
+using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 public class GoogleManager : MonoBehaviour
 {
@@ -32,6 +35,8 @@ public class GoogleManager : MonoBehaviour
             }
         }
     }
+
+    public string userID;
     private void Awake()
     {
         if (instance == null)
@@ -60,6 +65,8 @@ public class GoogleManager : MonoBehaviour
         {
             if (success)
             {
+                userID = Social.localUser.id;
+                Debug.Log(userID);
                 logText.text = Social.localUser.id + "\n" + Social.localUser.userName;
                 IsGoogleLoginSuccess = true;
             }
@@ -85,7 +92,8 @@ public class GoogleManager : MonoBehaviour
             if (snapShot.Exists)
             {
                 // 게임시작 씬전환 등
-                updatePanel.SetActive(true);
+                //updatePanel.SetActive(true);
+                SceneManager.LoadScene(1);
             }
             else
             {
@@ -273,5 +281,23 @@ public class GoogleManager : MonoBehaviour
                 GameManager.Instance.userInfo = snapshot.ToDictionary();
             }
         });
+    }
+
+    IEnumerator CreateGameData()
+    {
+        Dictionary<int, Player> photonPlayers = PhotonNetwork.CurrentRoom.Players;
+        List<object> playerIds = new List<object>();
+        List<PlayerController> players = new List<PlayerController>();
+        foreach (var player in photonPlayers)
+        {
+            playerIds.Add(player.Value.NickName);
+        }
+        FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
+        Dictionary<string, object> game = new Dictionary<string, object>
+        {
+            {"Mode", GameManager.Instance.gameMode },
+            {"Players", playerIds },
+        };
+        yield return null;
     }
 }
