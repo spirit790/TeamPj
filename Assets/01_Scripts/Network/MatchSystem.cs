@@ -6,13 +6,13 @@ using UnityEngine.UI;
 using Photon.Realtime;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
-public class MatchManager : MonoBehaviourPunCallbacks
+public class MatchSystem : MonoBehaviourPunCallbacks
 {
     public PhotonView playerPrefab;
     private bool isMatchSuccess = false;
     private bool isMatching = false;
 
-    private bool IsMatchSuccess
+    public bool IsMatchSuccess
     {
         get { return isMatchSuccess; }
         set
@@ -27,7 +27,7 @@ public class MatchManager : MonoBehaviourPunCallbacks
             }
         }
     }
-    private bool IsMatching
+    public bool IsMatching
     {
         get { return isMatching; }
         set
@@ -35,7 +35,9 @@ public class MatchManager : MonoBehaviourPunCallbacks
             isMatching = value;
             if(value == true)
             {
-                this.enabled = true;
+                this.gameObject.SetActive(true);
+                btnCreate.interactable = false;
+                btnJoin.interactable = false;
                 btnMatch.transform.GetChild(0).GetComponent<Text>().text = "Match\nCancel";
                 PhotonNetwork.JoinRandomRoom();
                 StartCoroutine(Matching());
@@ -43,12 +45,14 @@ public class MatchManager : MonoBehaviourPunCallbacks
             else
             {
                 StopAllCoroutines();
+                btnCreate.interactable = true;
+                btnJoin.interactable = true;
                 matchTimer = 0;
                 btnMatch.transform.GetChild(0).GetComponent<Text>().text = "Match";
                 txtMatch.text = null;
                 txtMatchTime.text = "0";
                 PhotonNetwork.LeaveRoom();
-                this.enabled = false;
+                this.gameObject.SetActive(false);
             }
         }
     }
@@ -59,13 +63,14 @@ public class MatchManager : MonoBehaviourPunCallbacks
     private float matchTimer;
     private float waitTime = DEFAULT_WAIT_TIME;
 
-    [Header("MatchTimeUI")]
+    [Header("UI MatchTime")]
     [SerializeField] Text txtMatch;
     [SerializeField] Text txtMatchTime;
 
-    [SerializeField] Text txtNickName;
-
+    [Header("UI Btn")]
     [SerializeField] Button btnMatch;
+    [SerializeField] Button btnCreate;
+    [SerializeField] Button btnJoin;
 
     Coroutine waitCoroutine;
 
