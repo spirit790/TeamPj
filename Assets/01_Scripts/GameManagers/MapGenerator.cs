@@ -13,6 +13,11 @@ public class MapGenerator : MonoBehaviour
     int[,] chunk;
     public GameObject[] structurePrefabs;
 
+    [Header("Area and Zone Pos")]
+    public Vector3 areaZonePos;
+    public Vector3 mainBuildingPos1;
+    public Vector3 mainBuildingPos2;
+    public List<Vector3> posList = new List<Vector3>();
     [Header("Road")]
     public int width;
     public int height; 
@@ -42,9 +47,11 @@ public class MapGenerator : MonoBehaviour
         height = chunkZ * chunkHeight;
         GenerateMap();
         //NavMesh.RemoveAllNavMeshData();
-
+        mainBuildingPos1 = new Vector3(width / 2f - chunkWidth / 2f, 0, height / 2f);
+        mainBuildingPos2 = new Vector3(width / 2f + chunkWidth / 2f, 0, height / 2f);
         surfaces[0].BuildNavMesh();
-        
+        MakeRandomZonePos();
+        areaZonePos = posList[Random.Range(0,posList.Count)];
     }
 
     public void MakeChunk(int structures, int chunkX, int chunkY)
@@ -67,6 +74,22 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
+    public void MakeRandomZonePos()
+    {
+        for (int i = 1; i < chunkX+1; i++)
+        {
+            for (int j = 1; j < chunkZ+1; j++)
+            {
+                Vector3 pos = new Vector3( i * chunkWidth - chunkWidth / 2f, 0,j * chunkHeight - chunkHeight / 2f);
+                if (pos.x == mainBuildingPos1.x && pos.z == mainBuildingPos1.z)
+                    continue;
+                else if (pos.x == mainBuildingPos2.x && pos.z == mainBuildingPos2.z)
+                    continue;
+                else
+                    posList.Add(pos);
+            }
+        }
+    }
     private void GenerateMap()
     {
         map = new int[width, height];
@@ -165,10 +188,8 @@ public class MapGenerator : MonoBehaviour
             {
                 for (int y = 0; y < height; y++)
                 {
-                    //Gizmos.color = (map[x, y] == 1) ? Color.black : Color.white;
                     Vector3 pos = new Vector3(x, 0, y);
                     GameObject tile;
-                    //Gizmos.DrawCube(pos, Vector3.one);
                     if (map[x, y] == 1)
                     {
                         tile = Instantiate(groundPrefab, pos, transform.rotation);
