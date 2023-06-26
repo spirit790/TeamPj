@@ -13,7 +13,6 @@ TagManager:
   - OptionPanel
   - TimeLimit
   - WaitStartTime
-
   layers:
   - Default
   - TransparentFX
@@ -21,13 +20,13 @@ TagManager:
   - 
   - Water
   - UI
-  - Vailed
-  - Unvailed
-  - FOG_OF_WAR
+  - Actor_invisible
+  - Actor_visible
+  - fog_of_war
   - WALL
-  - wall_trans
-  - HeightFog
-  - VISION
+  - WALL_trans
+  - Chroma_Key
+  - 
   - 
   - 
   - 

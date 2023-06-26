@@ -130,7 +130,7 @@ Material:
     - _gradientNoise: 10
     - _maskingPower: 6.06
     - _noiseScale: 10
-    - _rimPower: 4.67
+    - _rimPower: 6.09
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
