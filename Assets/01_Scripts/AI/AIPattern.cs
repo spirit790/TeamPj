@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.Netcode;
 using UnityEngine.AI;
+using Photon.Pun;
 
 public class AIPattern : MonoBehaviour
 {
@@ -15,8 +15,8 @@ public class AIPattern : MonoBehaviour
     public float moveSpeed;
     public float runSpeed;
 
-    [SerializeField]
-    float targetDistance;
+    private bool isDead;
+    const float TARGET_DISTANCE = 3;
 
     Vector3 TargetPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
 
@@ -38,7 +38,7 @@ public class AIPattern : MonoBehaviour
         get
         {
             float distance = Vector3.Distance(TargetPos, transform.position);
-            if (distance < targetDistance)
+            if (distance < TARGET_DISTANCE)
                 return true;
             else
                 return false;
@@ -60,9 +60,12 @@ public class AIPattern : MonoBehaviour
 
     void Update()
     {
-        if (IsDone)
+        if (PhotonNetwork.IsMasterClient)
         {
-            IsDone = false;
+            if (IsDone)
+            {
+                IsDone = false;
+            }
         }
     }
 
@@ -70,15 +73,14 @@ public class AIPattern : MonoBehaviour
     /// AI 스폰시 처리 함수
     /// TODO : 일정 시간 무적 처리
     /// </summary>
-    public void SpawnAI()
-    {
-        StartCoroutine(StopMove(2f));
-    }
-
+    
     void MoveTo(Vector3 target)
     {
-        agent.SetDestination(target);
-        StrangeBehaviour();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            agent.SetDestination(target);
+            StrangeBehaviour();
+        }
     }
 
     void StrangeBehaviour()
@@ -90,11 +92,11 @@ public class AIPattern : MonoBehaviour
         }
     }
 
-    IEnumerator StopMove(float stopTime)
+    public IEnumerator StopMove(float stopTime)
     {
-        agent.isStopped = true;
+        enabled = false;
         yield return new WaitForSeconds(stopTime);
-        agent.isStopped = false;
+        enabled = true;
     }
 
     private void OnEnable()
@@ -112,4 +114,23 @@ public class AIPattern : MonoBehaviour
         Debug.Log("d");
         agent.speed = 0;
     }
+
+    public bool IsAiDead
+    {
+        get { return IsAiDead; }
+        set
+        {
+            if(value == true)
+            {
+                AiDead();
+            }
+        }
+    }
+
+    public void AiDead()
+    {
+        Debug.Log("AI 가 죽음!!!!!!!!!!!!");
+        Destroy(gameObject);
+    }
+
 }

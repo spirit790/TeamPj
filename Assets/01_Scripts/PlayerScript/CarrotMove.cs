@@ -18,7 +18,6 @@ public class CarrotMove : MonoBehaviour
         kTr = GetComponent<Transform>();
         attackBtn = GameObject.FindGameObjectWithTag("AttackBtn").GetComponent<Button>();
         attackBtn.onClick.AddListener(OnClickAtk);
-
     }
 
 
@@ -33,9 +32,16 @@ public class CarrotMove : MonoBehaviour
     {
         if(Physics.Raycast(transform.position, transform.forward, out hit, atkLength))
         {
+            GameObject hitObj = hit.transform.gameObject;
 
-            Debug.Log(hit.collider.tag);
-            Debug.Log(hit.collider.name);
+            if(hitObj.CompareTag("Player"))
+            {
+                hitObj.GetComponent<PlayerController>().IsDead = true;
+            }
+            if(hitObj.CompareTag("AI"))
+            {
+                hitObj.GetComponent<AIPattern>().IsAiDead = true;
+            }
         }
         
     }

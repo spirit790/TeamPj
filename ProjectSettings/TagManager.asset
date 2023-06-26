@@ -10,6 +10,10 @@ TagManager:
   - AttackBtn
   - DashBtn
   - HeadUpDisplay
+  - OptionPanel
+  - TimeLimit
+  - WaitStartTime
+
   layers:
   - Default
   - TransparentFX

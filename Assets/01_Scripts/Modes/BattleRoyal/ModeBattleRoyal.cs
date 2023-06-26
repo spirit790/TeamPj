@@ -27,13 +27,12 @@ public class ModeBattleRoyal : Mode
     public float shrinkTime;
 
     [Header("Player")]
-    public GameObject playerPrefab;
     public int playersLeft;
 
     
     private void Start()
     {
-        CreatePlayer();
+        GameManager.OnPlayersLeftOne += WinGame;
         //playersLeft = playerList.Count; gm에서 처리?
     }
 
@@ -45,5 +44,29 @@ public class ModeBattleRoyal : Mode
             timer = 0;
             TimeCount++;
         }
+    }
+    public override void GameStart()
+    {
+        base.GameStart();
+        //StartCoroutine(RespawnAI());
+    }
+
+    protected override void GameOverControl()
+    {
+        base.GameOverControl();
+    }
+
+    protected override void GameOver()
+    {
+        base.GameOver();
+    }
+    public void DeSpawnAI()
+    {
+        
+    }
+
+    public void WinGame()
+    {
+        Debug.Log($"Winner: {GameManager.Instance.livePlayers[0].name}");
     }
 }

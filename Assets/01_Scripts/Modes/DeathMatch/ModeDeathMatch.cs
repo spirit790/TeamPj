@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.Netcode;
+using Photon.Pun;
 using UnityEngine.UI;
 
 public class ModeDeathMatch : Mode
 {
-    Queue<Player> deadPlayerList = new Queue<Player>();
+    Queue<PlayerController> deadPlayerList = new Queue<PlayerController>();
 
     [Header("AI 리스폰 시간")]
     [SerializeField]
@@ -16,15 +16,10 @@ public class ModeDeathMatch : Mode
 
     float AIRespawnTime { get { return Random.Range(aiRespawnMinTime, aiRespawnMaxTime); } }
 
-    private void Awake()
-    {
-        Set(4, 5, 60);
-    }
-
     public override void GameStart()
     {
         base.GameStart();
-        StartCoroutine(RespawnAI());
+        //StartCoroutine(RespawnAI());
     }
 
     protected override void GameOverControl()
@@ -36,7 +31,7 @@ public class ModeDeathMatch : Mode
     {
         base.GameOver();
     }
-    void RespawnPlayer(Player player)
+    void RespawnPlayer(PlayerController player)
     {
         player = deadPlayerList.Dequeue();
     }
@@ -46,7 +41,6 @@ public class ModeDeathMatch : Mode
         yield return new WaitForSeconds(2f);
         while (!isGameOver)
         {
-            aiPool.Spawn(AISpawnPos);
             yield return new WaitForSeconds(AIRespawnTime);
         }
     }
