@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ConqueringArea
-  m_Shader: {fileID: -6465566751694194690, guid: 5739a1b04d201ec4f9e6da5a8c72327d,
+  m_Name: ShockWave
+  m_Shader: {fileID: -6465566751694194690, guid: c203a5a4bb6edae4fa7042fc03ffe215,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
