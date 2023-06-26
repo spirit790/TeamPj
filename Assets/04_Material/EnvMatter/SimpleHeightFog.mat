@@ -148,7 +148,7 @@ Material:
     - _FogDense: 0.176
     - _FogDensity: 0.57
     - _FogHeight: 0.58
-    - _FogSpeed: 0.01
+    - _FogSpeed: 0.071
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0

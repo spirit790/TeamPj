@@ -13,7 +13,9 @@ TagManager:
   - OptionPanel
   - TimeLimit
   - WaitStartTime
-
+  - BgmPlayer
+  - SfxPlayer
+  - MapGen
   layers:
   - Default
   - TransparentFX
@@ -21,13 +23,13 @@ TagManager:
   - 
   - Water
   - UI
-  - Vailed
-  - Unvailed
-  - FOG_OF_WAR
-  - WALL
-  - wall_trans
-  - HeightFog
-  - VISION
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

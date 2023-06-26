@@ -44,8 +44,7 @@ MonoBehaviour:
   - GameStart
   - WaitTimeSet
   - WaitTimeSetLeft
-  - ShowPlayers
-  - ChangeModeValue
+  - SetAll
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
