@@ -51,8 +51,6 @@ public class GameManager : MonoBehaviour
     }
     public Modes gameMode;
 
-    // 추가 부분
-    public List<Mode> modes;
 
     [Header("BattleRoyal")]
     public int battleAIRatio = 10;
@@ -76,6 +74,8 @@ public class GameManager : MonoBehaviour
     public int playerKills = 0;
     public int aiKills = 0;
     public string nickNamne;
+
+    public List<Mode> modes;
 
     const string KEY_MAP = "map";
     const string KEY_MODE = "mode";
@@ -113,30 +113,49 @@ public class GameManager : MonoBehaviour
         // 게임 시작 단계에서 모드 정해지고 실행되도록, game scene에서 실행되도록
         // scene 순서는 추후 구현하면서 변경 및 확정하도록 함
 
-        // 수정 부분
         // 매치시작시 모드 선택,맵 생성
         if(scene.buildIndex == 1)
         {
             playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
             int modeNum = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[KeyMode].ToString());
-            Instantiate(modes[modeNum]);
-
+            //int modeNum = 1;
+            Mode currentGameMode = Instantiate(modes[modeNum]);
+            currentGameMode.modeName = currentGameMode.GetType().Name;
+            switch (modeNum) 
+            {
+                case 0:
+                    // battleRoyal
+                    gameMode = Modes.BATTLEROYAL;
+                    currentGameMode.Set(playerCount, battleAIRatio, battleTimeLimit);
+                    break;
+                case 1:
+                    // areaConquer
+                    gameMode = Modes.AREA;
+                    currentGameMode.Set(playerCount, areaAIRatio, areaTimeLimit);
+                    break;
+                case 2:
+                    // deathMatch
+                    gameMode = Modes.DEATHMATCH;
+                    currentGameMode.Set(playerCount, deathAIRatio, deathTimeLimit);
+                    break;
+                default:
+                    break;
+            }
             //TODO : 맵 설정
         }
-
     }
 
-    private void StartBattleRoyal()
-    {
-        ModeBattleRoyal modeBattleRoyal = GameObject.Find("ModeBattleRoyal").GetComponent<ModeBattleRoyal>();
-        modeBattleRoyal.Set(playerCount, battleAIRatio, battleTimeLimit);
-    }
+    //private void StartBattleRoyal()
+    //{
+    //    ModeBattleRoyal modeBattleRoyal = GameObject.Find("ModeBattleRoyal").GetComponent<ModeBattleRoyal>();
+    //    modeBattleRoyal.Set(playerCount, battleAIRatio, battleTimeLimit);
+    //}
 
-    private void StartAreaConquer()
-    {
-        ModeAreaConquer modeArea = GameObject.Find("ModeArea").GetComponent<ModeAreaConquer>();
-        modeArea.Set(playerCount, battleAIRatio, battleTimeLimit);
-    }
+    //private void StartAreaConquer()
+    //{
+    //    ModeAreaConquer modeArea = GameObject.Find("ModeArea").GetComponent<ModeAreaConquer>();
+    //    modeArea.Set(playerCount, battleAIRatio, battleTimeLimit);
+    //}
 
     public void PlayerDie(PlayerController player)
     {

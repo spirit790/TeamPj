@@ -32,7 +32,6 @@ public class ModeBattleRoyal : Mode
     
     private void Start()
     {
-        CreatePlayer();
         GameManager.OnPlayersLeftOne += WinGame;
         //playersLeft = playerList.Count; gm에서 처리?
     }
@@ -46,7 +45,21 @@ public class ModeBattleRoyal : Mode
             TimeCount++;
         }
     }
+    public override void GameStart()
+    {
+        base.GameStart();
+        //StartCoroutine(RespawnAI());
+    }
 
+    protected override void GameOverControl()
+    {
+        base.GameOverControl();
+    }
+
+    protected override void GameOver()
+    {
+        base.GameOver();
+    }
     public void DeSpawnAI()
     {
         

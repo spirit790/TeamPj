@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class AreaIndicator : MonoBehaviour
 {
@@ -8,9 +9,9 @@ public class AreaIndicator : MonoBehaviour
     public float displayDistance = 5f;
     public PlayerController player;
 
-    void Start()
+    public void SetPlayer(PlayerController player)
     {
-            
+        this.player = player;
     }
 
     // Update is called once per frame

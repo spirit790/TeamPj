@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Photon.Pun;
 using UnityEngine.UI;
 using Photon.Realtime;
@@ -107,8 +106,8 @@ public class MatchManager : MonoBehaviourPunCallbacks
         while (waitTime >= 0)
         {
             waitTime -= Time.deltaTime;
-            txtMatchTime.text = string.Format("{0:0}", waitTime);
-            
+            txtMatchTime.text = Mathf.CeilToInt(waitTime).ToString();
+
             yield return null;
         }
         if (PhotonNetwork.IsMasterClient)
@@ -116,7 +115,7 @@ public class MatchManager : MonoBehaviourPunCallbacks
             Debug.Log("Master");
             yield return new WaitForSeconds(PhotonNetwork.LevelLoadingProgress);
 
-            PhotonNetwork.LoadLevel("MultiplayTest");
+            PhotonNetwork.LoadLevel(1);
         }
     }
     [PunRPC]
@@ -144,6 +143,7 @@ public class MatchManager : MonoBehaviourPunCallbacks
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         RoomOptions roomOptions = new RoomOptions();
+        roomOptions.MaxPlayers = MATCH_COUNT_MAX;
         int randomMap = Random.Range(0, 3);
         int randomMode = Random.Range(0, GameManager.Instance.modes.Count);
 

@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviourPun
             if(transform.rotation != Quaternion.Euler(dir.normalized))
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), roteSpeed);
 
-            playerAgent.Move(dir * moveSpeed * Time.deltaTime);
+            playerAgent.Move(moveSpeed * Time.deltaTime * dir);
         }
     }
     public void PlayerKeyBordMove()

@@ -7,19 +7,33 @@ using UnityEngine.Audio;
 
 public class GameOptionManager : MonoBehaviour
 {
+    public static GameOptionManager instance;
+
     [SerializeField]
     GameObject option;
 
-    public AudioClip bgm;
-    public Slider bgmSlider;
-
+    
+    AudioSource bgmPlayer;
+    AudioSource sfxPlayer;
+    [Header("Audio List")]
+    public AudioClip[] audioClips;
     public AudioMixer audioMixer;
+
+    public Slider bgmSlider;
+    public Slider sfxSlider;
+        
+    private void Awake()
+    {
+        instance = this;
+        bgmPlayer = GameObject.FindWithTag("BgmPlayer").GetComponent<AudioSource>();
+        sfxPlayer = GameObject.FindWithTag("SfxPlayer").GetComponent<AudioSource>();
+
+        
+    }
 
     private void Start()
     {
-        GetComponent<AudioSource>().clip = bgm;
-        GetComponent<AudioSource>().loop = true;
-        GetComponent<AudioSource>().Play();
+
     }
 
 
@@ -66,14 +80,32 @@ public class GameOptionManager : MonoBehaviour
 
     //사운드 옵션
     #region SoundOption
-    public void PlaySfx(AudioClip sfx)
+
+    public void PlaySound(string type)
     {
-        GetComponent<AudioSource>().PlayOneShot(sfx);
+        int index = 0;
+
+        switch (type)
+        {
+            case "Touch": index = 0; break;
+            case "Attack": index = 1; break;
+            case "Dash": index = 2; break;
+            case "Close": index = 3; break;
+        }
+
+        sfxPlayer.clip = audioClips[index];
+        sfxPlayer.Play();
     }
-    public void SetBgmVolme()
+
+    void OnMouseDown()
     {
-        audioMixer.SetFloat("BGM", Mathf.Log10(bgmSlider.value) * 20);
+        instance.PlaySound("Touch");
+        instance.PlaySound("Attack");
+        instance.PlaySound("Dash");
+        instance.PlaySound("Close");
     }
+
+
     #endregion
 
     public void CloseOptionPanelBtn()

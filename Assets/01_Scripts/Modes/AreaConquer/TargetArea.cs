@@ -5,34 +5,37 @@ using UnityEngine;
 public class TargetArea : MonoBehaviour
 {
     ModeAreaConquer modeArea;
-
     void Start()
     {
-        modeArea = GameObject.Find("ModeArea").GetComponent<ModeAreaConquer>();
+        modeArea = transform.GetComponentInParent<ModeAreaConquer>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (modeArea.areaOwner == null)
+        if (other.gameObject.CompareTag("Player"))
         {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                modeArea.areaOwner = other.gameObject.GetComponent<PlayerController>();
-                StartCoroutine(modeArea.AreaCountDown());
-            }
+            if (modeArea.AreaOwner == null)
+                modeArea.AreaOwner = other.GetComponent<PlayerController>();
+            else if (modeArea.AreaOwner.gameObject != other.gameObject)
+                modeArea.AreaOwner = other.GetComponent<PlayerController>();
         }
-        else
-        {
-            PlayerController enteredPlayer = other.gameObject.GetComponent<PlayerController>();
-            if(other.gameObject.CompareTag("Player") && modeArea.areaOwner != enteredPlayer)
-            {   
-                StopCoroutine(modeArea.AreaCountDown());
-                modeArea.areaOwner = enteredPlayer;
-                StartCoroutine(modeArea.AreaCountDown());
-            }
-        }
-
+        //if (modeArea.areaOwner == null)
+        //{
+        //    if (other.gameObject.CompareTag("Player"))
+        //    {
+        //        modeArea.areaOwner = other.gameObject.GetComponent<PlayerController>();
+        //        modeArea.SetAreaCoroutine();
+        //    }
+        //}
+        //else
+        //{
+        //    PlayerController enteredPlayer = other.gameObject.GetComponent<PlayerController>();
+        //    if(other.gameObject.CompareTag("Player") && modeArea.areaOwner != enteredPlayer)
+        //    {
+        //        modeArea.StopAreaCoroutine();
+        //        modeArea.areaOwner = enteredPlayer;
+        //        modeArea.SetAreaCoroutine();
+        //    }
+        //}
     }
-
-
 }

@@ -153,14 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameMode: 0
-  modes:
-  - {fileID: 3812861490498283261, guid: bac10166c774df848ac94f3106b5c3ea, type: 3}
-  - {fileID: 3689139734589052143, guid: 325558b1933458d4aa6b8385b990e185, type: 3}
-  - {fileID: 3547377901982660813, guid: 7fd1888656fb0c549a67d5ce667d83a2, type: 3}
   battleAIRatio: 10
   battleTimeLimit: 300
   areaAIRatio: 10
-  areaTimeLimit: 300
+  areaTimeLimit: 60
   deathAIRatio: 10
   deathTimeLimit: 300
   livePlayers: []
@@ -170,6 +166,10 @@ MonoBehaviour:
   playerKills: 0
   aiKills: 0
   nickNamne: 
+  modes:
+  - {fileID: 3609465043837721832, guid: bac10166c774df848ac94f3106b5c3ea, type: 3}
+  - {fileID: 3689139734589052143, guid: 325558b1933458d4aa6b8385b990e185, type: 3}
+  - {fileID: 3547377901982660813, guid: 7fd1888656fb0c549a67d5ce667d83a2, type: 3}
 --- !u!4 &160406762
 Transform:
   m_ObjectHideFlags: 0
