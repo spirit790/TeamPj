@@ -283,21 +283,28 @@ public class GoogleManager : MonoBehaviour
         });
     }
 
-    IEnumerator CreateGameData()
+    public void OnCreateGameData(Dictionary<string, object> data)
     {
-        Dictionary<int, Player> photonPlayers = PhotonNetwork.CurrentRoom.Players;
-        List<object> playerIds = new List<object>();
-        List<PlayerController> players = new List<PlayerController>();
-        foreach (var player in photonPlayers)
-        {
-            playerIds.Add(player.Value.NickName);
-        }
+        StartCoroutine(CreateGameData(data));
+    }
+    IEnumerator CreateGameData(Dictionary<string, object> data)
+    {
+        int id = 0;
         FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
-        Dictionary<string, object> game = new Dictionary<string, object>
+        yield return db.Collection("games").GetSnapshotAsync().ContinueWithOnMainThread(task =>
         {
-            {"Mode", GameManager.Instance.gameMode },
-            {"Players", playerIds },
-        };
-        yield return null;
+            QuerySnapshot snapshot = task.Result;
+            id = snapshot.Count;
+        });
+        id++;
+        Debug.Log(id);
+        DocumentReference docRef = db.Collection("games").Document(id.ToString());
+        yield return docRef.SetAsync(data).ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompleted)
+            {
+                Debug.Log("Game Data Added");
+            }
+        });
     }
 }
