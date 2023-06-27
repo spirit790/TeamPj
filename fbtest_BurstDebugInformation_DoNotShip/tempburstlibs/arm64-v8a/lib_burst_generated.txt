@@ -114,6 +114,7 @@ Library: D:\Project\TeamPj\Temp\StagingArea\tempburstlibs\arm64-v8a\lib_burst_ge
 --compilation-defines=PUN_2_0_OR_NEWER
 --compilation-defines=PUN_2_OR_NEWER
 --compilation-defines=PUN_2_19_OR_NEWER
+--compilation-defines=UNITY_PIPELINE_URP
 --compilation-defines=PACKAGE_PHYSICS
 --compilation-defines=PACKAGE_PHYSICS2D
 --compilation-defines=PACKAGE_TILEMAP
@@ -135,8 +136,13 @@ Library: D:\Project\TeamPj\Temp\StagingArea\tempburstlibs\arm64-v8a\lib_burst_ge
 --compilation-defines=MODULE_PHYSICS_EXISTS
 --compilation-defines=MODULE_PHYSICS_2D_EXISTS
 --compilation-defines=MODULE_PARTICLE_SYSTEM_EXISTS
+--compilation-defines=NMC_CAN_ACCESS_TERRAIN
 --compilation-defines=ENABLE_ASYNC_ASSETBUNDLE_UWR
 --compilation-defines=TIMELINE_FRAMEACCURATE
+--compilation-defines=AT_USE_TIMELINE_GE_1_5_0
+--compilation-defines=AT_USE_TIMELINE_GE_1_6_0
+--compilation-defines=URP_IS_INSTALLED_FOR_UTS
+--compilation-defines=SRPCORE_IS_INSTALLED_FOR_UTS
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=D:\Project\TeamPj\Temp\Burst
 --output=D:\Project\TeamPj\Temp\StagingArea\tempburstlibs\arm64-v8a\lib_burst_generated
