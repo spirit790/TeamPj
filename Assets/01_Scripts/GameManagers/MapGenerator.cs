@@ -33,7 +33,7 @@ public class MapGenerator : MonoBehaviour
     GameObject[] concepts; 
     GameObject[] concept1Items;
 
-    void Start()
+    void Awake()
     {
         chunk = new int[chunkHeight, chunkWidth];
         for (int i = 0; i < chunkZ; i++)

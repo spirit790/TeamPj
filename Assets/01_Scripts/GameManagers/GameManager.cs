@@ -86,13 +86,16 @@ public class GameManager : MonoBehaviourPunCallbacks
     public string KeyMode { get { return KEY_MODE; } }
 
     List<Dictionary<string, object>> gameDatas = new List<Dictionary<string, object>>();
-    List<Dictionary<string,object>> GameDatas
+
+    int dataCount;
+    int DataCount
     {
-        get { return gameDatas; }
+        get { return dataCount; }
         set
         {
-            gameDatas = value;
-            if(gameDatas.Count == PhotonNetwork.CurrentRoom.PlayerCount)
+            dataCount = value;
+            Debug.Log($"GameDatas Count {gameDatas.Count}");
+            if(dataCount == PhotonNetwork.CurrentRoom.PlayerCount)
             {
                 SendData();
             }
@@ -173,7 +176,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 default:
                     break;
             }
-            currentGameMode.IsGameOver = true;
+            //currentGameMode.IsGameOver = true;
             //TODO : 맵 설정
         }
     }
@@ -188,7 +191,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void GameOver()
     {
-        
+        Debug.Log($"PlayerCount {PhotonNetwork.CurrentRoom.PlayerCount}");
         //GameUserData data = new GameUserData(PhotonNetwork.LocalPlayer.NickName, isWin, death, playerKills, aiKills);
         Dictionary<string, object> data = new Dictionary<string, object>
         {
@@ -200,31 +203,35 @@ public class GameManager : MonoBehaviourPunCallbacks
         };
         if (PhotonNetwork.LocalPlayer.IsMasterClient)
         {
-            GameDatas.Add(data);
+            Debug.Log($"Master");
+            gameDatas.Add(data);
+            DataCount = gameDatas.Count;
         }
         else
         {
+            Debug.Log($"Client {PhotonNetwork.LocalPlayer.NickName}");
             photonView.RPC("SendDataToMaster", RpcTarget.MasterClient, data);
         }
     }
 
     void SendData()
     {
+        Debug.Log("Send Data");
         var endTime = Firebase.Firestore.FieldValue.ServerTimestamp;
         Dictionary<string, object> gameData = new Dictionary<string, object>
         {
             { "Mode", (int)gameMode },
             { "StartTime", startTime },
             { "EndTime", endTime },
-            { "GameDatas", GameDatas }
+            { "GameDatas", gameDatas }
         };
-        Debug.Log(gameData);
         GoogleManager.Instance.OnCreateGameData(gameData);
     }
     [PunRPC]
     private void SendDataToMaster(Dictionary<string, object> data)
     {
-        GameDatas.Add(data);
+        gameDatas.Add(data);
+        DataCount = gameDatas.Count;
     }
     /// <summary>
     /// firebase 데이터 업데이트 테스트용 함수
