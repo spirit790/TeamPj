@@ -27,6 +27,9 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     string randomWords = "abcdefghijklmnopqrstuvwxyz0123456789";
 
     #region Invite Method
+    /// <summary>
+    /// 방생성 버튼
+    /// </summary>
     public void CreateRoom()
     {
         this.gameObject.SetActive(true);
@@ -43,6 +46,9 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         PhotonNetwork.CreateRoom(roomName,roomOption);
     }
 
+    /// <summary>
+    /// 방참가 버튼
+    /// </summary>
     public void JoinRoom()
     {
         this.gameObject.SetActive(true);
@@ -51,6 +57,9 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom(roomName);
     }
 
+    /// <summary>
+    /// 게임시작 버튼
+    /// </summary>
     public void StartGame()
     {
         if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN)
@@ -59,17 +68,16 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         }
     }
 
+    /// <summary>
+    /// 방 나가기 버튼
+    /// </summary>
     public void QuitRoom()
     {
         if(PhotonNetwork.InRoom)
             PhotonNetwork.LeaveRoom();
     }
 
-    [PunRPC]
-    void ChangeModeValue(int num)
-    {
-        PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMode] = num;
-    }
+    
 
     public void ChangeMode()
     {
@@ -94,10 +102,28 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             photonView.RPC(nameof(ShowPlayers), RpcTarget.All, PhotonNetwork.CurrentRoom.PlayerCount, EMPTY_STIRNG);
         }
     }
+
+    #endregion
+
+    #region PunRPC
+    /// <summary>
+    /// 방내에 플레이어 보여주기
+    /// </summary>
+    /// <param name="num"></param>
+    /// <param name="name"></param>
     [PunRPC]
     void ShowPlayers(int num, string name)
     {
         content.transform.GetChild(num).GetComponentInChildren<Text>().text = name;
+    }
+    /// <summary>
+    /// 모드 통일화
+    /// </summary>
+    /// <param name="num"></param>
+    [PunRPC]
+    void ChangeModeValue(int num)
+    {
+        PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMode] = num;
     }
     #endregion
 
