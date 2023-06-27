@@ -8,9 +8,6 @@
         },
         {
             "m_Id": "8ebf8359d176444db4f793787cad49bb"
-        },
-        {
-            "m_Id": "6580a1131f0f42bcb56ed821c69ccfd7"
         }
     ],
     "m_Keywords": [],
@@ -1071,11 +1068,11 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.05000000074505806,
+    "m_Value": 0.029999999329447748,
     "m_FloatType": 1,
     "m_RangeValues": {
         "x": 0.009999999776482582,
-        "y": 0.10000000149011612
+        "y": 0.05000000074505806
     }
 }
 
@@ -1164,33 +1161,6 @@
         "m_SerializableColors": []
     },
     "m_SerializedDescriptor": "SurfaceDescription.Alpha"
-}
-
-{
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
-    "m_ObjectId": "6580a1131f0f42bcb56ed821c69ccfd7",
-    "m_Guid": {
-        "m_GuidSerialized": "a3fe5f0b-e547-483d-8ea3-74bf570b16a6"
-    },
-    "m_Name": "Offset",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Offset",
-    "m_DefaultReferenceName": "_Offset",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": 0.0,
-    "m_FloatType": 1,
-    "m_RangeValues": {
-        "x": 0.0,
-        "y": 0.15000000596046449
-    }
 }
 
 {
@@ -1351,9 +1321,6 @@
         },
         {
             "m_Id": "8ebf8359d176444db4f793787cad49bb"
-        },
-        {
-            "m_Id": "6580a1131f0f42bcb56ed821c69ccfd7"
         }
     ]
 }

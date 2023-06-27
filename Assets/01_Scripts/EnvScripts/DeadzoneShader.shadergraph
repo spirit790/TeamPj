@@ -36,6 +36,12 @@
     "m_CategoryData": [
         {
             "m_Id": "df84899d74d54725b37f20e235b89703"
+        },
+        {
+            "m_Id": "bf30c238ce7d486385c057ba26b9dd04"
+        },
+        {
+            "m_Id": "80a51f1d87c54d829a27cf706bbeb3ec"
         }
     ],
     "m_Nodes": [
@@ -3431,6 +3437,14 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.CategoryData",
+    "m_ObjectId": "80a51f1d87c54d829a27cf706bbeb3ec",
+    "m_Name": "Category",
+    "m_ChildObjectList": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.AddNode",
     "m_ObjectId": "827c86094a8842ffb48f60a5da3e2d6e",
     "m_Group": {
@@ -4620,6 +4634,42 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.CategoryData",
+    "m_ObjectId": "bf30c238ce7d486385c057ba26b9dd04",
+    "m_Name": "Deadzone",
+    "m_ChildObjectList": [
+        {
+            "m_Id": "66bddbe7df304275a6640e5979e2868d"
+        },
+        {
+            "m_Id": "6e888ec4625b4217a46fdae727844f17"
+        },
+        {
+            "m_Id": "7c9ae5db0c7f4ad89c9a44e95a86fc03"
+        },
+        {
+            "m_Id": "149188a16d644b49979fcf67b817844a"
+        },
+        {
+            "m_Id": "60e125f862ae4385a278a4da191f1520"
+        },
+        {
+            "m_Id": "482f97b905ff4e95aafd55a53b2172ac"
+        },
+        {
+            "m_Id": "6bda1a1f12454828b2c459a86095b28a"
+        },
+        {
+            "m_Id": "c2fcbb706c23412c84c1478e2289c4a3"
+        },
+        {
+            "m_Id": "0ed721d6357846e4b2940f0b3c7cb74a"
+        }
+    ]
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector2MaterialSlot",
     "m_ObjectId": "bf642badec304cec81f8b587bc79f319",
     "m_Id": 4,
@@ -5452,35 +5502,7 @@
     "m_Type": "UnityEditor.ShaderGraph.CategoryData",
     "m_ObjectId": "df84899d74d54725b37f20e235b89703",
     "m_Name": "",
-    "m_ChildObjectList": [
-        {
-            "m_Id": "66bddbe7df304275a6640e5979e2868d"
-        },
-        {
-            "m_Id": "6e888ec4625b4217a46fdae727844f17"
-        },
-        {
-            "m_Id": "7c9ae5db0c7f4ad89c9a44e95a86fc03"
-        },
-        {
-            "m_Id": "149188a16d644b49979fcf67b817844a"
-        },
-        {
-            "m_Id": "60e125f862ae4385a278a4da191f1520"
-        },
-        {
-            "m_Id": "482f97b905ff4e95aafd55a53b2172ac"
-        },
-        {
-            "m_Id": "6bda1a1f12454828b2c459a86095b28a"
-        },
-        {
-            "m_Id": "c2fcbb706c23412c84c1478e2289c4a3"
-        },
-        {
-            "m_Id": "0ed721d6357846e4b2940f0b3c7cb74a"
-        }
-    ]
+    "m_ChildObjectList": []
 }
 
 {

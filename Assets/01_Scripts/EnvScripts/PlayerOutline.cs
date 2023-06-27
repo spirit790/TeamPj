@@ -5,18 +5,18 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 [System.Serializable]
-public class PlayerOutline_test : MonoBehaviour
+public class PlayerOutline : MonoBehaviour
 {
     public GameObject outlineModel;
     public Material outlineMat;
-    public float outLineScale;
+    [Range(0.01f, 0.05f)]
+    public float outLineScale = 0.03f;
     public Color outlineColor;
-    public float offset;
     private Renderer outlineRenderer;
 
     void Start()
     {
-        outlineRenderer = CreateOutline(outlineModel, outlineMat, outLineScale, outlineColor, offset);
+        outlineRenderer = CreateOutline(outlineModel, outlineMat, outLineScale, outlineColor);
     }
 
     void Update()
@@ -31,7 +31,7 @@ public class PlayerOutline_test : MonoBehaviour
         }
     }
 
-    public Renderer CreateOutline(GameObject model, Material outlineMat, float scaleFactor, Color color, float offset)
+    public Renderer CreateOutline(GameObject model, Material outlineMat, float scaleFactor, Color color)
     {
         GameObject outlineObject = Instantiate(model, model.transform.position, model.transform.rotation, model.transform);
         outlineObject.name = "Outline";
@@ -40,7 +40,6 @@ public class PlayerOutline_test : MonoBehaviour
         rend.material = outlineMat;
         rend.material.SetColor("_OutlineColor", color);
         rend.material.SetFloat("_Scale", scaleFactor);
-        rend.material.SetFloat("_Offset", offset);
         rend.shadowCastingMode = ShadowCastingMode.Off;
 
         //테스트용
@@ -48,8 +47,6 @@ public class PlayerOutline_test : MonoBehaviour
         //outlineObject.GetComponent<PlayerOutline_test>().enabled = false;
 
         rend.enabled = false;
-
-        Debug.Log("render2");
 
         return rend;
     }
