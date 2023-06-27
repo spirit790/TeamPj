@@ -15,7 +15,7 @@ public class MatchSystem : MonoBehaviourPunCallbacks
     public bool IsMatchSuccess
     {
         get { return isMatchSuccess; }
-        set
+        private set
         {
             isMatchSuccess = value;
             if (value == true)
@@ -30,7 +30,7 @@ public class MatchSystem : MonoBehaviourPunCallbacks
     public bool IsMatching
     {
         get { return isMatching; }
-        set
+        private set
         {
             isMatching = value;
             if(value == true)

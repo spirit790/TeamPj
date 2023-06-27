@@ -11,13 +11,18 @@ public class InviteSystem : MonoBehaviourPunCallbacks
 {
     [Header("UI Invite")]
     [SerializeField] Image roomPanel;
+    [SerializeField] Image playerListImg;
+    [SerializeField] Button btnQuit;
+    [SerializeField] Button btnStart;
     [SerializeField] InputField inputCode;
     [SerializeField] Dropdown selectMode;
-    [SerializeField] Button btnStart;
-    [SerializeField] Button btnQuit;
+    [SerializeField] Transform content;
+
+    public List<string> playerList = new List<string>();
 
     const int MATCH_COUNT_MIN = 2;
     const int MATCH_COUNT_MAX = 4;
+    const string EMPTY_STIRNG = "Empty";
 
     string randomWords = "abcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -71,34 +76,56 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         photonView.RPC(nameof(ChangeModeValue), RpcTarget.All, selectMode.value);
     }
 
-    void ShowPlayers()
+    void PlayerEnteredRoom(Player player)
     {
-        roomPanel.transform.GetChild(1).GetComponent<Text>().text = null;
-        foreach (var item in PhotonNetwork.CurrentRoom.Players.Reverse())
+        content.transform.GetChild(PhotonNetwork.CurrentRoom.PlayerCount - 1).GetComponentInChildren<Text>().text = player.ActorNumber.ToString();
+        playerList.Add(player.ActorNumber.ToString());
+    }
+
+    void PlayerLeftRoom(Player player)
+    {
+        if (PhotonNetwork.IsMasterClient)
         {
-            roomPanel.transform.GetChild(1).GetComponent<Text>().text += item.Value.ActorNumber + "\n";
-            Debug.Log(item.Value.ActorNumber);
+            playerList.Remove(player.ActorNumber.ToString());
+            for (int i = 0; i < playerList.Count; i++)
+            {
+                photonView.RPC(nameof(ShowPlayers), RpcTarget.All, i, playerList[i]);
+            }
+            photonView.RPC(nameof(ShowPlayers), RpcTarget.All, PhotonNetwork.CurrentRoom.PlayerCount, EMPTY_STIRNG);
         }
+    }
+    [PunRPC]
+    void ShowPlayers(int num, string name)
+    {
+        content.transform.GetChild(num).GetComponentInChildren<Text>().text = name;
     }
     #endregion
 
     #region Photon Override Method
     public override void OnCreatedRoom()
     {
+        roomPanel.transform.GetChild(0).GetComponent<Text>().text = PhotonNetwork.CurrentRoom.Name;
         roomPanel.gameObject.SetActive(true);
         Debug.Log(PhotonNetwork.CurrentRoom.Name);
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PlayerEnteredRoom(newPlayer);
+            for (int i = 0; i < playerList.Count; i++)
+            {
+                photonView.RPC(nameof(ShowPlayers), RpcTarget.Others, i, playerList[i]);
+            }
+        }
         photonView.RPC(nameof(ChangeModeValue), RpcTarget.Others, selectMode.value);
-        roomPanel.transform.GetChild(1).GetComponent<Text>().text += newPlayer.ActorNumber + "\n";
         Debug.Log($"player entered {newPlayer.UserId}");
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        ShowPlayers();
+        PlayerLeftRoom(otherPlayer);
     }
 
     public override void OnJoinedRoom()
@@ -107,6 +134,8 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         {
             selectMode.gameObject.SetActive(true);
             btnStart.gameObject.SetActive(true);
+
+            PlayerEnteredRoom(PhotonNetwork.LocalPlayer);
         }
         else
         {
@@ -114,8 +143,6 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             btnStart.gameObject.SetActive(false);
         }
         roomPanel.gameObject.SetActive(true);
-        roomPanel.transform.GetChild(0).GetComponent<Text>().text = PhotonNetwork.CurrentRoom.Name;
-        ShowPlayers();
         Debug.Log(PhotonNetwork.CurrentRoom.Name);
     }
 
@@ -126,6 +153,10 @@ public class InviteSystem : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
+        for (int i = 0; i < 8; i++)
+        {
+            content.GetChild(i).GetComponentInChildren<Text>().text = EMPTY_STIRNG;
+        }
         roomPanel.gameObject.SetActive(false);
         this.gameObject.SetActive(false);
     }
