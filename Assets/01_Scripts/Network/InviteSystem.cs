@@ -55,6 +55,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         
         string roomName = inputCode.textComponent.text;
         PhotonNetwork.JoinRoom(roomName);
+        inputCode.textComponent.text = null;
     }
 
     /// <summary>
@@ -73,6 +74,8 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     /// </summary>
     public void QuitRoom()
     {
+        if (PhotonNetwork.IsMasterClient)
+            playerList.Clear();
         if(PhotonNetwork.InRoom)
             PhotonNetwork.LeaveRoom();
     }

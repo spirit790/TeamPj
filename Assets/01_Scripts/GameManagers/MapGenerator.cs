@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Unity.AI.Navigation;
-public class MapGenerator : MonoBehaviour
+using Photon.Pun;
+using ExitGames.Client.Photon;
+
+public class MapGenerator : MonoBehaviourPunCallbacks
 {
     [Header("Chunk")]
     public int chunkX = 4;
@@ -20,8 +23,12 @@ public class MapGenerator : MonoBehaviour
     public List<Vector3> posList = new List<Vector3>();
     [Header("Road")]
     public int width;
-    public int height; 
-    int[,] map;
+    public int height;
+
+    public int[,] map;
+    public int[,] sendMap;
+    public string strMapData;
+    public string strSendMapData;
     public string seed;
     public GameObject groundPrefab;
     public GameObject roadPrefab;
@@ -45,13 +52,16 @@ public class MapGenerator : MonoBehaviour
         }
         width = chunkX * chunkWidth;
         height = chunkZ * chunkHeight;
+        map = new int[width, height];
+        sendMap = new int[width, height];
+
         GenerateMap();
-        //NavMesh.RemoveAllNavMeshData();
-        mainBuildingPos1 = new Vector3(width / 2f - chunkWidth / 2f, 0, height / 2f);
-        mainBuildingPos2 = new Vector3(width / 2f + chunkWidth / 2f, 0, height / 2f);
+        NavMesh.RemoveAllNavMeshData();
+        //mainBuildingPos1 = new Vector3(width / 2f - chunkWidth / 2f, 0, height / 2f);
+        //mainBuildingPos2 = new Vector3(width / 2f + chunkWidth / 2f, 0, height / 2f);
         surfaces[0].BuildNavMesh();
-        MakeRandomZonePos();
-        areaZonePos = posList[Random.Range(0,posList.Count)];
+        //MakeRandomZonePos();
+        //areaZonePos = posList[Random.Range(0,posList.Count)];
     }
 
     public void MakeChunk(int structures, int chunkX, int chunkY)
@@ -92,15 +102,17 @@ public class MapGenerator : MonoBehaviour
     }
     private void GenerateMap()
     {
-        map = new int[width, height];
-        RandomFillMap();
-
-        for (int i = 0; i < 5; i++)
+        if (PhotonNetwork.IsMasterClient)
         {
-            SmoothMap();
-        }
+            RandomFillMap();
 
-        DrawMap();
+            for (int i = 0; i < 5; i++)
+            {
+                SmoothMap();
+            }
+            ConvertStrMapData();
+            photonView.RPC(nameof(SendMapData), RpcTarget.All, strMapData);
+        }
     }
 
     void RandomFillMap()
@@ -182,7 +194,8 @@ public class MapGenerator : MonoBehaviour
 
     private void DrawMap()
     {
-        if (map != null)
+        string[] mapData = strSendMapData.Split("\n");
+        if (mapData != null)
         {
             for (int x = 0; x < width; x++)
             {
@@ -190,8 +203,9 @@ public class MapGenerator : MonoBehaviour
                 {
                     Vector3 pos = new Vector3(x, 0, y);
                     GameObject tile;
-                    if (map[x, y] == 1)
+                    if (mapData[x][y].ToString() == "1")
                     {
+                        Debug.Log(mapData[x][y]);
                         tile = Instantiate(groundPrefab, pos, transform.rotation);
                     }
                     else
@@ -204,5 +218,57 @@ public class MapGenerator : MonoBehaviour
                 }
             }
         }
+    }
+    //private void DrawMap()
+    //{
+    //    if (map != null)
+    //    {
+    //        for (int x = 0; x < width; x++)
+    //        {
+    //            for (int y = 0; y < height; y++)
+    //            {
+    //                Vector3 pos = new Vector3(x, 0, y);
+    //                GameObject tile;
+    //                if (map[x, y] == 1)
+    //                {
+    //                    tile = Instantiate(groundPrefab, pos, transform.rotation);
+    //                }
+    //                else
+    //                {
+    //                    tile = Instantiate(roadPrefab, pos, transform.rotation);
+    //                }
+    //                tile.isStatic = true;
+    //                tile.transform.SetParent(gameObject.transform);
+    //                surfaces.Add(tile.GetComponent<NavMeshSurface>());
+    //            }
+    //        }
+    //    }
+    //}
+
+    void ConvertStrMapData()
+    {
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if (map[x, y] == 1)
+                {
+                    strMapData += "1";
+                }
+                else
+                {
+                    strMapData += "0";
+                }
+            }
+            strMapData += "\n";
+        }
+    }
+
+    [PunRPC]
+    void SendMapData(string mapData)
+    {
+        strSendMapData = mapData;
+        Debug.Log(strSendMapData);
+        DrawMap();
     }
 }
