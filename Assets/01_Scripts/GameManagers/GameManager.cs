@@ -85,8 +85,24 @@ public class GameManager : MonoBehaviourPunCallbacks
     public string KeyMap { get { return KEY_MAP; } }
     public string KeyMode { get { return KEY_MODE; } }
 
+    List<Dictionary<string, object>> gameDatas = new List<Dictionary<string, object>>();
+    List<Dictionary<string,object>> GameDatas
+    {
+        get { return gameDatas; }
+        set
+        {
+            gameDatas = value;
+            if(gameDatas.Count == PhotonNetwork.CurrentRoom.PlayerCount)
+            {
+                SendData();
+            }
+        }
+    }
+
     public delegate void PlayersLeftOne();
     public static PlayersLeftOne OnPlayersLeftOne;
+
+
     private void Awake()
     {
         if (instance == null)
@@ -107,11 +123,12 @@ public class GameManager : MonoBehaviourPunCallbacks
         //GoogleManager.Instance.OnGetUserInfo();
         //nickNamne = userInfo["NickName"].ToString();
     }
-
+    public string test;
     [PunRPC]
     void SetAll(string tempString, int number)
     {
-        Debug.Log(tempString + " " + number);
+        test += tempString;
+        Debug.Log(test);
     }
     void Update()
     {
@@ -124,11 +141,11 @@ public class GameManager : MonoBehaviourPunCallbacks
         // scene 순서는 추후 구현하면서 변경 및 확정하도록 함
 
         // 매치시작시 모드 선택,맵 생성
-        if(scene.buildIndex == 1)
+        if(scene.buildIndex == 2)
         {
             playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
-            //int modeNum = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[KeyMode].ToString());
-            int modeNum = 0;
+            int modeNum = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[KeyMode].ToString());
+            //int modeNum = 0;
             Mode currentGameMode = Instantiate(modes[modeNum]);
             currentGameMode.modeName = currentGameMode.GetType().Name;
             Debug.Log(currentGameMode.name);
@@ -139,9 +156,9 @@ public class GameManager : MonoBehaviourPunCallbacks
                     // battleRoyal
                     gameMode = Modes.BATTLEROYAL;
                     currentGameMode.Set(playerCount, battleAIRatio, battleTimeLimit);
-                    string tempString = GetHashCode().ToString();
+                    string tempString = Random.Range(0, 1000).ToString();
                     Debug.Log(tempString);
-                    photonView.RPC("SetAll", RpcTarget.MasterClient, tempString, (int)28);
+                    
                     break;
                 case 1:
                     // areaConquer
@@ -156,6 +173,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 default:
                     break;
             }
+            currentGameMode.IsGameOver = true;
             //TODO : 맵 설정
         }
     }
@@ -170,20 +188,43 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void GameOver()
     {
-        var endTime = Firebase.Firestore.FieldValue.ServerTimestamp;
+        
+        //GameUserData data = new GameUserData(PhotonNetwork.LocalPlayer.NickName, isWin, death, playerKills, aiKills);
+        Dictionary<string, object> data = new Dictionary<string, object>
+        {
+            { "GoogleId", PhotonNetwork.LocalPlayer.NickName },
+            { "IsWin", isWin },
+            { "Death", death },
+            { "PlayerKills", playerKills },
+            { "AIKills", aiKills }
+        };
         if (PhotonNetwork.LocalPlayer.IsMasterClient)
         {
-
+            GameDatas.Add(data);
         }
         else
         {
-            SendDataToMaster(PhotonNetwork.LocalPlayer.NickName, isWin, death, playerKills, aiKills, startTime, endTime);
+            photonView.RPC("SendDataToMaster", RpcTarget.MasterClient, data);
         }
     }
-    [PunRPC]
-    private void SendDataToMaster(string id, bool isWin, int death, int playerKills, int aiKills, object startTime, object endTime)
-    {
 
+    void SendData()
+    {
+        var endTime = Firebase.Firestore.FieldValue.ServerTimestamp;
+        Dictionary<string, object> gameData = new Dictionary<string, object>
+        {
+            { "Mode", (int)gameMode },
+            { "StartTime", startTime },
+            { "EndTime", endTime },
+            { "GameDatas", GameDatas }
+        };
+        Debug.Log(gameData);
+        GoogleManager.Instance.OnCreateGameData(gameData);
+    }
+    [PunRPC]
+    private void SendDataToMaster(Dictionary<string, object> data)
+    {
+        GameDatas.Add(data);
     }
     /// <summary>
     /// firebase 데이터 업데이트 테스트용 함수
