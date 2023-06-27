@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
-using Photon;
 
-public class GameManager : MonoBehaviourPunCallbacks
+public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     public static GameManager Instance
@@ -75,7 +74,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int playerKills = 0;
     public int aiKills = 0;
     public string nickNamne;
-    public object startTime;
 
     public List<Mode> modes;
 
@@ -103,16 +101,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     void Start()
     {
         PlayerController.OnPlayerDie += PlayerDie;
-        Mode.OnGameOver += GameOver;
-        //GoogleManager.Instance.OnGetUserInfo();
-        //nickNamne = userInfo["NickName"].ToString();
     }
 
-    [PunRPC]
-    void SetAll(string tempString, int number)
-    {
-        Debug.Log(tempString + " " + number);
-    }
     void Update()
     {
         
@@ -127,21 +117,16 @@ public class GameManager : MonoBehaviourPunCallbacks
         if(scene.buildIndex == 1)
         {
             playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
-            //int modeNum = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[KeyMode].ToString());
-            int modeNum = 0;
+            int modeNum = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[KeyMode].ToString());
+            //int modeNum = 1;
             Mode currentGameMode = Instantiate(modes[modeNum]);
             currentGameMode.modeName = currentGameMode.GetType().Name;
-            Debug.Log(currentGameMode.name);
-
             switch (modeNum) 
             {
                 case 0:
                     // battleRoyal
                     gameMode = Modes.BATTLEROYAL;
                     currentGameMode.Set(playerCount, battleAIRatio, battleTimeLimit);
-                    string tempString = GetHashCode().ToString();
-                    Debug.Log(tempString);
-                    photonView.RPC("SetAll", RpcTarget.MasterClient, tempString, (int)28);
                     break;
                 case 1:
                     // areaConquer
@@ -160,6 +145,17 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+    //private void StartBattleRoyal()
+    //{
+    //    ModeBattleRoyal modeBattleRoyal = GameObject.Find("ModeBattleRoyal").GetComponent<ModeBattleRoyal>();
+    //    modeBattleRoyal.Set(playerCount, battleAIRatio, battleTimeLimit);
+    //}
+
+    //private void StartAreaConquer()
+    //{
+    //    ModeAreaConquer modeArea = GameObject.Find("ModeArea").GetComponent<ModeAreaConquer>();
+    //    modeArea.Set(playerCount, battleAIRatio, battleTimeLimit);
+    //}
 
     public void PlayerDie(PlayerController player)
     {
@@ -168,23 +164,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         PlayersLeft = livePlayers.Count;
     }
 
-    public void GameOver()
-    {
-        var endTime = Firebase.Firestore.FieldValue.ServerTimestamp;
-        if (PhotonNetwork.LocalPlayer.IsMasterClient)
-        {
-
-        }
-        else
-        {
-            SendDataToMaster(PhotonNetwork.LocalPlayer.NickName, isWin, death, playerKills, aiKills, startTime, endTime);
-        }
-    }
-    [PunRPC]
-    private void SendDataToMaster(string id, bool isWin, int death, int playerKills, int aiKills, object startTime, object endTime)
-    {
-
-    }
     /// <summary>
     /// firebase 데이터 업데이트 테스트용 함수
     /// </summary>

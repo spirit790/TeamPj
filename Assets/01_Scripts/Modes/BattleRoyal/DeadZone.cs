@@ -54,7 +54,6 @@ public class DeadZone : MonoBehaviour
     {
         //transform.localScale = new Vector3(newRadius, 1f, newRadius);
         transform.DOScaleX(newRadius, shrinkTime);
-        transform.DOScaleY(newRadius, shrinkTime);
         transform.DOScaleZ(newRadius, shrinkTime);
     }
 }
