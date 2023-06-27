@@ -52,8 +52,8 @@ MonoBehaviour:
   playerCount: 0
   timeLimit: 0
   aiRatio: 0
-  mapWidth: 40
-  mapHeight: 40
+  mapWidth: 36
+  mapHeight: 27
   txtTimeLimit: {fileID: 0}
   txtWaitStartTime: {fileID: 0}
   myPlayerObject: {fileID: 0}

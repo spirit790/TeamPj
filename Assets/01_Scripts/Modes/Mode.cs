@@ -29,7 +29,7 @@ public class Mode : MonoBehaviourPunCallbacks
     List<GameObject> aiList = new List<GameObject>();
     public string modeName;
 
-    protected Vector3 AISpawnPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
+    protected Vector3 AISpawnPos { get { return new Vector3(Random.Range(0,mapWidth), 0, Random.Range(0,mapHeight)); } }
 
     public bool isGameOver = false;
     public bool IsGameOver

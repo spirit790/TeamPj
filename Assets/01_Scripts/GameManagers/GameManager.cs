@@ -141,11 +141,11 @@ public class GameManager : MonoBehaviourPunCallbacks
         // scene 순서는 추후 구현하면서 변경 및 확정하도록 함
 
         // 매치시작시 모드 선택,맵 생성
-        if(scene.buildIndex == 1)
+        if(scene.buildIndex == 2)
         {
             playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
-            //int modeNum = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[KeyMode].ToString());
-            int modeNum = 0;
+            int modeNum = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[KeyMode].ToString());
+            //int modeNum = 0;
             Mode currentGameMode = Instantiate(modes[modeNum]);
             currentGameMode.modeName = currentGameMode.GetType().Name;
             Debug.Log(currentGameMode.name);
