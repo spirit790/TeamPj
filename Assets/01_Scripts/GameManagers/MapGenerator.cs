@@ -56,10 +56,8 @@ public class MapGenerator : MonoBehaviourPunCallbacks
         sendMap = new int[width, height];
 
         GenerateMap();
-        NavMesh.RemoveAllNavMeshData();
         //mainBuildingPos1 = new Vector3(width / 2f - chunkWidth / 2f, 0, height / 2f);
         //mainBuildingPos2 = new Vector3(width / 2f + chunkWidth / 2f, 0, height / 2f);
-        surfaces[0].BuildNavMesh();
         //MakeRandomZonePos();
         //areaZonePos = posList[Random.Range(0,posList.Count)];
     }
@@ -111,7 +109,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
                 SmoothMap();
             }
             ConvertStrMapData();
-            photonView.RPC(nameof(SendMapData), RpcTarget.All, strMapData);
+            photonView.RPC(nameof(SendMapData), RpcTarget.AllBufferedViaServer, strMapData);
         }
     }
 
@@ -210,6 +208,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
                     }
                     else
                     {
+                        Debug.Log(mapData[x][y]);
                         tile = Instantiate(roadPrefab, pos, transform.rotation);
                     }
                     tile.isStatic = true;
@@ -265,10 +264,13 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    void SendMapData(string mapData)
+    void SendMapData(string mapData, PhotonMessageInfo message)
     {
         strSendMapData = mapData;
         Debug.Log(strSendMapData);
         DrawMap();
+        //message.
+        NavMesh.RemoveAllNavMeshData();
+        surfaces[0].BuildNavMesh();
     }
 }
