@@ -133,7 +133,8 @@ public class GoogleManager : MonoBehaviour
             {
                 Debug.Log("가입 완료");
                 signUpPanel.SetActive(false);
-                updatePanel.SetActive(true);
+                //updatePanel.SetActive(true);
+                SceneManager.LoadScene(1);
             }
             else
             {
