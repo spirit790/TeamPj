@@ -11,7 +11,7 @@ public class WallVisualizer_test : MonoBehaviour
 
     private Transform camTr;
     public Transform character;
-    private Renderer wallRenderer;
+    //private Renderer wallRenderer;
     private int detectingLayer = 1 << 9 | 1 << 10;
 
     public Material[] mats;
@@ -73,18 +73,10 @@ public class WallVisualizer_test : MonoBehaviour
 
     private void WallAlphaChange(Transform wall, float alpha)
     {
-        wallRenderer = wall.GetComponent<Renderer>();
+        Renderer wallRenderer = wall.GetComponent<Renderer>();
  
         if(wallRenderer != null)
         {
-            if(alpha != 1.0f)
-            {
-                wallRenderer.material = mats[1];
-            }
-            else
-            {
-                wallRenderer.material = mats[0];
-            }
             // Material의 Alpha를 바꾼다.
             ChangeMatAlpha(wallRenderer, alpha);
         }
@@ -100,6 +92,8 @@ public class WallVisualizer_test : MonoBehaviour
     {
         Material mat = renderer.material;
         Color matColor = mat.color;
+        if(alpha > 0.5f) matColor = Color.white;
+        else if(alpha <= 0.5f) matColor = Color.black;
         matColor.a = alpha;
         mat.color = matColor;
     }

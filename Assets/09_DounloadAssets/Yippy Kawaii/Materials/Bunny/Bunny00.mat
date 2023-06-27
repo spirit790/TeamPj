@@ -424,7 +424,7 @@ Material:
     - _SrcBlend: 1
     - _StencilComp: 0
     - _StencilMode: 0
-    - _StencilNo: 1
+    - _StencilNo: 2
     - _StencilOpFail: 0
     - _StencilOpPass: 0
     - _StencilRef: 2
@@ -464,7 +464,7 @@ Material:
     - _Tweak_RimLightMaskLevel: -0.5
     - _Tweak_ShadingGradeMapLevel: 0
     - _Tweak_SystemShadowsLevel: 0.3
-    - _Tweak_transparency: 0
+    - _Tweak_transparency: 1
     - _UVBase: 0
     - _UVDetail: 0
     - _UVEmissive: 0
