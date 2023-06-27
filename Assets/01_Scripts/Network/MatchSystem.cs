@@ -120,7 +120,7 @@ public class MatchSystem : MonoBehaviourPunCallbacks
             Debug.Log("Master");
             yield return new WaitForSeconds(PhotonNetwork.LevelLoadingProgress);
 
-            PhotonNetwork.LoadLevel(1);
+            PhotonNetwork.LoadLevel(2);
         }
     }
     [PunRPC]

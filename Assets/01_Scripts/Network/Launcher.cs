@@ -5,7 +5,7 @@ using Photon.Pun;
 using UnityEngine.UI;
 using Photon.Realtime;
 
-[RequireComponent(typeof(PrefabPool))]
+//[RequireComponent(typeof(PrefabPool))]
 public class Launcher : MonoBehaviourPunCallbacks
 {
 	string gameVersion = "1";
