@@ -15,10 +15,10 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-Korean (ko)
   m_Data:
     m_SerializedData: []
-  m_GUID: 8e9c62b9fbf87e44b8284dfbcec9e658
+  m_GUID: 29c45624e8bea524b82db19e5d21fa79
   m_SerializeEntries:
-  - m_GUID: 68a855e1b029c2246adc34be3fa1f928
-    m_Address: HideC_ko
+  - m_GUID: 42f621a3a35c9aa459d217351a5fd95b
+    m_Address: HidecStringTable_ko
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ko

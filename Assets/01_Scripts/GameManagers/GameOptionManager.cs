@@ -79,6 +79,8 @@ public class GameOptionManager : MonoBehaviour
         isChanging = true;
 
         yield return LocalizationSettings.InitializationOperation;
+        Debug.Log(index);
+        Debug.Log("¹Ù²ñ");
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
 
         isChanging = false;

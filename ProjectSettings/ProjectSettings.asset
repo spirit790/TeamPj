@@ -137,6 +137,7 @@ PlayerSettings:
   bundleVersion: 0.1.0
   preloadedAssets:
   - {fileID: 11400000, guid: f8f672dcac4fce2409dcffa09a00ab36, type: 2}
+  - {fileID: 11400000, guid: fb14e29ca98e199468b9ff6a1ed3fe2c, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -252,7 +253,7 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{dedicated}: ProjectH.keystore'
+  AndroidKeystoreName: '{inproject}: ProjectH.keystore'
   AndroidKeyaliasName: projecth
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
