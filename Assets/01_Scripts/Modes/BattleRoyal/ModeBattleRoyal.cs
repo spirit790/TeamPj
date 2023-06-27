@@ -25,20 +25,14 @@ public class ModeBattleRoyal : Mode
     [Header("DeadZone")]
     public DeadZone deadZone;
     public float shrinkTime;
-    public MapGenerator mapGen;
-
 
     [Header("Player")]
     public int playersLeft;
 
-
+    
     private void Start()
     {
         GameManager.OnPlayersLeftOne += WinGame;
-        deadZone = GetComponentInChildren<DeadZone>();
-        mapGen = GameObject.FindGameObjectWithTag("MapGen").GetComponent<MapGenerator>();
-        deadZone.gameObject.transform.localPosition = mapGen.areaZonePos;
-        Debug.Log(deadZone.transform.position);
         //playersLeft = playerList.Count; gm에서 처리?
     }
 
@@ -53,7 +47,6 @@ public class ModeBattleRoyal : Mode
     }
     public override void GameStart()
     {
-
         base.GameStart();
         //StartCoroutine(RespawnAI());
     }
