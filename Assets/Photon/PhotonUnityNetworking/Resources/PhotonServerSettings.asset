@@ -45,9 +45,7 @@ MonoBehaviour:
   - WaitTimeSet
   - WaitTimeSetLeft
   - SetAll
-  - ChangeModeValue
   - SendDataToMaster
-  - ShowPlayers
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
