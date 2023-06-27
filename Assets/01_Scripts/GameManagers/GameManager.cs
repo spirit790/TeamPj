@@ -123,21 +123,9 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         PlayerController.OnPlayerDie += PlayerDie;
         Mode.OnGameOver += GameOver;
-        //GoogleManager.Instance.OnGetUserInfo();
+        GoogleManager.Instance.OnGetUserInfo();
         //nickNamne = userInfo["NickName"].ToString();
     }
-    public string test;
-    [PunRPC]
-    void SetAll(string tempString, int number)
-    {
-        test += tempString;
-        Debug.Log(test);
-    }
-    void Update()
-    {
-        
-    }
-
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // 게임 시작 단계에서 모드 정해지고 실행되도록, game scene에서 실행되도록
@@ -212,6 +200,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"Client {PhotonNetwork.LocalPlayer.NickName}");
             photonView.RPC("SendDataToMaster", RpcTarget.MasterClient, data);
         }
+        GoogleManager.Instance.OnUpdateUserGameData();
     }
 
     void SendData()
