@@ -88,7 +88,7 @@ public class Mode : MonoBehaviourPunCallbacks
     /// <summary>
     /// AI »ý¼º
     /// </summary>
-    protected void CreateAI()
+    public void CreateAI()
     {
         for (int i = 0; i < AICount; i++)
         {
@@ -117,7 +117,6 @@ public class Mode : MonoBehaviourPunCallbacks
     protected IEnumerator GamePlaying()
     {
         CreatePlayer();
-        CreateAI();
         while (waitStartTime >= 0)
         {
             waitStartTime -= Time.deltaTime;

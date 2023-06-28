@@ -177,6 +177,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                     break;
             }
             //currentGameMode.IsGameOver = true;
+            Debug.Log("Master");
             //TODO : ¸Ê ¼³Á¤
         }
     }

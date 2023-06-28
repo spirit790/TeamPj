@@ -14,7 +14,11 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     public int chunkWidth = 9;
     public int chunkHeight = 9; 
     int[,] chunk;
+    int rand;
+    public Vector3 pos;
     public GameObject[] structurePrefabs;
+
+    int randomIndex;
 
     [Header("Area and Zone Pos")]
     public Vector3 areaZonePos;
@@ -26,7 +30,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     public int height;
 
     public int[,] map;
-    public int[,] sendMap;
     public string strMapData;
     public string strSendMapData;
     public string seed;
@@ -40,26 +43,56 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     GameObject[] concepts; 
     GameObject[] concept1Items;
 
-    void Awake()
+    Mode mode;
+
+    void Start()
     {
+        mode = FindAnyObjectByType<Mode>();
         chunk = new int[chunkHeight, chunkWidth];
-        for (int i = 0; i < chunkZ; i++)
+        if (PhotonNetwork.IsMasterClient)
         {
-            for (int j = 0; j < chunkX; j++)
+            for (int i = 0; i < chunkZ; i++)
             {
-                MakeChunk(structurePrefabs.Length, i, j);
+                for (int j = 0; j < chunkX; j++)
+                {
+                    photonView.RPC(nameof(SendChunkData), RpcTarget.AllBufferedViaServer,structurePrefabs.Length, i, j);
+                }
             }
         }
         width = chunkX * chunkWidth;
         height = chunkZ * chunkHeight;
         map = new int[width, height];
-        sendMap = new int[width, height];
 
         GenerateMap();
-        //mainBuildingPos1 = new Vector3(width / 2f - chunkWidth / 2f, 0, height / 2f);
-        //mainBuildingPos2 = new Vector3(width / 2f + chunkWidth / 2f, 0, height / 2f);
-        //MakeRandomZonePos();
-        //areaZonePos = posList[Random.Range(0,posList.Count)];
+
+        mainBuildingPos1 = new Vector3(width / 2f - chunkWidth / 2f, 0, height / 2f);
+        mainBuildingPos2 = new Vector3(width / 2f + chunkWidth / 2f, 0, height / 2f);
+        MakeRandomZonePos();
+        randomIndex = Random.Range(0, posList.Count);
+        areaZonePos = posList[randomIndex];
+        //StartCoroutine(AreaZoneWait());   
+    }
+
+    IEnumerator GetRandomIndex()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            randomIndex = Random.Range(0, posList.Count);
+            photonView.RPC(nameof(SendRandomIndex), RpcTarget.All, randomIndex);
+        }
+        yield return null;
+    }
+
+    IEnumerator AreaZoneWait()
+    {
+        yield return StartCoroutine(GetRandomIndex());
+        areaZonePos = posList[randomIndex];
+        if(GameManager.Instance.gameMode == GameManager.Modes.BATTLEROYAL)
+        {
+            ModeBattleRoyal modeBattle = (ModeBattleRoyal)mode;
+            modeBattle.SetDeadZonePos(areaZonePos);
+            Debug.Log(areaZonePos);
+        }
     }
 
     public void MakeChunk(int structures, int chunkX, int chunkY)
@@ -69,7 +102,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks
         {
             for (int j = 0; j < chunkWidth; j++)
             {
-                //Instantiate(groundPrefab, new Vector3(i + chunkX * width, 0, j + chunkY * 9), transform.rotation);
                 int rand = Random.Range(0, 81);
                 if(count < structures && rand < structures)
                 {
@@ -203,12 +235,10 @@ public class MapGenerator : MonoBehaviourPunCallbacks
                     GameObject tile;
                     if (mapData[x][y].ToString() == "1")
                     {
-                        Debug.Log(mapData[x][y]);
                         tile = Instantiate(groundPrefab, pos, transform.rotation);
                     }
                     else
                     {
-                        Debug.Log(mapData[x][y]);
                         tile = Instantiate(roadPrefab, pos, transform.rotation);
                     }
                     tile.isStatic = true;
@@ -218,31 +248,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks
             }
         }
     }
-    //private void DrawMap()
-    //{
-    //    if (map != null)
-    //    {
-    //        for (int x = 0; x < width; x++)
-    //        {
-    //            for (int y = 0; y < height; y++)
-    //            {
-    //                Vector3 pos = new Vector3(x, 0, y);
-    //                GameObject tile;
-    //                if (map[x, y] == 1)
-    //                {
-    //                    tile = Instantiate(groundPrefab, pos, transform.rotation);
-    //                }
-    //                else
-    //                {
-    //                    tile = Instantiate(roadPrefab, pos, transform.rotation);
-    //                }
-    //                tile.isStatic = true;
-    //                tile.transform.SetParent(gameObject.transform);
-    //                surfaces.Add(tile.GetComponent<NavMeshSurface>());
-    //            }
-    //        }
-    //    }
-    //}
 
     void ConvertStrMapData()
     {
@@ -262,15 +267,52 @@ public class MapGenerator : MonoBehaviourPunCallbacks
             strMapData += "\n";
         }
     }
+    [PunRPC]
+    public void SendChunkData(int structures, int chunkX, int chunkY)
+    {
+        int count = 0;
+        for (int i = 0; i < chunkHeight; i++)
+        {
+            for (int j = 0; j < chunkWidth; j++)
+            {
+                int random = 0;
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    random = Random.Range(0, 81);
+                    photonView.RPC(nameof(SendStructure), RpcTarget.All, random, count, structures, i, j, chunkX, chunkY);
+                }
+            }
+        }
+    }
+
+    [PunRPC]
+    public void SendStructure(int num, int count, int structures, int i, int j, int chunkX,int chunkY)
+    {
+        rand = num;
+        if (count < structures && rand < structures)
+        {
+            GameObject structure = Instantiate(structurePrefabs[rand], new Vector3(i + chunkY * chunkWidth, 1, j + chunkX * chunkHeight), transform.rotation);
+            structure.isStatic = true;
+            structure.transform.SetParent(gameObject.transform);
+            count++;
+        }
+        //Debug.Log(num);
+    }
+
+    [PunRPC]
+    void SendRandomIndex(int n)
+    {
+        randomIndex = n;
+        Debug.Log(randomIndex);
+    }
 
     [PunRPC]
     void SendMapData(string mapData, PhotonMessageInfo message)
     {
         strSendMapData = mapData;
-        Debug.Log(strSendMapData);
         DrawMap();
-        //message.
         NavMesh.RemoveAllNavMeshData();
         surfaces[0].BuildNavMesh();
+        mode.CreateAI();
     }
 }

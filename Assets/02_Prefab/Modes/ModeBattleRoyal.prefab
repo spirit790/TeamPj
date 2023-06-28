@@ -59,7 +59,8 @@ MonoBehaviour:
   myPlayerObject: {fileID: 0}
   modeName: 
   isGameOver: 0
-  deadZone: {fileID: 0}
+  deadZone: {fileID: 1744176586615899344, guid: 7774da88258183241b7058e4f7f54048,
+    type: 3}
   shrinkTime: 5
   mapGen: {fileID: 0}
   playersLeft: 0
@@ -79,6 +80,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DeadZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897291161001298707, guid: 7774da88258183241b7058e4f7f54048,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5897291161001298708, guid: 7774da88258183241b7058e4f7f54048,
         type: 3}
