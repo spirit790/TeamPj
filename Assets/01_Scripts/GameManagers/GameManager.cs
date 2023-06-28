@@ -98,13 +98,18 @@ public class GameManager : MonoBehaviourPunCallbacks
             if(dataCount == PhotonNetwork.CurrentRoom.PlayerCount)
             {
                 SendData();
+                OnDataSent();
             }
         }
     }
 
+    public GameObject resultPanel;
+
     public delegate void PlayersLeftOne();
     public static PlayersLeftOne OnPlayersLeftOne;
 
+    public delegate void DataSent();
+    public static DataSent OnDataSent;
 
     private void Awake()
     {
@@ -134,6 +139,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         // 매치시작시 모드 선택,맵 생성
         if(scene.buildIndex == 2)
         {
+            resultPanel = GameObject.FindGameObjectWithTag("Result");
+            resultPanel.SetActive(false);
             playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
             int modeNum = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[KeyMode].ToString());
             //int modeNum = 0;
@@ -233,5 +240,62 @@ public class GameManager : MonoBehaviourPunCallbacks
         playerKills = 3;
         death = 0;
         GoogleManager.Instance.OnUpdateUserGameData();
+    }
+
+    public Dictionary<string, object> GetMostPlayerKiller()
+    {
+        Dictionary<string, object> mostKiller = new Dictionary<string, object>();
+        int most = -1;
+        foreach (var gamedata in gameDatas)
+        {
+            if (most < (int)gamedata["PlayerKills"])
+            {
+                most = (int)gamedata["PlayerKills"];
+                mostKiller = gamedata;
+            }
+        }
+        return mostKiller;
+    }
+
+    public Dictionary<string, object> GetWorstPlayerKiller()
+    {
+        Dictionary<string, object> worstKiller = new Dictionary<string, object>();
+        int worst = int.MaxValue;
+        foreach (var gamedata in gameDatas)
+        {
+            if (worst > (int)gamedata["PlayerKills"])
+            {
+                worst = (int)gamedata["PlayerKills"];
+                worstKiller = gamedata;
+            }
+        }
+        return worstKiller;
+    }
+    public Dictionary<string, object> GetMostAIKiller()
+    {
+        Dictionary<string, object> mostKiller = new Dictionary<string, object>();
+        int most = -1;
+        foreach (var gamedata in gameDatas)
+        {
+            if (most < (int)gamedata["AIKills"])
+            {
+                most = (int)gamedata["AIKills"];
+                mostKiller = gamedata;
+            }
+        }
+        return mostKiller;
+    }
+
+    public Dictionary<string, object> GetWinner()
+    {
+        Dictionary<string, object> winner = new Dictionary<string, object>();
+        foreach (var gamedata in gameDatas)
+        {
+            if ((bool)gamedata["IsWin"])
+            {
+                winner = gamedata;
+            }
+        }
+        return winner;
     }
 }
