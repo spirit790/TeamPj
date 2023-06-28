@@ -63,6 +63,7 @@ MonoBehaviour:
     type: 3}
   shrinkTime: 5
   mapGen: {fileID: 0}
+  deadZoneObj: {fileID: 0}
   playersLeft: 0
 --- !u!1001 &3298016629027580248
 PrefabInstance:
@@ -76,6 +77,16 @@ PrefabInstance:
       propertyPath: radius
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 4929135381063391382, guid: 7774da88258183241b7058e4f7f54048,
+        type: 3}
+      propertyPath: ObservedComponents.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4929135381063391382, guid: 7774da88258183241b7058e4f7f54048,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 5770327946352692766}
     - target: {fileID: 5897291161001298707, guid: 7774da88258183241b7058e4f7f54048,
         type: 3}
       propertyPath: m_Name
@@ -84,7 +95,7 @@ PrefabInstance:
     - target: {fileID: 5897291161001298707, guid: 7774da88258183241b7058e4f7f54048,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5897291161001298708, guid: 7774da88258183241b7058e4f7f54048,
         type: 3}
@@ -153,6 +164,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7774da88258183241b7058e4f7f54048, type: 3}
+--- !u!114 &5770327946352692766 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -157421377612568762, guid: 7774da88258183241b7058e4f7f54048,
+    type: 3}
+  m_PrefabInstance: {fileID: 3298016629027580248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8940643300664222696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5897291161111104176, guid: 7774da88258183241b7058e4f7f54048,

@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         PlayerController.OnPlayerDie += PlayerDie;
         Mode.OnGameOver += GameOver;
-        GoogleManager.Instance.OnGetUserInfo();
+        //GoogleManager.Instance.OnGetUserInfo();
         //nickNamne = userInfo["NickName"].ToString();
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
