@@ -16,6 +16,7 @@ TagManager:
   - BgmPlayer
   - SfxPlayer
   - MapGen
+  - Result
   layers:
   - Default
   - TransparentFX
