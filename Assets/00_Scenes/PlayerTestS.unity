@@ -1276,7 +1276,7 @@ PrefabInstance:
     - target: {fileID: 7591189770289149689, guid: 970a65f158b18b84e8f5dcb377dc668d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.6
       objectReference: {fileID: 0}
     - target: {fileID: 7591189770289149689, guid: 970a65f158b18b84e8f5dcb377dc668d,
         type: 3}
@@ -2525,9 +2525,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a46cfea1d7ab04ab2b75aa600ef9d970, type: 3}
   - {fileID: 8300000, guid: 1254b26f77ad24dd28bd7e29b61a9f0d, type: 3}
   sfxClips:
-  - {fileID: 8300000, guid: 77e14a044efb3484995cb7faefc6d63d, type: 3}
-  - {fileID: 8300000, guid: 77e14a044efb3484995cb7faefc6d63d, type: 3}
-  - {fileID: 8300000, guid: 77e14a044efb3484995cb7faefc6d63d, type: 3}
+  - {fileID: 8300000, guid: 499ad5dbcf8a5491698487f20a195dc2, type: 3}
+  - {fileID: 8300000, guid: 0a8907ce0b9dc4dc0be79988a2c854db, type: 3}
+  - {fileID: 8300000, guid: 4524b660e2c584e4291d06739c842495, type: 3}
   - {fileID: 8300000, guid: 24936cb318ecb465cb5f628633d2f47d, type: 3}
 --- !u!4 &1187796971
 Transform:

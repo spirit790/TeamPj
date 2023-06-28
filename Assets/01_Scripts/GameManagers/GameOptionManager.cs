@@ -13,15 +13,16 @@ public class GameOptionManager : MonoBehaviour
     {
         return instance;
     }
+   
     Slider bgmSlider;
     Slider sfxSlider;
     GameObject optionPanel;
     AudioSource bgmPlayer;
-    AudioSource sfxPlayer;
+
+    public float vol;
     public AudioClip[] bgmClips;
     public AudioClip[] sfxClips;
 
-    //public AudioMixer audioMixer;
     private void Awake()
     {
         if(instance ==null)
@@ -35,8 +36,7 @@ public class GameOptionManager : MonoBehaviour
         }
         
         bgmPlayer = GameObject.FindWithTag("BgmPlayer").GetComponent<AudioSource>();
-        sfxPlayer = GameObject.FindWithTag("SfxPlayer").GetComponent<AudioSource>();
-
+        //sfxPlayer = GameObject.FindWithTag("SfxPlayer").GetComponent<AudioSource>();
         //PlayerCanvas하위 오브젝트들의 순서에 따라 찾게 해놨습니다.
         optionPanel = GameObject.FindWithTag("PlayerCanvas").transform.GetChild(0).gameObject;
         bgmSlider = optionPanel.transform.GetChild(0).GetComponent<Slider>();
@@ -44,12 +44,14 @@ public class GameOptionManager : MonoBehaviour
         bgmSlider.onValueChanged.AddListener(ChangeBgmVol);
         sfxSlider.onValueChanged.AddListener(ChangeSfxVol);
     }
+
     private void Update()
     {
         if (Input.GetKey(KeyCode.Escape))
         {
             optionPanel.SetActive(true);
         }
+
 #if UNITY_ANDROID
         if (Application.platform == RuntimePlatform.Android)
         {
@@ -115,7 +117,8 @@ public class GameOptionManager : MonoBehaviour
     /// case추가하시고 소리가 나야하는 스크립트 위치에 가져오셔서 PlaySfxSound("???")로 쓰면됩니다.
     /// </summary>
     /// <param name="type"></param>
-    public void PlaySfxSound(string type)
+
+    public void PlaySfxSound(string type, Vector3 position,float vol)
     {
         int index = 0;
 
@@ -126,9 +129,16 @@ public class GameOptionManager : MonoBehaviour
             case "Dash": index = 2; break;
             case "Close": index = 3; break;
         }
-
+        GameObject soundObject = new GameObject("SfxSound");
+        soundObject.transform.position = position;
+        
+        AudioSource sfxPlayer = soundObject.AddComponent<AudioSource>();
         sfxPlayer.clip = sfxClips[index];
+        sfxPlayer.volume = vol;
+
         sfxPlayer.Play();
+
+        Destroy(soundObject, sfxPlayer.clip.length);
     }
 
     void ChangeBgmVol(float bgmVol)
@@ -137,7 +147,7 @@ public class GameOptionManager : MonoBehaviour
     }
     void ChangeSfxVol(float sfxVol)
     {
-        sfxPlayer.volume = sfxVol;
+        vol = sfxVol;
     }
     #endregion
 
