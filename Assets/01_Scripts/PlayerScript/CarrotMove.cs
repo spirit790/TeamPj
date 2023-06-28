@@ -32,7 +32,7 @@ public class CarrotMove : MonoBehaviour
     /// </summary>
     public void OnClickAtk()
     {
-        gameOptionManager.PlaySfxSound("Attack");
+        gameOptionManager.PlaySfxSound("Attack", transform.position, gameOptionManager.vol);
         if(Physics.Raycast(transform.position, transform.forward, out hit, atkLength))
         {
             GameObject hitObj = hit.transform.gameObject;
