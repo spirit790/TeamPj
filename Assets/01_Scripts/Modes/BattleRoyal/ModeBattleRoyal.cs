@@ -6,26 +6,6 @@ using Photon.Pun;
 public class ModeBattleRoyal : Mode
 {
 
-    private float timer;
-    private int timeCount;
-    private int TimeCount
-    {
-        get
-        {
-            return timeCount;
-        }
-        set
-        {
-            timeCount = value;
-            //Debug.Log(timeCount);
-            if (PhotonNetwork.IsMasterClient)
-            {
-                float newRadius = ((timeLimit - timeCount * shrinkTime) / timeLimit) * deadZone.radius;
-                deadZone.SetDeadZoneRadius(newRadius, shrinkTime / 2);
-            }
-        }
-    }
-
     [Header("DeadZone")]
     public DeadZone deadZone;
     public float shrinkTime;
@@ -47,16 +27,6 @@ public class ModeBattleRoyal : Mode
             deadZoneObj = PhotonNetwork.InstantiateRoomObject(deadZone.name, mapGen.areaZonePos, Quaternion.identity);
         //Debug.Log(deadZone.transform.position);
         //playersLeft = playerList.Count; gm에서 처리?
-    }
-
-    void Update()
-    {
-        timer += Time.deltaTime;
-        if (timer >= shrinkTime)
-        {
-            timer = 0;
-            TimeCount++;
-        }
     }
     public override void GameStart()
     {

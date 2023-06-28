@@ -13,6 +13,7 @@ public class DeadZone : MonoBehaviour
         DOTween.Init();
         SetDeadZoneRadius(radius, 0);
         mode = FindAnyObjectByType<ModeBattleRoyal>();
+        StartCoroutine(ShirinkDeadZone());
     }
 
     private void OnTriggerExit(Collider other)
@@ -56,5 +57,28 @@ public class DeadZone : MonoBehaviour
         transform.DOScaleX(newRadius, shrinkTime);
         transform.DOScaleY(newRadius, shrinkTime);
         transform.DOScaleZ(newRadius, shrinkTime);
+    }
+
+    IEnumerator ShirinkDeadZone()
+    {
+        float limitTime = GameManager.Instance.battleTimeLimit;
+        float timer = 0;
+        int timeCount = 0;
+        float shirinkTimer = 0;
+        while (true)
+        {
+            timer += Time.deltaTime;
+            shirinkTimer = timer;
+            if (shirinkTimer > mode.shrinkTime)
+            {
+                timeCount++;
+                shirinkTimer = 0;
+                float newRadius = ((limitTime - timeCount * mode.shrinkTime) / limitTime) * radius;
+                SetDeadZoneRadius(newRadius, mode.shrinkTime / 2);
+            }
+            if (timer > limitTime)
+                break;
+            yield return new WaitForFixedUpdate();
+        }
     }
 }
