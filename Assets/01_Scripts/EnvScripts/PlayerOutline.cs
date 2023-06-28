@@ -12,6 +12,8 @@ public class PlayerOutline : MonoBehaviour
     [Range(0.01f, 0.05f)]
     public float outLineScale = 0.03f;
     public Color outlineColor;
+    [Range(0, 1)]
+    private int isSelected = 0;
     private Renderer outlineRenderer;
 
     void Start()
@@ -23,11 +25,14 @@ public class PlayerOutline : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.F))
         {
-            outlineRenderer.enabled = true;
+            isSelected = 1;
+            outlineRenderer.material.SetInt("_IsSelected", isSelected);
         }
         else if(Input.GetKeyDown(KeyCode.G))
         {
-            outlineRenderer.enabled = false;
+            isSelected = 0;
+            outlineRenderer.material.SetInt("_IsSelected", isSelected);
+
         }
     }
 
@@ -35,6 +40,7 @@ public class PlayerOutline : MonoBehaviour
     {
         GameObject outlineObject = Instantiate(model, model.transform.position, model.transform.rotation, model.transform);
         outlineObject.name = "Outline";
+        outlineObject.layer = 13;
         Renderer rend = outlineObject.GetComponent<Renderer>();
 
         rend.material = outlineMat;

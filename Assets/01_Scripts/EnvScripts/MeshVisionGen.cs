@@ -16,6 +16,9 @@ public class MeshVisionGen : MonoBehaviour
     private int visionLayer = 1 << 6 | 1 << 9 | 1 << 10;
     private List<Transform> visibleActors = new List<Transform>();
 
+    public int visibleRenderQueue = 3001;
+    public int invisibleRenderQueue = 3000;
+
     [Header("LightMesh")]
     private Mesh lightMesh;
     private int verticesIdx = 0;
@@ -74,6 +77,8 @@ public class MeshVisionGen : MonoBehaviour
                     시야 영역에 유저나 AI에 있을 때
 
                     */
+                    hit.transform.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+                    hit.transform.GetComponentInChildren<SkinnedMeshRenderer>().material.renderQueue = visibleRenderQueue;
                     hit.transform.gameObject.layer = 7;
                     visibleActors.Add(hit.transform);
                 }
@@ -139,6 +144,9 @@ public class MeshVisionGen : MonoBehaviour
             if (Mathf.Acos(Vector3.Dot(targetTr.forward, (trs[i].position - transform.position).normalized)) * Mathf.Rad2Deg >= lightAngle / 2)
             {
                 trs[i].gameObject.layer = 6;
+                trs[i].GetComponentInChildren<SkinnedMeshRenderer>().material.renderQueue = invisibleRenderQueue;
+                trs[i].transform.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
+
                 trs.Remove(trs[i]);
             }
         }
