@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Photon.Pun;
 
 public class DeadZone : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class DeadZone : MonoBehaviour
         DOTween.Init();
         SetDeadZoneRadius(radius, 0);
         mode = FindAnyObjectByType<ModeBattleRoyal>();
-        StartCoroutine(ShirinkDeadZone());
+        if(PhotonNetwork.IsMasterClient)
+            StartCoroutine(ShirinkDeadZone());
     }
 
     private void OnTriggerExit(Collider other)
@@ -42,7 +44,7 @@ public class DeadZone : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            StopAllCoroutines();
+            StopCoroutine(PlayerDeadByDeadZone(player));
         }
     }
 
@@ -78,8 +80,9 @@ public class DeadZone : MonoBehaviour
                 Debug.Log(newRadius);
                 SetDeadZoneRadius(newRadius, mode.shrinkTime / 2);
             }
-            if (timer <=0)
-                break;
+            Debug.Log(timer);
+            Debug.Log(shirinkTimer);
+            yield return null;
         }
         yield return null;
 
