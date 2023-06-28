@@ -18,7 +18,7 @@ public class AIPattern : MonoBehaviour
     private bool isDead;
     const float TARGET_DISTANCE = 3;
 
-    Vector3 TargetPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
+    Vector3 TargetPos { get { return new Vector3(Random.Range(0, mapWidth), 0, Random.Range(0, mapHeight)); } }
 
     float RandomStopTime { get { return Random.Range(0, 3); } }
 
