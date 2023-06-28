@@ -34,10 +34,10 @@ public class PlayerController : MonoBehaviourPun
         get { return isDead; }
         set
         {
+            isDead = value;
             if (value == true)
             {
                 PlayerDead();
-                OnPlayerDie(this);
             }
         }
     }
@@ -56,8 +56,8 @@ public class PlayerController : MonoBehaviourPun
         playerAgent = GetComponent<NavMeshAgent>();
         joyStick = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponentInChildren<JoyStick>();
         dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
- 
     }
+    
     private void Start()
     {
         playerState = PLAYERSTATE.IDLE;
@@ -76,17 +76,6 @@ public class PlayerController : MonoBehaviourPun
 #endif
 
     }
-
-    public void PlayerMove()
-    {
-#if UNITY_ANDROID
-        float h = joyStick.Horizontal();
-        float v = joyStick.Vertical();
-#endif
-#if UNITY_EDITOR_WIN
-#endif
-    }
-
     public void PlayerJoyStickMove()
     {
         playerState = PLAYERSTATE.MOVE;
@@ -139,11 +128,17 @@ public class PlayerController : MonoBehaviourPun
         //Vector3 moveDiection = new Vector3(h, 0, v).normalized;
         //tr.position += moveDiection * moveSpeed * Time.deltaTime;
     }
+
+    public void OnDestroy()
+    {
+        
+    }
     public void PlayerDead()
     {
         Debug.Log("Player죽음!!!!!!!!!!!!");
         playerState = PLAYERSTATE.NONE;
+        PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.LocalPlayer);
         //Destroy(gameObject);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 }

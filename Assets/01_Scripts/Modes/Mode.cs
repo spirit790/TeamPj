@@ -29,7 +29,13 @@ public class Mode : MonoBehaviourPunCallbacks
     List<GameObject> aiList = new List<GameObject>();
     public string modeName;
 
-    protected Vector3 AISpawnPos { get { return new Vector3(Random.Range(0,mapWidth), 0, Random.Range(0,mapHeight)); } }
+    protected Vector3 SpawnPos 
+    { 
+        get 
+        { 
+            return new Vector3(Random.Range(mapWidth * 0.05f, mapWidth + mapWidth * 0.05f), 0, Random.Range(mapHeight * 0.05f, mapHeight + mapHeight * 0.05f)); 
+        } 
+    }
 
     public bool isGameOver = false;
     public bool IsGameOver
@@ -77,7 +83,7 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     protected void CreatePlayer()
     {
-        myPlayerObject = PhotonNetwork.Instantiate(playerPrefab.name, AISpawnPos + new Vector3(0, 0.5f, 0), Quaternion.identity);
+        myPlayerObject = PhotonNetwork.Instantiate(playerPrefab.name, SpawnPos + new Vector3(0, 0.5f, 0), Quaternion.identity);
         myPlayerObject.GetComponent<PlayerController>().enabled = false;
         // set name
         myPlayerObject.name = PhotonNetwork.LocalPlayer.ActorNumber.ToString();
@@ -92,7 +98,7 @@ public class Mode : MonoBehaviourPunCallbacks
     {
         for (int i = 0; i < AICount; i++)
         {
-            GameObject ai = PhotonNetwork.InstantiateRoomObject(aiPrefab.name, AISpawnPos, Quaternion.identity);
+            GameObject ai = PhotonNetwork.InstantiateRoomObject(aiPrefab.name, SpawnPos, Quaternion.identity);
             if (PhotonNetwork.IsMasterClient)
             {
                 StartCoroutine(ai.GetComponent<AIPattern>().StopMove(waitStartTime));

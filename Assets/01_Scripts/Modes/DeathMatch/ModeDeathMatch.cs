@@ -6,20 +6,10 @@ using UnityEngine.UI;
 
 public class ModeDeathMatch : Mode
 {
-    Queue<PlayerController> deadPlayerList = new Queue<PlayerController>();
-
-    [Header("AI 리스폰 시간")]
-    [SerializeField]
-    float aiRespawnMinTime;
-    [SerializeField]
-    float aiRespawnMaxTime;
-
-    float AIRespawnTime { get { return Random.Range(aiRespawnMinTime, aiRespawnMaxTime); } }
-
     public override void GameStart()
     {
+        PlayerController.OnPlayerDie += RespawnPlayer;
         base.GameStart();
-        //StartCoroutine(RespawnAI());
     }
 
     protected override void GameOverControl()
@@ -33,15 +23,7 @@ public class ModeDeathMatch : Mode
     }
     void RespawnPlayer(PlayerController player)
     {
-        player = deadPlayerList.Dequeue();
+        Debug.Log("player respawn");
     }
     
-    IEnumerator RespawnAI()
-    {
-        yield return new WaitForSeconds(2f);
-        while (!isGameOver)
-        {
-            yield return new WaitForSeconds(AIRespawnTime);
-        }
-    }
 }

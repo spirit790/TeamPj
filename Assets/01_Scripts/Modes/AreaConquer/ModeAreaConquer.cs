@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class ModeAreaConquer : Mode
 {
@@ -24,8 +25,8 @@ public class ModeAreaConquer : Mode
     private void Start()
     {
         mapGen = GameObject.FindGameObjectWithTag("MapGen").GetComponent<MapGenerator>();
-        area = GetComponentInChildren<TargetArea>();
-        area.gameObject.transform.position = mapGen.areaZonePos;
+        if (PhotonNetwork.IsMasterClient)
+            PhotonNetwork.InstantiateRoomObject(area.name, mapGen.areaZonePos, Quaternion.identity);
     }
     public override void GameStart()
     {

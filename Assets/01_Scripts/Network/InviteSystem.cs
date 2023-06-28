@@ -26,17 +26,28 @@ public class InviteSystem : MonoBehaviourPunCallbacks
 
     string randomWords = "abcdefghijklmnopqrstuvwxyz0123456789";
 
+    bool isDebug = false;
+
     #region Invite Method
     /// <summary>
     /// 号持失 獄動
     /// </summary>
     public void CreateRoom()
     {
+        
         this.gameObject.SetActive(true);
-        string[] userId = PhotonNetwork.LocalPlayer.UserId.Split("-");
-        string randomWord = this.randomWords[Random.Range(0,this.randomWords.Length)].ToString() + this.randomWords[Random.Range(0, this.randomWords.Length)].ToString();
-        string roomName = userId[1] + randomWord;
-
+        isDebug = true;
+        string roomName = "";
+        if (isDebug)
+        {
+            roomName = "1";
+        }
+        else
+        {
+            string[] userId = PhotonNetwork.LocalPlayer.UserId.Split("-");
+            string randomWord = this.randomWords[Random.Range(0, this.randomWords.Length)].ToString() + this.randomWords[Random.Range(0, this.randomWords.Length)].ToString();
+            roomName = userId[1] + randomWord;
+        }
         RoomOptions roomOption = new RoomOptions();
         Hashtable roomProp = new Hashtable { { GameManager.Instance.KeyMap, 0 }, { GameManager.Instance.KeyMode, 0 } };
         roomOption.CustomRoomProperties = roomProp;
