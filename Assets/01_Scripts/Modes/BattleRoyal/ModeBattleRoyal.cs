@@ -19,7 +19,6 @@ public class ModeBattleRoyal : Mode
 
     private void Start()
     {
-        GameManager.OnPlayersLeftOne += WinGame;
         //deadZone = GetComponentInChildren<DeadZone>();
         mapGen = GameObject.FindGameObjectWithTag("MapGen").GetComponent<MapGenerator>();
         //deadZone.gameObject.SetActive(false);
@@ -58,9 +57,5 @@ public class ModeBattleRoyal : Mode
     {
         deadZone.gameObject.transform.localPosition = pos;
         deadZone.gameObject.SetActive(true);
-    }
-    public void WinGame()
-    {
-        IsGameOver = true;
     }
 }
