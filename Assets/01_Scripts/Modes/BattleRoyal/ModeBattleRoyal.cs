@@ -49,6 +49,11 @@ public class ModeBattleRoyal : Mode
         
     }
 
+    protected override void PlayerKillControl()
+    {
+
+    }
+
     public void SetDeadZonePos(Vector3 pos)
     {
         deadZone.gameObject.transform.localPosition = pos;

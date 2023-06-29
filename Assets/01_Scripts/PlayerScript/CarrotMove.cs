@@ -23,6 +23,11 @@ public class CarrotMove : MonoBehaviourPun
         //gameOptionManager = GameOptionManager.Instance();
     }
 
+    public delegate void PlayerKill();
+    public static event PlayerKill OnPlayerKill;
+
+    public delegate void AIKill();
+    public static event AIKill OnAIKill;
 
     void Update()
     {
@@ -52,18 +57,16 @@ public class CarrotMove : MonoBehaviourPun
                 Debug.Log(hit.transform.name);
                 if (hit.transform.CompareTag("AI"))
                 {
+                    OnAIKill();
                     int viewId = hit.transform.gameObject.GetPhotonView().ViewID;
                     photonView.RPC(nameof(DestroyNetworkObject), RpcTarget.MasterClient, viewId);
                 }
                 else if (hit.transform.CompareTag("Player"))
                 {
+                    OnPlayerKill();
                     int actorNum = hit.transform.gameObject.GetPhotonView().ControllerActorNr;
-                    
-                    //PhotonNetwork.CurrentRoom.GetPlayer();
-                    //int actorNum = hit.transform.gameObject.GetPhotonView().ControllerActorNr;
                     photonView.RPC(nameof(DestroyPlayer), RpcTarget.MasterClient, PhotonNetwork.CurrentRoom.Players[actorNum]);
                 }
-
             }
         }
     }

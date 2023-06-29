@@ -8,8 +8,8 @@ public class ModeDeathMatch : Mode
 {
     public override void GameStart()
     {
-        PlayerController.OnPlayerDie += RespawnPlayer;
-        AIPattern.OnAIDie += RespawnAI;
+        //PlayerController.OnPlayerDie += RespawnPlayer;
+        //AIPattern.OnAIDie += RespawnAI;
         base.GameStart();
     }
 
@@ -23,13 +23,7 @@ public class ModeDeathMatch : Mode
         base.GameOver();
     }
 
-    void RespawnAI()
-    {
-        if(!isGameOver)
-            PhotonNetwork.InstantiateRoomObject(aiPrefab.name, SpawnPos, Quaternion.identity);
-    }
-
-    void RespawnPlayer(PlayerController player)
+    protected override void PlayerDieControl(PlayerController player)
     {
         Debug.Log("player respawn");
         if (PhotonNetwork.IsConnected && !isGameOver)
@@ -38,5 +32,11 @@ public class ModeDeathMatch : Mode
             Camera.main.GetComponent<FollowCam>().SetCamTarget(myPlayerObject);
         }
     }
-    
+
+    protected override void AIDieControl()
+    {
+        if (!isGameOver)
+            PhotonNetwork.InstantiateRoomObject(aiPrefab.name, SpawnPos, Quaternion.identity);
+    }
+
 }

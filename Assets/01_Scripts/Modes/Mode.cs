@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
@@ -68,6 +69,10 @@ public class Mode : MonoBehaviourPunCallbacks
         txtTimeLimit = GameObject.FindGameObjectWithTag("TimeLimit").GetComponent<Text>();
         txtWaitStartTime = GameObject.FindGameObjectWithTag("WaitStartTime").GetComponent<Text>();
         GameManager.Instance.startTime = Firebase.Firestore.FieldValue.ServerTimestamp;
+        AIPattern.OnAIDie += AIDieControl;
+        PlayerController.OnPlayerDie += PlayerDieControl;
+        CarrotMove.OnAIKill += AIKillControl;
+        CarrotMove.OnPlayerKill += PlayerKillControl;
         GameStart();
     }
     /// <summary>
@@ -178,5 +183,33 @@ public class Mode : MonoBehaviourPunCallbacks
             }
         }
     }
+
+    protected virtual void PlayerDieControl(PlayerController player)
+    {
+        photonView.RPC(nameof(RpcPlayerDie), RpcTarget.All);
+    }
+
+    protected virtual void AIDieControl()
+    {
+
+    }
+
+    protected virtual void PlayerKillControl()
+    {
+        GameManager.Instance.playerKills += 1;
+        if (GameManager.Instance.PlayerCount == 1)
+            IsGameOver = true;
+    }
+
+    protected virtual void AIKillControl()
+    {
+        GameManager.Instance.aiKills += 1;
+        
+    }
     #endregion
+    [PunRPC]
+    void RpcPlayerDie()
+    {
+        GameManager.Instance.PlayerCount -= 1;
+    }
 }
