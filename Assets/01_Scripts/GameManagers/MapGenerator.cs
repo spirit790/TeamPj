@@ -55,7 +55,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
             {
                 for (int j = 0; j < chunkX; j++)
                 {
-                    photonView.RPC(nameof(SendChunkData), RpcTarget.AllBufferedViaServer,structurePrefabs.Length, i, j);
+                    photonView.RPC(nameof(SendChunkData), RpcTarget.All, structurePrefabs.Length, i, j);
                 }
             }
         }
@@ -309,6 +309,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     [PunRPC]
     void SendMapData(string mapData, PhotonMessageInfo message)
     {
+        
         strSendMapData = mapData;
         DrawMap();
         NavMesh.RemoveAllNavMeshData();

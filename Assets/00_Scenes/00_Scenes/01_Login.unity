@@ -1969,7 +1969,7 @@ MonoBehaviour:
   - {fileID: 3609465043837721832, guid: bac10166c774df848ac94f3106b5c3ea, type: 3}
   - {fileID: 3689139734589052143, guid: 325558b1933458d4aa6b8385b990e185, type: 3}
   - {fileID: 3547377901982660813, guid: 7fd1888656fb0c549a67d5ce667d83a2, type: 3}
-  test: 
+  resultPanel: {fileID: 0}
 --- !u!4 &1246215372
 Transform:
   m_ObjectHideFlags: 0

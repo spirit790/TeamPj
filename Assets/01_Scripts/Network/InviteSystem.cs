@@ -26,6 +26,8 @@ public class InviteSystem : MonoBehaviourPunCallbacks
 
     string randomWords = "abcdefghijklmnopqrstuvwxyz0123456789";
 
+    [SerializeField] bool isDebug = false;
+
     #region Invite Method
     /// <summary>
     /// 号持失 獄動
@@ -33,10 +35,18 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     public void CreateRoom()
     {
         this.gameObject.SetActive(true);
-        string[] userId = PhotonNetwork.LocalPlayer.UserId.Split("-");
-        string randomWord = this.randomWords[Random.Range(0,this.randomWords.Length)].ToString() + this.randomWords[Random.Range(0, this.randomWords.Length)].ToString();
-        string roomName = userId[1] + randomWord;
-
+        isDebug = true;
+        string roomName = "";
+        if (isDebug)
+        {
+            roomName = randomWords[Random.Range(0, this.randomWords.Length)].ToString();
+        }
+        else
+        {
+            string[] userId = PhotonNetwork.LocalPlayer.UserId.Split("-");
+            string randomWord = this.randomWords[Random.Range(0, this.randomWords.Length)].ToString() + this.randomWords[Random.Range(0, this.randomWords.Length)].ToString();
+            roomName = userId[1] + randomWord;
+        }
         RoomOptions roomOption = new RoomOptions();
         Hashtable roomProp = new Hashtable { { GameManager.Instance.KeyMap, 0 }, { GameManager.Instance.KeyMode, 0 } };
         roomOption.CustomRoomProperties = roomProp;
@@ -65,6 +75,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN)
         {
+            Debug.Log("Master");
             PhotonNetwork.LoadLevel(2);
         }
     }

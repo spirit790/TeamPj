@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Photon.Pun;
 
-public class AIPattern : MonoBehaviour
+public class AIPattern : MonoBehaviourPun
 {
     NavMeshAgent agent;
 
@@ -18,7 +18,10 @@ public class AIPattern : MonoBehaviour
     private bool isDead;
     const float TARGET_DISTANCE = 3;
 
-    Vector3 TargetPos { get { return new Vector3(Random.Range(0, mapWidth), 0, Random.Range(0, mapHeight)); } }
+    public delegate void AIDie();
+    public static event AIDie OnAIDie;
+
+    Vector3 TargetPos { get { return new Vector3(Random.Range(-mapWidth * 0.1f, mapWidth + mapWidth * 0.1f), 0, Random.Range(-mapHeight * 0.1f, mapHeight + mapHeight * 0.1f)); } }
 
     float RandomStopTime { get { return Random.Range(0, 3); } }
 
@@ -109,6 +112,11 @@ public class AIPattern : MonoBehaviour
         agent.speed = 0;
     }
 
+    private void OnDestroy()
+    {
+        OnAIDie();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("d");
@@ -130,7 +138,7 @@ public class AIPattern : MonoBehaviour
     public void AiDead()
     {
         Debug.Log("AI °¡ Á×À½!!!!!!!!!!!!");
-        Destroy(gameObject);
+        PhotonNetwork.Destroy(gameObject);
     }
 
 }

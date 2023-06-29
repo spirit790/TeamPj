@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 276695139}
   m_Layer: 5
   m_Name: ResultPanel
-  m_TagString: Untagged
+  m_TagString: Result
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

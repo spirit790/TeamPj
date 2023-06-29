@@ -10,7 +10,8 @@ public class FollowCam : MonoBehaviour
     
     void Update()
     {
-        transform.position = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z - offset);
+        if(target != null)
+            transform.position = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z - offset);
     }
 
     public void SetCamTarget(GameObject target)

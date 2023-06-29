@@ -2,24 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-using UnityEngine.UI;
+using Photon.Realtime;
 
 public class ModeDeathMatch : Mode
 {
-    Queue<PlayerController> deadPlayerList = new Queue<PlayerController>();
-
-    [Header("AI 리스폰 시간")]
-    [SerializeField]
-    float aiRespawnMinTime;
-    [SerializeField]
-    float aiRespawnMaxTime;
-
-    float AIRespawnTime { get { return Random.Range(aiRespawnMinTime, aiRespawnMaxTime); } }
-
     public override void GameStart()
     {
+        PlayerController.OnPlayerDie += RespawnPlayer;
+        AIPattern.OnAIDie += RespawnAI;
         base.GameStart();
-        //StartCoroutine(RespawnAI());
     }
 
     protected override void GameOverControl()
@@ -31,17 +22,21 @@ public class ModeDeathMatch : Mode
     {
         base.GameOver();
     }
+
+    void RespawnAI()
+    {
+        if(!isGameOver)
+            PhotonNetwork.InstantiateRoomObject(aiPrefab.name, SpawnPos, Quaternion.identity);
+    }
+
     void RespawnPlayer(PlayerController player)
     {
-        player = deadPlayerList.Dequeue();
-    }
-    
-    IEnumerator RespawnAI()
-    {
-        yield return new WaitForSeconds(2f);
-        while (!isGameOver)
+        Debug.Log("player respawn");
+        if (PhotonNetwork.IsConnected && !isGameOver)
         {
-            yield return new WaitForSeconds(AIRespawnTime);
+            myPlayerObject = PhotonNetwork.Instantiate(playerPrefab.name, SpawnPos, Quaternion.identity);
+            Camera.main.GetComponent<FollowCam>().SetCamTarget(myPlayerObject);
         }
     }
+    
 }
