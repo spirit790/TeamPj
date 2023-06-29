@@ -18,6 +18,9 @@ public class AIPattern : MonoBehaviourPun
     private bool isDead;
     const float TARGET_DISTANCE = 3;
 
+    public delegate void AIDie();
+    public static event AIDie OnAIDie;
+
     Vector3 TargetPos { get { return new Vector3(Random.Range(-mapWidth * 0.1f, mapWidth + mapWidth * 0.1f), 0, Random.Range(-mapHeight * 0.1f, mapHeight + mapHeight * 0.1f)); } }
 
     float RandomStopTime { get { return Random.Range(0, 3); } }
@@ -107,6 +110,11 @@ public class AIPattern : MonoBehaviourPun
     private void OnDisable()
     {
         agent.speed = 0;
+    }
+
+    private void OnDestroy()
+    {
+        OnAIDie();
     }
 
     private void OnTriggerEnter(Collider other)

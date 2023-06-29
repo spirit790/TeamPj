@@ -3525,6 +3525,7 @@ MonoBehaviour:
   selectMode: {fileID: 978725677}
   content: {fileID: 1182881695}
   playerList: []
+  isDebug: 1
 --- !u!4 &1456628261
 Transform:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Photon.Pun;
+using Photon.Realtime;
 
 
 public class PlayerController : MonoBehaviourPun
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviourPun
     public float roteSpeed;
 
     public float atkSpeed;
-    private bool isDead = false;
+    public bool isDead = false;
     public bool IsDead
     {
         get { return isDead; }
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviourPun
             if (value == true)
             {
                 PlayerDead();
+                OnPlayerDie(this);
             }
         }
     }
@@ -48,7 +50,9 @@ public class PlayerController : MonoBehaviourPun
     /// Player 사망 이벤트로 IsDead 가 true가 되면 호출됩니다. 이벤트 매개변수로 사망한 player 넣어주면 됩니다.
     /// </summary>
     public static event PlayerDie OnPlayerDie;
-
+    /// <summary>
+    /// Player 사망 이벤트로 IsDead 가 true가 되면 호출됩니다. 이벤트 매개변수로 사망한 player 넣어주면 됩니다.
+    /// </summary>
     private void Awake()
     {
         tr = GetComponent<Transform>();
@@ -131,13 +135,13 @@ public class PlayerController : MonoBehaviourPun
 
     public void OnDestroy()
     {
-        
+        if (photonView.IsMine)
+            OnPlayerDie(this);
     }
     public void PlayerDead()
     {
         Debug.Log("Player二쎌쓬!!!!!!!!!!!!");
-        playerState = PLAYERSTATE.NONE;
-        PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.LocalPlayer);
+        //playerState = PLAYERSTATE.NONE;
         //Destroy(gameObject);
         //gameObject.SetActive(false);
     }

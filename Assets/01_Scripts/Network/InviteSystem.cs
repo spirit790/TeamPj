@@ -26,7 +26,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
 
     string randomWords = "abcdefghijklmnopqrstuvwxyz0123456789";
 
-    bool isDebug = false;
+    [SerializeField] bool isDebug = false;
 
     #region Invite Method
     /// <summary>
@@ -34,13 +34,12 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     /// </summary>
     public void CreateRoom()
     {
-        
         this.gameObject.SetActive(true);
         isDebug = true;
         string roomName = "";
         if (isDebug)
         {
-            roomName = "1";
+            roomName = randomWords[Random.Range(0, this.randomWords.Length)].ToString();
         }
         else
         {
@@ -76,6 +75,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN)
         {
+            Debug.Log("Master");
             PhotonNetwork.LoadLevel(2);
         }
     }
