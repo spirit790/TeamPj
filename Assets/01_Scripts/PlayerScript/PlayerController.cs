@@ -138,6 +138,7 @@ public class PlayerController : MonoBehaviourPun
         if (photonView.IsMine)
             OnPlayerDie(this);
     }
+
     public void PlayerDead()
     {
         Debug.Log("Player죽음!!!!!!!!!!!!");

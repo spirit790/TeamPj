@@ -30,6 +30,7 @@ public class Mode : MonoBehaviourPunCallbacks
     List<GameObject> aiList = new List<GameObject>();
     public string modeName;
 
+    public bool isDead;
     protected Vector3 SpawnPos 
     { 
         get 
@@ -73,6 +74,7 @@ public class Mode : MonoBehaviourPunCallbacks
         PlayerController.OnPlayerDie += PlayerDieControl;
         CarrotMove.OnAIKill += AIKillControl;
         CarrotMove.OnPlayerKill += PlayerKillControl;
+        photonView.ViewID = 997;
         GameStart();
     }
     /// <summary>
@@ -187,11 +189,10 @@ public class Mode : MonoBehaviourPunCallbacks
     protected virtual void PlayerDieControl(PlayerController player)
     {
         photonView.RPC(nameof(RpcPlayerDie), RpcTarget.All);
-        if (GameManager.Instance.PlayerCount == 1)
-        {
-            if (GameObject.FindGameObjectWithTag("Player").GetPhotonView().ControllerActorNr == photonView.ControllerActorNr)
-                GameManager.Instance.isWin = true;
-        }
+
+        isDead = true;
+
+        photonView.RPC(nameof(PunPlayerDie), RpcTarget.All);
     }
 
     protected virtual void AIDieControl()
@@ -210,9 +211,21 @@ public class Mode : MonoBehaviourPunCallbacks
         GameManager.Instance.aiKills += 1;
         
     }
+    [PunRPC]
+    protected void PunPlayerDie()
+    {
+        if (GameManager.Instance.PlayerCount == 1)
+        {
+            if (!isDead)
+            {
+                GameManager.Instance.isWin = true;
+                Debug.LogWarning("win");
+            }
+        }
+    }
     #endregion
     [PunRPC]
-    void RpcPlayerDie()
+    protected void RpcPlayerDie()
     {
         GameManager.Instance.PlayerCount -= 1;
     }
