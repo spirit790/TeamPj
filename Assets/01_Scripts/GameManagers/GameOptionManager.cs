@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class GameOptionManager : MonoBehaviour
 {
@@ -14,10 +15,14 @@ public class GameOptionManager : MonoBehaviour
         return instance;
     }
    
-    Slider bgmSlider;
-    Slider sfxSlider;
-    GameObject optionPanel;
-    AudioSource bgmPlayer;
+    public Slider bgmSlider;
+    public Slider sfxSlider;
+    public GameObject optionPanel;
+    public AudioSource bgmPlayer;
+    public Button closeBtn;
+    public Button quitBtn;
+    public Button localEngBtn;
+    public Button localKorBtn;
 
     public float vol;
     public AudioClip[] bgmClips;
@@ -25,7 +30,7 @@ public class GameOptionManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance ==null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(instance);
@@ -34,16 +39,24 @@ public class GameOptionManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
         
-        bgmPlayer = GameObject.FindWithTag("BgmPlayer").GetComponent<AudioSource>();
-        //sfxPlayer = GameObject.FindWithTag("SfxPlayer").GetComponent<AudioSource>();
-        //PlayerCanvas하위 오브젝트들의 순서에 따라 찾게 해놨습니다.
-        optionPanel = GameObject.FindWithTag("PlayerCanvas").transform.GetChild(0).gameObject;
-        bgmSlider = optionPanel.transform.GetChild(0).GetComponent<Slider>();
-        sfxSlider = optionPanel.transform.GetChild(1).GetComponent<Slider>();
+    }
+    public void Start()
+    {
         bgmSlider.onValueChanged.AddListener(ChangeBgmVol);
         sfxSlider.onValueChanged.AddListener(ChangeSfxVol);
     }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        bgmPlayer = GameObject.FindWithTag("BgmPlayer").GetComponent<AudioSource>();
+        optionPanel = GameObject.FindWithTag("PlayerCanvas").transform.GetChild(0).gameObject;
+        bgmSlider = optionPanel.transform.GetChild(0).GetComponent<Slider>();
+        sfxSlider = optionPanel.transform.GetChild(1).GetComponent<Slider>();
+        closeBtn = optionPanel.transform.GetChild(3).GetComponent<Button>();
+        quitBtn = optionPanel.transform.GetChild(4).GetComponent<Button>();
+    }
+
 
     private void Update()
     {
