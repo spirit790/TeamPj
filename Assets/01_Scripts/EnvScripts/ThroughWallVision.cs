@@ -2,24 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using DG.Tweening;
 
 [System.Serializable]
-public class WallVisualizer_test : MonoBehaviour
+public class ThroughWallVision : MonoBehaviour
 {
-    [SerializeField]
     private List<Transform> visibleWalls = new List<Transform>();
 
     private Transform camTr;
     public Transform character;
-    private Renderer wallRenderer;
     private int detectingLayer = 1 << 9 | 1 << 10;
 
-    public Material[] mats;
+    [Range(0.1f, 1f)]
+    public float wallFadeTime = 0.33f;
 
     //public RaycastHit[] hits;
 
     private void Start()
     {
+        DOTween.Init();
         camTr = Camera.main.transform;
     }
     void Update()
@@ -41,7 +42,6 @@ public class WallVisualizer_test : MonoBehaviour
             {
                 WallAlphaChange(hits[i].transform, 0.5f);
                 visibleWalls.Add(hits[i].transform);
-
                 hits[i].transform.gameObject.layer = 10;
             }
             else if(hits[i].transform.gameObject.layer == 10)
@@ -73,18 +73,10 @@ public class WallVisualizer_test : MonoBehaviour
 
     private void WallAlphaChange(Transform wall, float alpha)
     {
-        wallRenderer = wall.GetComponent<Renderer>();
+        Renderer wallRenderer = wall.GetComponent<Renderer>();
  
         if(wallRenderer != null)
         {
-            if(alpha != 1.0f)
-            {
-                wallRenderer.material = mats[1];
-            }
-            else
-            {
-                wallRenderer.material = mats[0];
-            }
             // Material의 Alpha를 바꾼다.
             ChangeMatAlpha(wallRenderer, alpha);
         }
@@ -99,9 +91,13 @@ public class WallVisualizer_test : MonoBehaviour
     private void ChangeMatAlpha(Renderer renderer, float alpha)
     {
         Material mat = renderer.material;
-        Color matColor = mat.color;
-        matColor.a = alpha;
-        mat.color = matColor;
+        //Color matColor = mat.color;
+
+        //if (alpha > 0.5f) matColor = Color.white;
+        //else if (alpha <= 0.5f) matColor = Color.black;
+
+        mat.DOFade(alpha, wallFadeTime);
+        //mat.color = matColor;
     }
 
 }

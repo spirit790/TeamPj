@@ -24,12 +24,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Actor_Invisible
+  - Actor_Visible
+  - fog_of_war
+  - WALL
+  - WALL_trans
+  - Chorma_key
   - 
   - 
   - 

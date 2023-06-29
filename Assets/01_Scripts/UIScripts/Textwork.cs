@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 using DG.Tweening;
 
@@ -56,6 +57,7 @@ public class Textwork : MonoBehaviour
 
         DOTween.Init();
 
+        //mainCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         //sqBtn.onClick.AddListener(OnClickCountDown);
         //sqBtn.onClick.AddListener(OnClickSceneCall);
     }
