@@ -13,12 +13,12 @@ public class WorstOrAIKillerPanel : MonoBehaviourPun
     public Text killsTxt;
     void Start()
     {
-        GameManager.OnDataSent += GetWorstOrAIKillerData;
-        if (PhotonNetwork.IsMasterClient)
-        {
-            random = Random.Range(0, 2);
-            photonView.RPC(nameof(SetRandom), RpcTarget.All, random);
-        }
+        //GameManager.OnDataSent += GetWorstOrAIKillerData;
+        //if (PhotonNetwork.IsMasterClient)
+        //{
+        //    random = Random.Range(0, 2);
+        //    photonView.RPC(nameof(SetRandom), RpcTarget.All, random);
+        //}
     }
 
     [PunRPC]
@@ -41,7 +41,9 @@ public class WorstOrAIKillerPanel : MonoBehaviourPun
             killer = GameManager.Instance.GetMostAIKiller();
             killsTxt.text = killer["AIKills"].ToString() + " Kills";
         }
+        Debug.Log("kills: " + killsTxt.text);
         nickNameTxt.text = killer["NickName"].ToString();
+        Debug.Log("NickNAme: " + nickNameTxt.text);
         GameManager.Instance.resultPanel.SetActive(true);
     }
 }

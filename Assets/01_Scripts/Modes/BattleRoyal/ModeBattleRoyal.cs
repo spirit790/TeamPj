@@ -61,6 +61,6 @@ public class ModeBattleRoyal : Mode
     }
     public void WinGame()
     {
-        Debug.Log($"Winner: {GameManager.Instance.livePlayers[0].name}");
+        IsGameOver = true;
     }
 }

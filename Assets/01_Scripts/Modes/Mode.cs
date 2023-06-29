@@ -214,11 +214,11 @@ public class Mode : MonoBehaviourPunCallbacks
     [PunRPC]
     protected void PunPlayerDie()
     {
-        if (GameManager.Instance.PlayerCount == 1)
+        if (GameManager.Instance.PlayersLeft == 1)
         {
             if (!isDead)
             {
-                GameManager.Instance.isWin = true;
+                GameManager.Instance.IsWin = true;
                 Debug.LogWarning("win");
             }
         }
@@ -227,6 +227,6 @@ public class Mode : MonoBehaviourPunCallbacks
     [PunRPC]
     protected void RpcPlayerDie()
     {
-        GameManager.Instance.PlayerCount -= 1;
+        GameManager.Instance.PlayersLeft -= 1;
     }
 }

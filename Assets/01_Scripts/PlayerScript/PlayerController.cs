@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviourPun
 
     public void PlayerDead()
     {
-        Debug.Log("Player죽음!!!!!!!!!!!!");
+        Debug.Log("Player Dead!!!!!!!!!!!!");
         //playerState = PLAYERSTATE.NONE;
         //Destroy(gameObject);
         //gameObject.SetActive(false);
