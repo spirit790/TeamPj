@@ -218,7 +218,7 @@ public class Mode : MonoBehaviourPunCallbacks
         {
             if (!isDead)
             {
-                GameManager.Instance.isWin = true;
+                GameManager.Instance.IsWin = true;
                 Debug.LogWarning("win");
             }
         }

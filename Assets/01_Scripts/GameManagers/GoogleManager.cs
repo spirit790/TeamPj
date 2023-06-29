@@ -161,7 +161,7 @@ public class GoogleManager : MonoBehaviour
                 case "Wins":
                     Debug.Log($"{pair.Key}: {pair.Value}");
                     wins = int.Parse(pair.Value.ToString());
-                    if (GameManager.Instance.isWin)
+                    if (GameManager.Instance.IsWin)
                     {
                         wins += 1;
                         Debug.Log(wins);

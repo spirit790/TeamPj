@@ -67,7 +67,19 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     [Header("UserInfo")]
     public Dictionary<string, object> userInfo = new Dictionary<string, object>();
-    public bool isWin = false;
+    private bool isWin = false;
+    public bool IsWin
+    {
+        get { return isWin; }
+        set
+        {
+            isWin = value;
+            if (isWin)
+            {
+                resultPanel.SetActive(true);
+            }
+        }
+    }
     public int death = 0;
     public int playerKills = 0;
     public int aiKills = 0;
@@ -178,12 +190,12 @@ public class GameManager : MonoBehaviourPunCallbacks
     
     public void GameOver()
     {
-        Debug.Log($"{PhotonNetwork.LocalPlayer.NickName} ::: {winnerId} ::: {isWin}");
+        Debug.Log($"{PhotonNetwork.LocalPlayer.NickName} ::: {winnerId} ::: {IsWin}");
         Debug.Log($"PlayerCount {PhotonNetwork.CurrentRoom.PlayerCount}");
         Dictionary<string, object> data = new Dictionary<string, object>
         {
             { "GoogleId", PhotonNetwork.LocalPlayer.NickName },
-            { "IsWin", isWin },
+            { "IsWin", IsWin },
             { "Death", death },
             { "PlayerKills", playerKills },
             { "AIKills", aiKills }
