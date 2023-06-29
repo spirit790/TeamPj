@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             playersLeft = value; 
             if(playersLeft == 1)
             {
-                OnPlayersLeftOne();
+                //OnPlayersLeftOne();
             }
         }
     }
@@ -118,8 +118,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public GameObject resultPanel;
 
-    public delegate void PlayersLeftOne();
-    public static PlayersLeftOne OnPlayersLeftOne;
+    //public delegate void PlayersLeftOne();
+    //public static PlayersLeftOne OnPlayersLeftOne;
 
     public delegate void DataSent();
     public static DataSent OnDataSent;

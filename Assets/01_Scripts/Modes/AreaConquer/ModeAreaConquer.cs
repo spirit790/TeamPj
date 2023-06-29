@@ -31,7 +31,6 @@ public class ModeAreaConquer : Mode
     public override void GameStart()
     {
         PlayerController.OnPlayerDie += AreaOwnerDie;
-        GameManager.OnPlayersLeftOne += WinGameByKill;
         base.GameStart();
     }
 
@@ -66,9 +65,5 @@ public class ModeAreaConquer : Mode
         IsGameOver = true;
         Debug.Log($"WinGameByArea : {AreaOwner.name}");
         GameManager.Instance.winnerId = AreaOwner.name;
-    }
-    public void WinGameByKill()
-    {
-        IsGameOver = true;
     }
 }
