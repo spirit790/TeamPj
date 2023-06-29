@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public int isReady;
+
     /// <summary>
     /// 멀티플레이 넘겨받은 플레이어 수
     /// </summary>

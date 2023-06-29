@@ -17,6 +17,7 @@ TagManager:
   - SfxPlayer
   - MapGen
   - Result
+  - Loading
   layers:
   - Default
   - TransparentFX

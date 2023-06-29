@@ -25,6 +25,7 @@ public class Mode : MonoBehaviourPunCallbacks
     [Header("UI")]
     [SerializeField] protected Text txtTimeLimit;
     [SerializeField] protected Text txtWaitStartTime;
+    [SerializeField] protected Image loadingPanel;
 
     public GameObject myPlayerObject;
     List<GameObject> aiList = new List<GameObject>();
@@ -69,6 +70,7 @@ public class Mode : MonoBehaviourPunCallbacks
         this.timeLimit = timeLimit;
         txtTimeLimit = GameObject.FindGameObjectWithTag("TimeLimit").GetComponent<Text>();
         txtWaitStartTime = GameObject.FindGameObjectWithTag("WaitStartTime").GetComponent<Text>();
+        loadingPanel = GameObject.FindGameObjectWithTag("Loading").GetComponent<Image>();
         GameManager.Instance.startTime = Firebase.Firestore.FieldValue.ServerTimestamp;
         AIPattern.OnAIDie += AIDieControl;
         PlayerController.OnPlayerDie += PlayerDieControl;
@@ -99,7 +101,7 @@ public class Mode : MonoBehaviourPunCallbacks
     }
 
     /// <summary>
-    /// AI 积己
+    /// AI 荐父怒 积己
     /// </summary>
     public void CreateAI()
     {
@@ -130,6 +132,13 @@ public class Mode : MonoBehaviourPunCallbacks
     protected IEnumerator GamePlaying()
     {
         CreatePlayer();
+
+        yield return new WaitUntil(() => GameManager.Instance.isReady == PhotonNetwork.CurrentRoom.PlayerCount);
+
+        CreateAI();
+
+        loadingPanel.gameObject.SetActive(false);
+
         while (waitStartTime >= 0)
         {
             waitStartTime -= Time.deltaTime;
@@ -188,11 +197,8 @@ public class Mode : MonoBehaviourPunCallbacks
 
     protected virtual void PlayerDieControl(PlayerController player)
     {
-        photonView.RPC(nameof(RpcPlayerDie), RpcTarget.All);
-
         isDead = true;
-
-        photonView.RPC(nameof(PunPlayerDie), RpcTarget.All);
+        photonView.RPC(nameof(RpcPlayerDie), RpcTarget.All);
     }
 
     protected virtual void AIDieControl()
@@ -211,23 +217,19 @@ public class Mode : MonoBehaviourPunCallbacks
         GameManager.Instance.aiKills += 1;
         
     }
-    [PunRPC]
-    protected void PunPlayerDie()
-    {
-        if (GameManager.Instance.PlayersLeft == 1)
-        {
-            if (!isDead)
-            {
-                GameManager.Instance.IsWin = true;
-                IsGameOver = true;
-                Debug.LogWarning("win");
-            }
-        }
-    }
     #endregion
     [PunRPC]
     protected void RpcPlayerDie()
     {
         GameManager.Instance.PlayersLeft -= 1;
+        if (GameManager.Instance.PlayersLeft == 1)
+        {
+            if (!isDead)
+            {
+                GameManager.Instance.IsWin = true;
+                Debug.LogWarning("win");
+            }
+            IsGameOver = true;
+        }
     }
 }
