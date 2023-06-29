@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 using DG.Tweening;
 
 [System.Serializable]
-public class WallVisualizer_test : MonoBehaviour
+public class ThroughWallVision : MonoBehaviour
 {
     private List<Transform> visibleWalls = new List<Transform>();
 

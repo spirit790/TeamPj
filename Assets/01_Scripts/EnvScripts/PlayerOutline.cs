@@ -14,11 +14,14 @@ public class PlayerOutline : MonoBehaviour
     public Color outlineColor;
     [Range(0, 1)]
     private int isSelected = 0;
-    private Renderer outlineRenderer;
+    public Renderer outlineRenderer;
 
     void Start()
     {
-        outlineRenderer = CreateOutline(outlineModel, outlineMat, outLineScale, outlineColor);
+        //outlineRenderer = CreateOutline(outlineModel, outlineMat, outLineScale, outlineColor);
+        outlineRenderer.material.renderQueue = 3000;
+        outlineColor.a = 1;
+        outlineRenderer.material.color = outlineColor;
     }
 
     void Update()

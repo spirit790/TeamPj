@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 [System.Serializable]
 public class MeshVisionGen : MonoBehaviour
@@ -16,6 +17,7 @@ public class MeshVisionGen : MonoBehaviour
     private int visionLayer = 1 << 6 | 1 << 9 | 1 << 10;
     private List<Transform> visibleActors = new List<Transform>();
 
+    [Header("VisionQueue")]
     public int visibleRenderQueue = 3001;
     public int invisibleRenderQueue = 3000;
 
@@ -26,6 +28,8 @@ public class MeshVisionGen : MonoBehaviour
 
     void Start()
     {
+        DOTween.Init();
+
         targetTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
         lightMesh = GetComponent<MeshFilter>().mesh;
@@ -34,11 +38,11 @@ public class MeshVisionGen : MonoBehaviour
     void Update()
     {
         DrawMeshByAngle();
+
         transform.position = targetTr.position;
 
         //시야 내 액터들 확인
         VailActors(visibleActors);
-
     }
 
 
@@ -77,8 +81,9 @@ public class MeshVisionGen : MonoBehaviour
                     시야 영역에 유저나 AI에 있을 때
 
                     */
-                    hit.transform.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
-                    hit.transform.GetComponentInChildren<SkinnedMeshRenderer>().material.renderQueue = visibleRenderQueue;
+                    SkinnedMeshRenderer hitRenderer = hit.transform.GetComponentInChildren<SkinnedMeshRenderer>();
+                    hitRenderer.enabled = true;
+                    hitRenderer.material.renderQueue = visibleRenderQueue;
                     hit.transform.gameObject.layer = 7;
                     visibleActors.Add(hit.transform);
                 }
@@ -143,9 +148,13 @@ public class MeshVisionGen : MonoBehaviour
         {
             if (Mathf.Acos(Vector3.Dot(targetTr.forward, (trs[i].position - transform.position).normalized)) * Mathf.Rad2Deg >= lightAngle / 2)
             {
+                SkinnedMeshRenderer[] trsRenderer = trs[i].GetComponentsInChildren<SkinnedMeshRenderer>();
+
                 trs[i].gameObject.layer = 6;
-                trs[i].GetComponentInChildren<SkinnedMeshRenderer>().material.renderQueue = invisibleRenderQueue;
-                trs[i].transform.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
+                trsRenderer[0].material.renderQueue = invisibleRenderQueue;
+                trsRenderer[0].enabled = false;
+
+                FadeActors(trsRenderer[2], 0, 1f);
 
                 trs.Remove(trs[i]);
             }
@@ -159,6 +168,11 @@ public class MeshVisionGen : MonoBehaviour
     {
         var rad = deg * Mathf.Deg2Rad;
         return new Vector3(Mathf.Sin(rad), 0, Mathf.Cos(rad));
+    }
+
+    private void FadeActors(Renderer renderer, float alpha, float dur)
+    {
+        renderer.material.DOFade(alpha, dur);
     }
 }
 
