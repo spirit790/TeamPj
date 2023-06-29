@@ -15,14 +15,14 @@ public class GameOptionManager : MonoBehaviour
         return instance;
     }
    
-    public Slider bgmSlider;
-    public Slider sfxSlider;
-    public GameObject optionPanel;
-    public AudioSource bgmPlayer;
-    public Button closeBtn;
-    public Button quitBtn;
-    public Button localEngBtn;
-    public Button localKorBtn;
+    Slider bgmSlider;
+    Slider sfxSlider;
+    GameObject optionPanel;
+    AudioSource bgmPlayer;
+    Button closeBtn;
+    Button quitBtn;
+    Button localEngBtn;
+    Button localKorBtn;
 
     public float vol;
     public AudioClip[] bgmClips;
@@ -42,19 +42,24 @@ public class GameOptionManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
         
     }
-    public void Start()
-    {
-        bgmSlider.onValueChanged.AddListener(ChangeBgmVol);
-        sfxSlider.onValueChanged.AddListener(ChangeSfxVol);
-    }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         bgmPlayer = GameObject.FindWithTag("BgmPlayer").GetComponent<AudioSource>();
         optionPanel = GameObject.FindWithTag("PlayerCanvas").transform.GetChild(0).gameObject;
         bgmSlider = optionPanel.transform.GetChild(0).GetComponent<Slider>();
         sfxSlider = optionPanel.transform.GetChild(1).GetComponent<Slider>();
+        localEngBtn = optionPanel.transform.GetChild(2).GetChild(0).GetComponent<Button>();
+        localKorBtn = optionPanel.transform.GetChild(2).GetChild(1).GetComponent<Button>();
+        
         closeBtn = optionPanel.transform.GetChild(3).GetComponent<Button>();
         quitBtn = optionPanel.transform.GetChild(4).GetComponent<Button>();
+
+        quitBtn.onClick.AddListener(AppQuitBtn);
+        closeBtn.onClick.AddListener(CloseOptionPanelBtn);
+        bgmSlider.onValueChanged.AddListener(ChangeBgmVol);
+        sfxSlider.onValueChanged.AddListener(ChangeSfxVol);
+        localEngBtn.onClick.AddListener(() => ChangeLocale(0));
+        localKorBtn.onClick.AddListener(() => ChangeLocale(1));
     }
 
 
