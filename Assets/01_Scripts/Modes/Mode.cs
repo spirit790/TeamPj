@@ -187,7 +187,7 @@ public class Mode : MonoBehaviourPunCallbacks
     protected virtual void PlayerDieControl(PlayerController player)
     {
         photonView.RPC(nameof(RpcPlayerDie), RpcTarget.All);
-        if (GameManager.Instance.PlayerCount == 1)
+        if (GameManager.Instance.PlayersLeft == 1)
         {
             if (GameObject.FindGameObjectWithTag("Player").GetPhotonView().ControllerActorNr == photonView.ControllerActorNr)
                 GameManager.Instance.isWin = true;
@@ -214,6 +214,6 @@ public class Mode : MonoBehaviourPunCallbacks
     [PunRPC]
     void RpcPlayerDie()
     {
-        GameManager.Instance.PlayerCount -= 1;
+        GameManager.Instance.PlayersLeft -= 1;
     }
 }

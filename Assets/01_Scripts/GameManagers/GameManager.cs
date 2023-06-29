@@ -65,9 +65,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int deathAIRatio = 10;
     public float deathTimeLimit = 300f;
 
-    [Header("GameUsers")]
-    public List<PlayerController> livePlayers = new List<PlayerController>();
-    public List<PlayerController> deadPlayers = new List<PlayerController>();
     [Header("UserInfo")]
     public Dictionary<string, object> userInfo = new Dictionary<string, object>();
     public bool isWin = false;
@@ -129,9 +126,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     void Start()
     {
-        PlayerController.OnPlayerDie += PlayerDie;
         Mode.OnGameOver += GameOver;
-
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -144,6 +139,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             resultPanel = GameObject.FindGameObjectWithTag("Result");
             resultPanel.SetActive(false);
             playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
+            PlayersLeft = PlayerCount;
             int modeNum = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[KeyMode].ToString());
             //int modeNum = 0;
             Mode currentGameMode = Instantiate(modes[modeNum]);
@@ -179,21 +175,9 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
-
-    public void PlayerDie(PlayerController player)
-    {
-        livePlayers.Remove(player);
-        deadPlayers.Add(player);
-        PlayersLeft = livePlayers.Count;
-    }
     
     public void GameOver()
     {
-        // 순서 문제 발생할수도
-        if(PhotonNetwork.LocalPlayer.NickName == winnerId)
-        {
-            isWin = true;
-        }
         Debug.Log($"{PhotonNetwork.LocalPlayer.NickName} ::: {winnerId} ::: {isWin}");
         Debug.Log($"PlayerCount {PhotonNetwork.CurrentRoom.PlayerCount}");
         Dictionary<string, object> data = new Dictionary<string, object>

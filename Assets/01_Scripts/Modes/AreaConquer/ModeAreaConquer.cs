@@ -70,7 +70,5 @@ public class ModeAreaConquer : Mode
     public void WinGameByKill()
     {
         IsGameOver = true;
-        Debug.Log($"WinGameByKill : {GameManager.Instance.livePlayers[0].name}");
-        GameManager.Instance.winnerId = GameManager.Instance.livePlayers[0].name;
     }
 }
