@@ -14,8 +14,7 @@ public class DeadZone : MonoBehaviour
         DOTween.Init();
         SetDeadZoneRadius(radius, 0);
         mode = FindAnyObjectByType<ModeBattleRoyal>();
-        if(PhotonNetwork.IsMasterClient)
-            StartCoroutine(ShirinkDeadZone());
+        StartCoroutine(ShirinkDeadZone());
     }
 
     private void OnTriggerExit(Collider other)
