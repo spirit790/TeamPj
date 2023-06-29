@@ -19,6 +19,7 @@ public class SimpleFloatings : MonoBehaviour
         seq.Append(floatingTr.DOMoveY(floatingTr.position.y + rnd / 15, rnd)).Append(floatingTr.DOMoveY(floatingTr.position.y, rnd).OnComplete<Tween>(() => rnd = Random.Range(1, 3f)))
             .SetLoops<Sequence>(-1);
 
+        //floatingTr.DORotate()
     }
 
 
