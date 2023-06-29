@@ -77,6 +77,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     public string nickNamne;
     public object startTime;
 
+    public string winnerId;
+
     public List<Mode> modes;
 
     const string KEY_MAP = "map";
@@ -98,6 +100,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             if(dataCount == PhotonNetwork.CurrentRoom.PlayerCount)
             {
                 SendData();
+                
                 OnDataSent();
             }
         }
@@ -128,8 +131,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         PlayerController.OnPlayerDie += PlayerDie;
         Mode.OnGameOver += GameOver;
-        //GoogleManager.Instance.OnGetUserInfo();
-        //nickNamne = userInfo["NickName"].ToString();
+
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -184,11 +186,16 @@ public class GameManager : MonoBehaviourPunCallbacks
         deadPlayers.Add(player);
         PlayersLeft = livePlayers.Count;
     }
-
+    
     public void GameOver()
     {
+        // 순서 문제 발생할수도
+        if(PhotonNetwork.LocalPlayer.NickName == winnerId)
+        {
+            isWin = true;
+        }
+        Debug.Log($"{PhotonNetwork.LocalPlayer.NickName} ::: {winnerId} ::: {isWin}");
         Debug.Log($"PlayerCount {PhotonNetwork.CurrentRoom.PlayerCount}");
-        //GameUserData data = new GameUserData(PhotonNetwork.LocalPlayer.NickName, isWin, death, playerKills, aiKills);
         Dictionary<string, object> data = new Dictionary<string, object>
         {
             { "GoogleId", PhotonNetwork.LocalPlayer.NickName },
@@ -229,17 +236,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         gameDatas.Add(data);
         DataCount = gameDatas.Count;
-    }
-    /// <summary>
-    /// firebase 데이터 업데이트 테스트용 함수
-    /// </summary>
-    public void OnUpdateTest()
-    {
-        isWin = true;
-        aiKills = 5;
-        playerKills = 3;
-        death = 0;
-        GoogleManager.Instance.OnUpdateUserGameData();
     }
 
     public Dictionary<string, object> GetMostPlayerKiller()

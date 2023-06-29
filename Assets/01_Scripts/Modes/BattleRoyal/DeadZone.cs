@@ -77,11 +77,8 @@ public class DeadZone : MonoBehaviour
                 timeCount++;
                 shirinkTimer = 0;
                 float newRadius = ((limitTime - timeCount * mode.shrinkTime) / limitTime) * radius;
-                Debug.Log(newRadius);
                 SetDeadZoneRadius(newRadius, mode.shrinkTime / 2);
             }
-            Debug.Log(timer);
-            Debug.Log(shirinkTimer);
             yield return null;
         }
         yield return null;

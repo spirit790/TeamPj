@@ -43,7 +43,6 @@ public class ModeAreaConquer : Mode
             timeLimit -= Time.deltaTime;
             if (timeLimit <= 0)
             {
-                isGameOver = true;
                 WinGameByArea();
             }
         }
@@ -60,20 +59,17 @@ public class ModeAreaConquer : Mode
             AreaOwner = null;
         }
     }
-    //public IEnumerator AreaCountDown()
-    //{
-    //    timeLimit = areaTimeLimit;
-    //    yield return new WaitForSeconds(timeLimit);
-    //    // °ÔÀÓ ½Â¸®
-    //    WinGameByArea();
-    //}
 
     public void WinGameByArea()
     {
+        IsGameOver = true;
         Debug.Log($"WinGameByArea : {AreaOwner.name}");
+        GameManager.Instance.winnerId = AreaOwner.name;
     }
     public void WinGameByKill()
     {
-
+        IsGameOver = true;
+        Debug.Log($"WinGameByKill : {GameManager.Instance.livePlayers[0].name}");
+        GameManager.Instance.winnerId = GameManager.Instance.livePlayers[0].name;
     }
 }

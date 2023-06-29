@@ -80,7 +80,7 @@ public class Mode : MonoBehaviourPunCallbacks
         myPlayerObject = PhotonNetwork.Instantiate(playerPrefab.name, AISpawnPos + new Vector3(0, 0.5f, 0), Quaternion.identity);
         myPlayerObject.GetComponent<PlayerController>().enabled = false;
         // set name
-        myPlayerObject.name = PhotonNetwork.LocalPlayer.ActorNumber.ToString();
+        myPlayerObject.name = PhotonNetwork.LocalPlayer.NickName;
         // set follow camera
         Camera.main.GetComponent<FollowCam>().SetCamTarget(myPlayerObject);
     }
