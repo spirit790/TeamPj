@@ -69,6 +69,7 @@ public class GoogleManager : MonoBehaviour
                 Debug.Log(userID);
                 logText.text = Social.localUser.id + "\n" + Social.localUser.userName;
                 IsGoogleLoginSuccess = true;
+                OnGetUserInfo();
             }
             else logText.text = "login failed";
         });
@@ -273,6 +274,7 @@ public class GoogleManager : MonoBehaviour
     IEnumerator GetUserInfo()
     {
         FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
+        Debug.Log($"Social Id : {Social.localUser.id}");
         DocumentReference docRef = db.Collection("users").Document(Social.localUser.id);
         yield return docRef.GetSnapshotAsync().ContinueWithOnMainThread(task =>
         {
@@ -280,15 +282,17 @@ public class GoogleManager : MonoBehaviour
             if (snapshot.Exists)
             {
                 GameManager.Instance.userInfo = snapshot.ToDictionary();
+                Debug.Log(GameManager.Instance.userInfo.Count);
+                GameManager.Instance.nickNamne = GameManager.Instance.userInfo["NickName"].ToString();
             }
         });
     }
 
     public void OnCreateGameData(Dictionary<string, object> data)
     {
-        StartCoroutine(CreateGameData(data));
+        StartCoroutine(GetNumberOfDatas(data));
     }
-    IEnumerator CreateGameData(Dictionary<string, object> data)
+    IEnumerator GetNumberOfDatas(Dictionary<string, object> data)
     {
         int id = 0;
         FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
@@ -296,9 +300,17 @@ public class GoogleManager : MonoBehaviour
         {
             QuerySnapshot snapshot = task.Result;
             id = snapshot.Count;
+            Debug.Log("snapshot count " + id);
+            id++;
+            Debug.Log(id);
+            StartCoroutine(CreateGameData(data, id));
         });
-        id++;
-        Debug.Log(id);
+
+    }
+
+    IEnumerator CreateGameData(Dictionary<string, object> data, int id)
+    {
+        FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
         DocumentReference docRef = db.Collection("games").Document(id.ToString());
         yield return docRef.SetAsync(data).ContinueWithOnMainThread(task =>
         {
