@@ -15,14 +15,10 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Shared
   m_Data:
     m_SerializedData: []
-  m_GUID: cc0afb82ed2db6c44a91a1d78f40def6
+  m_GUID: bf4a9cab1ed28f643b21132defef30a8
   m_SerializeEntries:
-  - m_GUID: 9c415320f5d10a146ab40469a35a779a
-    m_Address: ets/07_Locales/StringTable/HideC Shared Data.assetset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-  - m_GUID: a2cdef78453440e439ded51302d39563
-    m_Address: Assets/07_Locales/AssetTable/HideCCountry Shared Data.asset
+  - m_GUID: 39bf3aa7302e07c43b82aaa4c6cf0a62
+    m_Address: Assets/06_Localization/HidecStringTable Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
   m_ReadOnly: 1

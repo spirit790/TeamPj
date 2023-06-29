@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
+using Photon;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourPunCallbacks
 {
     private static GameManager instance;
     public static GameManager Instance
@@ -74,6 +75,7 @@ public class GameManager : MonoBehaviour
     public int playerKills = 0;
     public int aiKills = 0;
     public string nickNamne;
+    public object startTime;
 
     public List<Mode> modes;
 
@@ -83,8 +85,32 @@ public class GameManager : MonoBehaviour
     public string KeyMap { get { return KEY_MAP; } }
     public string KeyMode { get { return KEY_MODE; } }
 
+    List<Dictionary<string, object>> gameDatas = new List<Dictionary<string, object>>();
+
+    int dataCount;
+    int DataCount
+    {
+        get { return dataCount; }
+        set
+        {
+            dataCount = value;
+            Debug.Log($"GameDatas Count {gameDatas.Count}");
+            if(dataCount == PhotonNetwork.CurrentRoom.PlayerCount)
+            {
+                SendData();
+                OnDataSent();
+            }
+        }
+    }
+
+    public GameObject resultPanel;
+
     public delegate void PlayersLeftOne();
     public static PlayersLeftOne OnPlayersLeftOne;
+
+    public delegate void DataSent();
+    public static DataSent OnDataSent;
+
     private void Awake()
     {
         if (instance == null)
@@ -101,32 +127,36 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         PlayerController.OnPlayerDie += PlayerDie;
+        Mode.OnGameOver += GameOver;
+        //GoogleManager.Instance.OnGetUserInfo();
+        //nickNamne = userInfo["NickName"].ToString();
     }
-
-    void Update()
-    {
-        
-    }
-
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // 게임 시작 단계에서 모드 정해지고 실행되도록, game scene에서 실행되도록
         // scene 순서는 추후 구현하면서 변경 및 확정하도록 함
 
         // 매치시작시 모드 선택,맵 생성
-        if(scene.buildIndex == 1)
+        if(scene.buildIndex == 2)
         {
+            resultPanel = GameObject.FindGameObjectWithTag("Result");
+            resultPanel.SetActive(false);
             playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
             int modeNum = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[KeyMode].ToString());
-            //int modeNum = 1;
+            //int modeNum = 0;
             Mode currentGameMode = Instantiate(modes[modeNum]);
             currentGameMode.modeName = currentGameMode.GetType().Name;
+            Debug.Log(currentGameMode.name);
+
             switch (modeNum) 
             {
                 case 0:
                     // battleRoyal
                     gameMode = Modes.BATTLEROYAL;
                     currentGameMode.Set(playerCount, battleAIRatio, battleTimeLimit);
+                    string tempString = Random.Range(0, 1000).ToString();
+                    Debug.Log(tempString);
+                    
                     break;
                 case 1:
                     // areaConquer
@@ -141,21 +171,12 @@ public class GameManager : MonoBehaviour
                 default:
                     break;
             }
+            //currentGameMode.IsGameOver = true;
+            Debug.Log("Master");
             //TODO : 맵 설정
         }
     }
 
-    //private void StartBattleRoyal()
-    //{
-    //    ModeBattleRoyal modeBattleRoyal = GameObject.Find("ModeBattleRoyal").GetComponent<ModeBattleRoyal>();
-    //    modeBattleRoyal.Set(playerCount, battleAIRatio, battleTimeLimit);
-    //}
-
-    //private void StartAreaConquer()
-    //{
-    //    ModeAreaConquer modeArea = GameObject.Find("ModeArea").GetComponent<ModeAreaConquer>();
-    //    modeArea.Set(playerCount, battleAIRatio, battleTimeLimit);
-    //}
 
     public void PlayerDie(PlayerController player)
     {
@@ -164,6 +185,51 @@ public class GameManager : MonoBehaviour
         PlayersLeft = livePlayers.Count;
     }
 
+    public void GameOver()
+    {
+        Debug.Log($"PlayerCount {PhotonNetwork.CurrentRoom.PlayerCount}");
+        //GameUserData data = new GameUserData(PhotonNetwork.LocalPlayer.NickName, isWin, death, playerKills, aiKills);
+        Dictionary<string, object> data = new Dictionary<string, object>
+        {
+            { "GoogleId", PhotonNetwork.LocalPlayer.NickName },
+            { "IsWin", isWin },
+            { "Death", death },
+            { "PlayerKills", playerKills },
+            { "AIKills", aiKills }
+        };
+        if (PhotonNetwork.LocalPlayer.IsMasterClient)
+        {
+            Debug.Log($"Master");
+            gameDatas.Add(data);
+            DataCount = gameDatas.Count;
+        }
+        else
+        {
+            Debug.Log($"Client {PhotonNetwork.LocalPlayer.NickName}");
+            photonView.RPC("SendDataToMaster", RpcTarget.MasterClient, data);
+        }
+        GoogleManager.Instance.OnUpdateUserGameData();
+    }
+
+    void SendData()
+    {
+        Debug.Log("Send Data");
+        var endTime = Firebase.Firestore.FieldValue.ServerTimestamp;
+        Dictionary<string, object> gameData = new Dictionary<string, object>
+        {
+            { "Mode", (int)gameMode },
+            { "StartTime", startTime },
+            { "EndTime", endTime },
+            { "GameDatas", gameDatas }
+        };
+        GoogleManager.Instance.OnCreateGameData(gameData);
+    }
+    [PunRPC]
+    private void SendDataToMaster(Dictionary<string, object> data)
+    {
+        gameDatas.Add(data);
+        DataCount = gameDatas.Count;
+    }
     /// <summary>
     /// firebase 데이터 업데이트 테스트용 함수
     /// </summary>
@@ -174,5 +240,62 @@ public class GameManager : MonoBehaviour
         playerKills = 3;
         death = 0;
         GoogleManager.Instance.OnUpdateUserGameData();
+    }
+
+    public Dictionary<string, object> GetMostPlayerKiller()
+    {
+        Dictionary<string, object> mostKiller = new Dictionary<string, object>();
+        int most = -1;
+        foreach (var gamedata in gameDatas)
+        {
+            if (most < (int)gamedata["PlayerKills"])
+            {
+                most = (int)gamedata["PlayerKills"];
+                mostKiller = gamedata;
+            }
+        }
+        return mostKiller;
+    }
+
+    public Dictionary<string, object> GetWorstPlayerKiller()
+    {
+        Dictionary<string, object> worstKiller = new Dictionary<string, object>();
+        int worst = int.MaxValue;
+        foreach (var gamedata in gameDatas)
+        {
+            if (worst > (int)gamedata["PlayerKills"])
+            {
+                worst = (int)gamedata["PlayerKills"];
+                worstKiller = gamedata;
+            }
+        }
+        return worstKiller;
+    }
+    public Dictionary<string, object> GetMostAIKiller()
+    {
+        Dictionary<string, object> mostKiller = new Dictionary<string, object>();
+        int most = -1;
+        foreach (var gamedata in gameDatas)
+        {
+            if (most < (int)gamedata["AIKills"])
+            {
+                most = (int)gamedata["AIKills"];
+                mostKiller = gamedata;
+            }
+        }
+        return mostKiller;
+    }
+
+    public Dictionary<string, object> GetWinner()
+    {
+        Dictionary<string, object> winner = new Dictionary<string, object>();
+        foreach (var gamedata in gameDatas)
+        {
+            if ((bool)gamedata["IsWin"])
+            {
+                winner = gamedata;
+            }
+        }
+        return winner;
     }
 }

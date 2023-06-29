@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Photon.Pun;
 
 public class DeadZone : MonoBehaviour
 {
@@ -12,7 +13,9 @@ public class DeadZone : MonoBehaviour
     {
         DOTween.Init();
         SetDeadZoneRadius(radius, 0);
-        mode = transform.parent.gameObject.GetComponent<ModeBattleRoyal>();
+        mode = FindAnyObjectByType<ModeBattleRoyal>();
+        if(PhotonNetwork.IsMasterClient)
+            StartCoroutine(ShirinkDeadZone());
     }
 
     private void OnTriggerExit(Collider other)
@@ -41,7 +44,7 @@ public class DeadZone : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            StopAllCoroutines();
+            StopCoroutine(PlayerDeadByDeadZone(player));
         }
     }
 
@@ -54,6 +57,34 @@ public class DeadZone : MonoBehaviour
     {
         //transform.localScale = new Vector3(newRadius, 1f, newRadius);
         transform.DOScaleX(newRadius, shrinkTime);
+        transform.DOScaleY(newRadius, shrinkTime);
         transform.DOScaleZ(newRadius, shrinkTime);
+    }
+
+    IEnumerator ShirinkDeadZone()
+    {
+        Debug.Log("Co");
+        float limitTime = GameManager.Instance.battleTimeLimit;
+        float timer = limitTime;
+        int timeCount = 0;
+        float shirinkTimer = 0;
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            shirinkTimer += Time.deltaTime;
+            if (shirinkTimer > mode.shrinkTime)
+            {
+                timeCount++;
+                shirinkTimer = 0;
+                float newRadius = ((limitTime - timeCount * mode.shrinkTime) / limitTime) * radius;
+                Debug.Log(newRadius);
+                SetDeadZoneRadius(newRadius, mode.shrinkTime / 2);
+            }
+            Debug.Log(timer);
+            Debug.Log(shirinkTimer);
+            yield return null;
+        }
+        yield return null;
+
     }
 }

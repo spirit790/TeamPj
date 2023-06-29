@@ -44,6 +44,19 @@ MonoBehaviour:
   - GameStart
   - WaitTimeSet
   - WaitTimeSetLeft
+  - SetAll
+  - SendDataToMaster
+  - 
+  - ChangeModeValue
+  - ShowPlayers
+  - TestDebug
+  - SendMapData
+  - SendData
+  - SendChunkData
+  - SendRandomIndex
+  - SendStructure
+  - SetRandom
   DisableAutoOpenWizard: 1
-  ShowSettings: 1
+  ShowSettings: 0
   DevRegionSetOnce: 1
+

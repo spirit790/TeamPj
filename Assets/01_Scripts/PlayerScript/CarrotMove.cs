@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CarrotMove : MonoBehaviour
 {
+    GameOptionManager gameOptionManager;
     Transform kTr;
     RaycastHit hit;    
     Button attackBtn;
@@ -18,6 +19,7 @@ public class CarrotMove : MonoBehaviour
         kTr = GetComponent<Transform>();
         attackBtn = GameObject.FindGameObjectWithTag("AttackBtn").GetComponent<Button>();
         attackBtn.onClick.AddListener(OnClickAtk);
+        gameOptionManager = GameOptionManager.Instance();
     }
 
 
@@ -30,6 +32,7 @@ public class CarrotMove : MonoBehaviour
     /// </summary>
     public void OnClickAtk()
     {
+        gameOptionManager.PlaySfxSound("Attack", transform.position, gameOptionManager.vol);
         if(Physics.Raycast(transform.position, transform.forward, out hit, atkLength))
         {
             GameObject hitObj = hit.transform.gameObject;

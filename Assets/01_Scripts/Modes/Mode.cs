@@ -29,10 +29,23 @@ public class Mode : MonoBehaviourPunCallbacks
     List<GameObject> aiList = new List<GameObject>();
     public string modeName;
 
-    protected Vector3 AISpawnPos { get { return new Vector3(Random.Range(-mapWidth / 2, mapWidth / 2), 0, Random.Range(-mapHeight / 2, mapHeight / 2)); } }
+    protected Vector3 AISpawnPos { get { return new Vector3(Random.Range(0,mapWidth), 0, Random.Range(0,mapHeight)); } }
 
     public bool isGameOver = false;
+    public bool IsGameOver
+    {
+        get { return isGameOver; }
+        set
+        {
+            isGameOver = value;
+            if (isGameOver)
+                OnGameOver();
+        }
+    }
     private float waitStartTime = 3f;
+
+    public delegate void GameOverEvent();
+    public static event GameOverEvent OnGameOver;
 
     #region Initialize
     /// <summary>
@@ -48,6 +61,7 @@ public class Mode : MonoBehaviourPunCallbacks
         this.timeLimit = timeLimit;
         txtTimeLimit = GameObject.FindGameObjectWithTag("TimeLimit").GetComponent<Text>();
         txtWaitStartTime = GameObject.FindGameObjectWithTag("WaitStartTime").GetComponent<Text>();
+        GameManager.Instance.startTime = Firebase.Firestore.FieldValue.ServerTimestamp;
         GameStart();
     }
     /// <summary>
@@ -74,7 +88,7 @@ public class Mode : MonoBehaviourPunCallbacks
     /// <summary>
     /// AI 생성
     /// </summary>
-    protected void CreateAI()
+    public void CreateAI()
     {
         for (int i = 0; i < AICount; i++)
         {
@@ -103,7 +117,6 @@ public class Mode : MonoBehaviourPunCallbacks
     protected IEnumerator GamePlaying()
     {
         CreatePlayer();
-        CreateAI();
         while (waitStartTime >= 0)
         {
             waitStartTime -= Time.deltaTime;
@@ -115,7 +128,7 @@ public class Mode : MonoBehaviourPunCallbacks
 
         txtWaitStartTime.text = null;
 
-        while (!isGameOver)
+        while (!IsGameOver)
         {
 
             GameOverControl();
@@ -125,7 +138,7 @@ public class Mode : MonoBehaviourPunCallbacks
 
         yield return null;
 
-        if (isGameOver)
+        if (IsGameOver)
             GameOver();
     }
     /// <summary>
@@ -138,7 +151,7 @@ public class Mode : MonoBehaviourPunCallbacks
         timeLimit -= Time.deltaTime;
 
         if (timeLimit <= 0)
-            isGameOver = true;
+            IsGameOver = true;
     }
     /// <summary>
     /// 게임오버시 호출 및 처리

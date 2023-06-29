@@ -6,14 +6,20 @@ using UnityEngine.UI;
 
 public class DashBtn : MonoBehaviour
 {
-    
+    GameOptionManager gameOptionManager;
+
     public bool IsCheck;
     private void Awake()
     {
-
+        
+    }
+    private void Start()
+    {
+        gameOptionManager = GameOptionManager.Instance();
     }
     public void Update()
     {
+
     }
     /// <summary>
     /// Dash버튼은 오로지 check의 true false값만 확인 이 값을 가져다가 Player에서 상태변환
@@ -22,6 +28,8 @@ public class DashBtn : MonoBehaviour
     {
         Debug.Log("버튼눌림");
         IsCheck = true;
+        gameOptionManager.PlaySfxSound("Dash",transform.position,gameOptionManager.vol);
+
     }
     /// <summary>
     /// Dash버튼에 EventTrigger를 달아서 PointerDown PointerUp의 각각 연결.

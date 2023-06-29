@@ -13,7 +13,10 @@ TagManager:
   - OptionPanel
   - TimeLimit
   - WaitStartTime
-  - FxTemporaire
+  - BgmPlayer
+  - SfxPlayer
+  - MapGen
+  - Result
   layers:
   - Default
   - TransparentFX
@@ -21,14 +24,14 @@ TagManager:
   - 
   - Water
   - UI
-  - Actor_invisible
-  - Actor_visible
-  - fog_of_war
-  - WALL
-  - WALL_trans
-  - Chroma_Key
-  - Character
-  - Character_outline
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
