@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int death = 0;
     public int playerKills = 0;
     public int aiKills = 0;
-    public string nickNamne;
+    public string nickName;
     public object startTime;
 
     public string winnerId;
@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     //public static PlayersLeftOne OnPlayersLeftOne;
 
     public delegate void DataSent();
-    public static DataSent OnDataSent;
+    public static event DataSent OnDataSent;
 
     [PunRPC]
     void ShowPanel()
@@ -207,7 +207,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             { "IsWin", IsWin },
             { "Death", death },
             { "PlayerKills", playerKills },
-            { "AIKills", aiKills }
+            { "AIKills", aiKills },
+            { "NickName", nickName }
         };
         if (PhotonNetwork.LocalPlayer.IsMasterClient)
         {
