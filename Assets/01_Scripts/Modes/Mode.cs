@@ -31,8 +31,6 @@ public class Mode : MonoBehaviourPunCallbacks
     List<GameObject> aiList = new List<GameObject>();
     public string modeName;
 
-    public bool isDead;
-
     bool isCreatedAI = false;
     protected Vector3 SpawnPos 
     { 
@@ -98,12 +96,17 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     protected void CreatePlayer()
     {
-        myPlayerObject = PhotonNetwork.Instantiate(playerPrefab.name, SpawnPos + new Vector3(0, 0.5f, 0), Quaternion.identity);
+        myPlayerObject = PhotonNetwork.Instantiate(playerPrefab.name, SpawnPos + new Vector3(0, 1f, 0), Quaternion.identity);
         myPlayerObject.GetComponent<PlayerController>().enabled = false;
         // set name
-        myPlayerObject.name = PhotonNetwork.LocalPlayer.ActorNumber.ToString();
+        int viewId = myPlayerObject.GetPhotonView().ViewID;
+        string playerName = PhotonNetwork.LocalPlayer.ActorNumber.ToString();
+        photonView.RPC(nameof(RpcSetPlayerName), RpcTarget.All,viewId, playerName);
+
         // set follow camera
         Camera.main.GetComponent<FollowCam>().SetCamTarget(myPlayerObject);
+        // 생성되면 게임매니저의 생성된 플레이어 갯수 증가
+        photonView.RPC(nameof(RpcCreatePlayer), RpcTarget.AllBufferedViaServer);
     }
 
     protected void SpawnAI()
@@ -145,8 +148,11 @@ public class Mode : MonoBehaviourPunCallbacks
     protected IEnumerator GamePlaying()
     {
         // 모든 클라이언트가 맵생성 할때까지 대기
-        yield return new WaitUntil(() => GameManager.Instance.isReady == PhotonNetwork.CurrentRoom.PlayerCount);
+        yield return new WaitUntil(() => GameManager.Instance.mapGenerateCount == PhotonNetwork.CurrentRoom.PlayerCount);
         CreatePlayer();
+
+        // 모든 클라이언트가 플레이어 생성 할때까지 대기
+        yield return new WaitUntil(() => GameManager.Instance.createPlayercount == PhotonNetwork.CurrentRoom.PlayerCount);
 
         CreateAI();
         // AI 생성 대기
@@ -211,7 +217,7 @@ public class Mode : MonoBehaviourPunCallbacks
 
     protected virtual void PlayerDieControl(PlayerController player)
     {
-        isDead = true;
+        GameManager.Instance.IsDead = true;
         photonView.RPC(nameof(RpcPlayerDie), RpcTarget.All);
     }
 
@@ -238,12 +244,24 @@ public class Mode : MonoBehaviourPunCallbacks
         GameManager.Instance.PlayersLeft -= 1;
         if (GameManager.Instance.PlayersLeft == 1)
         {
-            if (!isDead)
+            if (!GameManager.Instance.IsDead)
             {
                 GameManager.Instance.IsWin = true;
                 Debug.LogWarning("win");
             }
             IsGameOver = true;
         }
+    }
+
+    [PunRPC]
+    protected void RpcCreatePlayer()
+    {
+        GameManager.Instance.createPlayercount++;
+    }
+
+    [PunRPC]
+    protected void RpcSetPlayerName(int viewId,string playerName)
+    {
+        PhotonView.Find(viewId).name = playerName;
     }
 }

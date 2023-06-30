@@ -17,7 +17,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public int isReady;
+    // 맵 생성된 클라이언트 갯수
+    public int mapGenerateCount;
+    // 플레이어 생성된 클라이언트 갯수
+    public int createPlayercount;
 
     /// <summary>
     /// 멀티플레이 넘겨받은 플레이어 수
@@ -36,16 +39,16 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int PlayersLeft
     {
         get { return playersLeft; }
-        set 
+        set
         {
-            playersLeft = value; 
-            if(playersLeft == 1)
+            playersLeft = value;
+            if (playersLeft == 1)
             {
                 //OnPlayersLeftOne();
             }
         }
     }
-    
+
     public enum Modes
     {
         BATTLEROYAL,
@@ -95,6 +98,23 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     const string KEY_MAP = "map";
     const string KEY_MODE = "mode";
+
+    private bool isDead;
+    public bool IsDead 
+    {
+        get
+        {
+            return isDead;
+        }
+        set
+        {
+            isDead = value;
+            if (isDead)
+            {
+                death++;
+            }
+        }
+    }
 
     public string KeyMap { get { return KEY_MAP; } }
     public string KeyMode { get { return KEY_MODE; } }

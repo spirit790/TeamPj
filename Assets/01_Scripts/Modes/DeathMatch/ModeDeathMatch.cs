@@ -22,7 +22,7 @@ public class ModeDeathMatch : Mode
     {
         base.GameOver();
         Dictionary<string,object> winner = GameManager.Instance.GetMostPlayerKiller();
-        if(PhotonNetwork.LocalPlayer.NickName == winner["NickName"].ToString())
+        if(GameManager.Instance.playerKills == int.Parse(winner["PlayerKills"].ToString()))
         {
             GameManager.Instance.IsWin = true;
         }
@@ -30,6 +30,7 @@ public class ModeDeathMatch : Mode
 
     protected override void PlayerDieControl(PlayerController player)
     {
+        GameManager.Instance.IsDead = true;
         Debug.Log("player respawn");
         if (PhotonNetwork.IsConnected && !isGameOver)
         {
