@@ -111,9 +111,12 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"GameDatas Count {gameDatas.Count}");
             if(dataCount == PhotonNetwork.CurrentRoom.PlayerCount)
             {
-                SendData();
-                
-                OnDataSent();
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    SendData();
+
+                    OnDataSent();
+                }
             }
         }
     }
@@ -256,6 +259,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 mostKiller = gamedata;
             }
         }
+        Debug.Log($"mostKiller Count {mostKiller.Count}");
         return mostKiller;
     }
 
@@ -291,13 +295,20 @@ public class GameManager : MonoBehaviourPunCallbacks
     public Dictionary<string, object> GetWinner()
     {
         Dictionary<string, object> winner = new Dictionary<string, object>();
+
+        Debug.Log("GameDatas ::: " + gameDatas.Count);
         foreach (var gamedata in gameDatas)
         {
+            foreach (var data in gamedata)
+            {
+                Debug.Log($"{data.Key} ::: {data.Value}");
+            }
             if ((bool)gamedata["IsWin"])
             {
                 winner = gamedata;
             }
         }
+        Debug.Log($"winner Count {winner.Count}");
         return winner;
     }
 }
