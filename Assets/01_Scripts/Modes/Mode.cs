@@ -53,6 +53,7 @@ public class Mode : MonoBehaviourPunCallbacks
             {
                 OnGameOver();
                 AIBehaviourStop(true);
+                GameOver();
             }
         }
     }
