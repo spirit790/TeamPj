@@ -144,10 +144,10 @@ public class Mode : MonoBehaviourPunCallbacks
     /// <returns></returns>
     protected IEnumerator GamePlaying()
     {
-        CreatePlayer();
-
         // 모든 클라이언트가 맵생성 할때까지 대기
         yield return new WaitUntil(() => GameManager.Instance.isReady == PhotonNetwork.CurrentRoom.PlayerCount);
+        CreatePlayer();
+
         CreateAI();
         // AI 생성 대기
         yield return new WaitUntil(() => isCreatedAI);
