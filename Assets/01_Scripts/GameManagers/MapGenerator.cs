@@ -288,6 +288,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     [PunRPC]
     void SendIsReady()
     {
-        GameManager.Instance.isReady++;
+        GameManager.Instance.mapGenerateCount++;
     }
 }
