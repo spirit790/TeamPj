@@ -98,7 +98,7 @@ Material:
     - _FallBoundary: -13.05
     - _FallBubbles: 30
     - _FallDensity: 0.55
-    - _FallFog: 0.335
+    - _FallFog: 0.132
     - _FallForce: 0.3
     - _FallFreq: 1
     - _FallPower: 1.2
