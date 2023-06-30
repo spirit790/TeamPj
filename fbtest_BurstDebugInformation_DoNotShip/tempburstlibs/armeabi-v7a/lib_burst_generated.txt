@@ -124,6 +124,8 @@ Library: D:\Project\TeamPj\Temp\StagingArea\tempburstlibs\armeabi-v7a\lib_burst_
 --compilation-defines=CSHARP_7_3_OR_NEWER
 --compilation-defines=ENABLE_VR_MODULE
 --compilation-defines=ENABLE_XR_MODULE
+--compilation-defines=AT_USE_TIMELINE_GE_1_5_0
+--compilation-defines=AT_USE_TIMELINE_GE_1_6_0
 --compilation-defines=ENABLE_BURST_1_0_0_OR_NEWER
 --compilation-defines=USING_ANIMATION_MODULE
 --compilation-defines=USING_PHYSICS2D_MODULE
@@ -139,8 +141,6 @@ Library: D:\Project\TeamPj\Temp\StagingArea\tempburstlibs\armeabi-v7a\lib_burst_
 --compilation-defines=NMC_CAN_ACCESS_TERRAIN
 --compilation-defines=ENABLE_ASYNC_ASSETBUNDLE_UWR
 --compilation-defines=TIMELINE_FRAMEACCURATE
---compilation-defines=AT_USE_TIMELINE_GE_1_5_0
---compilation-defines=AT_USE_TIMELINE_GE_1_6_0
 --compilation-defines=URP_IS_INSTALLED_FOR_UTS
 --compilation-defines=SRPCORE_IS_INSTALLED_FOR_UTS
 --generate-link-xml=Temp\burst.link.xml

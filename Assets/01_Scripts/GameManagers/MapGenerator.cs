@@ -43,11 +43,8 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     GameObject[] concepts; 
     GameObject[] concept1Items;
 
-    Mode mode;
-
     void Start()
     {
-        mode = FindAnyObjectByType<Mode>();
         chunk = new int[chunkHeight, chunkWidth];
         if (PhotonNetwork.IsMasterClient)
         {
@@ -55,7 +52,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
             {
                 for (int j = 0; j < chunkX; j++)
                 {
-                    photonView.RPC(nameof(SendChunkData), RpcTarget.AllBufferedViaServer,structurePrefabs.Length, i, j);
+                    photonView.RPC(nameof(SendChunkData), RpcTarget.All, structurePrefabs.Length, i, j);
                 }
             }
         }
@@ -70,29 +67,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks
         MakeRandomZonePos();
         randomIndex = Random.Range(0, posList.Count);
         areaZonePos = posList[randomIndex];
-        //StartCoroutine(AreaZoneWait());   
-    }
-
-    IEnumerator GetRandomIndex()
-    {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            randomIndex = Random.Range(0, posList.Count);
-            photonView.RPC(nameof(SendRandomIndex), RpcTarget.All, randomIndex);
-        }
-        yield return null;
-    }
-
-    IEnumerator AreaZoneWait()
-    {
-        yield return StartCoroutine(GetRandomIndex());
-        areaZonePos = posList[randomIndex];
-        if(GameManager.Instance.gameMode == GameManager.Modes.BATTLEROYAL)
-        {
-            ModeBattleRoyal modeBattle = (ModeBattleRoyal)mode;
-            modeBattle.SetDeadZonePos(areaZonePos);
-            Debug.Log(areaZonePos);
-        }
     }
 
     public void MakeChunk(int structures, int chunkX, int chunkY)
@@ -313,6 +287,11 @@ public class MapGenerator : MonoBehaviourPunCallbacks
         DrawMap();
         NavMesh.RemoveAllNavMeshData();
         surfaces[0].BuildNavMesh();
-        mode.CreateAI();
+        photonView.RPC(nameof(SendIsReady), RpcTarget.AllBufferedViaServer);
+    }
+    [PunRPC]
+    void SendIsReady()
+    {
+        GameManager.Instance.isReady++;
     }
 }

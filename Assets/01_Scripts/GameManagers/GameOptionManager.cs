@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class GameOptionManager : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class GameOptionManager : MonoBehaviour
     Slider sfxSlider;
     GameObject optionPanel;
     AudioSource bgmPlayer;
+    Button closeBtn;
+    Button quitBtn;
+    Button localEngBtn;
+    Button localKorBtn;
 
     public float vol;
     public AudioClip[] bgmClips;
@@ -25,7 +30,7 @@ public class GameOptionManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance ==null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(instance);
@@ -34,16 +39,29 @@ public class GameOptionManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
         
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         bgmPlayer = GameObject.FindWithTag("BgmPlayer").GetComponent<AudioSource>();
-        //sfxPlayer = GameObject.FindWithTag("SfxPlayer").GetComponent<AudioSource>();
-        //PlayerCanvas하위 오브젝트들의 순서에 따라 찾게 해놨습니다.
         optionPanel = GameObject.FindWithTag("PlayerCanvas").transform.GetChild(0).gameObject;
         bgmSlider = optionPanel.transform.GetChild(0).GetComponent<Slider>();
         sfxSlider = optionPanel.transform.GetChild(1).GetComponent<Slider>();
+        localEngBtn = optionPanel.transform.GetChild(2).GetChild(0).GetComponent<Button>();
+        localKorBtn = optionPanel.transform.GetChild(2).GetChild(1).GetComponent<Button>();
+        
+        closeBtn = optionPanel.transform.GetChild(3).GetComponent<Button>();
+        quitBtn = optionPanel.transform.GetChild(4).GetComponent<Button>();
+
+        quitBtn.onClick.AddListener(AppQuitBtn);
+        closeBtn.onClick.AddListener(CloseOptionPanelBtn);
         bgmSlider.onValueChanged.AddListener(ChangeBgmVol);
         sfxSlider.onValueChanged.AddListener(ChangeSfxVol);
+        localEngBtn.onClick.AddListener(() => ChangeLocale(0));
+        localKorBtn.onClick.AddListener(() => ChangeLocale(1));
     }
+
 
     private void Update()
     {

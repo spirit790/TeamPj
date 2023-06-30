@@ -7,7 +7,7 @@ public class TargetArea : MonoBehaviour
     ModeAreaConquer modeArea;
     void Start()
     {
-        modeArea = transform.GetComponentInParent<ModeAreaConquer>();
+        modeArea = FindAnyObjectByType<ModeAreaConquer>();
     }
 
     private void OnTriggerEnter(Collider other)

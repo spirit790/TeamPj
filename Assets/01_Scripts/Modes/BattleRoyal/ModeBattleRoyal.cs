@@ -19,7 +19,6 @@ public class ModeBattleRoyal : Mode
 
     private void Start()
     {
-        GameManager.OnPlayersLeftOne += WinGame;
         //deadZone = GetComponentInChildren<DeadZone>();
         mapGen = GameObject.FindGameObjectWithTag("MapGen").GetComponent<MapGenerator>();
         //deadZone.gameObject.SetActive(false);
@@ -49,13 +48,14 @@ public class ModeBattleRoyal : Mode
         
     }
 
+    protected override void PlayerKillControl()
+    {
+
+    }
+
     public void SetDeadZonePos(Vector3 pos)
     {
         deadZone.gameObject.transform.localPosition = pos;
         deadZone.gameObject.SetActive(true);
-    }
-    public void WinGame()
-    {
-        Debug.Log($"Winner: {GameManager.Instance.livePlayers[0].name}");
     }
 }

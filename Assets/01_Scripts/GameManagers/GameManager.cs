@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public int isReady;
+
     /// <summary>
     /// 멀티플레이 넘겨받은 플레이어 수
     /// </summary>
@@ -39,7 +41,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             playersLeft = value; 
             if(playersLeft == 1)
             {
-                OnPlayersLeftOne();
+                //OnPlayersLeftOne();
             }
         }
     }
@@ -65,17 +67,29 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int deathAIRatio = 10;
     public float deathTimeLimit = 300f;
 
-    [Header("GameUsers")]
-    public List<PlayerController> livePlayers = new List<PlayerController>();
-    public List<PlayerController> deadPlayers = new List<PlayerController>();
     [Header("UserInfo")]
     public Dictionary<string, object> userInfo = new Dictionary<string, object>();
-    public bool isWin = false;
+    private bool isWin = false;
+    public bool IsWin
+    {
+        get { return isWin; }
+        set
+        {
+            isWin = value;
+            if (isWin)
+            {
+                photonView.RPC(nameof(ShowPanel), RpcTarget.All);
+                //resultPanel.SetActive(true);
+            }
+        }
+    }
     public int death = 0;
     public int playerKills = 0;
     public int aiKills = 0;
-    public string nickNamne;
+    public string nickName;
     public object startTime;
+
+    public string winnerId;
 
     public List<Mode> modes;
 
@@ -97,19 +111,29 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log($"GameDatas Count {gameDatas.Count}");
             if(dataCount == PhotonNetwork.CurrentRoom.PlayerCount)
             {
-                SendData();
-                OnDataSent();
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    SendData();
+
+                    OnDataSent();
+                }
             }
         }
     }
 
     public GameObject resultPanel;
 
-    public delegate void PlayersLeftOne();
-    public static PlayersLeftOne OnPlayersLeftOne;
+    //public delegate void PlayersLeftOne();
+    //public static PlayersLeftOne OnPlayersLeftOne;
 
     public delegate void DataSent();
-    public static DataSent OnDataSent;
+    public static event DataSent OnDataSent;
+
+    [PunRPC]
+    void ShowPanel()
+    {
+        resultPanel.SetActive(true);
+    }
 
     private void Awake()
     {
@@ -126,10 +150,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     void Start()
     {
-        PlayerController.OnPlayerDie += PlayerDie;
         Mode.OnGameOver += GameOver;
-        //GoogleManager.Instance.OnGetUserInfo();
-        //nickNamne = userInfo["NickName"].ToString();
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -142,6 +163,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             resultPanel = GameObject.FindGameObjectWithTag("Result");
             resultPanel.SetActive(false);
             playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
+            PlayersLeft = PlayerCount;
             int modeNum = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[KeyMode].ToString());
             //int modeNum = 0;
             Mode currentGameMode = Instantiate(modes[modeNum]);
@@ -177,25 +199,19 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
-
-    public void PlayerDie(PlayerController player)
-    {
-        livePlayers.Remove(player);
-        deadPlayers.Add(player);
-        PlayersLeft = livePlayers.Count;
-    }
-
+    
     public void GameOver()
     {
+        Debug.Log($"{PhotonNetwork.LocalPlayer.NickName} ::: {winnerId} ::: {IsWin}");
         Debug.Log($"PlayerCount {PhotonNetwork.CurrentRoom.PlayerCount}");
-        //GameUserData data = new GameUserData(PhotonNetwork.LocalPlayer.NickName, isWin, death, playerKills, aiKills);
         Dictionary<string, object> data = new Dictionary<string, object>
         {
             { "GoogleId", PhotonNetwork.LocalPlayer.NickName },
-            { "IsWin", isWin },
+            { "IsWin", IsWin },
             { "Death", death },
             { "PlayerKills", playerKills },
-            { "AIKills", aiKills }
+            { "AIKills", aiKills },
+            { "NickName", nickName }
         };
         if (PhotonNetwork.LocalPlayer.IsMasterClient)
         {
@@ -230,17 +246,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         gameDatas.Add(data);
         DataCount = gameDatas.Count;
     }
-    /// <summary>
-    /// firebase 데이터 업데이트 테스트용 함수
-    /// </summary>
-    public void OnUpdateTest()
-    {
-        isWin = true;
-        aiKills = 5;
-        playerKills = 3;
-        death = 0;
-        GoogleManager.Instance.OnUpdateUserGameData();
-    }
 
     public Dictionary<string, object> GetMostPlayerKiller()
     {
@@ -254,6 +259,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 mostKiller = gamedata;
             }
         }
+        Debug.Log($"mostKiller Count {mostKiller.Count}");
         return mostKiller;
     }
 
@@ -289,13 +295,20 @@ public class GameManager : MonoBehaviourPunCallbacks
     public Dictionary<string, object> GetWinner()
     {
         Dictionary<string, object> winner = new Dictionary<string, object>();
+
+        Debug.Log("GameDatas ::: " + gameDatas.Count);
         foreach (var gamedata in gameDatas)
         {
+            foreach (var data in gamedata)
+            {
+                Debug.Log($"{data.Key} ::: {data.Value}");
+            }
             if ((bool)gamedata["IsWin"])
             {
                 winner = gamedata;
             }
         }
+        Debug.Log($"winner Count {winner.Count}");
         return winner;
     }
 }

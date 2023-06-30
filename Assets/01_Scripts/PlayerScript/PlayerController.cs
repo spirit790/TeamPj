@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Photon.Pun;
+using Photon.Realtime;
 
 
 public class PlayerController : MonoBehaviourPun
@@ -28,12 +29,13 @@ public class PlayerController : MonoBehaviourPun
     public float roteSpeed;
 
     public float atkSpeed;
-    private bool isDead = false;
+    public bool isDead = false;
     public bool IsDead
     {
         get { return isDead; }
         set
         {
+            isDead = value;
             if (value == true)
             {
                 PlayerDead();
@@ -48,7 +50,9 @@ public class PlayerController : MonoBehaviourPun
     /// Player 사망 이벤트로 IsDead 가 true가 되면 호출됩니다. 이벤트 매개변수로 사망한 player 넣어주면 됩니다.
     /// </summary>
     public static event PlayerDie OnPlayerDie;
-
+    /// <summary>
+    /// Player 사망 이벤트로 IsDead 가 true가 되면 호출됩니다. 이벤트 매개변수로 사망한 player 넣어주면 됩니다.
+    /// </summary>
     private void Awake()
     {
         tr = GetComponent<Transform>();
@@ -56,8 +60,8 @@ public class PlayerController : MonoBehaviourPun
         playerAgent = GetComponent<NavMeshAgent>();
         joyStick = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponentInChildren<JoyStick>();
         dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
- 
     }
+    
     private void Start()
     {
         playerState = PLAYERSTATE.IDLE;
@@ -76,17 +80,6 @@ public class PlayerController : MonoBehaviourPun
 #endif
 
     }
-
-    public void PlayerMove()
-    {
-#if UNITY_ANDROID
-        float h = joyStick.Horizontal();
-        float v = joyStick.Vertical();
-#endif
-#if UNITY_EDITOR_WIN
-#endif
-    }
-
     public void PlayerJoyStickMove()
     {
         playerState = PLAYERSTATE.MOVE;
@@ -139,11 +132,18 @@ public class PlayerController : MonoBehaviourPun
         //Vector3 moveDiection = new Vector3(h, 0, v).normalized;
         //tr.position += moveDiection * moveSpeed * Time.deltaTime;
     }
+
+    public void OnDestroy()
+    {
+        if (photonView.IsMine)
+            OnPlayerDie(this);
+    }
+
     public void PlayerDead()
     {
-        Debug.Log("Player二쎌쓬!!!!!!!!!!!!");
-        playerState = PLAYERSTATE.NONE;
+        Debug.Log("Player Dead!!!!!!!!!!!!");
+        //playerState = PLAYERSTATE.NONE;
         //Destroy(gameObject);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 }
