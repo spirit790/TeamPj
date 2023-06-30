@@ -21,7 +21,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     public List<string> playerList = new List<string>();
 
     const int MATCH_COUNT_MIN = 2;
-    const int MATCH_COUNT_MAX = 4;
+    const int MATCH_COUNT_MAX = 8;
     const string EMPTY_STIRNG = "Empty";
 
     string randomWords = "abcdefghijklmnopqrstuvwxyz0123456789";
@@ -193,7 +193,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < MATCH_COUNT_MAX; i++)
         {
             content.GetChild(i).GetComponentInChildren<Text>().text = EMPTY_STIRNG;
         }
