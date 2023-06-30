@@ -61,6 +61,7 @@ public class GameOptionManager : MonoBehaviour
         sfxSlider.onValueChanged.AddListener(ChangeSfxVol);
         localEngBtn.onClick.AddListener(() => ChangeLocale(0));
         localKorBtn.onClick.AddListener(() => ChangeLocale(1));
+
     }
 
 
