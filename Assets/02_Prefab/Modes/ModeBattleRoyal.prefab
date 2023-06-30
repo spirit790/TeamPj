@@ -57,8 +57,10 @@ MonoBehaviour:
   mapHeight: 27
   txtTimeLimit: {fileID: 0}
   txtWaitStartTime: {fileID: 0}
+  loadingPanel: {fileID: 0}
   myPlayerObject: {fileID: 0}
   modeName: 
+  isDead: 0
   isGameOver: 0
   deadZone: {fileID: 1744176586615899344, guid: 7774da88258183241b7058e4f7f54048,
     type: 3}
@@ -103,7 +105,7 @@ PrefabInstance:
     - target: {fileID: 4929135381063391382, guid: 7774da88258183241b7058e4f7f54048,
         type: 3}
       propertyPath: ObservedComponents.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4929135381063391382, guid: 7774da88258183241b7058e4f7f54048,
         type: 3}

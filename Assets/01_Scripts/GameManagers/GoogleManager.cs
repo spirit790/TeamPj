@@ -283,7 +283,7 @@ public class GoogleManager : MonoBehaviour
             {
                 GameManager.Instance.userInfo = snapshot.ToDictionary();
                 Debug.Log(GameManager.Instance.userInfo.Count);
-                GameManager.Instance.nickNamne = GameManager.Instance.userInfo["NickName"].ToString();
+                GameManager.Instance.nickName = GameManager.Instance.userInfo["NickName"].ToString();
             }
         });
     }
