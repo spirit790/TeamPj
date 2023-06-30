@@ -34,7 +34,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     public GameObject groundPrefab;
     public GameObject roadPrefab;
 
-    List<NavMeshSurface> surfaces = new List<NavMeshSurface>();
     [Range(0, 100)]
     public int randomFillPercent;
 
@@ -215,7 +214,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks
                     }
                     tile.isStatic = true;
                     tile.transform.SetParent(gameObject.transform);
-                    surfaces.Add(tile.GetComponent<NavMeshSurface>());
                 }
             }
         }
