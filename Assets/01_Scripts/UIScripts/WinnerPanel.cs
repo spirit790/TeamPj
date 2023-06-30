@@ -9,7 +9,7 @@ public class WinnerPanel : MonoBehaviourPun
     public Text nickNameTxt;
     public Text killsTxt;
 
-    void Start()
+    void OnEnable()
     {
         GameManager.OnDataSent += GetWinnerData;
     }
