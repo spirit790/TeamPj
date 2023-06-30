@@ -10221,8 +10221,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CGameWinTextU3Ed__25_System_
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// System.Void WinnerPanel::Start()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WinnerPanel_Start_m1FA35CD533B8D42C11AE251A53C209D01DE8055D (WinnerPanel_tB5F7465004B812376EF18BC076CFF1851737EAE0* __this, const RuntimeMethod* method) 
+// System.Void WinnerPanel::OnEnable()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WinnerPanel_OnEnable_m0B9A695CDAB9F3DDE8632CD234296E5BB28E71DA (WinnerPanel_tB5F7465004B812376EF18BC076CFF1851737EAE0* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)

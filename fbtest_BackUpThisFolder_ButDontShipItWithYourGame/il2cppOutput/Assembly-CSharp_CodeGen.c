@@ -1038,8 +1038,8 @@ extern void U3CGameWinTextU3Ed__25_System_Collections_Generic_IEnumeratorU3CSyst
 extern void U3CGameWinTextU3Ed__25_System_Collections_IEnumerator_Reset_mBCD0385C4AA73FF81944EDA99C8BA2DD18A8ED67 (void);
 // 0x00000201 System.Object Textwork/<GameWinText>d__25::System.Collections.IEnumerator.get_Current()
 extern void U3CGameWinTextU3Ed__25_System_Collections_IEnumerator_get_Current_mEB0759C7833C275C47E7C7E4C6AEB5E22CB8385B (void);
-// 0x00000202 System.Void WinnerPanel::Start()
-extern void WinnerPanel_Start_m1FA35CD533B8D42C11AE251A53C209D01DE8055D (void);
+// 0x00000202 System.Void WinnerPanel::OnEnable()
+extern void WinnerPanel_OnEnable_m0B9A695CDAB9F3DDE8632CD234296E5BB28E71DA (void);
 // 0x00000203 System.Void WinnerPanel::GetWinnerData()
 extern void WinnerPanel_GetWinnerData_m0C211B5540E61F367AC40BEDFA68358412C7B0C7 (void);
 // 0x00000204 System.Void WinnerPanel::SendResultToClients(System.String,System.String)
@@ -4353,7 +4353,7 @@ static Il2CppMethodPointer s_methodPointers[1996] =
 	U3CGameWinTextU3Ed__25_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mE154FE6F0F0F01720F039D170744227BB1F15612,
 	U3CGameWinTextU3Ed__25_System_Collections_IEnumerator_Reset_mBCD0385C4AA73FF81944EDA99C8BA2DD18A8ED67,
 	U3CGameWinTextU3Ed__25_System_Collections_IEnumerator_get_Current_mEB0759C7833C275C47E7C7E4C6AEB5E22CB8385B,
-	WinnerPanel_Start_m1FA35CD533B8D42C11AE251A53C209D01DE8055D,
+	WinnerPanel_OnEnable_m0B9A695CDAB9F3DDE8632CD234296E5BB28E71DA,
 	WinnerPanel_GetWinnerData_m0C211B5540E61F367AC40BEDFA68358412C7B0C7,
 	WinnerPanel_SendResultToClients_m5A8A105DA46DFA4C34E9D0AF3D287CD1DC83434C,
 	WinnerPanel__ctor_m6F26800E7F54A026EC73A3EAFC13D751CD57B33A,
