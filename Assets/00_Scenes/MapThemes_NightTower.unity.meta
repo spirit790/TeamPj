@@ -1,6 +1,11 @@
 fileFormatVersion: 2
-guid: 2bb557e2646fdb041be53913c8006c97
+<<<<<<<< HEAD:Assets/00_Scenes/MapThemes_NightTower.unity.meta
+guid: f2dbc72090f9070409d11b14a9d8627c
 DefaultImporter:
+========
+guid: fbbeb81e52cf507478b6e2953c47c464
+PrefabImporter:
+>>>>>>>> Kang:Assets/02_Prefab/GameOptionManager.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

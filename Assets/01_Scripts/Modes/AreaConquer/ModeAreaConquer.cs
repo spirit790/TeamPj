@@ -65,5 +65,6 @@ public class ModeAreaConquer : Mode
         IsGameOver = true;
         Debug.Log($"WinGameByArea : {AreaOwner.name}");
         GameManager.Instance.winnerId = AreaOwner.name;
+        GameManager.Instance.IsWin = true;
     }
 }

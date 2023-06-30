@@ -19,19 +19,13 @@ public class ModeBattleRoyal : Mode
 
     private void Start()
     {
-        //deadZone = GetComponentInChildren<DeadZone>();
         mapGen = GameObject.FindGameObjectWithTag("MapGen").GetComponent<MapGenerator>();
-        //deadZone.gameObject.SetActive(false);
         if (PhotonNetwork.IsMasterClient)
             deadZoneObj = PhotonNetwork.InstantiateRoomObject(deadZone.name, mapGen.areaZonePos, Quaternion.identity);
-        //Debug.Log(deadZone.transform.position);
-        //playersLeft = playerList.Count; gm에서 처리?
     }
     public override void GameStart()
     {
-        
         base.GameStart();
-        //StartCoroutine(RespawnAI());
     }
 
     protected override void GameOverControl()
@@ -50,7 +44,7 @@ public class ModeBattleRoyal : Mode
 
     protected override void PlayerKillControl()
     {
-
+        base.PlayerKillControl();
     }
 
     public void SetDeadZonePos(Vector3 pos)

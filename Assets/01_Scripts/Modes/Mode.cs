@@ -32,6 +32,8 @@ public class Mode : MonoBehaviourPunCallbacks
     public string modeName;
 
     public bool isDead;
+
+    bool isCreatedAI = false;
     protected Vector3 SpawnPos 
     { 
         get 
@@ -48,7 +50,11 @@ public class Mode : MonoBehaviourPunCallbacks
         {
             isGameOver = value;
             if (isGameOver)
+            {
                 OnGameOver();
+                AIBehaviourStop(true);
+                GameOver();
+            }
         }
     }
     private float waitStartTime = 3f;
@@ -100,6 +106,17 @@ public class Mode : MonoBehaviourPunCallbacks
         Camera.main.GetComponent<FollowCam>().SetCamTarget(myPlayerObject);
     }
 
+    protected void SpawnAI()
+    {
+        GameObject ai = null;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            ai = PhotonNetwork.InstantiateRoomObject(aiPrefab.name, SpawnPos, Quaternion.identity);
+            StartCoroutine(ai.GetComponent<AIPattern>().StopMove(waitStartTime));
+        }
+        aiList.Add(ai);
+    }
+
     /// <summary>
     /// AI 수만큼 생성
     /// </summary>
@@ -107,13 +124,9 @@ public class Mode : MonoBehaviourPunCallbacks
     {
         for (int i = 0; i < AICount; i++)
         {
-            GameObject ai = PhotonNetwork.InstantiateRoomObject(aiPrefab.name, SpawnPos, Quaternion.identity);
-            if (PhotonNetwork.IsMasterClient)
-            {
-                StartCoroutine(ai.GetComponent<AIPattern>().StopMove(waitStartTime));
-            }
-            aiList.Add(ai);
+            SpawnAI();
         }
+        isCreatedAI = true;
     }
     #endregion
 
@@ -131,12 +144,14 @@ public class Mode : MonoBehaviourPunCallbacks
     /// <returns></returns>
     protected IEnumerator GamePlaying()
     {
+        // 모든 클라이언트가 맵생성 할때까지 대기
+        yield return new WaitUntil(() => GameManager.Instance.isReady == PhotonNetwork.CurrentRoom.PlayerCount);
         CreatePlayer();
 
-        yield return new WaitUntil(() => GameManager.Instance.isReady == PhotonNetwork.CurrentRoom.PlayerCount);
-
         CreateAI();
-
+        // AI 생성 대기
+        yield return new WaitUntil(() => isCreatedAI);
+        // 로딩 종료
         loadingPanel.gameObject.SetActive(false);
 
         while (waitStartTime >= 0)
@@ -180,7 +195,6 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     protected virtual void GameOver()
     {
-        AIBehaviourStop(true);
         Debug.Log("게임종료");
     }
 

@@ -84,6 +84,10 @@ public class MatchSystem : MonoBehaviourPunCallbacks
         else
             Debug.Log("Not ready");
     }
+    /// <summary>
+    /// 매치중
+    /// </summary>
+    /// <returns></returns>
     IEnumerator Matching()
     {
         txtMatch.text = "Matcing";
@@ -94,6 +98,9 @@ public class MatchSystem : MonoBehaviourPunCallbacks
             yield return null;
         }
     }
+    /// <summary>
+    /// 매치가 최소인원이 되어서 매치대기 시작
+    /// </summary>
     IEnumerator WaitMatch()
     {
         while (waitTime >= 0)
@@ -103,6 +110,10 @@ public class MatchSystem : MonoBehaviourPunCallbacks
         }
         IsMatchSuccess = true;
     }
+    /// <summary>
+    /// 매치성공후 게임시작
+    /// </summary>
+    /// <returns></returns>
     IEnumerator MatchSuccess()
     {
         StopCoroutine(Matching());
@@ -123,6 +134,12 @@ public class MatchSystem : MonoBehaviourPunCallbacks
             PhotonNetwork.LoadLevel(2);
         }
     }
+    #endregion
+
+    #region PunRPC Method
+    /// <summary>
+    /// 매치대기중 인원이 들어올때마다 매치대기시간 재설정
+    /// </summary>
     [PunRPC]
     public void WaitTimeSet()
     {
@@ -136,6 +153,9 @@ public class MatchSystem : MonoBehaviourPunCallbacks
         }
         Debug.Log("waitTimeSet");
     }
+    /// <summary>
+    /// 매치대기시간중 인원이 나갔을때 최소인원이 충족안되면 매치대기 중지
+    /// </summary>
     [PunRPC]
     public void WaitTimeSetLeft()
     {

@@ -11,39 +11,40 @@ public class WorstOrAIKillerPanel : MonoBehaviourPun
     public Text titleTxt;
     public Text nickNameTxt;
     public Text killsTxt;
-    void Start()
+    void OnEnable()
     {
-        //GameManager.OnDataSent += GetWorstOrAIKillerData;
-        //if (PhotonNetwork.IsMasterClient)
-        //{
-        //    random = Random.Range(0, 2);
-        //    photonView.RPC(nameof(SetRandom), RpcTarget.All, random);
-        //}
+        GameManager.OnDataSent += GetWorstOrAIKillerData;
     }
 
-    [PunRPC]
-    void SetRandom(int rand)
-    {
-        random = rand;
-    }
     void GetWorstOrAIKillerData()
     {
-        Dictionary<string, object> killer;
-        if (random == 0)
+        if (PhotonNetwork.IsMasterClient)
         {
-            titleTxt.text = "Worst Killer";
-            killer = GameManager.Instance.GetWorstPlayerKiller();
-            killsTxt.text = killer["PlayerKills"].ToString() + " Kills";
+            random = Random.Range(0, 2);
+            Dictionary<string, object> killer;
+            if (random == 0)
+            {                
+                killer = GameManager.Instance.GetWorstPlayerKiller();
+                string title = "Worst Killer";
+                string kills = killer["PlayerKills"].ToString();
+                string nickName = killer["NickName"].ToString();
+                photonView.RPC(nameof(SendResultToClients), RpcTarget.All, title, nickName, kills);
+            }
+            else
+            {
+                killer = GameManager.Instance.GetMostAIKiller();
+                string title = "AI Hater";
+                string kills = killer["PlayerKills"].ToString();
+                string nickName = killer["NickName"].ToString();
+                photonView.RPC(nameof(SendResultToClients), RpcTarget.All, title, nickName, kills);
+            }
         }
-        else
-        {
-            titleTxt.text = "AI Hater";
-            killer = GameManager.Instance.GetMostAIKiller();
-            killsTxt.text = killer["AIKills"].ToString() + " Kills";
-        }
-        Debug.Log("kills: " + killsTxt.text);
-        nickNameTxt.text = killer["NickName"].ToString();
-        Debug.Log("NickNAme: " + nickNameTxt.text);
-        GameManager.Instance.resultPanel.SetActive(true);
+    }
+    [PunRPC]
+    void SendResultToClients(string title, string nickName, string kills)
+    {
+        titleTxt.text = title;
+        nickNameTxt.text = nickName;
+        killsTxt.text = kills + " Kills";
     }
 }

@@ -62,10 +62,9 @@ public class DeadZone : MonoBehaviour
 
     IEnumerator ShirinkDeadZone()
     {
-        Debug.Log("Co");
         float limitTime = GameManager.Instance.battleTimeLimit;
         float timer = limitTime;
-        int timeCount = 0;
+        int timeCount = 1;
         float shirinkTimer = 0;
         while (timer > 0)
         {
@@ -76,7 +75,15 @@ public class DeadZone : MonoBehaviour
                 timeCount++;
                 shirinkTimer = 0;
                 float newRadius = ((limitTime - timeCount * mode.shrinkTime) / limitTime) * radius;
-                SetDeadZoneRadius(newRadius, mode.shrinkTime / 2);
+                if (newRadius <= 0)
+                {
+                    SetDeadZoneRadius(3f, mode.shrinkTime / 2);
+                    break;
+                }
+                else
+                {
+                    SetDeadZoneRadius(newRadius, mode.shrinkTime / 2);
+                }
             }
             yield return null;
         }

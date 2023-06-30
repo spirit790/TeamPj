@@ -15,16 +15,18 @@ public class GameOptionManager : MonoBehaviour
         return instance;
     }
    
-    Slider bgmSlider;
-    Slider sfxSlider;
-    GameObject optionPanel;
-    AudioSource bgmPlayer;
-    Button closeBtn;
-    Button quitBtn;
-    Button localEngBtn;
-    Button localKorBtn;
+    public Slider bgmSlider;
+    public Slider sfxSlider;
+    public GameObject optionPanel;
+    public AudioSource bgmPlayer;
+    public Button closeBtn;
+    public Button quitBtn;
+    public Button localEngBtn;
+    public Button localKorBtn;
 
-    public float vol;
+    public float sfxVol;
+    public float bgmVol;
+    public int loCalIndex;
     public AudioClip[] bgmClips;
     public AudioClip[] sfxClips;
 
@@ -45,12 +47,11 @@ public class GameOptionManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         bgmPlayer = GameObject.FindWithTag("BgmPlayer").GetComponent<AudioSource>();
-        optionPanel = GameObject.FindWithTag("PlayerCanvas").transform.GetChild(0).gameObject;
+        optionPanel = GameObject.FindWithTag("OptionPanel").transform.GetChild(0).gameObject;
         bgmSlider = optionPanel.transform.GetChild(0).GetComponent<Slider>();
         sfxSlider = optionPanel.transform.GetChild(1).GetComponent<Slider>();
         localEngBtn = optionPanel.transform.GetChild(2).GetChild(0).GetComponent<Button>();
         localKorBtn = optionPanel.transform.GetChild(2).GetChild(1).GetComponent<Button>();
-        
         closeBtn = optionPanel.transform.GetChild(3).GetComponent<Button>();
         quitBtn = optionPanel.transform.GetChild(4).GetComponent<Button>();
 
@@ -60,6 +61,7 @@ public class GameOptionManager : MonoBehaviour
         sfxSlider.onValueChanged.AddListener(ChangeSfxVol);
         localEngBtn.onClick.AddListener(() => ChangeLocale(0));
         localKorBtn.onClick.AddListener(() => ChangeLocale(1));
+
     }
 
 
@@ -92,6 +94,7 @@ public class GameOptionManager : MonoBehaviour
             return;
 
         StartCoroutine(LocaleChange(index));
+        loCalIndex = index;
     }
 
     IEnumerator LocaleChange(int index)
@@ -113,7 +116,7 @@ public class GameOptionManager : MonoBehaviour
     /// case추가하시고 소리가 나야하는 스크립트 위치에 가져오셔서 PlayBgmSound("???")로 쓰면됩니다.
     /// </summary>
     /// <param name="type"></param>
-    public void PlayBgmSound(string type)
+    public void PlayBgmSound(string type,float vol)
     {
         int index = 0;
 
@@ -128,6 +131,7 @@ public class GameOptionManager : MonoBehaviour
             case "Result": index = 6; break;
         }
         bgmPlayer.clip = bgmClips[index];
+        bgmPlayer.volume = vol;
         bgmPlayer.loop = true;
         bgmPlayer.Play();        
     }
@@ -161,13 +165,26 @@ public class GameOptionManager : MonoBehaviour
 
     void ChangeBgmVol(float bgmVol)
     {
-        bgmPlayer.volume = bgmVol;
+        this.bgmVol = bgmVol;
     }
     void ChangeSfxVol(float sfxVol)
     {
-        vol = sfxVol;
+        this.sfxVol = sfxVol;
     }
     #endregion
+
+
+    public void PlayerPrefabSave()
+    {
+        PlayerPrefs.SetFloat("SfxVol", sfxVol);
+        PlayerPrefs.SetFloat("BgmVol", bgmVol);
+        PlayerPrefs.SetInt("Local", loCalIndex);
+    }
+    public void PlayerPrefabLoad()
+    {
+
+    }
+
 
     public void CloseOptionPanelBtn()
     {
