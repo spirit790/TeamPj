@@ -4,6 +4,6 @@ proj.AppId=477806136982
 and.BundleId=com.Dev1.TeamPj
 proj.classDir=Assets
 proj.ConstantsClassName=GPGSIds
-and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--Google+Play+game+services+IDs.+Save+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.--%3e%0d%0a%3cresources%3e%0d%0a++%3c%21--app_id--%3e%0d%0a++%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e477806136982%3c%2fstring%3e%0d%0a++%3c%21--package_name--%3e%0d%0a++%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.Dev1.TeamPj%3c%2fstring%3e%0d%0a%3c%2fresources%3e
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--Google+Play+game+services+IDs.+Save+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.--%3e%0d%0a%3cresources%3e%0d%0a++%3c%21--app_id--%3e%0d%0a++%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e477806136982%3c%2fstring%3e%0d%0a++%3c%21--package_name--%3e%0d%0a++%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.Dev1.TeamPj%3c%2fstring%3e%0d%0a++%3c%21--achievement+%ed%85%8c%ec%8a%a4%ed%8a%b8%ec%97%85%ec%a0%81--%3e%0d%0a++%3cstring+name%3d%22achievement%22+translatable%3d%22false%22%3eCgkIlp3c-_MNEAIQAw%3c%2fstring%3e%0d%0a++%3c%21--leaderboard+%eb%9e%ad%ed%82%b9--%3e%0d%0a++%3cstring+name%3d%22leaderboard%22+translatable%3d%22false%22%3eCgkIlp3c-_MNEAIQBA%3c%2fstring%3e%0d%0a%3c%2fresources%3e
 and.ClientId=477806136982-fa7v4vfvmq0fc58c58bc9986nuqqghkr.apps.googleusercontent.com
 android.SetupDone=true
