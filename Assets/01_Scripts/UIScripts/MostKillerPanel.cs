@@ -8,7 +8,7 @@ public class MostKillerPanel : MonoBehaviourPun
 {
     public Text nickNameTxt;
     public Text killsTxt;
-    void Start()
+    void OnEnable()
     {
         GameManager.OnDataSent += GetMostKillerData;
     }

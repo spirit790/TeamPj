@@ -1397,7 +1397,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 597825791}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8f1f8ece92a4384abf82a050c279f7a, type: 3}
   m_Name: 
@@ -2914,6 +2914,8 @@ GameObject:
   - component: {fileID: 2098714937}
   - component: {fileID: 2098714941}
   - component: {fileID: 2098714940}
+  - component: {fileID: 2098714943}
+  - component: {fileID: 2098714942}
   m_Layer: 5
   m_Name: AI/Worst
   m_TagString: Untagged
@@ -2982,6 +2984,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098714936}
   m_CullTransparentMesh: 1
+--- !u!114 &2098714942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098714936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfdc42146686cec48bcb09bb2863b7bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleTxt: {fileID: 1438852661}
+  nickNameTxt: {fileID: 303316913}
+  killsTxt: {fileID: 495356867}
+--- !u!114 &2098714943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098714936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 91
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2119097696
 GameObject:
   m_ObjectHideFlags: 0
