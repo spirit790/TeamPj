@@ -15,14 +15,14 @@ public class GameOptionManager : MonoBehaviour
         return instance;
     }
    
-    public Slider bgmSlider;
-    public Slider sfxSlider;
-    public GameObject optionPanel;
-    public AudioSource bgmPlayer;
-    public Button closeBtn;
-    public Button quitBtn;
-    public Button localEngBtn;
-    public Button localKorBtn;
+    Slider bgmSlider;
+    Slider sfxSlider;
+    GameObject optionPanel;
+    AudioSource bgmPlayer;
+    Button closeBtn;
+    Button quitBtn;
+    Button localEngBtn;
+    Button localKorBtn;
 
     public float sfxVol;
     public float bgmVol;
@@ -32,6 +32,7 @@ public class GameOptionManager : MonoBehaviour
 
     private void Awake()
     {
+        
         if (instance == null)
         {
             instance = this;
@@ -62,12 +63,14 @@ public class GameOptionManager : MonoBehaviour
         localEngBtn.onClick.AddListener(() => ChangeLocale(0));
         localKorBtn.onClick.AddListener(() => ChangeLocale(1));
 
+        PlayerPrefabLoad();
+
     }
 
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             optionPanel.SetActive(true);
         }
@@ -75,7 +78,7 @@ public class GameOptionManager : MonoBehaviour
 #if UNITY_ANDROID
         if (Application.platform == RuntimePlatform.Android)
         {
-            if (Input.GetKey(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 optionPanel.SetActive(true);
             }
@@ -173,21 +176,29 @@ public class GameOptionManager : MonoBehaviour
     }
     #endregion
 
-
+    /// <summary>
+    /// PlayerPrefab으로 개인컴퓨터에 간단한 데이터 저장
+    /// </summary>
     public void PlayerPrefabSave()
     {
         PlayerPrefs.SetFloat("SfxVol", sfxVol);
         PlayerPrefs.SetFloat("BgmVol", bgmVol);
         PlayerPrefs.SetInt("Local", loCalIndex);
     }
+    /// <summary>
+    /// PlayerPrefab에 저장되어있는 데이터를 불러와서 세팅
+    /// </summary>
     public void PlayerPrefabLoad()
     {
-
+        sfxSlider.value = PlayerPrefs.GetFloat("SfxVol", sfxVol);
+        bgmSlider.value = PlayerPrefs.GetFloat("BgmVol", bgmVol);
+        loCalIndex = PlayerPrefs.GetInt("Local", loCalIndex);
+        ChangeLocale(loCalIndex);
     }
-
 
     public void CloseOptionPanelBtn()
     {
+        PlayerPrefabSave();
         optionPanel.SetActive(false);
     }
 
