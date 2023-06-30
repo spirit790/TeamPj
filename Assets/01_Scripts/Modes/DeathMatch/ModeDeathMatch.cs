@@ -36,7 +36,7 @@ public class ModeDeathMatch : Mode
     protected override void AIDieControl()
     {
         if (!isGameOver)
-            PhotonNetwork.InstantiateRoomObject(aiPrefab.name, SpawnPos, Quaternion.identity);
+            SpawnAI();
     }
 
 }
