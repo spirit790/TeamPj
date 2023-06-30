@@ -119,7 +119,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
 
     #endregion
 
-    #region PunRPC
+    #region PunRPC Method
     /// <summary>
     /// 방내에 플레이어 보여주기
     /// </summary>

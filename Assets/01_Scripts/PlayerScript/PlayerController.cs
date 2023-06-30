@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviourPun
             if (dashBtn.IsCheck)
             {
                 moveSpeed = dashSpeed;
-            }                
+            }         
             else
             {
                 moveSpeed = normalSpeed;

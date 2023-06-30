@@ -28,7 +28,7 @@ public class DashBtn : MonoBehaviour
     {
         Debug.Log("버튼눌림");
         IsCheck = true;
-        gameOptionManager.PlaySfxSound("Dash",transform.position,gameOptionManager.vol);
+        gameOptionManager.PlaySfxSound("Dash",transform.position,gameOptionManager.sfxVol);
 
     }
     /// <summary>

@@ -21,6 +21,11 @@ public class ModeDeathMatch : Mode
     protected override void GameOver()
     {
         base.GameOver();
+        Dictionary<string,object> winner = GameManager.Instance.GetMostPlayerKiller();
+        if(PhotonNetwork.LocalPlayer.NickName == winner["NickName"].ToString())
+        {
+            GameManager.Instance.IsWin = true;
+        }
     }
 
     protected override void PlayerDieControl(PlayerController player)
@@ -36,7 +41,7 @@ public class ModeDeathMatch : Mode
     protected override void AIDieControl()
     {
         if (!isGameOver)
-            PhotonNetwork.InstantiateRoomObject(aiPrefab.name, SpawnPos, Quaternion.identity);
+            SpawnAI();
     }
 
 }

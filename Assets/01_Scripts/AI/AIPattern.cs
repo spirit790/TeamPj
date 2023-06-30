@@ -71,11 +71,6 @@ public class AIPattern : MonoBehaviourPun
             }
         }
     }
-
-    /// <summary>
-    /// AI 스폰시 처리 함수
-    /// TODO : 일정 시간 무적 처리
-    /// </summary>
     
     void MoveTo(Vector3 target)
     {
