@@ -12,24 +12,26 @@ public class PlayerController : MonoBehaviourPun
 {
     JoyStick joyStick;
     DashBtn dashBtn;
-    Rigidbody rBody;
-    Transform tr;
+    Button attackBtn;
     NavMeshAgent playerAgent;
-    PLAYERSTATE playerState;
+    Vector3 dir;
 
-    private Animator playerAnim;
-    public enum PLAYERSTATE { NONE=-1,IDLE=0,MOVE=1,DASH,ATTACK,DIE }
+    [SerializeField] BoxCollider weapon;
 
-    public float curTime;
-    public float coolTime;
+    CharacterAnimation anim;
 
-    private float moveSpeed;
+    Coroutine attackCoroutine;
+
+    public float moveSpeed;
     public float normalSpeed;
     public float dashSpeed;
     public float roteSpeed;
 
-    public float atkSpeed;
-    public bool isDead = false;
+    private bool isStun = false;
+    private float stunTime = 3f;
+    private bool isAttack = false;
+
+    private bool isDead = false;
     public bool IsDead
     {
         get { return isDead; }
@@ -38,8 +40,7 @@ public class PlayerController : MonoBehaviourPun
             isDead = value;
             if (value == true)
             {
-                PlayerDead();
-                OnPlayerDie(this);
+                StartCoroutine(PlayerDeadControl());
             }
         }
     }
@@ -50,67 +51,55 @@ public class PlayerController : MonoBehaviourPun
     /// Player 사망 이벤트로 IsDead 가 true가 되면 호출됩니다. 이벤트 매개변수로 사망한 player 넣어주면 됩니다.
     /// </summary>
     public static event PlayerDie OnPlayerDie;
-    /// <summary>
-    /// Player 사망 이벤트로 IsDead 가 true가 되면 호출됩니다. 이벤트 매개변수로 사망한 player 넣어주면 됩니다.
-    /// </summary>
+
     private void Awake()
     {
-        tr = GetComponent<Transform>();
-        rBody = GetComponent<Rigidbody>();
-        playerAgent = GetComponent<NavMeshAgent>();
-        joyStick = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponentInChildren<JoyStick>();
-        dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
-    }
-    
-    private void Start()
-    {
-        playerState = PLAYERSTATE.IDLE;
-        //OnPlayerDie(this);
+        if (photonView.IsMine)
+        {
+            playerAgent = GetComponent<NavMeshAgent>();
+            joyStick = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponentInChildren<JoyStick>();
+            dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
+            attackBtn = GameObject.FindGameObjectWithTag("AttackBtn").GetComponent<Button>();
+            attackBtn.onClick.AddListener(OnClickAtk);
+            anim = GetComponent<CharacterAnimation>();
+            Weapon.OnAIKill += Stun;
+        }
     }
 
     void Update()
     {
-        if (!photonView.IsMine)
+        if (!photonView.IsMine || IsDead || isStun || isAttack)
             return;
 #if UNITY_ANDROID
-        PlayerJoyStickMove();
+        dir = PlayerJoyStickMove();
 #endif
 #if UNITY_EDITOR_WIN
-        PlayerKeyBordMove();
+        dir = PlayerKeyBordMove();
 #endif
-
+        MovePlayer(dir);
     }
-    public void PlayerJoyStickMove()
+    public Vector3 PlayerJoyStickMove()
     {
-        playerState = PLAYERSTATE.MOVE;
         float h = joyStick.Horizontal();
         float v = joyStick.Vertical();
 
-        if (h != 0 || v != 0)
-        {
-            if (dashBtn.IsCheck)
-            {
-                moveSpeed = dashSpeed;
-            }         
-            else
-            {
-                moveSpeed = normalSpeed;
-            }
-            Vector3 dir = new Vector3(h, 0, v); 
-            if(transform.rotation != Quaternion.Euler(dir.normalized))
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), roteSpeed);
-
-            playerAgent.Move(moveSpeed * Time.deltaTime * dir);
-        }
+        return new Vector3(h, 0, v);
     }
-    public void PlayerKeyBordMove()
+    public Vector3 PlayerKeyBordMove()
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-        float fall = rBody.velocity.y;
-        Vector3 dir = new Vector3(h, 0, v);
 
-        if (!(h == 0 && v == 0))
+        return new Vector3(h, 0, v);
+    }
+
+    private void MovePlayer(Vector3 dir)
+    {
+        if (dir.x == 0 && dir.z == 0)
+        {
+            moveSpeed = 0;
+        }
+        else if (!(dir.x == 0 && dir.x == 0))
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), roteSpeed);
             if (dashBtn.IsCheck)
@@ -122,15 +111,8 @@ public class PlayerController : MonoBehaviourPun
                 moveSpeed = normalSpeed;
             }
         }
-        
-        else if (h == 0 && v == 0)
-        {
-            playerState = PLAYERSTATE.IDLE;
-        }
-        rBody.velocity = new Vector3(h * moveSpeed, fall, v * moveSpeed);
-
-        //Vector3 moveDiection = new Vector3(h, 0, v).normalized;
-        //tr.position += moveDiection * moveSpeed * Time.deltaTime;
+        playerAgent.speed = moveSpeed;
+        playerAgent.Move(playerAgent.speed * Time.deltaTime * dir);
     }
 
     public void OnDestroy()
@@ -141,9 +123,49 @@ public class PlayerController : MonoBehaviourPun
 
     public void PlayerDead()
     {
-        Debug.Log("Player Dead!!!!!!!!!!!!");
-        //playerState = PLAYERSTATE.NONE;
-        //Destroy(gameObject);
-        //gameObject.SetActive(false);
+        if (photonView.IsMine)
+            PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.LocalPlayer);
+    }
+
+    void OnClickAtk()
+    {
+        if(photonView.IsMine && attackCoroutine == null)
+            attackCoroutine = StartCoroutine(Attack());
+    }
+
+    IEnumerator PlayerDeadControl()
+    {
+        float animTime = GetComponent<CharacterAnimation>().SetDeadAnim();
+        GetComponentInChildren<BoxCollider>().enabled = false;
+        yield return new WaitForSeconds(animTime);
+        PlayerDead();
+    }
+
+    IEnumerator Attack()
+    {
+        isAttack = true;
+        weapon.enabled = isAttack;
+        float animTime = anim.SetAttackAnim(isAttack);
+        attackBtn.interactable = false;
+        yield return new WaitForSeconds(animTime);
+        isAttack = false;
+        weapon.enabled = isAttack;
+        anim.SetAttackAnim(isAttack);
+        attackBtn.interactable = true;
+        attackCoroutine = null;
+    }
+
+    IEnumerator StunControl()
+    {
+        isStun = true;
+        anim.SetStunAnim(isStun);
+        yield return new WaitForSeconds(stunTime);
+        isStun = false;
+        anim.SetStunAnim(isStun);
+    }
+
+    void Stun()
+    {
+        StartCoroutine(StunControl());
     }
 }

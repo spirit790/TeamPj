@@ -29,7 +29,7 @@ public class AIPattern : MonoBehaviourPun
     {
         get
         {
-            int randomIdx = Random.Range(0, 2);
+            int randomIdx = Random.Range(0, 4);
             if (randomIdx == 1)
                 return true;
             else
@@ -92,13 +92,25 @@ public class AIPattern : MonoBehaviourPun
 
     public IEnumerator StopMove(float stopTime)
     {
+        agent.speed = 0;
         enabled = false;
         yield return new WaitForSeconds(stopTime);
         enabled = true;
     }
 
+    IEnumerator AIDeadControl()
+    {
+        agent.isStopped = true;
+        GetComponent<CharacterAnimation>().SetDeadAnim();
+        GetComponentInChildren<BoxCollider>().enabled = false;
+        AnimatorClipInfo[] currentAnim = GetComponentInChildren<Animator>().GetCurrentAnimatorClipInfo(0);
+        yield return new WaitForSeconds(currentAnim.Length);
+        photonView.RPC(nameof(AIDead), RpcTarget.MasterClient);
+    }
+
     private void OnEnable()
     {
+        agent.speed = moveSpeed;
         MoveTo(TargetPos);
     }
 
@@ -111,13 +123,7 @@ public class AIPattern : MonoBehaviourPun
     {
         OnAIDie();
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("d");
-        agent.speed = 0;
-    }
-
+    
     public bool IsAiDead
     {
         get { return IsAiDead; }
@@ -125,14 +131,14 @@ public class AIPattern : MonoBehaviourPun
         {
             if(value == true)
             {
-                AiDead();
+                StartCoroutine(AIDeadControl());
             }
         }
     }
 
-    public void AiDead()
+    [PunRPC]
+    public void AIDead()
     {
-        Debug.Log("AI °¡ Á×À½!!!!!!!!!!!!");
         PhotonNetwork.Destroy(gameObject);
     }
 
