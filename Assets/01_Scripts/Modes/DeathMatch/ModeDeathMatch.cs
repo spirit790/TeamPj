@@ -34,8 +34,7 @@ public class ModeDeathMatch : Mode
         Debug.Log("player respawn");
         if (PhotonNetwork.IsConnected && !isGameOver)
         {
-            myPlayerObject = PhotonNetwork.Instantiate(playerPrefab.name, SpawnPos, Quaternion.identity);
-            Camera.main.GetComponent<FollowCam>().SetCamTarget(myPlayerObject);
+            CreatePlayer();
         }
     }
 
