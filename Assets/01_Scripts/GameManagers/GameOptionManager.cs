@@ -73,13 +73,6 @@ public class GameOptionManager : MonoBehaviour
             bgmPlayer.loop = true;
             bgmPlayer.Play();
         }
-        if(mapGenerator.concept==1)
-        {
-            bgmPlayer.clip = bgmClips[0];
-            bgmPlayer.volume = bgmVol;
-            bgmPlayer.loop = true;
-            bgmPlayer.Play();
-        }
 
     }
 

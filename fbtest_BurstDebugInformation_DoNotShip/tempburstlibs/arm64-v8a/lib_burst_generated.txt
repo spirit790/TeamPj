@@ -140,6 +140,13 @@ Library: D:\Project\TeamPj\Temp\StagingArea\tempburstlibs\arm64-v8a\lib_burst_ge
 --compilation-defines=MODULE_PARTICLE_SYSTEM_EXISTS
 --compilation-defines=NMC_CAN_ACCESS_TERRAIN
 --compilation-defines=ENABLE_ASYNC_ASSETBUNDLE_UWR
+--compilation-defines=CINEMACHINE_TIMELINE
+--compilation-defines=CINEMACHINE_PHYSICS_2D
+--compilation-defines=CINEMACHINE_PHYSICS
+--compilation-defines=CINEMACHINE_UGUI
+--compilation-defines=CINEMACHINE_LWRP_7_3_1
+--compilation-defines=CINEMACHINE_UNITY_ANIMATION
+--compilation-defines=CINEMACHINE_UNITY_IMGUI
 --compilation-defines=TIMELINE_FRAMEACCURATE
 --compilation-defines=URP_IS_INSTALLED_FOR_UTS
 --compilation-defines=SRPCORE_IS_INSTALLED_FOR_UTS
