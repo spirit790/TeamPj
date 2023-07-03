@@ -40,7 +40,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
 
     [Header("Concepts")]
     public int concept;
-    List<List<GameObject>> concepts;
+    List<List<GameObject>> concepts = new List<List<GameObject>>();
     List<GameObject> obstaclePrefabs;
     public List<GameObject> groundPrefabs;
     public List<GameObject> roadPrefabs;
@@ -63,7 +63,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
         concepts.Add(towerObstacles);
 
         chunk = new int[chunkHeight, chunkWidth];
-        int concept = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMap].ToString());
+        concept = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMap].ToString());
         obstaclePrefabs = concepts[concept];
         groundPrefab = groundPrefabs[concept];
         roadPrefab = roadPrefabs[concept];
@@ -219,6 +219,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
 
     private void DrawMap()
     {
+        Instantiate(envPrefabs[concept]);
         string[] mapData = strSendMapData.Split("\n");
         if (mapData != null)
         {
@@ -230,11 +231,11 @@ public class MapGenerator : MonoBehaviourPunCallbacks
                     GameObject tile;
                     if (mapData[x][y].ToString() == "1")
                     {
-                        tile = Instantiate(groundPrefab, pos, transform.rotation);
+                        tile = Instantiate(groundPrefab, pos, groundPrefab.transform.rotation);
                     }
                     else
                     {
-                        tile = Instantiate(roadPrefab, pos, transform.rotation);
+                        tile = Instantiate(roadPrefab, pos, groundPrefab.transform.rotation);
                     }
                     tile.isStatic = true;
                     tile.transform.SetParent(gameObject.transform);
