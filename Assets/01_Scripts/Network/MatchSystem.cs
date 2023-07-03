@@ -172,7 +172,7 @@ public class MatchSystem : MonoBehaviourPunCallbacks
         int randomMap = Random.Range(0, 3);
         int randomMode = Random.Range(0, GameManager.Instance.modes.Count);
 
-        Hashtable roomProp = new Hashtable { { GameManager.Instance.KeyMap, randomMap }, { GameManager.Instance.KeyMode,randomMode} };
+        Hashtable roomProp = new Hashtable { { GameManager.Instance.KeyMap, randomMap }, { GameManager.Instance.KeyMode,randomMode}, { GameManager.Instance.KeySystem, 0 } };
         roomOptions.CustomRoomProperties = roomProp;
 
         if (!PhotonNetwork.InRoom)

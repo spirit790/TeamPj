@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviourPun
             }
             attackBtn.onClick.AddListener(OnClickAtk);
             anim = GetComponent<CharacterAnimation>();
-            Weapon.OnAIKill += Stun;
+            PlayerAttack.OnAIKill += Stun;
         }
     }
 
@@ -155,10 +155,14 @@ public class PlayerController : MonoBehaviourPun
     {
         isAttack = true;
         weapon.enabled = isAttack;
-        float animTime = anim.SetAttackAnim(isAttack);
-        StartCoroutine(AttackMove(animTime));
+        float[] animTime = anim.SetAttackAnim(isAttack);
+        StartCoroutine(AttackMove(animTime[0] + animTime[1]));
         attackBtn.interactable = false;
-        yield return new WaitForSeconds(animTime);
+
+        yield return new WaitForSeconds(animTime[0]);
+        GetComponent<PlayerAttack>().AttackWithAngle();
+        yield return new WaitForSeconds(animTime[1]);
+
         isAttack = false;
         weapon.enabled = isAttack;
         anim.SetAttackAnim(isAttack);

@@ -89,8 +89,8 @@ public class Mode : MonoBehaviourPunCallbacks
         // 이벤트 함수 등록
         AIPattern.OnAIDie += AIDieControl;
         PlayerController.OnPlayerDie += PlayerDieControl;
-        Weapon.OnAIKill += AIKillControl;
-        Weapon.OnPlayerKill += PlayerKillControl;
+        PlayerAttack.OnAIKill += AIKillControl;
+        PlayerAttack.OnPlayerKill += PlayerKillControl;
         photonView.ViewID = 997;
         GameStart();
     }

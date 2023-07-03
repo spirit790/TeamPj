@@ -98,14 +98,10 @@ public class AIPattern : MonoBehaviourPun
         enabled = true;
     }
 
-    IEnumerator AIDeadControl()
+    void AIDeadControl()
     {
         agent.isStopped = true;
-        float deadTime = GetComponent<CharacterAnimation>().SetDeadAnim();
-
         GetComponentInChildren<BoxCollider>().enabled = false;
-
-        yield return new WaitForSeconds(deadTime);
         photonView.RPC(nameof(AIDead), RpcTarget.MasterClient);
     }
 
@@ -132,7 +128,7 @@ public class AIPattern : MonoBehaviourPun
         {
             if(value == true)
             {
-                StartCoroutine(AIDeadControl());
+                AIDeadControl();
             }
         }
     }

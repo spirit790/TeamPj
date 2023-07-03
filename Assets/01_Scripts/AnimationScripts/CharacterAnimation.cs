@@ -61,16 +61,24 @@ public class CharacterAnimation : MonoBehaviour
         characterAnim.SetBool("Stun", isStun);
     }
 
-    public float SetAttackAnim(bool isAttack)
+    public float[] SetAttackAnim(bool isAttack)
     {
         float attackCoin = Random.Range(0, 1f);
         characterAnim.SetFloat("AttackCoin", attackCoin);
         characterAnim.SetBool("Attack", isAttack);
-
-        if (attackCoin < 0.5)
-            return atk3;
+        float[] times = new float[2];
+        if (attackCoin > 0.5f)
+        {
+            times[0] = 0.208f;
+            times[1] = atk1 - times[0];
+            return times;
+        }
         else
-            return atk1;
+        {
+            times[0] = 0.5f;
+            times[1] = atk3 - times[0];
+            return times;
+        }
     }
     public float SetDeadAnim()
     {
