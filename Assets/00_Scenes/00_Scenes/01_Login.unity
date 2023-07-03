@@ -2341,7 +2341,7 @@ MonoBehaviour:
   createPlayercount: 0
   gameMode: 1
   battleAIRatio: 10
-  battleTimeLimit: 30
+  battleTimeLimit: 120
   areaAIRatio: 10
   areaTimeLimit: 30
   deathAIRatio: 10
