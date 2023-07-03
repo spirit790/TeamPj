@@ -21,9 +21,9 @@ public class AIPattern : MonoBehaviourPun
     public delegate void AIDie();
     public static event AIDie OnAIDie;
 
-    Vector3 RandomTargetPos { get { return new Vector3(Random.Range(-mapWidth * 0.1f, mapWidth + mapWidth * 0.1f), 0, Random.Range(-mapHeight * 0.1f, mapHeight + mapHeight * 0.1f)); } }
+    Vector3 TargetPos { get { return new Vector3(Random.Range(-mapWidth * 0.1f, mapWidth + mapWidth * 0.1f), 0, Random.Range(-mapHeight * 0.1f, mapHeight + mapHeight * 0.1f)); } }
 
-    float RandomStopTime { get { return Random.Range(0, 5); } }
+    float RandomStopTime { get { return Random.Range(0, 3); } }
 
     public bool IsRunning
     {
@@ -40,7 +40,7 @@ public class AIPattern : MonoBehaviourPun
     {
         get
         {
-            float distance = Vector3.Distance(RandomTargetPos, transform.position);
+            float distance = Vector3.Distance(TargetPos, transform.position);
             if (distance < TARGET_DISTANCE)
                 return true;
             else
@@ -48,7 +48,7 @@ public class AIPattern : MonoBehaviourPun
         }
         set 
         {
-            MoveTo(RandomTargetPos);
+            MoveTo(TargetPos);
             if (IsRunning)
                 agent.speed = runSpeed;
             else
@@ -84,7 +84,7 @@ public class AIPattern : MonoBehaviourPun
     void StrangeBehaviour()
     {
         float rand = Random.Range(0, 100);
-        if (rand < 10)
+        if (rand < 5)
         {
             StartCoroutine(StopMove(RandomStopTime));
         }
@@ -101,18 +101,17 @@ public class AIPattern : MonoBehaviourPun
     IEnumerator AIDeadControl()
     {
         agent.isStopped = true;
-        float deadTime = GetComponent<CharacterAnimation>().SetDeadAnim();
-
+        GetComponent<CharacterAnimation>().SetDeadAnim();
         GetComponentInChildren<BoxCollider>().enabled = false;
-
-        yield return new WaitForSeconds(deadTime);
+        AnimatorClipInfo[] currentAnim = GetComponentInChildren<Animator>().GetCurrentAnimatorClipInfo(0);
+        yield return new WaitForSeconds(currentAnim.Length);
         photonView.RPC(nameof(AIDead), RpcTarget.MasterClient);
     }
 
     private void OnEnable()
     {
         agent.speed = moveSpeed;
-        MoveTo(RandomTargetPos);
+        MoveTo(TargetPos);
     }
 
     private void OnDisable()

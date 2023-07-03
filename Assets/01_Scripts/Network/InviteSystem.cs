@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
@@ -10,7 +11,6 @@ public class InviteSystem : MonoBehaviourPunCallbacks
 {
     [Header("UI Invite")]
     [SerializeField] Image roomPanel;
-    [SerializeField] Image joinRoomPanel;
     [SerializeField] Image playerListImg;
     [SerializeField] Button btnQuit;
     [SerializeField] Button btnStart;
@@ -27,7 +27,8 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     string randomWords = "abcdefghijklmnopqrstuvwxyz0123456789";
 
     [SerializeField] bool isDebug = false;
-    #region Button Method
+
+    #region Invite Method
     /// <summary>
     /// 방생성 버튼
     /// </summary>
@@ -47,8 +48,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             roomName = userId[1] + randomWord;
         }
         RoomOptions roomOption = new RoomOptions();
-        int randomMap = Random.Range(0, 3);
-        Hashtable roomProp = new Hashtable { { GameManager.Instance.KeyMap, randomMap }, { GameManager.Instance.KeyMode, 0 } };
+        Hashtable roomProp = new Hashtable { { GameManager.Instance.KeyMap, 0 }, { GameManager.Instance.KeyMode, 0 } };
         roomOption.CustomRoomProperties = roomProp;
         roomOption.MaxPlayers = MATCH_COUNT_MAX;
         roomOption.IsVisible = false;
@@ -65,6 +65,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         
         string roomName = inputCode.textComponent.text;
         PhotonNetwork.JoinRoom(roomName);
+        inputCode.textComponent.text = null;
     }
 
     /// <summary>
@@ -90,18 +91,13 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             PhotonNetwork.LeaveRoom();
     }
 
+    
+
     public void ChangeMode()
     {
         photonView.RPC(nameof(ChangeModeValue), RpcTarget.All, selectMode.value);
     }
 
-    public void BtnResetJoinRoomPanel()
-    {
-        ResetJoinRoomPanel();
-    }
-    #endregion
-
-    #region Invite Method
     void PlayerEnteredRoom(Player player)
     {
         content.transform.GetChild(PhotonNetwork.CurrentRoom.PlayerCount - 1).GetComponentInChildren<Text>().text = player.ActorNumber.ToString();
@@ -119,12 +115,6 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             }
             photonView.RPC(nameof(ShowPlayers), RpcTarget.All, PhotonNetwork.CurrentRoom.PlayerCount, EMPTY_STIRNG);
         }
-    }
-
-    void ResetJoinRoomPanel()
-    {
-        inputCode.textComponent = null;
-        joinRoomPanel.transform.GetChild(1).GetComponent<Text>().text = null;
     }
 
     #endregion
@@ -180,7 +170,6 @@ public class InviteSystem : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        ResetJoinRoomPanel();
         if (PhotonNetwork.IsMasterClient)
         {
             selectMode.gameObject.SetActive(true);
@@ -199,10 +188,6 @@ public class InviteSystem : MonoBehaviourPunCallbacks
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
-        Debug.Log($"message : {message} , returnCode : {returnCode}");
-        joinRoomPanel.gameObject.SetActive(true);
-        if (returnCode == 32758)
-            joinRoomPanel.transform.GetChild(1).GetComponent<Text>().text = "없는 방입니다.";
         this.gameObject.SetActive(false);
     }
 

@@ -12,12 +12,9 @@ public class Weapon : MonoBehaviourPun
     public delegate void AIKill();
     public static event AIKill OnAIKill;
 
-    [SerializeField] GameObject hitEffect;
-
     private void OnTriggerEnter(Collider other)
     {
         GetComponent<BoxCollider>().enabled = false;
-        Instantiate(hitEffect, transform.position,Quaternion.identity);
         if (other.transform.CompareTag("AI"))
         {
             Debug.Log("AI Kill");

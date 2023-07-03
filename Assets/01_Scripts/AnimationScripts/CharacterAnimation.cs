@@ -20,25 +20,22 @@ public class CharacterAnimation : MonoBehaviour
         characterAnim = GetComponentInChildren<Animator>();
         characterAgent = GetComponent<NavMeshAgent>();
 
-        if (GetComponent<PlayerController>())
+        AnimationClip[] clips = characterAnim.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
         {
-            AnimationClip[] clips = characterAnim.runtimeAnimatorController.animationClips;
-            foreach (AnimationClip clip in clips)
+            switch (clip.name)
             {
-                switch (clip.name)
-                {
-                    case "ATK1":
-                        atk1 = clip.length;
-                        break;
-                    case "ATK3":
-                        atk3 = clip.length;
-                        break;
-                    case "Die1":
-                        die1 = clip.length;
-                        break;
-                    default:
-                        break;
-                }
+                case "ATK1":
+                    atk1 = clip.length;
+                    break;
+                case "ATK3":
+                    atk3 = clip.length;
+                    break;
+                case "Die1":
+                    die1 = clip.length;
+                    break;
+                default:
+                    break;
             }
         }
     }
