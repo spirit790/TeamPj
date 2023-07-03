@@ -204,7 +204,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 67.91, y: -123.386, z: 5.195}
 --- !u!1 &100207891
 GameObject:
@@ -1642,7 +1642,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 55.107, z: 0}
 --- !u!1001 &262949751
 PrefabInstance:
@@ -3580,7 +3580,7 @@ Transform:
   - {fileID: 986102328}
   - {fileID: 498875734}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &447227259
 GameObject:
@@ -3663,7 +3663,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &478086694
 GameObject:
@@ -4836,12 +4836,30 @@ MonoBehaviour:
   roadPrefab: {fileID: 1149535237560096, guid: 77baab57b69c72a4198d733118e24ab4, type: 3}
   randomFillPercent: 52
   concept: 0
-  groundPrefabs: []
-  roadPrefabs: []
-  envPrefabs: []
-  jungleObstacles: []
-  schoolObstacles: []
-  towerObstacles: []
+  groundPrefabs:
+  - {fileID: 697166889883673310, guid: cdcdba54539816b4584a6d740af78e54, type: 3}
+  - {fileID: 6379126440195082914, guid: ce966ebadd36a2e45be5b1925381da80, type: 3}
+  - {fileID: 2492013528077374685, guid: 0d18a0d31632f864d9d7e8b26111ea5f, type: 3}
+  roadPrefabs:
+  - {fileID: 417327825634208128, guid: 65f8c7a567edca04d84ff9ceed23c40f, type: 3}
+  - {fileID: 6379126440195082914, guid: 6f119584f37189140b0ba1862bc6c3f6, type: 3}
+  - {fileID: 8103409691433742235, guid: 6564a31b094f83b4ab006599908c30d8, type: 3}
+  envPrefabs:
+  - {fileID: 7266641965902491083, guid: 41832873ded5a224a9606cf272bc0be8, type: 3}
+  - {fileID: 842311511695262795, guid: 64368ccf881341a4b82b2dbde5bf352c, type: 3}
+  - {fileID: 6207894991472246498, guid: 528f0c8c5c729024e8b7b09cc128116f, type: 3}
+  jungleObstacles:
+  - {fileID: 3032860780472981091, guid: 7187ac113aaf682408cfd3358c2a08fc, type: 3}
+  - {fileID: 5100911261983560170, guid: 83b3a0847e93baf4ead0e8b2632a2cbb, type: 3}
+  - {fileID: 4075323177792160440, guid: 646defaafd7070244b3e9723112e4a8f, type: 3}
+  schoolObstacles:
+  - {fileID: 1789180665953131001, guid: 946c7c250aa3ea24fa120c21d97e6d29, type: 3}
+  - {fileID: 7437240522504120991, guid: 679db1137f242d34ab080815e66c82d2, type: 3}
+  - {fileID: 4263781603327254010, guid: 567e231ac5749a14e85b9bacba5ae98c, type: 3}
+  towerObstacles:
+  - {fileID: 6406751210271862619, guid: 95616e1b7d958c643b01c0c4a310f150, type: 3}
+  - {fileID: 8847329464610452033, guid: b13e4dbe78e408648a32a55f8f942e5e, type: 3}
+  - {fileID: 3884911492069250670, guid: 2fc5f8512f62e6f4fb3b054b0cc99b21, type: 3}
 --- !u!4 &685309797
 Transform:
   m_ObjectHideFlags: 0
@@ -4855,7 +4873,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &685309798
 MonoBehaviour:
@@ -5254,7 +5272,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &729967046
 GameObject:
@@ -6079,7 +6097,7 @@ Transform:
   - {fileID: 125621106}
   - {fileID: 966579463}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &901218084
 GameObject:
@@ -6290,7 +6308,7 @@ Transform:
   - {fileID: 1050602568}
   - {fileID: 1765046928}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &966579462
 GameObject:
@@ -9975,7 +9993,7 @@ Transform:
   - {fileID: 1166276208}
   - {fileID: 163836024}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1424395736
 GameObject:
@@ -10743,7 +10761,7 @@ Transform:
   m_Children:
   - {fileID: 204626008}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1609673553
 GameObject:
@@ -10858,7 +10876,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1616605614
 GameObject:
@@ -11679,7 +11697,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1804785404
 GameObject:
@@ -12082,7 +12100,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1849628641
 MonoBehaviour:
@@ -12284,7 +12302,7 @@ PrefabInstance:
     - target: {fileID: 1763601615011000422, guid: 85d39f62c732c394c9cd5a1c2fa00c5a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1763601615011000422, guid: 85d39f62c732c394c9cd5a1c2fa00c5a,
         type: 3}
@@ -13517,7 +13535,7 @@ RectTransform:
   - {fileID: 276695138}
   - {fileID: 426663468}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13828,7 +13846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22457152, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 22457152, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -14066,7 +14084,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4399355994250273015
 GameObject:
