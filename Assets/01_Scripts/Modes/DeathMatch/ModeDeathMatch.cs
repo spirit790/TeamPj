@@ -8,8 +8,6 @@ public class ModeDeathMatch : Mode
 {
     public override void GameStart()
     {
-        //PlayerController.OnPlayerDie += RespawnPlayer;
-        //AIPattern.OnAIDie += RespawnAI;
         base.GameStart();
     }
 
@@ -35,6 +33,7 @@ public class ModeDeathMatch : Mode
         if (PhotonNetwork.IsConnected && !isGameOver)
         {
             CreatePlayer();
+            GameManager.Instance.IsDead = false;
         }
     }
 
