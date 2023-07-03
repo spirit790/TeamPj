@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
-    private int playersLeft;
+    public int playersLeft;
     public int PlayersLeft
     {
         get { return playersLeft; }

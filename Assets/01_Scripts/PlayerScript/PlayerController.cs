@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviourPun
         }
     }
 
+    public bool isGhost = false;
+
     // Player ?¨Îßù ?¥Î≤§??
     public delegate void PlayerDie(PlayerController player);
     /// <summary>
@@ -58,8 +60,16 @@ public class PlayerController : MonoBehaviourPun
         {
             playerAgent = GetComponent<NavMeshAgent>();
             joyStick = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponentInChildren<JoyStick>();
-            dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
-            attackBtn = GameObject.FindGameObjectWithTag("AttackBtn").GetComponent<Button>();
+            if (isGhost)
+            {
+                dashBtn.gameObject.SetActive(false);
+                attackBtn.gameObject.SetActive(false);
+            }
+            else
+            {
+                dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
+                attackBtn = GameObject.FindGameObjectWithTag("AttackBtn").GetComponent<Button>();
+            }
             attackBtn.onClick.AddListener(OnClickAtk);
             anim = GetComponent<CharacterAnimation>();
             Weapon.OnAIKill += Stun;
@@ -99,7 +109,7 @@ public class PlayerController : MonoBehaviourPun
         {
             moveSpeed = 0;
         }
-        else if (!(dir.x == 0 && dir.x == 0))
+        else if (!(dir.x == 0 && dir.z == 0))
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(dir), roteSpeed);
             if (dashBtn.IsCheck)
@@ -129,7 +139,7 @@ public class PlayerController : MonoBehaviourPun
 
     void OnClickAtk()
     {
-        if(photonView.IsMine && attackCoroutine == null)
+        if(photonView.IsMine && attackCoroutine == null && !isStun)
             attackCoroutine = StartCoroutine(Attack());
     }
 
@@ -146,6 +156,7 @@ public class PlayerController : MonoBehaviourPun
         isAttack = true;
         weapon.enabled = isAttack;
         float animTime = anim.SetAttackAnim(isAttack);
+        StartCoroutine(AttackMove(animTime));
         attackBtn.interactable = false;
         yield return new WaitForSeconds(animTime);
         isAttack = false;
@@ -153,6 +164,21 @@ public class PlayerController : MonoBehaviourPun
         anim.SetAttackAnim(isAttack);
         attackBtn.interactable = true;
         attackCoroutine = null;
+    }
+
+    IEnumerator AttackMove(float time)
+    {
+        float moveSpeed = 5f;
+        float moveRatio = 0.1f;
+        while(time >= 0)
+        {
+            time -= Time.deltaTime;
+            playerAgent.Move(moveSpeed * Time.deltaTime * dir);
+            moveSpeed -= moveRatio;
+            if (isStun)
+                break;
+            yield return null;
+        }
     }
 
     IEnumerator StunControl()

@@ -117,7 +117,15 @@ public class Mode : MonoBehaviourPunCallbacks
         // 캠 팔로우, 비전 설정
         Camera.main.GetComponent<FollowCam>().SetCamTarget(myPlayerObject);
         // 생성되면 게임매니저의 생성된 플레이어 갯수 증가
-        photonView.RPC(nameof(RpcCreatePlayer), RpcTarget.AllBufferedViaServer);
+        if (PhotonNetwork.CurrentRoom.PlayerCount > GameManager.Instance.createPlayercount)
+            photonView.RPC(nameof(RpcCreatePlayer), RpcTarget.AllBufferedViaServer);
+    }
+
+    void CreateGhostPlayer()
+    {
+        myPlayerObject = Instantiate(playerPrefab,new Vector3(0,1,0), Quaternion.identity);
+        myPlayerObject.GetComponent<PlayerController>().isGhost = true;
+        Camera.main.GetComponent<FollowCam>().SetCamTarget(myPlayerObject);
     }
 
     /// <summary>
@@ -229,7 +237,8 @@ public class Mode : MonoBehaviourPunCallbacks
         {
             foreach (GameObject ai in aiList)
             {
-                ai.GetComponent<AIPattern>().enabled = !isStop;
+                if(ai != null)
+                    ai.GetComponent<AIPattern>().enabled = !isStop;
             }
         }
     }
@@ -238,6 +247,10 @@ public class Mode : MonoBehaviourPunCallbacks
     {
         GameManager.Instance.IsDead = true;
         photonView.RPC(nameof(RpcPlayerDie), RpcTarget.All);
+        if (!isGameOver)
+        {
+            CreateGhostPlayer();
+        }
     }
 
     protected virtual void AIDieControl()
@@ -261,6 +274,7 @@ public class Mode : MonoBehaviourPunCallbacks
     protected void RpcPlayerDie()
     {
         GameManager.Instance.PlayersLeft -= 1;
+        
         if (GameManager.Instance.PlayersLeft == 1)
         {
             if (!GameManager.Instance.IsDead)
