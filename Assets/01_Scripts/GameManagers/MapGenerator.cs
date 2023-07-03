@@ -39,7 +39,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
 
 
     [Header("Concepts")]
-    int concept;
+    public int concept;
     List<List<GameObject>> concepts;
     List<GameObject> obstaclePrefabs;
     public List<GameObject> groundPrefabs;
@@ -63,30 +63,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
         concepts.Add(towerObstacles);
 
         chunk = new int[chunkHeight, chunkWidth];
-
-        if (PhotonNetwork.IsMasterClient)
-        {
-            int concept = Random.Range(0, NUMBER_OF_CONCEPTS);
-            photonView.RPC(nameof(SendConceptIndex), RpcTarget.All, concept);
-        }
-
-
-        width = chunkX * chunkWidth;
-        height = chunkZ * chunkHeight;
-        map = new int[width, height];
-
-        GenerateMap();
-
-        mainBuildingPos1 = new Vector3(width / 2f - chunkWidth / 2f, 0, height / 2f);
-        mainBuildingPos2 = new Vector3(width / 2f + chunkWidth / 2f, 0, height / 2f);
-        MakeRandomZonePos();
-        randomIndex = Random.Range(0, posList.Count);
-        areaZonePos = posList[randomIndex];
-    }
-    [PunRPC]
-    void SendConceptIndex(int conceptIndex)
-    {
-        concept = conceptIndex;
+        int concept = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMap].ToString());
         obstaclePrefabs = concepts[concept];
         groundPrefab = groundPrefabs[concept];
         roadPrefab = roadPrefabs[concept];
@@ -100,6 +77,18 @@ public class MapGenerator : MonoBehaviourPunCallbacks
                 }
             }
         }
+
+        width = chunkX * chunkWidth;
+        height = chunkZ * chunkHeight;
+        map = new int[width, height];
+
+        GenerateMap();
+
+        mainBuildingPos1 = new Vector3(width / 2f - chunkWidth / 2f, 0, height / 2f);
+        mainBuildingPos2 = new Vector3(width / 2f + chunkWidth / 2f, 0, height / 2f);
+        MakeRandomZonePos();
+        randomIndex = Random.Range(0, posList.Count);
+        areaZonePos = posList[randomIndex];
     }
     public void MakeChunk(int structures, int chunkX, int chunkY)
     {
