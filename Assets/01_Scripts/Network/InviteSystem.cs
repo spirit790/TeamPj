@@ -22,7 +22,34 @@ public class InviteSystem : MonoBehaviourPunCallbacks
 
     const int MATCH_COUNT_MIN = 2;
     const int MATCH_COUNT_MAX = 8;
+
+    const string KEY_READY = "ready";
     const string EMPTY_STIRNG = "Empty";
+
+    private bool isReady;
+    public bool IsReady
+    {
+        get
+        {
+            return isReady;
+        }
+        set
+        {
+            isReady = value;
+            if (isReady)
+            {
+                btnStart.GetComponentInChildren<Text>().text = "준비 취소";
+                photonView.RPC(nameof(SetReady), RpcTarget.MasterClient,PhotonNetwork.LocalPlayer, isReady);
+                Debug.Log("준비완료" + PhotonNetwork.LocalPlayer.CustomProperties[KEY_READY]);
+            }
+            else
+            {
+                btnStart.GetComponentInChildren<Text>().text = "준비";
+                photonView.RPC(nameof(SetReady), RpcTarget.MasterClient, PhotonNetwork.LocalPlayer, isReady);
+
+            }
+        }
+    }
 
     string randomWords = "abcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -48,7 +75,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         }
         RoomOptions roomOption = new RoomOptions();
         int randomMap = Random.Range(0, 3);
-        Hashtable roomProp = new Hashtable { { GameManager.Instance.KeyMap, randomMap }, { GameManager.Instance.KeyMode, 0 } };
+        Hashtable roomProp = new Hashtable { { GameManager.Instance.KeyMap, randomMap }, { GameManager.Instance.KeyMode, 0 }, { GameManager.Instance.KeySystem, 1} };
         roomOption.CustomRoomProperties = roomProp;
         roomOption.MaxPlayers = MATCH_COUNT_MAX;
         roomOption.IsVisible = false;
@@ -68,14 +95,21 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     }
 
     /// <summary>
-    /// 게임시작 버튼
+    /// 게임시작 버튼 || 준비완료 버튼
     /// </summary>
     public void StartGame()
     {
-        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN)
+        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN && CheckIsAllReady())
         {
             Debug.Log("Master");
             PhotonNetwork.LoadLevel(2);
+        }
+        else if (!PhotonNetwork.IsMasterClient)
+        {
+            if (!IsReady)
+                IsReady = true;
+            else
+                IsReady = false;
         }
     }
 
@@ -127,6 +161,22 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         joinRoomPanel.transform.GetChild(1).GetComponent<Text>().text = null;
     }
 
+    bool CheckIsAllReady()
+    {
+        foreach (var item in PhotonNetwork.CurrentRoom.Players)
+        {
+            if (!item.Value.IsMasterClient)
+            {
+                if (!(bool)item.Value.CustomProperties[KEY_READY])
+                {
+                    Debug.Log(item.Key + "," + item.Value.CustomProperties[KEY_READY]);
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     #endregion
 
     #region PunRPC Method
@@ -148,6 +198,12 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     void ChangeModeValue(int num)
     {
         PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMode] = num;
+    }
+
+    [PunRPC]
+    void SetReady(Player player, bool isReady)
+    {
+        player.CustomProperties[KEY_READY] = isReady;
     }
     #endregion
 
@@ -191,7 +247,9 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         else
         {
             selectMode.gameObject.SetActive(false);
-            btnStart.GetComponentInChildren<Text>().text = "레디";
+            btnStart.GetComponentInChildren<Text>().text = "준비";
+            Hashtable prop = new Hashtable { { KEY_READY, false } };
+            PhotonNetwork.LocalPlayer.SetCustomProperties(prop);
         }
         roomPanel.gameObject.SetActive(true);
         Debug.Log(PhotonNetwork.CurrentRoom.Name);

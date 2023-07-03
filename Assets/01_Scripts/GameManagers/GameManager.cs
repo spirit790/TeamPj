@@ -98,6 +98,21 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     const string KEY_MAP = "map";
     const string KEY_MODE = "mode";
+    const string KEY_SYSTEM = "system";
+    /// <summary>
+    /// 룸 맵 프로퍼티
+    /// 0 : 배틀로얄 모드
+    /// 1 : 점령전 모드
+    /// 2 : 대학살 모드
+    /// </summary>
+    public string KeyMap { get { return KEY_MAP; } }
+    public string KeyMode { get { return KEY_MODE; } }
+    /// <summary>
+    /// 룸 시스템 프로퍼티
+    /// 0 : 매치 시스템
+    /// 1 : 초대 시스템
+    /// </summary>
+    public string KeySystem { get { return KEY_SYSTEM; } }
 
     private bool isDead;
     public bool IsDead 
@@ -116,8 +131,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public string KeyMap { get { return KEY_MAP; } }
-    public string KeyMode { get { return KEY_MODE; } }
+    
 
     List<Dictionary<string, object>> gameDatas = new List<Dictionary<string, object>>();
 

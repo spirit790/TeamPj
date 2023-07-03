@@ -40,12 +40,12 @@ public class DashBtn : MonoBehaviour
     }
     IEnumerator PlayeDashSfx()
     {
-        while (true)
+        while (IsCheck)
         {
             IsCheck = true;
             gameOptionManager.PlaySfxSound("Dash", transform.position, gameOptionManager.sfxVol);
             yield return new WaitForSeconds(sfxLength);
         }
-
     }
+    
 }
