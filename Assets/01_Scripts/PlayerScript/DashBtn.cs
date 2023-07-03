@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class DashBtn : MonoBehaviour
 {
     GameOptionManager gameOptionManager;
+    public float sfxLength;
 
     public bool IsCheck;
     private void Awake()
@@ -26,19 +27,25 @@ public class DashBtn : MonoBehaviour
     /// </summary>
     public void PointerDown()
     {
-        Debug.Log("버튼눌림");
         IsCheck = true;
-        gameOptionManager.PlaySfxSound("Dash",transform.position,gameOptionManager.sfxVol);
-
+        StartCoroutine(PlayeDashSfx());
     }
+    
     /// <summary>
     /// Dash버튼에 EventTrigger를 달아서 PointerDown PointerUp의 각각 연결.
     /// </summary>
     public void PointerUp()
     {
-        Debug.Log("버튼땜");
         IsCheck = false;
     }
+    IEnumerator PlayeDashSfx()
+    {
+        while (true)
+        {
+            IsCheck = true;
+            gameOptionManager.PlaySfxSound("Dash", transform.position, gameOptionManager.sfxVol);
+            yield return new WaitForSeconds(sfxLength);
+        }
 
-
+    }
 }
