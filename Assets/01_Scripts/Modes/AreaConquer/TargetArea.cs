@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TargetArea : MonoBehaviour
 {
+    public bool isOwnerStay = false;
+    public List<GameObject> stayColliders = new List<GameObject>();
     ModeAreaConquer modeArea;
     void Start()
     {
@@ -14,28 +16,37 @@ public class TargetArea : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (modeArea.AreaOwner == null)
-                modeArea.AreaOwner = other.GetComponentInParent<PlayerController>();
-            else if (modeArea.AreaOwner.gameObject != other.gameObject)
-                modeArea.AreaOwner = other.GetComponentInParent<PlayerController>();
+            stayColliders.Add(other.gameObject);
+
+            if (!isOwnerStay)
+            {
+                if (modeArea.AreaOwner == null)
+                    modeArea.AreaOwner = other.GetComponentInParent<PlayerController>();
+                else if (modeArea.AreaOwner.gameObject != other.gameObject)
+                    modeArea.AreaOwner = other.GetComponentInParent<PlayerController>();
+            }
         }
-        //if (modeArea.areaOwner == null)
-        //{
-        //    if (other.gameObject.CompareTag("Player"))
-        //    {
-        //        modeArea.areaOwner = other.gameObject.GetComponent<PlayerController>();
-        //        modeArea.SetAreaCoroutine();
-        //    }
-        //}
-        //else
-        //{
-        //    PlayerController enteredPlayer = other.gameObject.GetComponent<PlayerController>();
-        //    if(other.gameObject.CompareTag("Player") && modeArea.areaOwner != enteredPlayer)
-        //    {
-        //        modeArea.StopAreaCoroutine();
-        //        modeArea.areaOwner = enteredPlayer;
-        //        modeArea.SetAreaCoroutine();
-        //    }
-        //}
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            foreach (var collider in stayColliders)
+            {
+                if (collider == modeArea.AreaOwner)
+                {
+                    isOwnerStay = true;
+                    return;
+                }                
+            }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        stayColliders.Remove(other.gameObject);
+        if(other.gameObject == modeArea.AreaOwner)
+        {
+            isOwnerStay = false;
+        }
     }
 }
