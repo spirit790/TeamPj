@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 4835936588344669412}
   - component: {fileID: 4835936588344669415}
   - component: {fileID: 4835936588344669414}
+  - component: {fileID: 9158300479838403848}
   m_Layer: 9
   m_Name: block_stone1_3_half_LOD0
   m_TagString: Untagged
@@ -203,5 +204,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 921bc8b7b8b92da458626d133fe3fdfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9158300479838403848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4849806459071994578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6c1f729f86b1b4c9cb820ce192504a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
