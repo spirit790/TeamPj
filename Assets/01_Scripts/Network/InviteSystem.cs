@@ -168,8 +168,8 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             {
                 photonView.RPC(nameof(ShowPlayers), RpcTarget.Others, i, playerList[i]);
             }
+            photonView.RPC(nameof(ChangeModeValue), RpcTarget.All, selectMode.value);
         }
-        photonView.RPC(nameof(ChangeModeValue), RpcTarget.Others, selectMode.value);
         Debug.Log($"player entered {newPlayer.UserId}");
     }
 
@@ -191,7 +191,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         else
         {
             selectMode.gameObject.SetActive(false);
-            btnStart.gameObject.SetActive(false);
+            btnStart.GetComponentInChildren<Text>().text = "ทนต๐";
         }
         roomPanel.gameObject.SetActive(true);
         Debug.Log(PhotonNetwork.CurrentRoom.Name);
