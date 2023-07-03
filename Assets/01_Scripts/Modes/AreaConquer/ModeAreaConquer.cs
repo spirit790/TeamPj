@@ -57,6 +57,7 @@ public class ModeAreaConquer : Mode
         if(AreaOwner == player)
         {
             AreaOwner = null;
+            area.isOwnerStay = false;
         }
     }
 

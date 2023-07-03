@@ -14,7 +14,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     int[,] chunk;
     int rand;
     public Vector3 pos;
-    public GameObject[] structurePrefabs;
+
 
     int randomIndex;
 
@@ -37,22 +37,47 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     [Range(0, 100)]
     public int randomFillPercent;
 
-    GameObject[] concepts; 
-    GameObject[] concept1Items;
+
+    [Header("Concepts")]
+    public int concept;
+    List<List<GameObject>> concepts;
+    List<GameObject> obstaclePrefabs;
+    public List<GameObject> groundPrefabs;
+    public List<GameObject> roadPrefabs;
+    public List<GameObject> envPrefabs;
+    const int NUMBER_OF_CONCEPTS = 3;
+
+    [Header("JungleObstacles")]
+    public List<GameObject> jungleObstacles;
+
+    [Header("SchoolObstacles")]
+    public List<GameObject> schoolObstacles;
+
+    [Header("TowerObstacles")]
+    public List<GameObject> towerObstacles;
 
     void Start()
     {
+        concepts.Add(jungleObstacles);
+        concepts.Add(schoolObstacles);
+        concepts.Add(towerObstacles);
+
         chunk = new int[chunkHeight, chunkWidth];
+        int concept = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMap].ToString());
+        obstaclePrefabs = concepts[concept];
+        groundPrefab = groundPrefabs[concept];
+        roadPrefab = roadPrefabs[concept];
         if (PhotonNetwork.IsMasterClient)
         {
             for (int i = 0; i < chunkZ; i++)
             {
                 for (int j = 0; j < chunkX; j++)
                 {
-                    photonView.RPC(nameof(SendChunkData), RpcTarget.All, structurePrefabs.Length, i, j);
+                    photonView.RPC(nameof(SendChunkData), RpcTarget.All, obstaclePrefabs.Count, i, j);
                 }
             }
         }
+
         width = chunkX * chunkWidth;
         height = chunkZ * chunkHeight;
         map = new int[width, height];
@@ -65,7 +90,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks
         randomIndex = Random.Range(0, posList.Count);
         areaZonePos = posList[randomIndex];
     }
-
     public void MakeChunk(int structures, int chunkX, int chunkY)
     {
         int count = 0;
@@ -76,7 +100,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
                 int rand = Random.Range(0, 81);
                 if(count < structures && rand < structures)
                 {
-                    GameObject structure = Instantiate(structurePrefabs[rand], new Vector3(i + chunkY * chunkWidth, 1, j + chunkX * chunkHeight), transform.rotation);
+                    GameObject structure = Instantiate(obstaclePrefabs[rand], new Vector3(i + chunkY * chunkWidth, 1, j + chunkX * chunkHeight), transform.rotation);
                     structure.isStatic = true;
                     structure.transform.SetParent(gameObject.transform);
                     count++;
@@ -261,7 +285,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
         rand = num;
         if (count < structures && rand < structures)
         {
-            GameObject structure = Instantiate(structurePrefabs[rand], new Vector3(i + chunkY * chunkWidth, 1, j + chunkX * chunkHeight), transform.rotation);
+            GameObject structure = Instantiate(obstaclePrefabs[rand], new Vector3(i + chunkY * chunkWidth, 1, j + chunkX * chunkHeight), transform.rotation);
             structure.isStatic = true;
             structure.transform.SetParent(gameObject.transform);
             count++;

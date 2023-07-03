@@ -9,4 +9,9 @@ public class ButtonScene : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void OnExitBtnClicked()
+    {
+        Application.Quit();
+    }
 }
