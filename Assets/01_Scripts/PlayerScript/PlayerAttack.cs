@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviourPun
 
     List<Transform> targets = new List<Transform>();
 
-    private void AttackWithAngle()
+    public void AttackWithAngle()
     {
         int searchAngle = (int)attackAngle/2 * attackDensity;
 
@@ -62,8 +62,7 @@ public class PlayerAttack : MonoBehaviourPun
             int viewId = targets[0].transform.parent.gameObject.GetPhotonView().ViewID;
             photonView.RPC(nameof(KillAI), RpcTarget.MasterClient, viewId);
         }
-        else if (targets[0].transform.CompareTag("Player") )
-            //&& !targets[0].transform.parent.gameObject.GetPhotonView().IsMine)
+        else if (targets[0].transform.CompareTag("Player") && !targets[0].transform.parent.gameObject.GetPhotonView().IsMine)
         {
             Debug.Log("Player Kill");
             OnPlayerKill();
@@ -72,7 +71,6 @@ public class PlayerAttack : MonoBehaviourPun
         }
 
         Instantiate(hitEffect, targets[0].position, Quaternion.identity);
-        Destroy(targets[0].gameObject);
 
         targets.Clear();
     }
@@ -90,7 +88,7 @@ public class PlayerAttack : MonoBehaviourPun
             PhotonView.Find(viewId).gameObject.GetComponent<PlayerController>().IsDead = true;
     }
 
-     private Vector3 ConvertAngleToVector(float deg)
+    private Vector3 ConvertAngleToVector(float deg)
     {
         var rad = deg * Mathf.Deg2Rad;
         return new Vector3(Mathf.Sin(rad), 0, Mathf.Cos(rad));
