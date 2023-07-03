@@ -1422,7 +1422,7 @@ MonoBehaviour:
   nickNameInput: {fileID: 70069186}
   signUpPanel: {fileID: 783472964}
   updatePanel: {fileID: 1150167104}
-  networkErrorPanel: {fileID: 1923545947}
+  networkErrorPanel: {fileID: 0}
   userID: 
 --- !u!4 &750622381
 Transform:
@@ -2189,7 +2189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1146476535
 MonoBehaviour:
   m_ObjectHideFlags: 0
