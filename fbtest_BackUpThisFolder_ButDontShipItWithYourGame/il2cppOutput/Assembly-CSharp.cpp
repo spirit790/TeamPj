@@ -4519,32 +4519,30 @@ struct PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95  : public Mono
 	NavMeshAgent_t5D0CCC0B3B78242F286C9BD8EDD87C3CCBD0A66F* ___playerAgent_8;
 	// UnityEngine.Vector3 PlayerController::dir
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___dir_9;
-	// UnityEngine.BoxCollider PlayerController::weapon
-	BoxCollider_tFA5D239388334D6DE0B8FFDAD6825C5B03786E23* ___weapon_10;
 	// CharacterAnimation PlayerController::anim
-	CharacterAnimation_tF027FFFD9E70FB7D0FD52710AA7B886CEDD95539* ___anim_11;
+	CharacterAnimation_tF027FFFD9E70FB7D0FD52710AA7B886CEDD95539* ___anim_10;
 	// UnityEngine.Coroutine PlayerController::attackCoroutine
-	Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* ___attackCoroutine_12;
+	Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* ___attackCoroutine_11;
 	// System.Single PlayerController::moveSpeed
-	float ___moveSpeed_13;
+	float ___moveSpeed_12;
 	// System.Single PlayerController::normalSpeed
-	float ___normalSpeed_14;
+	float ___normalSpeed_13;
 	// System.Single PlayerController::dashSpeed
-	float ___dashSpeed_15;
+	float ___dashSpeed_14;
 	// System.Single PlayerController::roteSpeed
-	float ___roteSpeed_16;
+	float ___roteSpeed_15;
+	// System.Single PlayerController::stunTime
+	float ___stunTime_16;
 	// System.Boolean PlayerController::isStun
 	bool ___isStun_17;
-	// System.Single PlayerController::stunTime
-	float ___stunTime_18;
 	// System.Boolean PlayerController::isAttack
-	bool ___isAttack_19;
+	bool ___isAttack_18;
 	// System.Boolean PlayerController::isDead
-	bool ___isDead_20;
+	bool ___isDead_19;
 	// System.Boolean PlayerController::isGhost
-	bool ___isGhost_21;
+	bool ___isGhost_20;
 	// System.Boolean PlayerController::isDeadZoneStarted
-	bool ___isDeadZoneStarted_22;
+	bool ___isDeadZoneStarted_21;
 };
 
 // UnityEngine.UI.Selectable
@@ -6359,7 +6357,7 @@ struct PlayerAttack_tD31821DD3D999BDE1753E525C8D48C67269B2178_StaticFields
 struct PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95_StaticFields
 {
 	// PlayerController/PlayerDie PlayerController::OnPlayerDie
-	PlayerDie_tF066F2A2DE767E81CAA704852DD36B6F436849A9* ___OnPlayerDie_23;
+	PlayerDie_tF066F2A2DE767E81CAA704852DD36B6F436849A9* ___OnPlayerDie_22;
 };
 
 // PlayerController
@@ -15417,7 +15415,7 @@ IL_01dc:
 		L_59 = Scene_get_buildIndex_m82B6E0C96C85C952B7A2D794DB73CDA99AA9A57E((&___0_scene), NULL);
 		if ((!(((uint32_t)L_59) == ((uint32_t)2))))
 		{
-			goto IL_0244;
+			goto IL_02d9;
 		}
 	}
 	{
@@ -15435,7 +15433,7 @@ IL_01dc:
 		int32_t L_63 = L_62->___concept_26;
 		if ((!(((uint32_t)L_63) == ((uint32_t)1))))
 		{
-			goto IL_0244;
+			goto IL_0247;
 		}
 	}
 	{
@@ -15462,7 +15460,77 @@ IL_01dc:
 		AudioSource_Play_m95DF07111C61D0E0F00257A00384D31531D590C3(L_71, NULL);
 	}
 
-IL_0244:
+IL_0247:
+	{
+		// if (mapGenerator.concept == 2)
+		MapGenerator_tF06BD24367649B5388369163E0012EEBF4263A8A* L_72 = __this->___mapGenerator_13;
+		NullCheck(L_72);
+		int32_t L_73 = L_72->___concept_26;
+		if ((!(((uint32_t)L_73) == ((uint32_t)2))))
+		{
+			goto IL_0290;
+		}
+	}
+	{
+		// bgmPlayer.clip = bgmClips[1];
+		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_74 = __this->___bgmPlayer_8;
+		AudioClipU5BU5D_t916722468F7EDCFA833318C35CD7D41097D75D31* L_75 = __this->___bgmClips_17;
+		NullCheck(L_75);
+		int32_t L_76 = 1;
+		AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* L_77 = (L_75)->GetAt(static_cast<il2cpp_array_size_t>(L_76));
+		NullCheck(L_74);
+		AudioSource_set_clip_mFF441895E274286C88D9C75ED5CA1B1B39528D70(L_74, L_77, NULL);
+		// bgmPlayer.volume = bgmVol;
+		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_78 = __this->___bgmPlayer_8;
+		float L_79 = __this->___bgmVol_15;
+		NullCheck(L_78);
+		AudioSource_set_volume_mD902BBDBBDE0E3C148609BF3C05096148E90F2C0(L_78, L_79, NULL);
+		// bgmPlayer.loop = true;
+		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_80 = __this->___bgmPlayer_8;
+		NullCheck(L_80);
+		AudioSource_set_loop_m834A590939D8456008C0F897FD80B0ECFFB7FE56(L_80, (bool)1, NULL);
+		// bgmPlayer.Play();
+		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_81 = __this->___bgmPlayer_8;
+		NullCheck(L_81);
+		AudioSource_Play_m95DF07111C61D0E0F00257A00384D31531D590C3(L_81, NULL);
+	}
+
+IL_0290:
+	{
+		// if (mapGenerator.concept == 3)
+		MapGenerator_tF06BD24367649B5388369163E0012EEBF4263A8A* L_82 = __this->___mapGenerator_13;
+		NullCheck(L_82);
+		int32_t L_83 = L_82->___concept_26;
+		if ((!(((uint32_t)L_83) == ((uint32_t)3))))
+		{
+			goto IL_02d9;
+		}
+	}
+	{
+		// bgmPlayer.clip = bgmClips[2];
+		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_84 = __this->___bgmPlayer_8;
+		AudioClipU5BU5D_t916722468F7EDCFA833318C35CD7D41097D75D31* L_85 = __this->___bgmClips_17;
+		NullCheck(L_85);
+		int32_t L_86 = 2;
+		AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* L_87 = (L_85)->GetAt(static_cast<il2cpp_array_size_t>(L_86));
+		NullCheck(L_84);
+		AudioSource_set_clip_mFF441895E274286C88D9C75ED5CA1B1B39528D70(L_84, L_87, NULL);
+		// bgmPlayer.volume = bgmVol;
+		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_88 = __this->___bgmPlayer_8;
+		float L_89 = __this->___bgmVol_15;
+		NullCheck(L_88);
+		AudioSource_set_volume_mD902BBDBBDE0E3C148609BF3C05096148E90F2C0(L_88, L_89, NULL);
+		// bgmPlayer.loop = true;
+		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_90 = __this->___bgmPlayer_8;
+		NullCheck(L_90);
+		AudioSource_set_loop_m834A590939D8456008C0F897FD80B0ECFFB7FE56(L_90, (bool)1, NULL);
+		// bgmPlayer.Play();
+		AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* L_91 = __this->___bgmPlayer_8;
+		NullCheck(L_91);
+		AudioSource_Play_m95DF07111C61D0E0F00257A00384D31531D590C3(L_91, NULL);
+	}
+
+IL_02d9:
 	{
 		// }
 		return;
@@ -22171,7 +22239,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeadZone_OnTriggerExit_m73655DCF86CF3A58
 		// if (!player.isDeadZoneStarted)
 		PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95* L_14 = V_0;
 		NullCheck(L_14);
-		bool L_15 = L_14->___isDeadZoneStarted_22;
+		bool L_15 = L_14->___isDeadZoneStarted_21;
 		if (L_15)
 		{
 			goto IL_007f;
@@ -22187,7 +22255,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeadZone_OnTriggerExit_m73655DCF86CF3A58
 		// player.isDeadZoneStarted = true;
 		PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95* L_19 = V_0;
 		NullCheck(L_19);
-		L_19->___isDeadZoneStarted_22 = (bool)1;
+		L_19->___isDeadZoneStarted_21 = (bool)1;
 		return;
 	}
 
@@ -22312,7 +22380,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeadZone_OnTriggerEnter_m239C4BFBC0DF7D2
 		// if (player.isDeadZoneStarted)
 		PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95* L_14 = V_0;
 		NullCheck(L_14);
-		bool L_15 = L_14->___isDeadZoneStarted_22;
+		bool L_15 = L_14->___isDeadZoneStarted_21;
 		if (!L_15)
 		{
 			goto IL_0060;
@@ -22327,7 +22395,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeadZone_OnTriggerEnter_m239C4BFBC0DF7D2
 		// player.isDeadZoneStarted = false;
 		PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95* L_18 = V_0;
 		NullCheck(L_18);
-		L_18->___isDeadZoneStarted_22 = (bool)0;
+		L_18->___isDeadZoneStarted_21 = (bool)0;
 	}
 
 IL_0060:
@@ -23495,7 +23563,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Mode_CreateGhostPlayer_m96567F57D8355B80
 		PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95* L_5;
 		L_5 = GameObject_GetComponent_TisPlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95_mCB26D9D96B8BA8F644612C68B85AB714DBC80F0A(L_4, GameObject_GetComponent_TisPlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95_mCB26D9D96B8BA8F644612C68B85AB714DBC80F0A_RuntimeMethod_var);
 		NullCheck(L_5);
-		L_5->___isGhost_21 = (bool)1;
+		L_5->___isGhost_20 = (bool)1;
 		// Camera.main.GetComponent<FollowCam>().SetCamTarget(myPlayerObject);
 		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_6;
 		L_6 = Camera_get_main_m52C992F18E05355ABB9EEB64A4BF2215E12762DF(NULL);

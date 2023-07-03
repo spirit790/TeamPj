@@ -9879,55 +9879,55 @@ struct U3CStartU3Ed__12_t79351351CCA44DA88E3BF384B6D18AB8D1BBEBD9  : public Runt
 	PlayerControl_t0542C71446B43A4BA3F8CB5B2A4E0C1C7BCEA439* ___U3CU3E4__this_2;
 };
 
-// PlayerController/<Attack>d__34
-struct U3CAttackU3Ed__34_tBF3CEAE04B6E0CB39D73C07C0AE17482BC157DC3  : public RuntimeObject
+// PlayerController/<Attack>d__33
+struct U3CAttackU3Ed__33_t9088281D4E2EC4B115C8494E922353167ABF76C5  : public RuntimeObject
 {
-	// System.Int32 PlayerController/<Attack>d__34::<>1__state
+	// System.Int32 PlayerController/<Attack>d__33::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object PlayerController/<Attack>d__34::<>2__current
+	// System.Object PlayerController/<Attack>d__33::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// PlayerController PlayerController/<Attack>d__34::<>4__this
+	// PlayerController PlayerController/<Attack>d__33::<>4__this
 	PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95* ___U3CU3E4__this_2;
-	// System.Single[] PlayerController/<Attack>d__34::<animTime>5__2
+	// System.Single[] PlayerController/<Attack>d__33::<animTime>5__2
 	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___U3CanimTimeU3E5__2_3;
 };
 
-// PlayerController/<AttackMove>d__35
-struct U3CAttackMoveU3Ed__35_t7C076230369E1AFB678E6F311167497849B45E45  : public RuntimeObject
+// PlayerController/<AttackMove>d__34
+struct U3CAttackMoveU3Ed__34_t98D280A43AF4D44422CF370FD3B330A7D46E7092  : public RuntimeObject
 {
-	// System.Int32 PlayerController/<AttackMove>d__35::<>1__state
+	// System.Int32 PlayerController/<AttackMove>d__34::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object PlayerController/<AttackMove>d__35::<>2__current
+	// System.Object PlayerController/<AttackMove>d__34::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// System.Single PlayerController/<AttackMove>d__35::time
+	// System.Single PlayerController/<AttackMove>d__34::time
 	float ___time_2;
-	// PlayerController PlayerController/<AttackMove>d__35::<>4__this
+	// PlayerController PlayerController/<AttackMove>d__34::<>4__this
 	PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95* ___U3CU3E4__this_3;
-	// System.Single PlayerController/<AttackMove>d__35::<moveSpeed>5__2
+	// System.Single PlayerController/<AttackMove>d__34::<moveSpeed>5__2
 	float ___U3CmoveSpeedU3E5__2_4;
-	// System.Single PlayerController/<AttackMove>d__35::<moveRatio>5__3
+	// System.Single PlayerController/<AttackMove>d__34::<moveRatio>5__3
 	float ___U3CmoveRatioU3E5__3_5;
 };
 
-// PlayerController/<PlayerDeadControl>d__33
-struct U3CPlayerDeadControlU3Ed__33_tBA55FDAEA7F225BCF9391DE7773F0E6EC58B50A6  : public RuntimeObject
+// PlayerController/<PlayerDeadControl>d__32
+struct U3CPlayerDeadControlU3Ed__32_t367FCCE97F0771DB0801B60D687C6FC3CA532654  : public RuntimeObject
 {
-	// System.Int32 PlayerController/<PlayerDeadControl>d__33::<>1__state
+	// System.Int32 PlayerController/<PlayerDeadControl>d__32::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object PlayerController/<PlayerDeadControl>d__33::<>2__current
+	// System.Object PlayerController/<PlayerDeadControl>d__32::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// PlayerController PlayerController/<PlayerDeadControl>d__33::<>4__this
+	// PlayerController PlayerController/<PlayerDeadControl>d__32::<>4__this
 	PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95* ___U3CU3E4__this_2;
 };
 
-// PlayerController/<StunControl>d__36
-struct U3CStunControlU3Ed__36_t8D30958F4674E61C22FE551F9559A845FFD1F9DB  : public RuntimeObject
+// PlayerController/<StunControl>d__35
+struct U3CStunControlU3Ed__35_t24638EB67B66F2BD5CD12F5F3C6C026677F5633F  : public RuntimeObject
 {
-	// System.Int32 PlayerController/<StunControl>d__36::<>1__state
+	// System.Int32 PlayerController/<StunControl>d__35::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object PlayerController/<StunControl>d__36::<>2__current
+	// System.Object PlayerController/<StunControl>d__35::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// PlayerController PlayerController/<StunControl>d__36::<>4__this
+	// PlayerController PlayerController/<StunControl>d__35::<>4__this
 	PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95* ___U3CU3E4__this_2;
 };
 
@@ -32716,32 +32716,30 @@ struct PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95  : public Mono
 	NavMeshAgent_t5D0CCC0B3B78242F286C9BD8EDD87C3CCBD0A66F* ___playerAgent_8;
 	// UnityEngine.Vector3 PlayerController::dir
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___dir_9;
-	// UnityEngine.BoxCollider PlayerController::weapon
-	BoxCollider_tFA5D239388334D6DE0B8FFDAD6825C5B03786E23* ___weapon_10;
 	// CharacterAnimation PlayerController::anim
-	CharacterAnimation_tF027FFFD9E70FB7D0FD52710AA7B886CEDD95539* ___anim_11;
+	CharacterAnimation_tF027FFFD9E70FB7D0FD52710AA7B886CEDD95539* ___anim_10;
 	// UnityEngine.Coroutine PlayerController::attackCoroutine
-	Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* ___attackCoroutine_12;
+	Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* ___attackCoroutine_11;
 	// System.Single PlayerController::moveSpeed
-	float ___moveSpeed_13;
+	float ___moveSpeed_12;
 	// System.Single PlayerController::normalSpeed
-	float ___normalSpeed_14;
+	float ___normalSpeed_13;
 	// System.Single PlayerController::dashSpeed
-	float ___dashSpeed_15;
+	float ___dashSpeed_14;
 	// System.Single PlayerController::roteSpeed
-	float ___roteSpeed_16;
+	float ___roteSpeed_15;
+	// System.Single PlayerController::stunTime
+	float ___stunTime_16;
 	// System.Boolean PlayerController::isStun
 	bool ___isStun_17;
-	// System.Single PlayerController::stunTime
-	float ___stunTime_18;
 	// System.Boolean PlayerController::isAttack
-	bool ___isAttack_19;
+	bool ___isAttack_18;
 	// System.Boolean PlayerController::isDead
-	bool ___isDead_20;
+	bool ___isDead_19;
 	// System.Boolean PlayerController::isGhost
-	bool ___isGhost_21;
+	bool ___isGhost_20;
 	// System.Boolean PlayerController::isDeadZoneStarted
-	bool ___isDeadZoneStarted_22;
+	bool ___isDeadZoneStarted_21;
 };
 
 // UnityEngine.UI.RectMask2D
@@ -39482,21 +39480,21 @@ struct U3CU3Ec_tB18E4A7C62AFA883CE8EBFA9E0BD607B37C5CF09_StaticFields
 
 // Photon.Pun.Demo.SlotRacer.PlayerControl/<Start>d__12
 
-// PlayerController/<Attack>d__34
+// PlayerController/<Attack>d__33
 
-// PlayerController/<Attack>d__34
+// PlayerController/<Attack>d__33
 
-// PlayerController/<AttackMove>d__35
+// PlayerController/<AttackMove>d__34
 
-// PlayerController/<AttackMove>d__35
+// PlayerController/<AttackMove>d__34
 
-// PlayerController/<PlayerDeadControl>d__33
+// PlayerController/<PlayerDeadControl>d__32
 
-// PlayerController/<PlayerDeadControl>d__33
+// PlayerController/<PlayerDeadControl>d__32
 
-// PlayerController/<StunControl>d__36
+// PlayerController/<StunControl>d__35
 
-// PlayerController/<StunControl>d__36
+// PlayerController/<StunControl>d__35
 
 // Photon.Pun.Demo.Cockpit.PlayerDetailsController/<UpdateUIPing>d__25
 
@@ -45593,7 +45591,7 @@ struct PlayerAttack_tD31821DD3D999BDE1753E525C8D48C67269B2178_StaticFields
 struct PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95_StaticFields
 {
 	// PlayerController/PlayerDie PlayerController::OnPlayerDie
-	PlayerDie_tF066F2A2DE767E81CAA704852DD36B6F436849A9* ___OnPlayerDie_23;
+	PlayerDie_tF066F2A2DE767E81CAA704852DD36B6F436849A9* ___OnPlayerDie_22;
 };
 
 // PlayerController
@@ -48564,19 +48562,19 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7044[7] =
 	static_cast<int32_t>(offsetof(PlayerAttack_tD31821DD3D999BDE1753E525C8D48C67269B2178_StaticFields, ___OnPlayerKill_5)),static_cast<int32_t>(offsetof(PlayerAttack_tD31821DD3D999BDE1753E525C8D48C67269B2178_StaticFields, ___OnAIKill_6)),static_cast<int32_t>(offsetof(PlayerAttack_tD31821DD3D999BDE1753E525C8D48C67269B2178, ___hitEffect_7)),static_cast<int32_t>(offsetof(PlayerAttack_tD31821DD3D999BDE1753E525C8D48C67269B2178, ___attackAngle_8)),static_cast<int32_t>(offsetof(PlayerAttack_tD31821DD3D999BDE1753E525C8D48C67269B2178, ___attackRange_9)),static_cast<int32_t>(offsetof(PlayerAttack_tD31821DD3D999BDE1753E525C8D48C67269B2178, ___attackDensity_10)),static_cast<int32_t>(offsetof(PlayerAttack_tD31821DD3D999BDE1753E525C8D48C67269B2178, ___targets_11)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7046[3] = 
 {
-	static_cast<int32_t>(offsetof(U3CPlayerDeadControlU3Ed__33_tBA55FDAEA7F225BCF9391DE7773F0E6EC58B50A6, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CPlayerDeadControlU3Ed__33_tBA55FDAEA7F225BCF9391DE7773F0E6EC58B50A6, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CPlayerDeadControlU3Ed__33_tBA55FDAEA7F225BCF9391DE7773F0E6EC58B50A6, ___U3CU3E4__this_2)),};
+	static_cast<int32_t>(offsetof(U3CPlayerDeadControlU3Ed__32_t367FCCE97F0771DB0801B60D687C6FC3CA532654, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CPlayerDeadControlU3Ed__32_t367FCCE97F0771DB0801B60D687C6FC3CA532654, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CPlayerDeadControlU3Ed__32_t367FCCE97F0771DB0801B60D687C6FC3CA532654, ___U3CU3E4__this_2)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7047[4] = 
 {
-	static_cast<int32_t>(offsetof(U3CAttackU3Ed__34_tBF3CEAE04B6E0CB39D73C07C0AE17482BC157DC3, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CAttackU3Ed__34_tBF3CEAE04B6E0CB39D73C07C0AE17482BC157DC3, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CAttackU3Ed__34_tBF3CEAE04B6E0CB39D73C07C0AE17482BC157DC3, ___U3CU3E4__this_2)),static_cast<int32_t>(offsetof(U3CAttackU3Ed__34_tBF3CEAE04B6E0CB39D73C07C0AE17482BC157DC3, ___U3CanimTimeU3E5__2_3)),};
+	static_cast<int32_t>(offsetof(U3CAttackU3Ed__33_t9088281D4E2EC4B115C8494E922353167ABF76C5, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CAttackU3Ed__33_t9088281D4E2EC4B115C8494E922353167ABF76C5, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CAttackU3Ed__33_t9088281D4E2EC4B115C8494E922353167ABF76C5, ___U3CU3E4__this_2)),static_cast<int32_t>(offsetof(U3CAttackU3Ed__33_t9088281D4E2EC4B115C8494E922353167ABF76C5, ___U3CanimTimeU3E5__2_3)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7048[6] = 
 {
-	static_cast<int32_t>(offsetof(U3CAttackMoveU3Ed__35_t7C076230369E1AFB678E6F311167497849B45E45, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CAttackMoveU3Ed__35_t7C076230369E1AFB678E6F311167497849B45E45, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CAttackMoveU3Ed__35_t7C076230369E1AFB678E6F311167497849B45E45, ___time_2)),static_cast<int32_t>(offsetof(U3CAttackMoveU3Ed__35_t7C076230369E1AFB678E6F311167497849B45E45, ___U3CU3E4__this_3)),static_cast<int32_t>(offsetof(U3CAttackMoveU3Ed__35_t7C076230369E1AFB678E6F311167497849B45E45, ___U3CmoveSpeedU3E5__2_4)),static_cast<int32_t>(offsetof(U3CAttackMoveU3Ed__35_t7C076230369E1AFB678E6F311167497849B45E45, ___U3CmoveRatioU3E5__3_5)),};
+	static_cast<int32_t>(offsetof(U3CAttackMoveU3Ed__34_t98D280A43AF4D44422CF370FD3B330A7D46E7092, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CAttackMoveU3Ed__34_t98D280A43AF4D44422CF370FD3B330A7D46E7092, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CAttackMoveU3Ed__34_t98D280A43AF4D44422CF370FD3B330A7D46E7092, ___time_2)),static_cast<int32_t>(offsetof(U3CAttackMoveU3Ed__34_t98D280A43AF4D44422CF370FD3B330A7D46E7092, ___U3CU3E4__this_3)),static_cast<int32_t>(offsetof(U3CAttackMoveU3Ed__34_t98D280A43AF4D44422CF370FD3B330A7D46E7092, ___U3CmoveSpeedU3E5__2_4)),static_cast<int32_t>(offsetof(U3CAttackMoveU3Ed__34_t98D280A43AF4D44422CF370FD3B330A7D46E7092, ___U3CmoveRatioU3E5__3_5)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7049[3] = 
 {
-	static_cast<int32_t>(offsetof(U3CStunControlU3Ed__36_t8D30958F4674E61C22FE551F9559A845FFD1F9DB, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CStunControlU3Ed__36_t8D30958F4674E61C22FE551F9559A845FFD1F9DB, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CStunControlU3Ed__36_t8D30958F4674E61C22FE551F9559A845FFD1F9DB, ___U3CU3E4__this_2)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7050[19] = 
+	static_cast<int32_t>(offsetof(U3CStunControlU3Ed__35_t24638EB67B66F2BD5CD12F5F3C6C026677F5633F, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CStunControlU3Ed__35_t24638EB67B66F2BD5CD12F5F3C6C026677F5633F, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CStunControlU3Ed__35_t24638EB67B66F2BD5CD12F5F3C6C026677F5633F, ___U3CU3E4__this_2)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7050[18] = 
 {
-	static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___joyStick_5)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___dashBtn_6)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___attackBtn_7)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___playerAgent_8)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___dir_9)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___weapon_10)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___anim_11)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___attackCoroutine_12)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___moveSpeed_13)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___normalSpeed_14)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___dashSpeed_15)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___roteSpeed_16)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___isStun_17)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___stunTime_18)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___isAttack_19)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___isDead_20)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___isGhost_21)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___isDeadZoneStarted_22)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95_StaticFields, ___OnPlayerDie_23)),};
+	static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___joyStick_5)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___dashBtn_6)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___attackBtn_7)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___playerAgent_8)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___dir_9)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___anim_10)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___attackCoroutine_11)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___moveSpeed_12)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___normalSpeed_13)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___dashSpeed_14)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___roteSpeed_15)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___stunTime_16)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___isStun_17)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___isAttack_18)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___isDead_19)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___isGhost_20)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95, ___isDeadZoneStarted_21)),static_cast<int32_t>(offsetof(PlayerController_t7E8D7042FA2D0DFEC54A1FCDF395161D88DAAE95_StaticFields, ___OnPlayerDie_22)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7051[2] = 
 {
 	static_cast<int32_t>(offsetof(PlayerRote_t22D9856823E0BC2C2C97B961FCF10D5762957C14, ___plTransform_4)),static_cast<int32_t>(offsetof(PlayerRote_t22D9856823E0BC2C2C97B961FCF10D5762957C14, ___roteSpeed_5)),};
