@@ -3877,6 +3877,7 @@ MonoBehaviour:
   normalSpeed: 3
   dashSpeed: 5
   roteSpeed: 5
+  isGhost: 0
 --- !u!33 &1537119937
 MeshFilter:
   m_ObjectHideFlags: 0

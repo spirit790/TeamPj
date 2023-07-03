@@ -2189,7 +2189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1146476535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2210,10 +2210,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 77e14a044efb3484995cb7faefc6d63d, type: 3}
   - {fileID: 8300000, guid: 77e14a044efb3484995cb7faefc6d63d, type: 3}
   sfxClips:
-  - {fileID: 8300000, guid: f57ded4dfb59d4513b4af73b7ff4a9af, type: 3}
-  - {fileID: 8300000, guid: b946f49b915534dc9afb75a88d0f73fa, type: 3}
-  - {fileID: 8300000, guid: 0a8907ce0b9dc4dc0be79988a2c854db, type: 3}
-  - {fileID: 8300000, guid: e611ff6c1e6c2401bbe445f94b7380db, type: 3}
+  - {fileID: 8300000, guid: 1c7dee0e383a6c6459af3553a61eba3d, type: 3}
+  - {fileID: 8300000, guid: ccc507a821efea846be530fd732e5a35, type: 3}
+  - {fileID: 8300000, guid: 5e080bf6ce78942d985df7c7d9e100b7, type: 3}
+  - {fileID: 8300000, guid: 62475a76d24e24af1b94ed70f440e254, type: 3}
+  - {fileID: 8300000, guid: 7a7228fe05bbaec489513a30ae6d6ba9, type: 3}
+  - {fileID: 8300000, guid: 3a6819e2215dc9247b251db573d7608f, type: 3}
 --- !u!4 &1146476536
 Transform:
   m_ObjectHideFlags: 0
@@ -2339,6 +2341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapGenerateCount: 0
   createPlayercount: 0
+  playersLeft: 0
   gameMode: 1
   battleAIRatio: 10
   battleTimeLimit: 120

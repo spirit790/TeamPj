@@ -173,9 +173,11 @@ public class GameOptionManager : MonoBehaviour
         switch (type)
         {
             case "Touch": index = 0; break;
-            case "Attack": index = 1; break;
-            case "Dash": index = 2; break;
-            case "Close": index = 3; break;
+            case "Touch1": index = 1; break;
+            case "Touch2": index = 2; break;
+            case "Attack": index = 3; break;
+            case "Dash": index = 4; break;
+            case "Close": index = 5; break;
         }
         GameObject soundObject = new GameObject("SfxSound");
         soundObject.transform.position = position;
@@ -196,11 +198,31 @@ public class GameOptionManager : MonoBehaviour
     }
     void ChangeSfxVol(float sfxVol)
     {
-        this.sfxVol = sfxVol;
-        
+        this.sfxVol = sfxVol;        
+    }
+    /// <summary>
+    /// 확률적 터치소리변경
+    /// </summary>
+    private void OnMouseDown()
+    {
+        int randomSfx = Random.Range(0, 100);
+
+        if (randomSfx <= 50)
+        {
+            PlaySfxSound("Touch", transform.position, sfxVol);
+        }
+        else if(randomSfx >=50 && randomSfx <=80)
+        {
+            PlaySfxSound("Touch1", transform.position, sfxVol);
+        }
+        else if(randomSfx > 80)
+        {
+            PlaySfxSound("Touch2", transform.position, sfxVol);
+        }        
     }
     #endregion
 
+    #region PlayerPrefab
     /// <summary>
     /// PlayerPrefab으로 개인컴퓨터에 간단한 데이터 저장
     /// </summary>
@@ -220,6 +242,7 @@ public class GameOptionManager : MonoBehaviour
         loCalIndex = PlayerPrefs.GetInt("Local", loCalIndex);
         ChangeLocale(loCalIndex);
     }
+    #endregion
 
     public void CloseOptionPanelBtn()
     {
