@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6286193294978549984
+--- !u!1 &6408837130581918108
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6286193294978549985}
-  - component: {fileID: 6286193294978549986}
+  - component: {fileID: 6408837130581918099}
+  - component: {fileID: 6408837130581918098}
   m_Layer: 0
-  m_Name: SFXplayer
-  m_TagString: SfxPlayer
+  m_Name: BGM
+  m_TagString: BgmPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6286193294978549985
+--- !u!4 &6408837130581918099
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286193294978549984}
+  m_GameObject: {fileID: 6408837130581918108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6286193295770853105}
-  m_RootOrder: 1
+  m_Father: {fileID: 6408837131483756150}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &6286193294978549986
+--- !u!82 &6408837130581918098
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286193294978549984}
+  m_GameObject: {fileID: 6408837130581918108}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -128,7 +128,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &6286193295770853119
+--- !u!1 &6408837131483756144
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,8 +136,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6286193295770853105}
-  - component: {fileID: 6286193295770853104}
+  - component: {fileID: 6408837131483756150}
+  - component: {fileID: 6408837131483756151}
   m_Layer: 0
   m_Name: GameOptionManager
   m_TagString: Untagged
@@ -145,181 +145,46 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6286193295770853105
+--- !u!4 &6408837131483756150
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286193295770853119}
+  m_GameObject: {fileID: 6408837131483756144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9.881173, y: 2.7309167, z: 3.6114945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6286193296113883637}
-  - {fileID: 6286193294978549985}
+  - {fileID: 6408837130581918099}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6286193295770853104
+--- !u!114 &6408837131483756151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286193295770853119}
+  m_GameObject: {fileID: 6408837131483756144}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f8a499545867b74b8fe0416a53f43d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmSlider: {fileID: 0}
-  sfxSlider: {fileID: 0}
-  optionPanel: {fileID: 0}
-  bgmPlayer: {fileID: 0}
-  closeBtn: {fileID: 0}
-  quitBtn: {fileID: 0}
-  localEngBtn: {fileID: 0}
-  localKorBtn: {fileID: 0}
-  sfxVol: 0
-  bgmVol: 0
+  sfxVol: 0.5
+  bgmVol: 0.5
   loCalIndex: 0
   bgmClips:
-  - {fileID: 8300000, guid: c09d44264b759419eaafa569f53b749a, type: 3}
-  - {fileID: 8300000, guid: c27a49bd9b1dc4fe09b4b1766c197d74, type: 3}
-  - {fileID: 8300000, guid: a46cfea1d7ab04ab2b75aa600ef9d970, type: 3}
-  - {fileID: 8300000, guid: 1254b26f77ad24dd28bd7e29b61a9f0d, type: 3}
+  - {fileID: 8300000, guid: ffdbde8692f040642a7419b4ff0d58bb, type: 3}
+  - {fileID: 8300000, guid: 064788631af3016498b329b60cc82c36, type: 3}
+  - {fileID: 8300000, guid: b7b717f83b8d3854db0bf6c39aa18e72, type: 3}
+  - {fileID: 8300000, guid: eebae014549861e4d81625fc7b597ec5, type: 3}
+  - {fileID: 8300000, guid: 39bd5ebdad11a21409e0396345f4d08c, type: 3}
   sfxClips:
-  - {fileID: 8300000, guid: 499ad5dbcf8a5491698487f20a195dc2, type: 3}
-  - {fileID: 8300000, guid: 0a8907ce0b9dc4dc0be79988a2c854db, type: 3}
-  - {fileID: 8300000, guid: 4524b660e2c584e4291d06739c842495, type: 3}
-  - {fileID: 8300000, guid: 24936cb318ecb465cb5f628633d2f47d, type: 3}
---- !u!1 &6286193296113883636
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6286193296113883637}
-  - component: {fileID: 6286193296113883638}
-  m_Layer: 0
-  m_Name: BGMplayer
-  m_TagString: BgmPlayer
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6286193296113883637
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286193296113883636}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6286193295770853105}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &6286193296113883638
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6286193296113883636}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 77e14a044efb3484995cb7faefc6d63d, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  - {fileID: 8300000, guid: 1c7dee0e383a6c6459af3553a61eba3d, type: 3}
+  - {fileID: 8300000, guid: ccc507a821efea846be530fd732e5a35, type: 3}
+  - {fileID: 8300000, guid: 5e080bf6ce78942d985df7c7d9e100b7, type: 3}
+  - {fileID: 8300000, guid: 62475a76d24e24af1b94ed70f440e254, type: 3}
+  - {fileID: 8300000, guid: 2909863b0bbcaa34e8de01fd4c5c57f1, type: 3}

@@ -23,6 +23,7 @@ public class GameOptionManager : MonoBehaviour
     Button quitBtn;
     Button localEngBtn;
     Button localKorBtn;
+    MapGenerator mapGenerator;
 
     public float sfxVol;
     public float bgmVol;
@@ -72,9 +73,9 @@ public class GameOptionManager : MonoBehaviour
             bgmPlayer.loop = true;
             bgmPlayer.Play();
         }
-        if (scene.buildIndex == 2)
+        if(mapGenerator.concept==1)
         {
-            bgmPlayer.clip = bgmClips[1];
+            bgmPlayer.clip = bgmClips[0];
             bgmPlayer.volume = bgmVol;
             bgmPlayer.loop = true;
             bgmPlayer.Play();
