@@ -2,20 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Cinemachine;
 
 public class FollowCam : MonoBehaviour
 {
-    GameObject target;
-    float offset = 6;
-    
-    void Update()
-    {
-        if(target != null)
-            transform.position = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z - offset);
-    }
+    [SerializeField] CinemachineVirtualCamera virtualCamera;
+    [SerializeField] MeshVisionGen vision;
 
     public void SetCamTarget(GameObject target)
     {
-        this.target = target;
+        virtualCamera.Follow = target.transform;
+        vision.SetVisionTarget(target.transform);
     }
 }

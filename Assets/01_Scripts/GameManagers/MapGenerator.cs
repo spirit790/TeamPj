@@ -1,10 +1,8 @@
-using System.Collections;
+using Photon.Pun;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
-using Unity.AI.Navigation;
-using Photon.Pun;
-using ExitGames.Client.Photon;
 
 public class MapGenerator : MonoBehaviourPunCallbacks
 {
@@ -36,7 +34,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     public GameObject groundPrefab;
     public GameObject roadPrefab;
 
-    List<NavMeshSurface> surfaces = new List<NavMeshSurface>();
     [Range(0, 100)]
     public int randomFillPercent;
 
@@ -217,7 +214,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks
                     }
                     tile.isStatic = true;
                     tile.transform.SetParent(gameObject.transform);
-                    surfaces.Add(tile.GetComponent<NavMeshSurface>());
                 }
             }
         }
@@ -286,12 +282,12 @@ public class MapGenerator : MonoBehaviourPunCallbacks
         strSendMapData = mapData;
         DrawMap();
         NavMesh.RemoveAllNavMeshData();
-        surfaces[0].BuildNavMesh();
+        gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
         photonView.RPC(nameof(SendIsReady), RpcTarget.AllBufferedViaServer);
     }
     [PunRPC]
     void SendIsReady()
     {
-        GameManager.Instance.isReady++;
+        GameManager.Instance.mapGenerateCount++;
     }
 }

@@ -2050,14 +2050,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86820d4ada11214386f60990b96545c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isReady: 0
+  mapGenerateCount: 0
+  createPlayercount: 0
   gameMode: 1
   battleAIRatio: 10
   battleTimeLimit: 30
   areaAIRatio: 10
   areaTimeLimit: 30
   deathAIRatio: 10
-  deathTimeLimit: 30
+  deathTimeLimit: 300
   death: 0
   playerKills: 0
   aiKills: 0

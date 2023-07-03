@@ -15,9 +15,9 @@ public class TargetArea : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             if (modeArea.AreaOwner == null)
-                modeArea.AreaOwner = other.GetComponent<PlayerController>();
+                modeArea.AreaOwner = other.GetComponentInParent<PlayerController>();
             else if (modeArea.AreaOwner.gameObject != other.gameObject)
-                modeArea.AreaOwner = other.GetComponent<PlayerController>();
+                modeArea.AreaOwner = other.GetComponentInParent<PlayerController>();
         }
         //if (modeArea.areaOwner == null)
         //{

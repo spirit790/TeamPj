@@ -31,14 +31,19 @@ public class Mode : MonoBehaviourPunCallbacks
     List<GameObject> aiList = new List<GameObject>();
     public string modeName;
 
-    public bool isDead;
-
     bool isCreatedAI = false;
+    // 플레이어와  AI 스폰위치 (맵크기 - 플레이어 크기) 위치에 생성
     protected Vector3 SpawnPos 
     { 
         get 
         { 
-            return new Vector3(Random.Range(mapWidth * 0.05f, mapWidth + mapWidth * 0.05f), 0, Random.Range(mapHeight * 0.05f, mapHeight + mapHeight * 0.05f)); 
+            return new Vector3(
+                Random.Range
+                (playerPrefab.transform.localScale.x, mapWidth - playerPrefab.transform.localScale.x)
+                , 0
+                , 
+                Random.Range
+                (playerPrefab.transform.localScale.x, mapHeight - playerPrefab.transform.localScale.x)); 
         } 
     }
 
@@ -74,14 +79,18 @@ public class Mode : MonoBehaviourPunCallbacks
         this.playerCount = playerCount;
         this.aiRatio = aiRatio;
         this.timeLimit = timeLimit;
+        // 제한시간 표시 텍스트UI
         txtTimeLimit = GameObject.FindGameObjectWithTag("TimeLimit").GetComponent<Text>();
+        // 게임시작전 대기시간 표시UI
         txtWaitStartTime = GameObject.FindGameObjectWithTag("WaitStartTime").GetComponent<Text>();
+        // 로딩패널 UI
         loadingPanel = GameObject.FindGameObjectWithTag("Loading").GetComponent<Image>();
         GameManager.Instance.startTime = Firebase.Firestore.FieldValue.ServerTimestamp;
+        // 이벤트 함수 등록
         AIPattern.OnAIDie += AIDieControl;
         PlayerController.OnPlayerDie += PlayerDieControl;
-        CarrotMove.OnAIKill += AIKillControl;
-        CarrotMove.OnPlayerKill += PlayerKillControl;
+        Weapon.OnAIKill += AIKillControl;
+        Weapon.OnPlayerKill += PlayerKillControl;
         photonView.ViewID = 997;
         GameStart();
     }
@@ -98,14 +107,22 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     protected void CreatePlayer()
     {
-        myPlayerObject = PhotonNetwork.Instantiate(playerPrefab.name, SpawnPos + new Vector3(0, 0.5f, 0), Quaternion.identity);
-        myPlayerObject.GetComponent<PlayerController>().enabled = false;
-        // set name
-        myPlayerObject.name = PhotonNetwork.LocalPlayer.ActorNumber.ToString();
-        // set follow camera
+        myPlayerObject = PhotonNetwork.Instantiate(playerPrefab.name, SpawnPos + new Vector3(0, 1f, 0), Quaternion.identity);
+
+        // 이름 동기화
+        int viewId = myPlayerObject.GetPhotonView().ViewID;
+        string playerName = PhotonNetwork.LocalPlayer.ActorNumber.ToString();
+        photonView.RPC(nameof(RpcSetPlayerName), RpcTarget.All,viewId, playerName);
+
+        // 캠 팔로우, 비전 설정
         Camera.main.GetComponent<FollowCam>().SetCamTarget(myPlayerObject);
+        // 생성되면 게임매니저의 생성된 플레이어 갯수 증가
+        photonView.RPC(nameof(RpcCreatePlayer), RpcTarget.AllBufferedViaServer);
     }
 
+    /// <summary>
+    /// AI 생성 함수
+    /// </summary>
     protected void SpawnAI()
     {
         GameObject ai = null;
@@ -144,16 +161,24 @@ public class Mode : MonoBehaviourPunCallbacks
     /// <returns></returns>
     protected IEnumerator GamePlaying()
     {
-        CreatePlayer();
-
         // 모든 클라이언트가 맵생성 할때까지 대기
-        yield return new WaitUntil(() => GameManager.Instance.isReady == PhotonNetwork.CurrentRoom.PlayerCount);
+        yield return new WaitUntil(() => GameManager.Instance.mapGenerateCount == PhotonNetwork.CurrentRoom.PlayerCount);
+
+        // 플레이어 생성
+        CreatePlayer();
+        // 플레이어 움직임 제한 -> 게임시작후에 움직이게 
+        myPlayerObject.GetComponent<PlayerController>().enabled = false;
+        // 모든 클라이언트가 플레이어 생성 할때까지 대기
+        yield return new WaitUntil(() => GameManager.Instance.createPlayercount == PhotonNetwork.CurrentRoom.PlayerCount);
+
+        // AI 생성 -> 마스터클라이언트가 생성후 관리
         CreateAI();
         // AI 생성 대기
         yield return new WaitUntil(() => isCreatedAI);
         // 로딩 종료
         loadingPanel.gameObject.SetActive(false);
 
+        // 게임시작 대기시간 시작
         while (waitStartTime >= 0)
         {
             waitStartTime -= Time.deltaTime;
@@ -167,7 +192,7 @@ public class Mode : MonoBehaviourPunCallbacks
 
         while (!IsGameOver)
         {
-
+            // 게임오버 컨트롤 함수 호출 -> 오버라이드하여 사용하기 위해
             GameOverControl();
 
             yield return null;
@@ -211,7 +236,7 @@ public class Mode : MonoBehaviourPunCallbacks
 
     protected virtual void PlayerDieControl(PlayerController player)
     {
-        isDead = true;
+        GameManager.Instance.IsDead = true;
         photonView.RPC(nameof(RpcPlayerDie), RpcTarget.All);
     }
 
@@ -238,12 +263,24 @@ public class Mode : MonoBehaviourPunCallbacks
         GameManager.Instance.PlayersLeft -= 1;
         if (GameManager.Instance.PlayersLeft == 1)
         {
-            if (!isDead)
+            if (!GameManager.Instance.IsDead)
             {
                 GameManager.Instance.IsWin = true;
                 Debug.LogWarning("win");
             }
             IsGameOver = true;
         }
+    }
+
+    [PunRPC]
+    protected void RpcCreatePlayer()
+    {
+        GameManager.Instance.createPlayercount++;
+    }
+
+    [PunRPC]
+    protected void RpcSetPlayerName(int viewId,string playerName)
+    {
+        PhotonView.Find(viewId).name = playerName;
     }
 }

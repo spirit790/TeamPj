@@ -32,17 +32,20 @@ public class MeshVisionGen : MonoBehaviour
 
         targetTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
-        lightMesh = GetComponent<MeshFilter>().mesh;
+        
     }
 
     void Update()
     {
-        DrawMeshByAngle();
+        if(targetTr != null)
+        {
+            DrawMeshByAngle();
 
-        transform.position = targetTr.position;
+            transform.position = targetTr.position;
 
-        //시야 내 액터들 확인
-        VailActors(visibleActors);
+            //시야 내 액터들 확인
+            VailActors(visibleActors);
+        }
     }
 
 
@@ -173,6 +176,12 @@ public class MeshVisionGen : MonoBehaviour
     private void FadeActors(Renderer renderer, float alpha, float dur)
     {
         renderer.material.DOFade(alpha, dur);
+    }
+
+    public void SetVisionTarget(Transform target)
+    {
+        targetTr = target;
+        lightMesh = GetComponent<MeshFilter>().mesh;
     }
 }
 

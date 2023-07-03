@@ -14,6 +14,7 @@ public class CarrotMove : MonoBehaviourPun
     public float atkLength;
     public float curTime;
     public float coolTime;
+
     Ray ray;
     void Start()
     {
@@ -23,11 +24,9 @@ public class CarrotMove : MonoBehaviourPun
         //gameOptionManager = GameOptionManager.Instance();
     }
 
-    public delegate void PlayerKill();
-    public static event PlayerKill OnPlayerKill;
+    BoxCollider weapon;
 
-    public delegate void AIKill();
-    public static event AIKill OnAIKill;
+    
 
     void Update()
     {
@@ -37,49 +36,49 @@ public class CarrotMove : MonoBehaviourPun
     /// </summary>
     public void OnClickAtk()
     {
-        if (photonView.IsMine)
-        {
-            ray = new Ray(transform.GetChild(1).transform.position, transform.forward);
+        //if (photonView.IsMine)
+        //{
+        //    ray = new Ray(transform.GetChild(1).transform.position, transform.forward);
 
-            //gameOptionManager.PlaySfxSound("Attack");
-            if (Physics.Raycast(ray, out hit, atkLength))
-            {
-                //GameObject hitObj = hit.transform.gameObject;
-                //Debug.Log("hit obj : " + hitObj.name);
-                //if (hitObj.CompareTag("Player"))
-                //{
-                //    hitObj.GetComponent<PlayerController>().IsDead = true;
-                //}
-                //if (hitObj.CompareTag("AI"))
-                //{
-                //    hitObj.GetComponent<AIPattern>().IsAiDead = true;
-                //}
-                Debug.Log(hit.transform.name);
-                if (hit.transform.CompareTag("AI"))
-                {
-                    OnAIKill();
-                    int viewId = hit.transform.gameObject.GetPhotonView().ViewID;
-                    photonView.RPC(nameof(DestroyNetworkObject), RpcTarget.MasterClient, viewId);
-                }
-                else if (hit.transform.CompareTag("Player"))
-                {
-                    OnPlayerKill();
-                    int actorNum = hit.transform.gameObject.GetPhotonView().ControllerActorNr;
-                    photonView.RPC(nameof(DestroyPlayer), RpcTarget.MasterClient, PhotonNetwork.CurrentRoom.Players[actorNum]);
-                }
-            }
+        //    //gameOptionManager.PlaySfxSound("Attack");
+        //    if (Physics.Raycast(ray, out hit, atkLength))
+        //    {
+        //        //GameObject hitObj = hit.transform.gameObject;
+        //        //Debug.Log("hit obj : " + hitObj.name);
+        //        //if (hitObj.CompareTag("Player"))
+        //        //{
+        //        //    hitObj.GetComponent<PlayerController>().IsDead = true;
+        //        //}
+        //        //if (hitObj.CompareTag("AI"))
+        //        //{
+        //        //    hitObj.GetComponent<AIPattern>().IsAiDead = true;
+        //        //}
+        //        Debug.Log(hit.transform.name);
+        //        if (hit.transform.CompareTag("AI"))
+        //        {
+        //            //OnAIKill();
+        //            int viewId = hit.transform.gameObject.GetPhotonView().ViewID;
+        //            photonView.RPC(nameof(DestroyNetworkObject), RpcTarget.MasterClient, viewId);
+        //        }
+        //        else if (hit.transform.CompareTag("Player"))
+        //        {
+        //            //OnPlayerKill();
+        //            int actorNum = hit.transform.gameObject.GetPhotonView().ControllerActorNr;
+        //            photonView.RPC(nameof(DestroyPlayer), RpcTarget.MasterClient, PhotonNetwork.CurrentRoom.Players[actorNum]);
+        //        }
+        //    }
+        //}
+    }
+
+    IEnumerator Attack()
+    {
+        weapon.enabled = true;
+        while(curTime <= coolTime)
+        {
+            curTime += Time.deltaTime;
+            
+            yield return null;
         }
     }
-
-    [PunRPC]
-    void DestroyPlayer(Player player)
-    {
-        PhotonNetwork.DestroyPlayerObjects(player);
-    }
-
-    [PunRPC]
-    void DestroyNetworkObject(int viewId)
-    {
-        PhotonNetwork.Destroy(PhotonView.Find(viewId));
-    }
+    
 }
