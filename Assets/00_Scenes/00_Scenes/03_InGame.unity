@@ -5916,6 +5916,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5408695927715418404, guid: 70e205e919479da459f1b14b06e68aa9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70e205e919479da459f1b14b06e68aa9, type: 3}
 --- !u!1 &813038139
@@ -12454,6 +12459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a81e80e42d682c47a1488119b42b528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxLength: 0
   IsCheck: 0
 --- !u!114 &1866651445
 MonoBehaviour:

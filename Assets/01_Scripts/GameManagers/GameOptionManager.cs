@@ -46,6 +46,10 @@ public class GameOptionManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
         
     }
+    public void Start()
+    {
+        
+    }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         bgmPlayer = GameObject.FindWithTag("BgmPlayer").GetComponent<AudioSource>();
@@ -73,14 +77,17 @@ public class GameOptionManager : MonoBehaviour
             bgmPlayer.loop = true;
             bgmPlayer.Play();
         }
-        if(mapGenerator.concept==1)
+        if(scene.buildIndex == 2)
         {
-            bgmPlayer.clip = bgmClips[0];
-            bgmPlayer.volume = bgmVol;
-            bgmPlayer.loop = true;
-            bgmPlayer.Play();
+            mapGenerator = GameObject.FindWithTag("MapGen").GetComponent<MapGenerator>();
+            if (mapGenerator.concept == 1)
+            {
+                bgmPlayer.clip = bgmClips[0];
+                bgmPlayer.volume = bgmVol;
+                bgmPlayer.loop = true;
+                bgmPlayer.Play();
+            }
         }
-
     }
 
 
