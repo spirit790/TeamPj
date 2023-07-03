@@ -15390,7 +15390,7 @@ PrefabInstance:
     - target: {fileID: 792609907284044491, guid: b95e29839e77ce24998da674976e94ac,
         type: 3}
       propertyPath: m_Name
-      value: WhetherChanger
+      value: WheatherChanger
       objectReference: {fileID: 0}
     - target: {fileID: 792609907284044500, guid: b95e29839e77ce24998da674976e94ac,
         type: 3}
