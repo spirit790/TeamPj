@@ -22,8 +22,13 @@ public class DeadZone : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            // 플레이어 처치
-            StartCoroutine(PlayerDeadByDeadZone(player));
+            if (!player.isDeadZoneStarted)
+            {
+                // 플레이어 처치
+                StartCoroutine(PlayerDeadByDeadZone(player));
+                player.isDeadZoneStarted = true;
+            }
+
         }
         else if (other.gameObject.CompareTag("AI"))
         {
@@ -43,7 +48,11 @@ public class DeadZone : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            StopCoroutine(PlayerDeadByDeadZone(player));
+            if(player.isDeadZoneStarted)
+            {
+                StopCoroutine(PlayerDeadByDeadZone(player));
+                player.isDeadZoneStarted = false;
+            }
         }
     }
 

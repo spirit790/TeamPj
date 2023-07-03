@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviourPun
     }
 
     public bool isGhost = false;
-
+    public bool isDeadZoneStarted = false;
     // Player ?¨Îßù ?¥Î≤§??
     public delegate void PlayerDie(PlayerController player);
     /// <summary>
