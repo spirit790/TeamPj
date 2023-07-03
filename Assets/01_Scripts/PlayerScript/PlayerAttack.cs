@@ -4,7 +4,6 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-[System.Serializable]
 public class PlayerAttack : MonoBehaviourPun
 {
     public delegate void PlayerKill();
@@ -19,14 +18,9 @@ public class PlayerAttack : MonoBehaviourPun
     public float attackRange = 1f;
     private int attackDensity = 1;
 
-    [SerializeField]
     List<Transform> targets = new List<Transform>();
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter)) Attack();
-    }
-    private void Attack()
+    private void AttackWithAngle()
     {
         int searchAngle = (int)attackAngle/2 * attackDensity;
 
@@ -50,6 +44,8 @@ public class PlayerAttack : MonoBehaviourPun
             }
         }
 
+        if (targets.Count == 0) return;
+
         float[] dist = new float[targets.Count];
 
         for (int i = 0; i < targets.Count; i++)
@@ -61,22 +57,22 @@ public class PlayerAttack : MonoBehaviourPun
 
         if (targets[0].transform.CompareTag("AI"))
         {
-            Instantiate(hitEffect, transform.position, Quaternion.identity);
-
             Debug.Log("AI Kill");
             OnAIKill();
             int viewId = targets[0].transform.parent.gameObject.GetPhotonView().ViewID;
             photonView.RPC(nameof(KillAI), RpcTarget.MasterClient, viewId);
         }
-        else if (targets[0].transform.CompareTag("Player") && !targets[0].transform.parent.gameObject.GetPhotonView().IsMine)
+        else if (targets[0].transform.CompareTag("Player") )
+            //&& !targets[0].transform.parent.gameObject.GetPhotonView().IsMine)
         {
-            Instantiate(hitEffect, transform.position, Quaternion.identity);
-
             Debug.Log("Player Kill");
             OnPlayerKill();
             int viewId = targets[0].transform.parent.gameObject.GetPhotonView().ViewID;
             photonView.RPC(nameof(KillPlyaer), RpcTarget.All, viewId);
         }
+
+        Instantiate(hitEffect, targets[0].position, Quaternion.identity);
+        Destroy(targets[0].gameObject);
 
         targets.Clear();
     }
@@ -112,7 +108,7 @@ public class PlayerAttack : MonoBehaviourPun
             for (j = 0; j < i; j++)
             {
                 // j번째와 j+1번째의 요소가 크기 순이 아니면 교환
-                if (dist[j] < dist[j + 1])
+                if (dist[j] > dist[j + 1])
                 {
                     temp = dist[j];
                     tempT = list[j];
