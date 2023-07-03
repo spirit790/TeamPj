@@ -6,7 +6,7 @@ using DG.Tweening;
 public class SimpleFloatings : MonoBehaviour
 {
     private Transform floatingTr;
-    int rnd;
+    float rnd;
 
     void Start()
     {
@@ -16,10 +16,9 @@ public class SimpleFloatings : MonoBehaviour
         rnd = Random.Range(3, 10);
 
         Sequence seq = DOTween.Sequence();
-        seq.Append(floatingTr.DOMoveY(floatingTr.position.y + rnd / 15, rnd)).Append(floatingTr.DOMoveY(floatingTr.position.y, rnd).OnComplete<Tween>(() => rnd = Random.Range(3, 10)))
-            .SetLoops<Sequence>(-1);
-
-        //floatingTr.DORotate()
+        seq.Append(floatingTr.DOLocalMoveY(floatingTr.localPosition.y + rnd / 15, rnd))
+            .Append(floatingTr.DOLocalMoveY(floatingTr.localPosition.y, rnd).OnComplete<Tween>(() => rnd = Random.Range(3, 10)))
+            .SetLoops(-1);
     }
 
 
