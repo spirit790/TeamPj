@@ -1906,14 +1906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f8a499545867b74b8fe0416a53f43d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmSlider: {fileID: 0}
-  sfxSlider: {fileID: 0}
-  optionPanel: {fileID: 0}
-  bgmPlayer: {fileID: 0}
-  closeBtn: {fileID: 0}
-  quitBtn: {fileID: 0}
-  localEngBtn: {fileID: 0}
-  localKorBtn: {fileID: 0}
   sfxVol: 0
   bgmVol: 0
   loCalIndex: 0

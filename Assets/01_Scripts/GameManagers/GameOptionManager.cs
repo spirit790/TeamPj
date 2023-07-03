@@ -64,6 +64,21 @@ public class GameOptionManager : MonoBehaviour
         localKorBtn.onClick.AddListener(() => ChangeLocale(1));
 
         PlayerPrefabLoad();
+        
+        if (scene.buildIndex == 1)
+        {
+            bgmPlayer.clip = bgmClips[0];
+            bgmPlayer.volume = bgmVol;
+            bgmPlayer.loop = true;
+            bgmPlayer.Play();
+        }
+        if (scene.buildIndex == 2)
+        {
+            bgmPlayer.clip = bgmClips[1];
+            bgmPlayer.volume = bgmVol;
+            bgmPlayer.loop = true;
+            bgmPlayer.Play();
+        }
 
     }
 
@@ -169,10 +184,12 @@ public class GameOptionManager : MonoBehaviour
     void ChangeBgmVol(float bgmVol)
     {
         this.bgmVol = bgmVol;
+        bgmPlayer.volume = bgmVol;
     }
     void ChangeSfxVol(float sfxVol)
     {
         this.sfxVol = sfxVol;
+        
     }
     #endregion
 
