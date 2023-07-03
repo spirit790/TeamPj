@@ -4822,10 +4822,6 @@ MonoBehaviour:
   chunkWidth: 9
   chunkHeight: 9
   pos: {x: 0, y: 0, z: 0}
-  structurePrefabs:
-  - {fileID: 1289825284374926, guid: 5fc6091935383e9459b8e3f75557288b, type: 3}
-  - {fileID: 1855122608725610, guid: a75ba48ab7bee284cbfc05e8949f515d, type: 3}
-  - {fileID: 1673676435931376, guid: d731533867f740e4895f2899a25be282, type: 3}
   areaZonePos: {x: 0, y: 0, z: 0}
   mainBuildingPos1: {x: 0, y: 0, z: 0}
   mainBuildingPos2: {x: 0, y: 0, z: 0}
@@ -4839,6 +4835,13 @@ MonoBehaviour:
     type: 3}
   roadPrefab: {fileID: 1149535237560096, guid: 77baab57b69c72a4198d733118e24ab4, type: 3}
   randomFillPercent: 52
+  concept: 0
+  groundPrefabs: []
+  roadPrefabs: []
+  envPrefabs: []
+  jungleObstacles: []
+  schoolObstacles: []
+  towerObstacles: []
 --- !u!4 &685309797
 Transform:
   m_ObjectHideFlags: 0
