@@ -3260,6 +3260,7 @@ GameObject:
   - component: {fileID: 3204800445936280983}
   - component: {fileID: 3259035828698745743}
   - component: {fileID: -4753741185120438533}
+  - component: {fileID: -4156076082141612147}
   m_Layer: 0
   m_Name: Bunny
   m_TagString: Untagged
@@ -3340,6 +3341,22 @@ MonoBehaviour:
   - {fileID: 2100000, guid: cdb6b504d80800d4d9cd8ec82da51bad, type: 2}
   - {fileID: 2100000, guid: 73b74f3da6dbc4745b5108c2e12b458b, type: 2}
   - {fileID: 2100000, guid: 98a6a464422e47d47b667c3db61cdc6f, type: 2}
+--- !u!114 &-4156076082141612147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3201460549650672273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []
 --- !u!1 &3201468455907966087
 GameObject:
   m_ObjectHideFlags: 0
@@ -4250,8 +4267,6 @@ GameObject:
   - component: {fileID: 7222757174224489414}
   - component: {fileID: 7292672403118727649}
   - component: {fileID: 1481683790747866850}
-  - component: {fileID: 8303386033202203317}
-  - component: {fileID: 8569757499732373811}
   - component: {fileID: 3544799293022186524}
   m_Layer: 0
   m_Name: Fishweapon
@@ -4325,33 +4340,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8303386033202203317
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604351809653098024}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.15067634, y: 0.048561335, z: 0.29612777}
-  m_Center: {x: 0.000000031861553, y: -0.00000004660732, z: 0.08909138}
---- !u!114 &8569757499732373811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604351809653098024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88af773b1b322314fbf57c1d672aed36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitEffect: {fileID: 3612282937569248457, guid: 07f0bec310ee81244a9c2d3a4c6a57b7,
-    type: 3}
 --- !u!114 &3544799293022186524
 MonoBehaviour:
   m_ObjectHideFlags: 0
