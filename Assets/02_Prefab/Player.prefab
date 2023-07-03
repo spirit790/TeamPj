@@ -3486,16 +3486,16 @@ MonoBehaviour:
     SynchronizeType: 2
     Name: Move
   - Type: 9
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: Attack
   - Type: 9
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: Dead
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: Stun
   - Type: 1
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: AttackCoin
   m_SynchronizeLayers:
   - SynchronizeType: 0
@@ -3873,11 +3873,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3044aeb9126c94ea08349535c11df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 896432790003672458}
   moveSpeed: 0
   normalSpeed: 3
   dashSpeed: 5
   roteSpeed: 5
+  stunTime: 3
   isGhost: 0
 --- !u!33 &1537119937
 MeshFilter:

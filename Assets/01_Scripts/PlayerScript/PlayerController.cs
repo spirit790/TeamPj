@@ -16,20 +16,21 @@ public class PlayerController : MonoBehaviourPun
     NavMeshAgent playerAgent;
     Vector3 dir;
 
-    [SerializeField] BoxCollider weapon;
-
     CharacterAnimation anim;
 
     Coroutine attackCoroutine;
 
-    public float moveSpeed;
-    public float normalSpeed;
-    public float dashSpeed;
-    public float roteSpeed;
+    [Header("Move")]
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float normalSpeed;
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float roteSpeed;
 
+    [Header("Stun")]
+    [SerializeField] private float stunTime;
     private bool isStun = false;
-    private float stunTime = 3f;
     private bool isAttack = false;
+    
 
     private bool isDead = false;
     public bool IsDead
@@ -60,19 +61,16 @@ public class PlayerController : MonoBehaviourPun
         {
             playerAgent = GetComponent<NavMeshAgent>();
             joyStick = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponentInChildren<JoyStick>();
+            dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
+            attackBtn = GameObject.FindGameObjectWithTag("AttackBtn").GetComponent<Button>();
+            attackBtn.onClick.AddListener(OnClickAtk);
+            anim = GetComponent<CharacterAnimation>();
+            PlayerAttack.OnAIKill += Stun;
             if (isGhost)
             {
                 dashBtn.gameObject.SetActive(false);
                 attackBtn.gameObject.SetActive(false);
             }
-            else
-            {
-                dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
-                attackBtn = GameObject.FindGameObjectWithTag("AttackBtn").GetComponent<Button>();
-            }
-            attackBtn.onClick.AddListener(OnClickAtk);
-            anim = GetComponent<CharacterAnimation>();
-            PlayerAttack.OnAIKill += Stun;
         }
     }
 
@@ -154,7 +152,6 @@ public class PlayerController : MonoBehaviourPun
     IEnumerator Attack()
     {
         isAttack = true;
-        weapon.enabled = isAttack;
         float[] animTime = anim.SetAttackAnim(isAttack);
         StartCoroutine(AttackMove(animTime[0] + animTime[1]));
         attackBtn.interactable = false;
@@ -164,7 +161,6 @@ public class PlayerController : MonoBehaviourPun
         yield return new WaitForSeconds(animTime[1]);
 
         isAttack = false;
-        weapon.enabled = isAttack;
         anim.SetAttackAnim(isAttack);
         attackBtn.interactable = true;
         attackCoroutine = null;
