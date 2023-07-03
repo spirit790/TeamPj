@@ -21,6 +21,7 @@ public class GoogleManager : MonoBehaviour
     public InputField nickNameInput;
     public GameObject signUpPanel;
     public GameObject updatePanel;
+    public GameObject networkErrorPanel;
 
     private bool isGoogleLoginSuccess = false;
     public bool IsGoogleLoginSuccess
@@ -71,7 +72,11 @@ public class GoogleManager : MonoBehaviour
                 IsGoogleLoginSuccess = true;
                 OnGetUserInfo();
             }
-            else logText.text = "login failed";
+            else
+            {
+                logText.text = "login failed";
+                networkErrorPanel.SetActive(true);
+            }
         });
     }
 
