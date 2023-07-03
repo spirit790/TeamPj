@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Photon.Pun;
 
-public class DeadZone : MonoBehaviour
+public class DeadZone : MonoBehaviourPun
 {
     public float radius = 5f;
     public float deadZoneTime = 2f;
@@ -21,14 +21,16 @@ public class DeadZone : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            if (!player.isDeadZoneStarted)
+            if (other.transform.parent.gameObject.GetPhotonView().IsMine)
             {
-                // 플레이어 처치
-                StartCoroutine(PlayerDeadByDeadZone(player));
-                player.isDeadZoneStarted = true;
+                PlayerController player = other.transform.parent.gameObject.GetComponent<PlayerController>();
+                if (!player.isDeadZoneStarted)
+                {
+                    // 플레이어 처치
+                    StartCoroutine(PlayerDeadByDeadZone(player));
+                    player.isDeadZoneStarted = true;
+                }
             }
-
         }
         else if (other.gameObject.CompareTag("AI"))
         {
@@ -47,11 +49,14 @@ public class DeadZone : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            if(player.isDeadZoneStarted)
+            if (other.transform.parent.gameObject.GetPhotonView().IsMine)
             {
-                StopCoroutine(PlayerDeadByDeadZone(player));
-                player.isDeadZoneStarted = false;
+                PlayerController player = other.transform.parent.gameObject.GetComponent<PlayerController>();
+                if (player.isDeadZoneStarted)
+                {
+                    StopCoroutine(PlayerDeadByDeadZone(player));
+                    player.isDeadZoneStarted = false;
+                }
             }
         }
     }

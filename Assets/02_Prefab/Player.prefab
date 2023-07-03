@@ -3839,7 +3839,7 @@ GameObject:
   - component: {fileID: -6400907249197992670}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3879,6 +3879,7 @@ MonoBehaviour:
   dashSpeed: 5
   roteSpeed: 5
   isGhost: 0
+  isDeadZoneStarted: 0
 --- !u!33 &1537119937
 MeshFilter:
   m_ObjectHideFlags: 0
