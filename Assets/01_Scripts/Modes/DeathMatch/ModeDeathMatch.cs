@@ -21,11 +21,6 @@ public class ModeDeathMatch : Mode
         txtTimeLimit.text += "\n" + GameManager.Instance.playerKills;
     }
 
-    protected override void GameOver()
-    {
-        
-    }
-
     protected override void PlayerKillControl()
     {
         base.PlayerKillControl();
