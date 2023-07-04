@@ -7,7 +7,7 @@ using Photon.Realtime;
 public class ModeDeathMatch : Mode
 {
     int targetKill;
-    int targetKillRatio = 3;
+    int targetKillRatio = 2;
     public override void GameStart()
     {
         base.GameStart();
@@ -19,11 +19,6 @@ public class ModeDeathMatch : Mode
         base.GameOverControl();
         txtTimeLimit.text = targetKill.ToString();
         txtTimeLimit.text += "\n" + GameManager.Instance.playerKills;
-    }
-
-    protected override void GameOver()
-    {
-        
     }
 
     protected override void PlayerKillControl()

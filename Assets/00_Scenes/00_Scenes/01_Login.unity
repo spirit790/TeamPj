@@ -2422,6 +2422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapGenerateCount: 0
   createPlayercount: 0
+  isDataSented: 0
   playersLeft: 0
   gameMode: 1
   battleAIRatio: 10

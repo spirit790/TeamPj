@@ -47,11 +47,7 @@ public class ModeAreaConquer : Mode
             }
         }
     }
-
-    protected override void GameOver()
-    {
-        base.GameOver();
-    }
+    
     public void AreaOwnerDie(PlayerController player)
     {
         if(AreaOwner == player)
