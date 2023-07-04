@@ -10,6 +10,8 @@ public class ActorsPopIn : MonoBehaviour
         DOTween.Init();
 
         Sequence seq = DOTween.Sequence();
+
+
     }
 
 }
