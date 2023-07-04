@@ -3524,7 +3524,7 @@ MonoBehaviour:
     SynchronizeType: 2
     Name: AttackCoin
   - Type: 9
-    SynchronizeType: 2
+    SynchronizeType: 1
     Name: Dead
   m_SynchronizeLayers:
   - SynchronizeType: 0
@@ -3878,7 +3878,6 @@ MonoBehaviour:
   dashSpeed: 5
   roteSpeed: 5
   stunTime: 3
-  isGhost: 0
   isDeadZoneStarted: 0
 --- !u!33 &1537119937
 MeshFilter:

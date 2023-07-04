@@ -55,10 +55,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks
 
     [Header("TowerObstacles")]
     public List<GameObject> towerObstacles;
-    private void Awake()
-    {
-        concept = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMap].ToString());
-    }
 
     void Start()
     {
@@ -67,7 +63,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
         concepts.Add(towerObstacles);
 
         chunk = new int[chunkHeight, chunkWidth];
-        
+        concept = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMap].ToString());
         obstaclePrefabs = concepts[concept];
         groundPrefab = groundPrefabs[concept];
         roadPrefab = roadPrefabs[concept];

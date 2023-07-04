@@ -1415,11 +1415,11 @@ MonoBehaviour:
   concept: 0
   groundPrefabs:
   - {fileID: 417327825634208128, guid: 65f8c7a567edca04d84ff9ceed23c40f, type: 3}
-  - {fileID: 6379126440195082914, guid: 6f119584f37189140b0ba1862bc6c3f6, type: 3}
+  - {fileID: 6379126440195082914, guid: ce966ebadd36a2e45be5b1925381da80, type: 3}
   - {fileID: 2492013528077374685, guid: 0d18a0d31632f864d9d7e8b26111ea5f, type: 3}
   roadPrefabs:
   - {fileID: 697166889883673310, guid: cdcdba54539816b4584a6d740af78e54, type: 3}
-  - {fileID: 6379126440195082914, guid: ce966ebadd36a2e45be5b1925381da80, type: 3}
+  - {fileID: 6379126440195082914, guid: 6f119584f37189140b0ba1862bc6c3f6, type: 3}
   - {fileID: 417327825634208128, guid: 47d28d467fc3b6d4396cf9744507388d, type: 3}
   envPrefabs:
   - {fileID: 7266641965902491083, guid: 41832873ded5a224a9606cf272bc0be8, type: 3}
@@ -1954,9 +1954,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Dash
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4cfd093b133d61e458057a531e485e1a, type: 2}
-  m_sharedMaterial: {fileID: 805344789190536006, guid: 4cfd093b133d61e458057a531e485e1a,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3126,7 +3125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a81e80e42d682c47a1488119b42b528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxLength: 0.086
+  sfxLength: 0
   IsCheck: 0
 --- !u!114 &1866651445
 MonoBehaviour:
@@ -3271,9 +3270,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Atk
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4cfd093b133d61e458057a531e485e1a, type: 2}
-  m_sharedMaterial: {fileID: 805344789190536006, guid: 4cfd093b133d61e458057a531e485e1a,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

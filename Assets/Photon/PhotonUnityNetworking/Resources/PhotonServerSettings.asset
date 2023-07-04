@@ -71,9 +71,9 @@ MonoBehaviour:
   - KillPlyaer
   - SendConceptIndex
   - SetReady
-  - SetIsOwnerStayRPC
-  - SetOwnerRPC
-  - SetTimeLimit
+  - PunGameOver
+  - InstantiateHitEffect
+  - ShowMode
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
