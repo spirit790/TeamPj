@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
@@ -194,8 +195,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         // 매치시작시 모드 선택,맵 생성
         if(scene.buildIndex == 2)
         {
-            resultPanel = GameObject.FindGameObjectWithTag("Result");
-            resultPanel.SetActive(false);
+            //resultPanel = GameObject.FindGameObjectWithTag("Result");
+            //resultPanel.SetActive(false);
             playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
             PlayersLeft = PlayerCount;
             int modeNum = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[KeyMode].ToString());
