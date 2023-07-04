@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 using Photon.Pun;
 using Photon.Realtime;
+using DG.Tweening;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class InviteSystem : MonoBehaviourPunCallbacks
@@ -16,9 +18,11 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     [SerializeField] Button btnStart;
     [SerializeField] InputField inputCode;
     [SerializeField] Dropdown selectMode;
+    [SerializeField] Text txtMode;
+    [SerializeField] Text txtStartFail;
     [SerializeField] Transform content;
 
-    public List<string> playerList = new List<string>();
+    Dictionary<string, bool> playerList = new Dictionary<string, bool>();
 
     const int MATCH_COUNT_MIN = 2;
     const int MATCH_COUNT_MAX = 8;
@@ -45,8 +49,8 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             else
             {
                 btnStart.GetComponentInChildren<Text>().text = "준비";
-                photonView.RPC(nameof(SetReady), RpcTarget.MasterClient, PhotonNetwork.LocalPlayer, isReady);
-
+                if(PhotonNetwork.InRoom)
+                    photonView.RPC(nameof(SetReady), RpcTarget.MasterClient, PhotonNetwork.LocalPlayer, isReady);
             }
         }
     }
@@ -54,6 +58,12 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     string randomWords = "abcdefghijklmnopqrstuvwxyz0123456789";
 
     [SerializeField] bool isDebug = false;
+
+    private void Start()
+    {
+        DOTween.Init();
+    }
+
     #region Button Method
     /// <summary>
     /// 방생성 버튼
@@ -89,7 +99,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     public void JoinRoom()
     {
         this.gameObject.SetActive(true);
-        
+        ResetJoinRoomPanel();
         string roomName = inputCode.textComponent.text;
         PhotonNetwork.JoinRoom(roomName);
     }
@@ -99,10 +109,18 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     /// </summary>
     public void StartGame()
     {
-        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN && CheckIsAllReady())
+        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= MATCH_COUNT_MIN)
         {
-            Debug.Log("Master");
-            PhotonNetwork.LoadLevel(2);
+            if (CheckIsAllReady())
+            {
+                Debug.Log("Master");
+                PhotonNetwork.LoadLevel(2);
+            }
+            else
+            {
+                txtStartFail.text = "준비가 안되었습니다.";
+                txtStartFail.gameObject.transform.DOSpiral(2f).OnComplete(()=>txtStartFail.text = "");
+            }
         }
         else if (!PhotonNetwork.IsMasterClient)
         {
@@ -120,7 +138,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
             playerList.Clear();
-        if(PhotonNetwork.InRoom)
+        if (PhotonNetwork.InRoom)
             PhotonNetwork.LeaveRoom();
     }
 
@@ -129,17 +147,20 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         photonView.RPC(nameof(ChangeModeValue), RpcTarget.All, selectMode.value);
     }
 
-    public void BtnResetJoinRoomPanel()
-    {
-        ResetJoinRoomPanel();
-    }
     #endregion
 
     #region Invite Method
     void PlayerEnteredRoom(Player player)
     {
         content.transform.GetChild(PhotonNetwork.CurrentRoom.PlayerCount - 1).GetComponentInChildren<Text>().text = player.ActorNumber.ToString();
-        playerList.Add(player.ActorNumber.ToString());
+        Dictionary<string, bool> tempPlayerList = new Dictionary<string, bool>();
+
+        foreach (var item in playerList)
+        {
+            tempPlayerList.Add(item.Key,item.Value);
+        }
+        tempPlayerList.Add(player.ActorNumber.ToString(), false);
+        playerList = tempPlayerList;
     }
 
     void PlayerLeftRoom(Player player)
@@ -147,17 +168,20 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             playerList.Remove(player.ActorNumber.ToString());
-            for (int i = 0; i < playerList.Count; i++)
+            Debug.Log(playerList.Count);
+            int i = 0;
+            foreach (KeyValuePair<string,bool> item in playerList)
             {
-                photonView.RPC(nameof(ShowPlayers), RpcTarget.All, i, playerList[i]);
+                photonView.RPC(nameof(ShowPlayers), RpcTarget.All, i,item.Key,item.Value);
+                i++;
             }
-            photonView.RPC(nameof(ShowPlayers), RpcTarget.All, PhotonNetwork.CurrentRoom.PlayerCount, EMPTY_STIRNG);
+            photonView.RPC(nameof(ShowPlayers), RpcTarget.All, i, EMPTY_STIRNG, false);
         }
     }
 
     void ResetJoinRoomPanel()
     {
-        inputCode.textComponent = null;
+        inputCode.textComponent.text = "";
         joinRoomPanel.transform.GetChild(1).GetComponent<Text>().text = null;
     }
 
@@ -186,10 +210,12 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     /// <param name="num"></param>
     /// <param name="name"></param>
     [PunRPC]
-    void ShowPlayers(int num, string name)
+    void ShowPlayers(int num, string name,bool isReady)
     {
         content.transform.GetChild(num).GetComponentInChildren<Text>().text = name;
+        content.transform.GetChild(num).GetChild(1).GetComponent<Toggle>().isOn = isReady;
     }
+
     /// <summary>
     /// 모드 통일화
     /// </summary>
@@ -198,12 +224,41 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     void ChangeModeValue(int num)
     {
         PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMode] = num;
+        photonView.RPC(nameof(ShowMode), RpcTarget.Others, num);
     }
-
+    [PunRPC]
+    void ShowMode(int modeNum)
+    {
+        switch (modeNum)
+        {
+            case 0:
+                txtMode.text = "배틀로얄";
+                break;
+            case 1:
+                txtMode.text = "점령전";
+                break;
+            case 2:
+                txtMode.text = "대학살";
+                break;
+            default:
+                break;
+        }
+    }
     [PunRPC]
     void SetReady(Player player, bool isReady)
     {
         player.CustomProperties[KEY_READY] = isReady;
+        playerList[player.ActorNumber.ToString()] = isReady;
+        int i = 0;
+        foreach (KeyValuePair<string,bool> item in playerList)
+        {
+            if (item.Key == player.ActorNumber.ToString())
+            {
+                break;
+            }
+            i++;
+        }
+        photonView.RPC(nameof(ShowPlayers),RpcTarget.All,i, player.ActorNumber.ToString(), isReady);
     }
     #endregion
 
@@ -220,9 +275,12 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             PlayerEnteredRoom(newPlayer);
-            for (int i = 0; i < playerList.Count; i++)
+            int i = 0;
+            foreach (KeyValuePair<string,bool> item in playerList)
             {
-                photonView.RPC(nameof(ShowPlayers), RpcTarget.Others, i, playerList[i]);
+                photonView.RPC(nameof(ShowPlayers), RpcTarget.Others, i, item.Key,item.Value);
+                Debug.Log(item.Key);
+                i++;
             }
             photonView.RPC(nameof(ChangeModeValue), RpcTarget.All, selectMode.value);
         }
@@ -236,16 +294,17 @@ public class InviteSystem : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        ResetJoinRoomPanel();
         if (PhotonNetwork.IsMasterClient)
         {
             selectMode.gameObject.SetActive(true);
             btnStart.gameObject.SetActive(true);
+            txtMode.gameObject.SetActive(false);
 
             PlayerEnteredRoom(PhotonNetwork.LocalPlayer);
         }
         else
         {
+            txtMode.gameObject.SetActive(true);
             selectMode.gameObject.SetActive(false);
             btnStart.GetComponentInChildren<Text>().text = "준비";
             Hashtable prop = new Hashtable { { KEY_READY, false } };
@@ -269,7 +328,9 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         for (int i = 0; i < MATCH_COUNT_MAX; i++)
         {
             content.GetChild(i).GetComponentInChildren<Text>().text = EMPTY_STIRNG;
+            content.GetChild(i).GetChild(1).GetComponent<Toggle>().isOn = false;
         }
+        isReady = false;
         roomPanel.gameObject.SetActive(false);
         this.gameObject.SetActive(false);
     }

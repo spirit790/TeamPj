@@ -121,13 +121,6 @@ public class Mode : MonoBehaviourPunCallbacks
             photonView.RPC(nameof(RpcCreatePlayer), RpcTarget.AllBufferedViaServer);
     }
 
-    void CreateGhostPlayer()
-    {
-        myPlayerObject = Instantiate(playerPrefab,new Vector3(0,1,0), Quaternion.identity);
-        myPlayerObject.GetComponent<PlayerController>().isGhost = true;
-        Camera.main.GetComponent<FollowCam>().SetCamTarget(myPlayerObject);
-    }
-
     /// <summary>
     /// AI 생성 함수
     /// </summary>
@@ -247,10 +240,6 @@ public class Mode : MonoBehaviourPunCallbacks
     {
         GameManager.Instance.IsDead = true;
         photonView.RPC(nameof(RpcPlayerDie), RpcTarget.All);
-        if (!isGameOver)
-        {
-            CreateGhostPlayer();
-        }
     }
 
     protected virtual void AIDieControl()

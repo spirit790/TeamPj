@@ -6,15 +6,13 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerVfxs : MonoBehaviour
 {
-    [Header("GetStuned")]
     private VolumeProfile postP;
     public LensDistortion distort;
     private ChromaticAberration cAber;
-    private float originInt = 0;
+    private float originInt;
+
     public float maxDistort = 0.7f;
     public float originDistort = 0;
-
-
 
     void Start()
     {
@@ -30,8 +28,7 @@ public class PlayerVfxs : MonoBehaviour
     {
         postP = GameObject.Find("PostProcessing").GetComponent<Volume>().profile;
         postP.TryGet<LensDistortion>(out distort);
-        if (distort == null) yield break; 
-        //originInt = distort.intensity.value;
+        if (distort != null) originInt = distort.intensity.value;
 
         float t = 0;
         //Debug.Log("hi");
@@ -46,7 +43,7 @@ public class PlayerVfxs : MonoBehaviour
 
         while (t >= time * 0.66f && t <= time)
         {
-            distort.intensity.value -= Time.deltaTime * maxDistort * 2 / time;
+            distort.intensity.value -= Time.deltaTime*1f * maxDistort / time;
             t += Time.deltaTime;
 
             if (distort.intensity.value <= 0) break;
@@ -55,6 +52,6 @@ public class PlayerVfxs : MonoBehaviour
         }
 
         //Debug.Log(t);
-        distort.intensity.value = originDistort;
+        distort.intensity.value = originInt;
     }
 }
