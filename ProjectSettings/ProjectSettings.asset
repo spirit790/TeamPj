@@ -254,7 +254,7 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: ProjectH.keystore'
+  AndroidKeystoreName: '{dedicated}: ProjectH.keystore'
   AndroidKeyaliasName: projecth
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
