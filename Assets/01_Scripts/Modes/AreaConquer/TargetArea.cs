@@ -32,8 +32,6 @@ public class TargetArea : MonoBehaviourPun
                     photonView.RPC(nameof(SetOwnerRPC), RpcTarget.All, owner.photonView.ViewID);
                     photonView.RPC(nameof(SetIsOwnerStayRPC), RpcTarget.All, true);
                 }
-                    
-
             }
         }
     }

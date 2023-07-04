@@ -34,7 +34,7 @@ public class WorstOrAIKillerPanel : MonoBehaviourPun
             {
                 killer = GameManager.Instance.GetMostAIKiller();
                 string title = "AI Hater";
-                string kills = killer["PlayerKills"].ToString();
+                string kills = killer["AIKills"].ToString();
                 string nickName = killer["NickName"].ToString();
                 photonView.RPC(nameof(SendResultToClients), RpcTarget.All, title, nickName, kills);
             }
