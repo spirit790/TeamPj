@@ -26,6 +26,7 @@ public class Mode : MonoBehaviourPunCallbacks
     [SerializeField] protected Text txtTimeLimit;
     [SerializeField] protected Text txtWaitStartTime;
     [SerializeField] protected Image loadingPanel;
+    [SerializeField] protected Image resultPanel;
 
     public GameObject myPlayerObject;
     List<GameObject> aiList = new List<GameObject>();
@@ -85,6 +86,9 @@ public class Mode : MonoBehaviourPunCallbacks
         txtWaitStartTime = GameObject.FindGameObjectWithTag("WaitStartTime").GetComponent<Text>();
         // 로딩패널 UI
         loadingPanel = GameObject.FindGameObjectWithTag("Loading").GetComponent<Image>();
+        // 결과창
+        resultPanel = GameObject.FindGameObjectWithTag("Result").GetComponent<Image>();
+        resultPanel.gameObject.SetActive(false);
         GameManager.Instance.startTime = Firebase.Firestore.FieldValue.ServerTimestamp;
         // 이벤트 함수 등록
         AIPattern.OnAIDie += AIDieControl;
@@ -221,6 +225,7 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     protected virtual void GameOver()
     {
+        resultPanel.gameObject.SetActive(true);
         Debug.Log("게임종료");
     }
 
