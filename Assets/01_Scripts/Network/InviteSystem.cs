@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 using Photon.Pun;
 using Photon.Realtime;
 using DG.Tweening;
@@ -48,8 +49,8 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             else
             {
                 btnStart.GetComponentInChildren<Text>().text = "¡ÿ∫Ò";
-                photonView.RPC(nameof(SetReady), RpcTarget.MasterClient, PhotonNetwork.LocalPlayer, isReady);
-
+                if(PhotonNetwork.InRoom)
+                    photonView.RPC(nameof(SetReady), RpcTarget.MasterClient, PhotonNetwork.LocalPlayer, isReady);
             }
         }
     }
@@ -98,7 +99,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     public void JoinRoom()
     {
         this.gameObject.SetActive(true);
-        
+        ResetJoinRoomPanel();
         string roomName = inputCode.textComponent.text;
         PhotonNetwork.JoinRoom(roomName);
     }
@@ -146,17 +147,20 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         photonView.RPC(nameof(ChangeModeValue), RpcTarget.All, selectMode.value);
     }
 
-    public void BtnResetJoinRoomPanel()
-    {
-        ResetJoinRoomPanel();
-    }
     #endregion
 
     #region Invite Method
     void PlayerEnteredRoom(Player player)
     {
         content.transform.GetChild(PhotonNetwork.CurrentRoom.PlayerCount - 1).GetComponentInChildren<Text>().text = player.ActorNumber.ToString();
-        playerList.Add(player.ActorNumber.ToString(),false);
+        Dictionary<string, bool> tempPlayerList = new Dictionary<string, bool>();
+
+        foreach (var item in playerList)
+        {
+            tempPlayerList.Add(item.Key,item.Value);
+        }
+        tempPlayerList.Add(player.ActorNumber.ToString(), false);
+        playerList = tempPlayerList;
     }
 
     void PlayerLeftRoom(Player player)
@@ -164,18 +168,20 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             playerList.Remove(player.ActorNumber.ToString());
+            Debug.Log(playerList.Count);
             int i = 0;
             foreach (KeyValuePair<string,bool> item in playerList)
             {
                 photonView.RPC(nameof(ShowPlayers), RpcTarget.All, i,item.Key,item.Value);
                 i++;
             }
+            photonView.RPC(nameof(ShowPlayers), RpcTarget.All, i, EMPTY_STIRNG, false);
         }
     }
 
     void ResetJoinRoomPanel()
     {
-        inputCode.textComponent.text = null;
+        inputCode.textComponent.text = "";
         joinRoomPanel.transform.GetChild(1).GetComponent<Text>().text = null;
     }
 
@@ -273,6 +279,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             foreach (KeyValuePair<string,bool> item in playerList)
             {
                 photonView.RPC(nameof(ShowPlayers), RpcTarget.Others, i, item.Key,item.Value);
+                Debug.Log(item.Key);
                 i++;
             }
             photonView.RPC(nameof(ChangeModeValue), RpcTarget.All, selectMode.value);
@@ -287,7 +294,6 @@ public class InviteSystem : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        ResetJoinRoomPanel();
         if (PhotonNetwork.IsMasterClient)
         {
             selectMode.gameObject.SetActive(true);
@@ -324,7 +330,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             content.GetChild(i).GetComponentInChildren<Text>().text = EMPTY_STIRNG;
             content.GetChild(i).GetChild(1).GetComponent<Toggle>().isOn = false;
         }
-        ResetJoinRoomPanel();
+        isReady = false;
         roomPanel.gameObject.SetActive(false);
         this.gameObject.SetActive(false);
     }
