@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 97714cfd03897ce4ab965e723d3e4974
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - NanumSquareRoundOTF
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 3207a9492305ef740b35f8911b439e5e, type: 3}
+  - {fileID: 12800000, guid: e00e4303d975718479677ddfb401b318, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
