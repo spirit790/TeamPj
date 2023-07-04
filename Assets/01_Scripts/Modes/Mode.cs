@@ -59,7 +59,7 @@ public class Mode : MonoBehaviourPunCallbacks
             {
                 OnGameOver();
                 AIBehaviourStop(true);
-                GameOver();
+                StartCoroutine(GameOver());
             }
         }
     }
@@ -206,7 +206,7 @@ public class Mode : MonoBehaviourPunCallbacks
         yield return null;
 
         if (IsGameOver)
-            GameOver();
+            StartCoroutine(GameOver());
     }
     /// <summary>
     /// 게임오버 조건 처리
@@ -223,8 +223,10 @@ public class Mode : MonoBehaviourPunCallbacks
     /// <summary>
     /// 게임오버시 호출 및 처리
     /// </summary>
-    protected virtual void GameOver()
+    protected virtual IEnumerator GameOver()
     {
+        yield return new WaitUntil(() => GameManager.Instance.isDataSented);
+
         GameObject panel1 = resultPanel.transform.GetChild(0).gameObject;
         GameObject panel2 = resultPanel.transform.GetChild(1).gameObject;
         GameObject panel3 = resultPanel.transform.GetChild(2).gameObject;
@@ -233,14 +235,14 @@ public class Mode : MonoBehaviourPunCallbacks
         Dictionary<string, object> winner = GameManager.Instance.GetWinner();
         Dictionary<string, object> mastAIKiller = GameManager.Instance.GetMostAIKiller();
 
-        panel1.transform.GetChild(0).GetComponent<Text>().text = mostKiller["NickName"].ToString();
-        panel1.transform.GetChild(1).GetComponent<Text>().text = mostKiller["PlayerKills"].ToString();
+        panel1.transform.GetChild(1).GetComponent<Text>().text = mostKiller["NickName"].ToString();
+        panel1.transform.GetChild(2).GetComponent<Text>().text = mostKiller["PlayerKills"].ToString() + "Kills";
 
-        panel2.transform.GetChild(0).GetComponent<Text>().text = winner["NickName"].ToString();
-        panel2.transform.GetChild(1).GetComponent<Text>().text = winner["PlayerKills"].ToString();
+        panel2.transform.GetChild(1).GetComponent<Text>().text = winner["NickName"].ToString();
+        panel2.transform.GetChild(2).GetComponent<Text>().text = winner["PlayerKills"].ToString() + "Kills";
 
-        panel3.transform.GetChild(0).GetComponent<Text>().text = mastAIKiller["NickName"].ToString();
-        panel3.transform.GetChild(1).GetComponent<Text>().text = mastAIKiller["AIKills"].ToString();
+        panel3.transform.GetChild(1).GetComponent<Text>().text = mastAIKiller["NickName"].ToString();
+        panel3.transform.GetChild(2).GetComponent<Text>().text = mastAIKiller["AIKills"].ToString() + "Kills";
 
         resultPanel.gameObject.SetActive(true);
         Debug.Log("게임종료");
