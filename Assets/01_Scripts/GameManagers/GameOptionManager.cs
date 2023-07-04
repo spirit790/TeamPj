@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
-using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class GameOptionManager : MonoBehaviour
@@ -23,8 +22,9 @@ public class GameOptionManager : MonoBehaviour
     Button quitBtn;
     Button localEngBtn;
     Button localKorBtn;
-    public MapGenerator mapGenerator;
+    MapGenerator mapGenerator;
 
+    public GameObject touchImage;
     public float sfxVol;
     public float bgmVol;
     public int loCalIndex;
@@ -33,7 +33,6 @@ public class GameOptionManager : MonoBehaviour
 
     private void Awake()
     {
-        
         if (instance == null)
         {
             instance = this;
@@ -43,13 +42,9 @@ public class GameOptionManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        
+        SceneManager.sceneLoaded += OnSceneLoaded;        
     }
-    public void Start()
-    {
-        
-    }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         bgmPlayer = GameObject.FindWithTag("BgmPlayer").GetComponent<AudioSource>();
@@ -79,32 +74,31 @@ public class GameOptionManager : MonoBehaviour
         }
 
         if(scene.buildIndex == 2)
-        {
-            Debug.Log("인게임화면");
+        {            
             mapGenerator = GameObject.FindWithTag("MapGen").GetComponent<MapGenerator>();
             if (mapGenerator.concept == 0)
+            {
+                bgmPlayer.clip = bgmClips[1];
+                bgmPlayer.volume = bgmVol;
+                bgmPlayer.loop = true;
+                bgmPlayer.Play();
+                Debug.Log($"{bgmClips[1]}곡을 재생합니다.");
+            }
+            if (mapGenerator.concept == 1)
             {
                 bgmPlayer.clip = bgmClips[2];
                 bgmPlayer.volume = bgmVol;
                 bgmPlayer.loop = true;
                 bgmPlayer.Play();
-                Debug.Log("1번음악");
+                Debug.Log($"{bgmClips[2]}곡을 재생합니다.");
             }
-            if (mapGenerator.concept == 1)
+            if (mapGenerator.concept == 2)
             {
                 bgmPlayer.clip = bgmClips[3];
                 bgmPlayer.volume = bgmVol;
                 bgmPlayer.loop = true;
                 bgmPlayer.Play();
-                Debug.Log("2번음악");
-            }
-            if (mapGenerator.concept == 2)
-            {
-                bgmPlayer.clip = bgmClips[4];
-                bgmPlayer.volume = bgmVol;
-                bgmPlayer.loop = true;
-                bgmPlayer.Play();
-                Debug.Log("3번음악");
+                Debug.Log($"{bgmClips[3]}곡을 재생합니다.");
             }
         }
     }
@@ -112,6 +106,11 @@ public class GameOptionManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            OnTouchBegan();
+            TouchImage();
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             optionPanel.SetActive(true);
@@ -219,10 +218,13 @@ public class GameOptionManager : MonoBehaviour
     {
         this.sfxVol = sfxVol;        
     }
+
+
+
     /// <summary>
     /// 확률적 터치소리변경
     /// </summary>
-    private void OnMouseDown()
+    private void OnTouchBegan()
     {
         int randomSfx = Random.Range(0, 100);
 
@@ -230,14 +232,14 @@ public class GameOptionManager : MonoBehaviour
         {
             PlaySfxSound("Touch", transform.position, sfxVol);
         }
-        else if(randomSfx >=50 && randomSfx <=80)
+        else if (randomSfx > 50 && randomSfx <= 80)
         {
             PlaySfxSound("Touch1", transform.position, sfxVol);
         }
-        else if(randomSfx > 80)
+        else if (randomSfx > 80)
         {
             PlaySfxSound("Touch2", transform.position, sfxVol);
-        }        
+        }
     }
     #endregion
 
@@ -262,6 +264,12 @@ public class GameOptionManager : MonoBehaviour
         ChangeLocale(loCalIndex);
     }
     #endregion
+
+    void TouchImage()
+    {
+        Vector3 touchPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+        Instantiate(touchImage, touchPos, Quaternion.identity);
+    }
 
     public void CloseOptionPanelBtn()
     {
