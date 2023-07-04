@@ -75,7 +75,7 @@ public class MatchSystem : MonoBehaviourPunCallbacks
     Coroutine waitCoroutine;
 
     #region Match Method
-    private void Match()
+    public void Match()
     {
         if (PhotonNetwork.IsConnectedAndReady && !IsMatching)
             IsMatching = true;
