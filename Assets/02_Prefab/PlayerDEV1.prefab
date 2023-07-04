@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8841780485427617570}
   - component: {fileID: -6400907249197992670}
   - component: {fileID: -7409390322018542932}
+  - component: {fileID: 4893870269194561860}
   m_Layer: 0
   m_Name: PlayerDEV1
   m_TagString: Player
@@ -50,11 +51,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3044aeb9126c94ea08349535c11df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
   moveSpeed: 0
   normalSpeed: 3
   dashSpeed: 5
   roteSpeed: 5
+  stunTime: 0
+  isGhost: 0
+  isDeadZoneStarted: 0
 --- !u!114 &1771760296972148195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +151,23 @@ MonoBehaviour:
   - {fileID: 2866181471422668051, guid: cbd6538232876e5438b57add8e8311c6, type: 3}
   modelNum: 0
   isFixed: 1
+  modelSize: 2
   yOffset: 0.5
+--- !u!114 &4893870269194561860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7591189770289149691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b82bd1724e2ef524cbae6cf6b90344c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radarMaskNum: 6
+  radarTime: 2
+  radarRange: 5
 --- !u!1001 &9011106576124582709
 PrefabInstance:
   m_ObjectHideFlags: 0
