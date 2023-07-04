@@ -6088,10 +6088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b7468c87e03564f8acf3ad6ca65585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isModelFixed: 1
-  modelColor: 1
-  isWeaponFixed: 0
-  weaponColor: 1
   model: {fileID: 269830877}
   modelsMatter:
   - {fileID: 2100000, guid: fda27def7d845f34dbd2e4692c8f45fa, type: 2}
@@ -6687,10 +6683,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b7468c87e03564f8acf3ad6ca65585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isModelFixed: 1
-  modelColor: 1
-  isWeaponFixed: 0
-  weaponColor: 1
   model: {fileID: 83281270}
   modelsMatter:
   - {fileID: 2100000, guid: fda27def7d845f34dbd2e4692c8f45fa, type: 2}
@@ -8206,7 +8198,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 97714cfd03897ce4ab965e723d3e4974, type: 3}
+    m_Font: {fileID: 12800000, guid: 360c8b79ae665ff4f9142accf4fa7926, type: 3}
     m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 0
@@ -14233,7 +14225,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 97714cfd03897ce4ab965e723d3e4974, type: 3}
+    m_Font: {fileID: 12800000, guid: 360c8b79ae665ff4f9142accf4fa7926, type: 3}
     m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 1
@@ -15626,10 +15618,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b7468c87e03564f8acf3ad6ca65585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isModelFixed: 1
-  modelColor: 1
-  isWeaponFixed: 0
-  weaponColor: 1
   model: {fileID: 1766894928}
   modelsMatter:
   - {fileID: 2100000, guid: fda27def7d845f34dbd2e4692c8f45fa, type: 2}
@@ -19133,8 +19121,9 @@ MonoBehaviour:
   btnStart: {fileID: 1873005084}
   inputCode: {fileID: 1856189005}
   selectMode: {fileID: 978725677}
+  txtMode: {fileID: 0}
+  txtStartFail: {fileID: 0}
   content: {fileID: 1182881695}
-  playerList: []
   isDebug: 1
 --- !u!4 &1456628261
 Transform:
@@ -23127,7 +23116,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 97714cfd03897ce4ab965e723d3e4974, type: 3}
+    m_Font: {fileID: 12800000, guid: 360c8b79ae665ff4f9142accf4fa7926, type: 3}
     m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 0
@@ -25177,10 +25166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b7468c87e03564f8acf3ad6ca65585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isModelFixed: 1
-  modelColor: 1
-  isWeaponFixed: 0
-  weaponColor: 1
   model: {fileID: 1214664580}
   modelsMatter:
   - {fileID: 2100000, guid: fda27def7d845f34dbd2e4692c8f45fa, type: 2}
@@ -26052,7 +26037,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 97714cfd03897ce4ab965e723d3e4974, type: 3}
+    m_Font: {fileID: 12800000, guid: 360c8b79ae665ff4f9142accf4fa7926, type: 3}
     m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 0
@@ -29713,10 +29698,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b7468c87e03564f8acf3ad6ca65585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isModelFixed: 0
-  modelColor: 1
-  isWeaponFixed: 1
-  weaponColor: 1
   model: {fileID: 6084155086782586780}
   modelsMatter:
   - {fileID: 2100000, guid: fda27def7d845f34dbd2e4692c8f45fa, type: 2}
