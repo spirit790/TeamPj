@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Linq;
 using Photon.Pun;
 using Photon.Realtime;
 using DG.Tweening;
@@ -71,26 +70,33 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     public void CreateRoom()
     {
         this.gameObject.SetActive(true);
-        isDebug = true;
-        string roomName = "";
-        if (isDebug)
+        if (GameManager.Instance.isReInvite)
         {
-            roomName = randomWords[Random.Range(0, this.randomWords.Length)].ToString();
+            roomPanel.gameObject.SetActive(true);
         }
         else
         {
-            string[] userId = PhotonNetwork.LocalPlayer.UserId.Split("-");
-            string randomWord = this.randomWords[Random.Range(0, this.randomWords.Length)].ToString() + this.randomWords[Random.Range(0, this.randomWords.Length)].ToString();
-            roomName = userId[1] + randomWord;
-        }
-        RoomOptions roomOption = new RoomOptions();
-        int randomMap = Random.Range(0, 3);
-        Hashtable roomProp = new Hashtable { { GameManager.Instance.KeyMap, randomMap }, { GameManager.Instance.KeyMode, 0 }, { GameManager.Instance.KeySystem, 1} };
-        roomOption.CustomRoomProperties = roomProp;
-        roomOption.MaxPlayers = MATCH_COUNT_MAX;
-        roomOption.IsVisible = false;
+            isDebug = true;
+            string roomName = "";
+            if (isDebug)
+            {
+                roomName = randomWords[Random.Range(0, this.randomWords.Length)].ToString();
+            }
+            else
+            {
+                string[] userId = PhotonNetwork.LocalPlayer.UserId.Split("-");
+                string randomWord = this.randomWords[Random.Range(0, this.randomWords.Length)].ToString() + this.randomWords[Random.Range(0, this.randomWords.Length)].ToString();
+                roomName = userId[1] + randomWord;
+            }
+            RoomOptions roomOption = new RoomOptions();
+            int randomMap = Random.Range(0, 3);
+            Hashtable roomProp = new Hashtable { { GameManager.Instance.KeyMap, randomMap }, { GameManager.Instance.KeyMode, 0 }, { GameManager.Instance.KeySystem, 1 } };
+            roomOption.CustomRoomProperties = roomProp;
+            roomOption.MaxPlayers = MATCH_COUNT_MAX;
+            roomOption.IsVisible = false;
 
-        PhotonNetwork.CreateRoom(roomName,roomOption);
+            PhotonNetwork.CreateRoom(roomName, roomOption);
+        }
     }
 
     /// <summary>
@@ -99,6 +105,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     public void JoinRoom()
     {
         this.gameObject.SetActive(true);
+        joinRoomPanel.gameObject.SetActive(true);
         ResetJoinRoomPanel();
         string roomName = inputCode.textComponent.text;
         PhotonNetwork.JoinRoom(roomName);

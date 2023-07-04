@@ -7,7 +7,7 @@ using Photon.Realtime;
 public class ModeDeathMatch : Mode
 {
     int targetKill;
-    int targetKillRatio = 3;
+    int targetKillRatio = 2;
     public override void GameStart()
     {
         base.GameStart();

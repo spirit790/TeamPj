@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     // 플레이어 생성된 클라이언트 갯수
     public int createPlayercount;
     public bool isDataSented;
+    public bool isReMatch;
+    public bool isReInvite;
 
     /// <summary>
     /// 멀티플레이 넘겨받은 플레이어 수
@@ -150,7 +152,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 if (PhotonNetwork.IsMasterClient)
                 {
                     SendData();
-                    photonView.RPC(nameof(isDataSented), RpcTarget.All);
+                    photonView.RPC(nameof(RpcIsDataSented), RpcTarget.All);
                     OnDataSent();
                 }
             }
@@ -194,12 +196,29 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if(scene.buildIndex == 1)
+        {
+            // 초기화해야 할 값들 초기화
+            mapGenerateCount = 0;
+            createPlayercount = 0;
+            isDataSented = false;
+            IsWin = false;
+            IsDead = false;
+            PlayerCount = 0;
+            PlayersLeft = 0;
+            aiKills = 0;
+            playerKills = 0;
+            death = 0;
+            DataCount = 0;
+        }
         // 게임 시작 단계에서 모드 정해지고 실행되도록, game scene에서 실행되도록
         // scene 순서는 추후 구현하면서 변경 및 확정하도록 함
 
         // 매치시작시 모드 선택,맵 생성
         if(scene.buildIndex == 2)
         {
+            isReInvite = false;
+            isReMatch = false;
             //resultPanel = GameObject.FindGameObjectWithTag("Result");
             //resultPanel.SetActive(false);
             playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
