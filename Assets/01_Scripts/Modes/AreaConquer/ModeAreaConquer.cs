@@ -22,6 +22,11 @@ public class ModeAreaConquer : Mode
     }
     public MapGenerator mapGen;
     public TargetArea area;
+    [PunRPC]
+    void SetTimeLimit()
+    {
+        timeLimit = areaTimeLimit;
+    }
     private void Start()
     {
         mapGen = GameObject.FindGameObjectWithTag("MapGen").GetComponent<MapGenerator>();
