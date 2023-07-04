@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
-public class TargetArea : MonoBehaviourPun
+public class TargetArea : MonoBehaviour
 {
     public bool isOwnerStay = false;
     public List<GameObject> stayColliders = new List<GameObject>();
@@ -17,47 +16,37 @@ public class TargetArea : MonoBehaviourPun
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            stayColliders.Add(other.gameObject);
 
-            if (modeArea.AreaOwner == null)
+            if (!isOwnerStay)
             {
-                PlayerController owner = other.gameObject.GetComponentInParent<PlayerController>();
-                photonView.RPC(nameof(SetOwnerRPC), RpcTarget.All, owner.photonView.ViewID);
-                photonView.RPC(nameof(SetIsOwnerStayRPC), RpcTarget.All, true);
+                if (modeArea.AreaOwner == null)
+                    modeArea.AreaOwner = other.GetComponentInParent<PlayerController>();
+                else if (modeArea.AreaOwner.gameObject != other.gameObject)
+                    modeArea.AreaOwner = other.GetComponentInParent<PlayerController>();
             }
-            else
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            foreach (var collider in stayColliders)
             {
-                PlayerController owner = other.gameObject.GetComponentInParent<PlayerController>();
-                if (!isOwnerStay && modeArea.AreaOwner != owner)
+                if (collider == modeArea.AreaOwner)
                 {
-                    photonView.RPC(nameof(SetOwnerRPC), RpcTarget.All, owner.photonView.ViewID);
-                    photonView.RPC(nameof(SetIsOwnerStayRPC), RpcTarget.All, true);
-                }
-                    
-
+                    isOwnerStay = true;
+                    return;
+                }                
             }
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        stayColliders.Remove(other.gameObject);
+        if(other.gameObject == modeArea.AreaOwner)
         {
-            if (other.gameObject.GetComponentInParent<PlayerController>() == modeArea.AreaOwner)
-            {
-                Debug.Log("OWNER EXIT");
-                photonView.RPC(nameof(SetIsOwnerStayRPC), RpcTarget.All, false);
-            }
+            isOwnerStay = false;
         }
-
-    }
-
-    [PunRPC]
-    void SetIsOwnerStayRPC(bool isOwnerStay)
-    {
-        this.isOwnerStay = isOwnerStay;
-    }
-    [PunRPC]
-    void SetOwnerRPC(int ownerViewID)
-    {
-        modeArea.AreaOwner = PhotonView.Find(ownerViewID).gameObject.GetComponent<PlayerController>();
     }
 }

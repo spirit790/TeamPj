@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviourPun
         }
     }
 
-    public bool isGhost = false;
     public bool isDeadZoneStarted = false;
     // Player ?¨Îßù ?¥Î≤§??
     public delegate void PlayerDie(PlayerController player);
@@ -66,17 +65,12 @@ public class PlayerController : MonoBehaviourPun
             attackBtn.onClick.AddListener(OnClickAtk);
             anim = GetComponent<CharacterAnimation>();
             PlayerAttack.OnAIKill += Stun;
-            if (isGhost)
-            {
-                dashBtn.gameObject.SetActive(false);
-                attackBtn.gameObject.SetActive(false);
-            }
         }
     }
 
     void Update()
     {
-        if (!photonView.IsMine || IsDead || isStun || isAttack)
+        if (!photonView.IsMine || isDead || isStun || isAttack)
             return;
 #if UNITY_ANDROID
         dir = PlayerJoyStickMove();

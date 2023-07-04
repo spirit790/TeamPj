@@ -6,23 +6,33 @@ using Photon.Realtime;
 
 public class ModeDeathMatch : Mode
 {
+    int targetKill;
+    int targetKillRatio = 3;
     public override void GameStart()
     {
         base.GameStart();
+        targetKill = playerCount * targetKillRatio;
     }
 
     protected override void GameOverControl()
     {
         base.GameOverControl();
+        txtTimeLimit.text = targetKill.ToString();
+        txtTimeLimit.text += "\n" + GameManager.Instance.playerKills;
     }
 
     protected override void GameOver()
     {
-        base.GameOver();
-        Dictionary<string,object> winner = GameManager.Instance.GetMostPlayerKiller();
-        if(GameManager.Instance.playerKills == int.Parse(winner["PlayerKills"].ToString()))
+        
+    }
+
+    protected override void PlayerKillControl()
+    {
+        base.PlayerKillControl();
+        if (targetKill == GameManager.Instance.playerKills)
         {
             GameManager.Instance.IsWin = true;
+            photonView.RPC(nameof(PunGameOver), RpcTarget.All);
         }
     }
 
@@ -43,4 +53,9 @@ public class ModeDeathMatch : Mode
             SpawnAI();
     }
 
+    [PunRPC]
+    void PunGameOver()
+    {
+        isGameOver = true;
+    }
 }
