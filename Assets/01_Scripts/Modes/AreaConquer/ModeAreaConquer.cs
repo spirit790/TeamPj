@@ -6,7 +6,7 @@ using Photon.Pun;
 public class ModeAreaConquer : Mode
 {
     private float areaTimeLimit = 15f;
-    private PlayerController areaOwner;
+    public PlayerController areaOwner;
     public PlayerController AreaOwner
     {
         get
@@ -26,7 +26,7 @@ public class ModeAreaConquer : Mode
     {
         mapGen = GameObject.FindGameObjectWithTag("MapGen").GetComponent<MapGenerator>();
         if (PhotonNetwork.IsMasterClient)
-            PhotonNetwork.InstantiateRoomObject(area.name, mapGen.areaZonePos, Quaternion.identity);
+            PhotonNetwork.InstantiateRoomObject(area.name, mapGen.areaZonePos + Vector3.up, Quaternion.identity);
     }
     public override void GameStart()
     {
