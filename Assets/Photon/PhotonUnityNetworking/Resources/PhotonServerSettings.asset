@@ -71,6 +71,9 @@ MonoBehaviour:
   - KillPlyaer
   - SendConceptIndex
   - SetReady
+  - PunGameOver
+  - InstantiateHitEffect
+  - ShowMode
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

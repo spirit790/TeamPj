@@ -59,6 +59,7 @@ public class PlayerAttack : MonoBehaviourPun
         {
             Debug.Log("AI Kill");
             OnAIKill();
+            photonView.RPC(nameof(InstantiateHitEffect), RpcTarget.MasterClient, targets[0].position);
             int viewId = targets[0].transform.parent.gameObject.GetPhotonView().ViewID;
             photonView.RPC(nameof(KillAI), RpcTarget.MasterClient, viewId);
         }
@@ -66,13 +67,19 @@ public class PlayerAttack : MonoBehaviourPun
         {
             Debug.Log("Player Kill");
             OnPlayerKill();
+            photonView.RPC(nameof(InstantiateHitEffect), RpcTarget.MasterClient, targets[0].position);
             int viewId = targets[0].transform.parent.gameObject.GetPhotonView().ViewID;
             photonView.RPC(nameof(KillPlyaer), RpcTarget.All, viewId);
         }
 
-        Instantiate(hitEffect, targets[0].position, Quaternion.identity);
 
         targets.Clear();
+    }
+
+    [PunRPC]
+    void InstantiateHitEffect(Vector3 pos)
+    {
+        PhotonNetwork.InstantiateRoomObject(hitEffect.name, pos, Quaternion.identity);
     }
 
     [PunRPC]
