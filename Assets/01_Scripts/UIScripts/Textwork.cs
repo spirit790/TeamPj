@@ -8,20 +8,20 @@ using DG.Tweening;
 
 public class Textwork : MonoBehaviour
 {
-    private static Textwork instance = null;
+    //private static Textwork instance = null;
 
-    void Awake()
-    {
-        if (null == instance)
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
+    //void Awake()
+    //{
+    //    if (null == instance)
+    //    {
+    //        instance = this;
+    //        DontDestroyOnLoad(this.gameObject);
+    //    }
+    //    else
+    //    {
+    //        Destroy(this.gameObject);
+    //    }
+    //}
 
     public TMP_FontAsset font;
     public Canvas mainCanvas;
