@@ -23,7 +23,7 @@ public class GameOptionManager : MonoBehaviour
     Button quitBtn;
     Button localEngBtn;
     Button localKorBtn;
-    MapGenerator mapGenerator;
+    public MapGenerator mapGenerator;
 
     public float sfxVol;
     public float bgmVol;
@@ -77,29 +77,34 @@ public class GameOptionManager : MonoBehaviour
             bgmPlayer.loop = true;
             bgmPlayer.Play();
         }
+
         if(scene.buildIndex == 2)
         {
+            Debug.Log("¿Œ∞‘¿”»≠∏È");
             mapGenerator = GameObject.FindWithTag("MapGen").GetComponent<MapGenerator>();
-            if (mapGenerator.concept == 1)
-            {
-                bgmPlayer.clip = bgmClips[0];
-                bgmPlayer.volume = bgmVol;
-                bgmPlayer.loop = true;
-                bgmPlayer.Play();
-            }
-            if (mapGenerator.concept == 2)
-            {
-                bgmPlayer.clip = bgmClips[1];
-                bgmPlayer.volume = bgmVol;
-                bgmPlayer.loop = true;
-                bgmPlayer.Play();
-            }
-            if (mapGenerator.concept == 3)
+            if (mapGenerator.concept == 0)
             {
                 bgmPlayer.clip = bgmClips[2];
                 bgmPlayer.volume = bgmVol;
                 bgmPlayer.loop = true;
                 bgmPlayer.Play();
+                Debug.Log("1π¯¿Ωæ«");
+            }
+            if (mapGenerator.concept == 1)
+            {
+                bgmPlayer.clip = bgmClips[3];
+                bgmPlayer.volume = bgmVol;
+                bgmPlayer.loop = true;
+                bgmPlayer.Play();
+                Debug.Log("2π¯¿Ωæ«");
+            }
+            if (mapGenerator.concept == 2)
+            {
+                bgmPlayer.clip = bgmClips[4];
+                bgmPlayer.volume = bgmVol;
+                bgmPlayer.loop = true;
+                bgmPlayer.Play();
+                Debug.Log("3π¯¿Ωæ«");
             }
         }
     }
