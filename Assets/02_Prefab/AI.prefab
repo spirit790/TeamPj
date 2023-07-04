@@ -3179,7 +3179,7 @@ MonoBehaviour:
     SynchronizeType: 0
     Name: Attack
   - Type: 9
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: Dead
   - Type: 4
     SynchronizeType: 0
