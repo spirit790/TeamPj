@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int mapGenerateCount;
     // 플레이어 생성된 클라이언트 갯수
     public int createPlayercount;
+    public bool isDataSented;
 
     /// <summary>
     /// 멀티플레이 넘겨받은 플레이어 수
@@ -149,7 +150,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 if (PhotonNetwork.IsMasterClient)
                 {
                     SendData();
-
+                    photonView.RPC(nameof(isDataSented), RpcTarget.All);
                     OnDataSent();
                 }
             }
@@ -169,7 +170,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         resultPanel.SetActive(true);
     }
-
+    [PunRPC]
+    void RpcIsDataSented()
+    {
+        isDataSented = true;
+    }
     private void Awake()
     {
         if (instance == null)

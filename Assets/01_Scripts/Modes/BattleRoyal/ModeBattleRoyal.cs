@@ -32,11 +32,6 @@ public class ModeBattleRoyal : Mode
     {
         base.GameOverControl();
     }
-
-    protected override void GameOver()
-    {
-        base.GameOver();
-    }
     public void DeSpawnAI()
     {
         
