@@ -740,8 +740,8 @@ extern void Mode_RpcCreatePlayer_m0C015705E6E40620302142FCF11AB4F76E843633 (void
 extern void Mode_RpcSetPlayerName_m456B8B789DA1747E879444EBDA4E1838FF67E03D (void);
 // 0x0000016C System.Void Mode::.ctor()
 extern void Mode__ctor_mABF17A20C591CF8BC2D00A41D869E1A1329ED644 (void);
-// 0x0000016D System.Boolean Mode::<GamePlaying>b__33_2()
-extern void Mode_U3CGamePlayingU3Eb__33_2_mBA12958E2A793271F9CD6C4E1E22477476F08CF7 (void);
+// 0x0000016D System.Boolean Mode::<GamePlaying>b__34_2()
+extern void Mode_U3CGamePlayingU3Eb__34_2_m43BF2EA0EFB02C429691E8EFE102324ED5635098 (void);
 // 0x0000016E System.Void Mode/GameOverEvent::.ctor(System.Object,System.IntPtr)
 extern void GameOverEvent__ctor_m5B9C77454D1ED1ECD5FEE69539D805BE4FCF1845 (void);
 // 0x0000016F System.Void Mode/GameOverEvent::Invoke()
@@ -754,22 +754,22 @@ extern void GameOverEvent_EndInvoke_mFDCB2FBE759BFF2FCE9CBA79770A4A69413B0F90 (v
 extern void U3CU3Ec__cctor_mEA5D3A65D34A7DC077C9A860F8473B2BA50D56E6 (void);
 // 0x00000173 System.Void Mode/<>c::.ctor()
 extern void U3CU3Ec__ctor_m715B667A90CE98739F53EABAFAA32A47529ADAD8 (void);
-// 0x00000174 System.Boolean Mode/<>c::<GamePlaying>b__33_0()
-extern void U3CU3Ec_U3CGamePlayingU3Eb__33_0_m1896D339E60112E431BB9A0B6D3F9545944DCAC4 (void);
-// 0x00000175 System.Boolean Mode/<>c::<GamePlaying>b__33_1()
-extern void U3CU3Ec_U3CGamePlayingU3Eb__33_1_m5393B8D9702CCF75E5274345C6B74C3BAEB8DB93 (void);
-// 0x00000176 System.Void Mode/<GamePlaying>d__33::.ctor(System.Int32)
-extern void U3CGamePlayingU3Ed__33__ctor_m79BF2A3C5DF0483AE5D56A356C1EB8B8C0D98F7C (void);
-// 0x00000177 System.Void Mode/<GamePlaying>d__33::System.IDisposable.Dispose()
-extern void U3CGamePlayingU3Ed__33_System_IDisposable_Dispose_m98F44E4D7787668B570017E5097A1FE2ED4D0711 (void);
-// 0x00000178 System.Boolean Mode/<GamePlaying>d__33::MoveNext()
-extern void U3CGamePlayingU3Ed__33_MoveNext_m23C3216A31BBA7AA066DE62C4F89C716233A7416 (void);
-// 0x00000179 System.Object Mode/<GamePlaying>d__33::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
-extern void U3CGamePlayingU3Ed__33_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m8D337B8B3BA73D7D4540F2B96DB01A0AA2AA2924 (void);
-// 0x0000017A System.Void Mode/<GamePlaying>d__33::System.Collections.IEnumerator.Reset()
-extern void U3CGamePlayingU3Ed__33_System_Collections_IEnumerator_Reset_mA7A3C082833486176D82C5BBEA9979E671EAAFC7 (void);
-// 0x0000017B System.Object Mode/<GamePlaying>d__33::System.Collections.IEnumerator.get_Current()
-extern void U3CGamePlayingU3Ed__33_System_Collections_IEnumerator_get_Current_mE3AC87945390910C3C33A60BD01B76EEB675D0F1 (void);
+// 0x00000174 System.Boolean Mode/<>c::<GamePlaying>b__34_0()
+extern void U3CU3Ec_U3CGamePlayingU3Eb__34_0_m294EFA42EA089C04E8F2EC102ACFE6BA7C7298EE (void);
+// 0x00000175 System.Boolean Mode/<>c::<GamePlaying>b__34_1()
+extern void U3CU3Ec_U3CGamePlayingU3Eb__34_1_mAD4AB6E769C35A3A7D22B59547A6DBF85717B678 (void);
+// 0x00000176 System.Void Mode/<GamePlaying>d__34::.ctor(System.Int32)
+extern void U3CGamePlayingU3Ed__34__ctor_m96F0539C001035172FB8887A954D4941D2239465 (void);
+// 0x00000177 System.Void Mode/<GamePlaying>d__34::System.IDisposable.Dispose()
+extern void U3CGamePlayingU3Ed__34_System_IDisposable_Dispose_mF6D18782C64D06933898BCC22FEA6DE83157B3C2 (void);
+// 0x00000178 System.Boolean Mode/<GamePlaying>d__34::MoveNext()
+extern void U3CGamePlayingU3Ed__34_MoveNext_mBC71E04205FFB526F4CBEA23EC5E0551049BF7E9 (void);
+// 0x00000179 System.Object Mode/<GamePlaying>d__34::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+extern void U3CGamePlayingU3Ed__34_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m49FDB28B3AB81BD95CE1F8FDDB0C82468545BE00 (void);
+// 0x0000017A System.Void Mode/<GamePlaying>d__34::System.Collections.IEnumerator.Reset()
+extern void U3CGamePlayingU3Ed__34_System_Collections_IEnumerator_Reset_m7136F03A850F3C49255B55DC5C6A66CA3D291803 (void);
+// 0x0000017B System.Object Mode/<GamePlaying>d__34::System.Collections.IEnumerator.get_Current()
+extern void U3CGamePlayingU3Ed__34_System_Collections_IEnumerator_get_Current_m945CA940AE41160A15D95280629D85EBD2C23806 (void);
 // 0x0000017C System.Boolean InviteSystem::get_IsReady()
 extern void InviteSystem_get_IsReady_mC74F6F460903AB23057FE0F3B9123260491A2AD6 (void);
 // 0x0000017D System.Void InviteSystem::set_IsReady(System.Boolean)
@@ -4484,21 +4484,21 @@ static Il2CppMethodPointer s_methodPointers[2136] =
 	Mode_RpcCreatePlayer_m0C015705E6E40620302142FCF11AB4F76E843633,
 	Mode_RpcSetPlayerName_m456B8B789DA1747E879444EBDA4E1838FF67E03D,
 	Mode__ctor_mABF17A20C591CF8BC2D00A41D869E1A1329ED644,
-	Mode_U3CGamePlayingU3Eb__33_2_mBA12958E2A793271F9CD6C4E1E22477476F08CF7,
+	Mode_U3CGamePlayingU3Eb__34_2_m43BF2EA0EFB02C429691E8EFE102324ED5635098,
 	GameOverEvent__ctor_m5B9C77454D1ED1ECD5FEE69539D805BE4FCF1845,
 	GameOverEvent_Invoke_mAE6F3F9C6E77A9F912519E11FB2DC9CCFA7DA9DF,
 	GameOverEvent_BeginInvoke_mF64532FF52D64D1E9F0B4E24DC7FEDB9766A82B1,
 	GameOverEvent_EndInvoke_mFDCB2FBE759BFF2FCE9CBA79770A4A69413B0F90,
 	U3CU3Ec__cctor_mEA5D3A65D34A7DC077C9A860F8473B2BA50D56E6,
 	U3CU3Ec__ctor_m715B667A90CE98739F53EABAFAA32A47529ADAD8,
-	U3CU3Ec_U3CGamePlayingU3Eb__33_0_m1896D339E60112E431BB9A0B6D3F9545944DCAC4,
-	U3CU3Ec_U3CGamePlayingU3Eb__33_1_m5393B8D9702CCF75E5274345C6B74C3BAEB8DB93,
-	U3CGamePlayingU3Ed__33__ctor_m79BF2A3C5DF0483AE5D56A356C1EB8B8C0D98F7C,
-	U3CGamePlayingU3Ed__33_System_IDisposable_Dispose_m98F44E4D7787668B570017E5097A1FE2ED4D0711,
-	U3CGamePlayingU3Ed__33_MoveNext_m23C3216A31BBA7AA066DE62C4F89C716233A7416,
-	U3CGamePlayingU3Ed__33_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m8D337B8B3BA73D7D4540F2B96DB01A0AA2AA2924,
-	U3CGamePlayingU3Ed__33_System_Collections_IEnumerator_Reset_mA7A3C082833486176D82C5BBEA9979E671EAAFC7,
-	U3CGamePlayingU3Ed__33_System_Collections_IEnumerator_get_Current_mE3AC87945390910C3C33A60BD01B76EEB675D0F1,
+	U3CU3Ec_U3CGamePlayingU3Eb__34_0_m294EFA42EA089C04E8F2EC102ACFE6BA7C7298EE,
+	U3CU3Ec_U3CGamePlayingU3Eb__34_1_mAD4AB6E769C35A3A7D22B59547A6DBF85717B678,
+	U3CGamePlayingU3Ed__34__ctor_m96F0539C001035172FB8887A954D4941D2239465,
+	U3CGamePlayingU3Ed__34_System_IDisposable_Dispose_mF6D18782C64D06933898BCC22FEA6DE83157B3C2,
+	U3CGamePlayingU3Ed__34_MoveNext_mBC71E04205FFB526F4CBEA23EC5E0551049BF7E9,
+	U3CGamePlayingU3Ed__34_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m49FDB28B3AB81BD95CE1F8FDDB0C82468545BE00,
+	U3CGamePlayingU3Ed__34_System_Collections_IEnumerator_Reset_m7136F03A850F3C49255B55DC5C6A66CA3D291803,
+	U3CGamePlayingU3Ed__34_System_Collections_IEnumerator_get_Current_m945CA940AE41160A15D95280629D85EBD2C23806,
 	InviteSystem_get_IsReady_mC74F6F460903AB23057FE0F3B9123260491A2AD6,
 	InviteSystem_set_IsReady_m0195BCC16823422111DA48E66291FBA7BA500EB3,
 	InviteSystem_Start_m2B5B4F1849D10EE7EE226A342FC0FF53F682A4E1,
