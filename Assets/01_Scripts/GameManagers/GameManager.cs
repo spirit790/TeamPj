@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             isWin = value;
             if (isWin)
             {
-                photonView.RPC(nameof(ShowPanel), RpcTarget.All);
+                //photonView.RPC(nameof(ShowPanel), RpcTarget.All);
                 //resultPanel.SetActive(true);
             }
         }
