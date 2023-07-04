@@ -11,9 +11,18 @@ public class CharacterAnimation : MonoBehaviour
     public float speed;
     public float speedRatio = 0.1f;
 
+    // 애니메이션 시간 정보
     float atk1;
+    float atk2;
     float atk3;
     float die1;
+
+    // 애니메이터 파라미터 이름
+    const string PARAM_MOVE = "Move";
+    const string PARAM_STUN = "Stun";
+    const string PARAM_ATTACK = "Attack";
+    const string PARAM_ATTACK_COIN = "AttackCoin";
+    const string PARAM_DEAD = "Dead";
 
     private void Start()
     {
@@ -29,6 +38,9 @@ public class CharacterAnimation : MonoBehaviour
                 {
                     case "ATK1":
                         atk1 = clip.length;
+                        break;
+                    case "ATK2":
+                        atk2 = clip.length;
                         break;
                     case "ATK3":
                         atk3 = clip.length;
@@ -47,43 +59,47 @@ public class CharacterAnimation : MonoBehaviour
         if(characterAgent.speed >= speed)
         {
             speed += speedRatio;
-            characterAnim.SetFloat("Move", speed);
+            characterAnim.SetFloat(PARAM_MOVE, speed);
         }
         else if(speed >= 0)
         {
             speed -= speedRatio;
-            characterAnim.SetFloat("Move", speed);
+            characterAnim.SetFloat(PARAM_MOVE, speed);
         }
     }
 
     public void SetStunAnim(bool isStun)
     {
-        characterAnim.SetBool("Stun", isStun);
+        characterAnim.SetBool(PARAM_STUN, isStun);
     }
 
     public float[] SetAttackAnim(bool isAttack)
     {
-        float attackCoin = Random.Range(0, 1f);
-        characterAnim.SetFloat("AttackCoin", attackCoin);
-        characterAnim.SetBool("Attack", isAttack);
+        int attackCoin = Random.Range(0, 3);
+        characterAnim.SetInteger(PARAM_ATTACK_COIN, attackCoin);
+        characterAnim.SetBool(PARAM_ATTACK, isAttack);
         float[] times = new float[2];
-        if (attackCoin > 0.5f)
+        if (attackCoin == 0)
         {
             times[0] = 0.208f;
             times[1] = atk1 - times[0];
-            return times;
         }
-        else
+        else if(attackCoin == 1)
+        {
+            times[0] = 0.208f;
+            times[1] = atk2 - times[0];
+        }
+        else if(attackCoin == 2)
         {
             times[0] = 0.5f;
             times[1] = atk3 - times[0];
-            return times;
         }
+        return times;
     }
     public float SetDeadAnim()
     {
         characterAgent.speed = 0;
-        characterAnim.SetTrigger("Dead");
+        characterAnim.SetTrigger(PARAM_DEAD);
         GetComponentInChildren<BoxCollider>().enabled = false;
 
         return die1;
