@@ -36,9 +36,9 @@ public class MainThemeChanger : MonoBehaviour
 
     private void SetMainTheme()
     {
-        int dice = RollDice();
-        postP.profile = postP_Profiles[dice];
-        RenderSettings.skybox = skyMatters[dice];
+        int diceA = RollDice();
+        postP.profile = postP_Profiles[diceA];
+        RenderSettings.skybox = skyMatters[diceA];
 
         DynamicGI.UpdateEnvironment();
 
@@ -47,7 +47,9 @@ public class MainThemeChanger : MonoBehaviour
             mainThemes[i].SetActive(false);
         }
 
-        mainThemes[dice].SetActive(true);
+        int diceB = RollDice();
+
+        mainThemes[diceB].SetActive(true);
     }
 
     private int RollDice()
