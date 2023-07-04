@@ -1414,23 +1414,23 @@ MonoBehaviour:
   concept: 0
   groundPrefabs:
   - {fileID: 417327825634208128, guid: 65f8c7a567edca04d84ff9ceed23c40f, type: 3}
-  - {fileID: 6379126440195082914, guid: ce966ebadd36a2e45be5b1925381da80, type: 3}
+  - {fileID: 6379126440195082914, guid: 6f119584f37189140b0ba1862bc6c3f6, type: 3}
   - {fileID: 2492013528077374685, guid: 0d18a0d31632f864d9d7e8b26111ea5f, type: 3}
   roadPrefabs:
   - {fileID: 697166889883673310, guid: cdcdba54539816b4584a6d740af78e54, type: 3}
-  - {fileID: 6379126440195082914, guid: 6f119584f37189140b0ba1862bc6c3f6, type: 3}
+  - {fileID: 6379126440195082914, guid: ce966ebadd36a2e45be5b1925381da80, type: 3}
   - {fileID: 417327825634208128, guid: 47d28d467fc3b6d4396cf9744507388d, type: 3}
   envPrefabs:
   - {fileID: 7266641965902491083, guid: 41832873ded5a224a9606cf272bc0be8, type: 3}
   - {fileID: 842311511695262795, guid: 64368ccf881341a4b82b2dbde5bf352c, type: 3}
   - {fileID: 6207894991472246498, guid: 528f0c8c5c729024e8b7b09cc128116f, type: 3}
   jungleObstacles:
-  - {fileID: 3032860780472981091, guid: 7187ac113aaf682408cfd3358c2a08fc, type: 3}
+  - {fileID: 2799890415279464533, guid: fdb650dc9ff9be6439b926c9cee70b7b, type: 3}
   - {fileID: 5100911261983560170, guid: 83b3a0847e93baf4ead0e8b2632a2cbb, type: 3}
   - {fileID: 4075323177792160440, guid: 646defaafd7070244b3e9723112e4a8f, type: 3}
   schoolObstacles:
-  - {fileID: 1789180665953131001, guid: 946c7c250aa3ea24fa120c21d97e6d29, type: 3}
-  - {fileID: 7437240522504120991, guid: 679db1137f242d34ab080815e66c82d2, type: 3}
+  - {fileID: 2076827031859337642, guid: 2a116dd5ac4a7b246a2535fe9632f9fe, type: 3}
+  - {fileID: 1078037115635412706, guid: 104069bc0dfba4549bc140c12f8fb8ce, type: 3}
   - {fileID: 4263781603327254010, guid: 567e231ac5749a14e85b9bacba5ae98c, type: 3}
   towerObstacles:
   - {fileID: 6406751210271862619, guid: 95616e1b7d958c643b01c0c4a310f150, type: 3}
