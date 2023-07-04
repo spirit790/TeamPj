@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DashBtn : MonoBehaviour
 {
     GameOptionManager gameOptionManager;
-    public float sfxLength;
+    public float sfxLength = 0.086f;
 
     public bool IsCheck;
     private void Awake()
