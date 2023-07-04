@@ -26,7 +26,7 @@ public class Mode : MonoBehaviourPunCallbacks
     [SerializeField] protected Text txtTimeLimit;
     [SerializeField] protected Text txtWaitStartTime;
     [SerializeField] protected Image loadingPanel;
-    [SerializeField] protected Image resultPanel;
+    [SerializeField] protected GameObject resultPanel;
 
     public GameObject myPlayerObject;
     List<GameObject> aiList = new List<GameObject>();
@@ -87,8 +87,8 @@ public class Mode : MonoBehaviourPunCallbacks
         // 로딩패널 UI
         loadingPanel = GameObject.FindGameObjectWithTag("Loading").GetComponent<Image>();
         // 결과창
-        resultPanel = GameObject.FindGameObjectWithTag("Result").GetComponent<Image>();
-        resultPanel.gameObject.SetActive(false);
+        resultPanel = GameObject.FindGameObjectWithTag("Result");
+        resultPanel.SetActive(false);
         GameManager.Instance.startTime = Firebase.Firestore.FieldValue.ServerTimestamp;
         // 이벤트 함수 등록
         AIPattern.OnAIDie += AIDieControl;
@@ -225,6 +225,23 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     protected virtual void GameOver()
     {
+        GameObject panel1 = resultPanel.transform.GetChild(0).gameObject;
+        GameObject panel2 = resultPanel.transform.GetChild(1).gameObject;
+        GameObject panel3 = resultPanel.transform.GetChild(2).gameObject;
+
+        Dictionary<string, object> mostKiller = GameManager.Instance.GetMostPlayerKiller();
+        Dictionary<string, object> winner = GameManager.Instance.GetWinner();
+        Dictionary<string, object> mastAIKiller = GameManager.Instance.GetMostAIKiller();
+
+        panel1.transform.GetChild(0).GetComponent<Text>().text = mostKiller["NickName"].ToString();
+        panel1.transform.GetChild(1).GetComponent<Text>().text = mostKiller["PlayerKills"].ToString();
+
+        panel2.transform.GetChild(0).GetComponent<Text>().text = winner["NickName"].ToString();
+        panel2.transform.GetChild(1).GetComponent<Text>().text = winner["PlayerKills"].ToString();
+
+        panel3.transform.GetChild(0).GetComponent<Text>().text = mastAIKiller["NickName"].ToString();
+        panel3.transform.GetChild(1).GetComponent<Text>().text = mastAIKiller["AIKills"].ToString();
+
         resultPanel.gameObject.SetActive(true);
         Debug.Log("게임종료");
     }
