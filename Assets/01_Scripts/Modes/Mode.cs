@@ -280,7 +280,6 @@ public class Mode : MonoBehaviourPunCallbacks
     protected virtual void AIKillControl()
     {
         GameManager.Instance.aiKills += 1;
-        
     }
     #endregion
     [PunRPC]

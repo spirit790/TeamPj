@@ -40,7 +40,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     
     public void Connect()
     {
-        PhotonNetwork.LocalPlayer.NickName = Social.localUser.id;
+
         PhotonNetwork.GameVersion = gameVersion;
         PhotonNetwork.ConnectUsingSettings();
     }
@@ -51,6 +51,11 @@ public class Launcher : MonoBehaviourPunCallbacks
         btnJoin.interactable = true;
         btnCreate.interactable = true;
         Debug.Log("User Id : " + PhotonNetwork.LocalPlayer.UserId);
-        
+#if UNITY_ANDROID
+        PhotonNetwork.LocalPlayer.NickName = GameManager.Instance.nickName;
+#endif
+#if UNITY_EDITOR_WIN
+        PhotonNetwork.LocalPlayer.NickName = PhotonNetwork.LocalPlayer.UserId;
+#endif
     }
 }

@@ -8,6 +8,20 @@ public class ModeDeathMatch : Mode
 {
     int targetKill;
     int targetKillRatio = 2;
+
+    float playerRespawnTime = 2f;
+    float AIRespawnTime { get { return Random.Range(1, 5f); } }
+
+    int diedAICount;
+    int DiedAICount
+    {
+        get { return diedAICount; }
+        set
+        {
+            diedAICount++;
+            StartCoroutine(AIRespawn());
+        }
+    }
     public override void GameStart()
     {
         base.GameStart();
@@ -37,15 +51,39 @@ public class ModeDeathMatch : Mode
         Debug.Log("player respawn");
         if (PhotonNetwork.IsConnected && !isGameOver)
         {
-            CreatePlayer();
-            GameManager.Instance.IsDead = false;
+            StartCoroutine(PlayerRespawn());
         }
     }
 
     protected override void AIDieControl()
     {
         if (!isGameOver)
+        {
+            photonView.RPC(nameof(SetDiedAICount), RpcTarget.MasterClient);
+        }
+    }
+
+    IEnumerator PlayerRespawn()
+    {
+        yield return new WaitForSeconds(playerRespawnTime);
+        CreatePlayer();
+        GameManager.Instance.IsDead = false;
+    }
+
+    IEnumerator AIRespawn()
+    {
+        if(DiedAICount > 0)
+        {
+            yield return new WaitForSeconds(AIRespawnTime);
             SpawnAI();
+            DiedAICount--;
+        }
+    }
+
+    [PunRPC]
+    void SetDiedAICount()
+    {
+        DiedAICount++;
     }
 
     [PunRPC]
