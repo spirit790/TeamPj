@@ -23,7 +23,7 @@ public class AIPattern : MonoBehaviourPun
 
     Vector3 RandomTargetPos { get { return new Vector3(Random.Range(-mapWidth * 0.1f, mapWidth + mapWidth * 0.1f), 0, Random.Range(-mapHeight * 0.1f, mapHeight + mapHeight * 0.1f)); } }
 
-    float RandomStopTime { get { return Random.Range(0, 5); } }
+    float RandomStopTime { get { return Random.Range(2, 10); } }
 
     public bool IsRunning
     {
@@ -84,7 +84,7 @@ public class AIPattern : MonoBehaviourPun
     void StrangeBehaviour()
     {
         float rand = Random.Range(0, 100);
-        if (rand < 10)
+        if (rand < 20)
         {
             StartCoroutine(StopMove(RandomStopTime));
         }

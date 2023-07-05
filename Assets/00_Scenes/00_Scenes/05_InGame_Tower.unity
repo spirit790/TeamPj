@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.1835018, g: 0.22906238, b: 0.30574483, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1090,6 +1090,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426663467}
   m_CullTransparentMesh: 1
+--- !u!1001 &431801221
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3992004067741993969, guid: 528f0c8c5c729024e8b7b09cc128116f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992004067741993969, guid: 528f0c8c5c729024e8b7b09cc128116f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992004067741993969, guid: 528f0c8c5c729024e8b7b09cc128116f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992004067741993969, guid: 528f0c8c5c729024e8b7b09cc128116f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992004067741993969, guid: 528f0c8c5c729024e8b7b09cc128116f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992004067741993969, guid: 528f0c8c5c729024e8b7b09cc128116f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992004067741993969, guid: 528f0c8c5c729024e8b7b09cc128116f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992004067741993969, guid: 528f0c8c5c729024e8b7b09cc128116f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992004067741993969, guid: 528f0c8c5c729024e8b7b09cc128116f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992004067741993969, guid: 528f0c8c5c729024e8b7b09cc128116f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992004067741993969, guid: 528f0c8c5c729024e8b7b09cc128116f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207894991472246498, guid: 528f0c8c5c729024e8b7b09cc128116f,
+        type: 3}
+      propertyPath: m_Name
+      value: dev1_Concept_C_Tower
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 528f0c8c5c729024e8b7b09cc128116f, type: 3}
 --- !u!1 &495013843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,6 +1482,10 @@ MonoBehaviour:
   roadPrefab: {fileID: 0}
   randomFillPercent: 52
   concept: 0
+  envPrefabs:
+  - {fileID: 7266641965902491083, guid: 41832873ded5a224a9606cf272bc0be8, type: 3}
+  - {fileID: 842311511695262795, guid: 64368ccf881341a4b82b2dbde5bf352c, type: 3}
+  - {fileID: 6207894991472246498, guid: 528f0c8c5c729024e8b7b09cc128116f, type: 3}
   groundPrefabs:
   - {fileID: 417327825634208128, guid: 65f8c7a567edca04d84ff9ceed23c40f, type: 3}
   - {fileID: 6379126440195082914, guid: ce966ebadd36a2e45be5b1925381da80, type: 3}
@@ -1421,10 +1494,6 @@ MonoBehaviour:
   - {fileID: 697166889883673310, guid: cdcdba54539816b4584a6d740af78e54, type: 3}
   - {fileID: 6379126440195082914, guid: 6f119584f37189140b0ba1862bc6c3f6, type: 3}
   - {fileID: 417327825634208128, guid: 47d28d467fc3b6d4396cf9744507388d, type: 3}
-  envPrefabs:
-  - {fileID: 7266641965902491083, guid: 41832873ded5a224a9606cf272bc0be8, type: 3}
-  - {fileID: 842311511695262795, guid: 64368ccf881341a4b82b2dbde5bf352c, type: 3}
-  - {fileID: 6207894991472246498, guid: 528f0c8c5c729024e8b7b09cc128116f, type: 3}
   jungleObstacles:
   - {fileID: 2799890415279464533, guid: fdb650dc9ff9be6439b926c9cee70b7b, type: 3}
   - {fileID: 5100911261983560170, guid: 83b3a0847e93baf4ead0e8b2632a2cbb, type: 3}
