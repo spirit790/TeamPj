@@ -828,7 +828,7 @@ PlayerSettings:
   allowUnsafeCode: 0
   useDeterministicCompilation: 1
   enableRoslynAnalyzers: 1
-  selectedPlatform: 2
+  selectedPlatform: 0
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
   gcIncremental: 0
@@ -899,7 +899,7 @@ PlayerSettings:
     Game Performance: 0
     Purchasing: 0
     UDP: 0
-    Unity Ads: 0
+    Unity Ads: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -914,11 +914,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: afece50b-08f3-4e03-9d9c-14faa8e6a653
+  cloudProjectId: 29639b78-8991-4df7-9eec-367e0c8abd2f
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: TeamPj
-  organizationId: chakh
+  organizationId: spiritk7
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
