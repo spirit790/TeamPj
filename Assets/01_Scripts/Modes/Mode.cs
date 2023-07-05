@@ -148,7 +148,8 @@ public class Mode : MonoBehaviourPunCallbacks
         {
             SpawnAI();
         }
-        isCreatedAI = true;
+        if(PhotonNetwork.IsMasterClient)
+            photonView.RPC(nameof(RpcCreateAI), RpcTarget.AllBufferedViaServer);
     }
     #endregion
 
@@ -180,6 +181,8 @@ public class Mode : MonoBehaviourPunCallbacks
         CreateAI();
         // AI 생성 대기
         yield return new WaitUntil(() => isCreatedAI);
+        yield return new WaitForSeconds(5f);
+
         // 로딩 종료
         loadingPanel.gameObject.SetActive(false);
 
@@ -305,9 +308,16 @@ public class Mode : MonoBehaviourPunCallbacks
         PhotonView.Find(viewId).name = playerName;
     }
 
+    [PunRPC]
+    protected void RpcCreateAI()
+    {
+        isCreatedAI = true;
+    }
+
     // 플레이어가 나가면 남은 플레이어 수 감소, 1명 남았을 시 게임 승리
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
+        Debug.Log("플레이어 나감");
         photonView.RPC(nameof(RpcPlayerDie), RpcTarget.All);
     }
 }

@@ -163,8 +163,8 @@ public class PlayerController : MonoBehaviourPun
     IEnumerator AttackMove(float delayTime , float time)
     {
         float originTime = 0;
-        float moveSpeed = 0.5f;
-        float moveUpRatio = 0.3f;
+        float moveSpeed = 0;
+        float moveUpRatio = 0.4f;
         float moveDownRatio = 0.15f;
         float targetSpeed = 4f;
         Vector3 dir = this.dir;
