@@ -17857,7 +17857,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GoogleManager_U3CCreateUserInfoU3Eb__19_
 		L_1 = Task_get_IsCompleted_m942D6D536545EF059089398B19435591561BB831(L_0, NULL);
 		if (!L_1)
 		{
-			goto IL_0024;
+			goto IL_002a;
 		}
 	}
 	{
@@ -17868,12 +17868,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GoogleManager_U3CCreateUserInfoU3Eb__19_
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_2 = __this->___signUpPanel_7;
 		NullCheck(L_2);
 		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_2, (bool)0, NULL);
+		// OnGetUserInfo();
+		GoogleManager_OnGetUserInfo_m916FC37996E07BE67A34D126FF3FDFA7B8B02A2E(__this, NULL);
 		// SceneManager.LoadScene(1);
 		il2cpp_codegen_runtime_class_init_inline(SceneManager_tA0EF56A88ACA4A15731AF7FDC10A869FA4C698FA_il2cpp_TypeInfo_var);
 		SceneManager_LoadScene_m0957E62F2A0A0243C79394E5B74E8EFA86BE5ED1(1, NULL);
 	}
 
-IL_0024:
+IL_002a:
 	{
 		// });
 		return;
@@ -18206,6 +18208,7 @@ IL_001a:
 		//         Debug.Log("???? ???");
 		//         signUpPanel.SetActive(false);
 		//         //updatePanel.SetActive(true);
+		//         OnGetUserInfo();
 		//         SceneManager.LoadScene(1);
 		//     }
 		//     else
