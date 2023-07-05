@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.18368673, g: 0.22913416, b: 0.3049792, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,8 +97,10 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 532e9178d3c5f4c4a893d88d022e4f95,
+    type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 79cdacae4488ce240834371759111468,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1413,6 +1415,10 @@ MonoBehaviour:
   roadPrefab: {fileID: 0}
   randomFillPercent: 52
   concept: 0
+  envPrefabs:
+  - {fileID: 7266641965902491083, guid: 41832873ded5a224a9606cf272bc0be8, type: 3}
+  - {fileID: 842311511695262795, guid: 64368ccf881341a4b82b2dbde5bf352c, type: 3}
+  - {fileID: 6207894991472246498, guid: 528f0c8c5c729024e8b7b09cc128116f, type: 3}
   groundPrefabs:
   - {fileID: 417327825634208128, guid: 65f8c7a567edca04d84ff9ceed23c40f, type: 3}
   - {fileID: 6379126440195082914, guid: ce966ebadd36a2e45be5b1925381da80, type: 3}
@@ -1421,10 +1427,6 @@ MonoBehaviour:
   - {fileID: 697166889883673310, guid: cdcdba54539816b4584a6d740af78e54, type: 3}
   - {fileID: 6379126440195082914, guid: 6f119584f37189140b0ba1862bc6c3f6, type: 3}
   - {fileID: 417327825634208128, guid: 47d28d467fc3b6d4396cf9744507388d, type: 3}
-  envPrefabs:
-  - {fileID: 7266641965902491083, guid: 41832873ded5a224a9606cf272bc0be8, type: 3}
-  - {fileID: 842311511695262795, guid: 64368ccf881341a4b82b2dbde5bf352c, type: 3}
-  - {fileID: 6207894991472246498, guid: 528f0c8c5c729024e8b7b09cc128116f, type: 3}
   jungleObstacles:
   - {fileID: 2799890415279464533, guid: fdb650dc9ff9be6439b926c9cee70b7b, type: 3}
   - {fileID: 5100911261983560170, guid: 83b3a0847e93baf4ead0e8b2632a2cbb, type: 3}
