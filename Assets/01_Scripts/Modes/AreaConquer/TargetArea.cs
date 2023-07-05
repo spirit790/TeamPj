@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class TargetArea : MonoBehaviour
+public class TargetArea : MonoBehaviourPun
 {
     public bool isOwnerStay = false;
-    public List<GameObject> stayColliders = new List<GameObject>();
     ModeAreaConquer modeArea;
     void Start()
     {
@@ -16,37 +16,31 @@ public class TargetArea : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            stayColliders.Add(other.gameObject);
 
             if (!isOwnerStay)
             {
-                if (modeArea.AreaOwner == null)
-                    modeArea.AreaOwner = other.GetComponentInParent<PlayerController>();
-                else if (modeArea.AreaOwner.gameObject != other.gameObject)
-                    modeArea.AreaOwner = other.GetComponentInParent<PlayerController>();
-            }
-        }
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            foreach (var collider in stayColliders)
-            {
-                if (collider == modeArea.AreaOwner)
-                {
-                    isOwnerStay = true;
-                    return;
-                }                
+                PlayerController owner = other.gameObject.GetComponentInParent<PlayerController>();
+                photonView.RPC(nameof(SetAreaOwnerRPC), RpcTarget.All, owner.photonView.ViewID);
+                photonView.RPC(nameof(SetIsOwnerStayRPC), RpcTarget.All, true);
             }
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        stayColliders.Remove(other.gameObject);
         if(other.gameObject == modeArea.AreaOwner)
         {
-            isOwnerStay = false;
+            photonView.RPC(nameof(SetIsOwnerStayRPC), RpcTarget.All, false);
         }
     }
+    [PunRPC]
+    void SetAreaOwnerRPC(int ownerViewId)
+    {
+        modeArea.AreaOwner = PhotonView.Find(ownerViewId).gameObject.GetComponent<PlayerController>();
+    }
+    [PunRPC]
+    void SetIsOwnerStayRPC(bool isOwnerStay)
+    {
+        this.isOwnerStay = isOwnerStay;
+    }
+    
 }
