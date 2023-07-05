@@ -11,7 +11,8 @@ public class WinnerPanel : MonoBehaviourPun
 
     void OnEnable()
     {
-        GameManager.OnDataSent += GetWinnerData;
+        if(PhotonNetwork.IsMasterClient)
+            GameManager.OnDataSent += GetWinnerData;
     }
 
     void GetWinnerData()

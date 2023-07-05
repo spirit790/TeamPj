@@ -28007,6 +28007,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Launcher_OnConnectedToMaster_m4D4C781474
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&IUserProfile_tF23DFE5CF90A1020C168F5751F7C4F2B628E22E3_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&PhotonNetwork_tBF04D378B56DDA80F9DB8E08DF87D5B532C22B99_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1115A68728BBD06632BD261EE2B9904E9B5166FF);
 		s_Il2CppMethodInitialized = true;
@@ -28035,13 +28036,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Launcher_OnConnectedToMaster_m4D4C781474
 		L_5 = String_Concat_m9E3155FB84015C823606188F53B47CB44C444991(_stringLiteral1115A68728BBD06632BD261EE2B9904E9B5166FF, L_4, NULL);
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(L_5, NULL);
-		// PhotonNetwork.LocalPlayer.NickName = GameManager.Instance.nickName;
+		// PhotonNetwork.LocalPlayer.NickName = Social.localUser.id;
 		Player_tC864A64FC55FA6E30EFD6B6FF314C9725DDA363C* L_6;
 		L_6 = PhotonNetwork_get_LocalPlayer_mEA3335FEF4E4B55C1EFAC8AFA8D5F7E3D7FBE4DC(NULL);
-		GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* L_7;
-		L_7 = GameManager_get_Instance_m076FE4D98E785B5AEE0B4C360C7857F824E7FBD0_inline(NULL);
+		RuntimeObject* L_7;
+		L_7 = Social_get_localUser_m7ED6D68F8CBFB7930562BE54601520AEED1D0CE4(NULL);
 		NullCheck(L_7);
-		String_t* L_8 = L_7->___nickName_25;
+		String_t* L_8;
+		L_8 = InterfaceFuncInvoker0< String_t* >::Invoke(1 /* System.String UnityEngine.SocialPlatforms.IUserProfile::get_id() */, IUserProfile_tF23DFE5CF90A1020C168F5751F7C4F2B628E22E3_il2cpp_TypeInfo_var, L_7);
 		NullCheck(L_6);
 		Player_set_NickName_m2105A3E8B564FAD1F16FA3D1E14A05EC5FDDA7D1(L_6, L_8, NULL);
 		// }
