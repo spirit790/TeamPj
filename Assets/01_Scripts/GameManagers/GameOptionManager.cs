@@ -73,6 +73,7 @@ public class GameOptionManager : MonoBehaviour
         
         if (scene.buildIndex == 1)
         {
+            Debug.Log("introBgm");
             bgmPlayer.clip = bgmClips[0];
             bgmPlayer.volume = bgmVol;
             bgmPlayer.loop = true;
@@ -80,6 +81,7 @@ public class GameOptionManager : MonoBehaviour
         }
         if (scene.buildIndex == 2)
         {
+            Debug.Log("정글BGM");
             bgmPlayer.clip = bgmClips[1];
             bgmPlayer.volume = bgmVol;
             bgmPlayer.loop = true;
@@ -87,6 +89,7 @@ public class GameOptionManager : MonoBehaviour
         }
         if (scene.buildIndex == 3)
         {
+            Debug.Log("스쿨BGM");
             bgmPlayer.clip = bgmClips[2];
             bgmPlayer.volume = bgmVol;
             bgmPlayer.loop = true;
@@ -94,6 +97,7 @@ public class GameOptionManager : MonoBehaviour
         }
         if (scene.buildIndex == 4)
         {
+            Debug.Log("타워BGM");
             bgmPlayer.clip = bgmClips[3];
             bgmPlayer.volume = bgmVol;
             bgmPlayer.loop = true;
