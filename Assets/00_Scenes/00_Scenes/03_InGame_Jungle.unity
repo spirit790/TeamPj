@@ -982,7 +982,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406740618}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1413,6 +1413,10 @@ MonoBehaviour:
   roadPrefab: {fileID: 0}
   randomFillPercent: 52
   concept: 0
+  envPrefabs:
+  - {fileID: 7266641965902491083, guid: 41832873ded5a224a9606cf272bc0be8, type: 3}
+  - {fileID: 842311511695262795, guid: 64368ccf881341a4b82b2dbde5bf352c, type: 3}
+  - {fileID: 6207894991472246498, guid: 528f0c8c5c729024e8b7b09cc128116f, type: 3}
   groundPrefabs:
   - {fileID: 417327825634208128, guid: 65f8c7a567edca04d84ff9ceed23c40f, type: 3}
   - {fileID: 6379126440195082914, guid: ce966ebadd36a2e45be5b1925381da80, type: 3}
@@ -1421,10 +1425,6 @@ MonoBehaviour:
   - {fileID: 697166889883673310, guid: cdcdba54539816b4584a6d740af78e54, type: 3}
   - {fileID: 6379126440195082914, guid: 6f119584f37189140b0ba1862bc6c3f6, type: 3}
   - {fileID: 417327825634208128, guid: 47d28d467fc3b6d4396cf9744507388d, type: 3}
-  envPrefabs:
-  - {fileID: 7266641965902491083, guid: 41832873ded5a224a9606cf272bc0be8, type: 3}
-  - {fileID: 842311511695262795, guid: 64368ccf881341a4b82b2dbde5bf352c, type: 3}
-  - {fileID: 6207894991472246498, guid: 528f0c8c5c729024e8b7b09cc128116f, type: 3}
   jungleObstacles:
   - {fileID: 2799890415279464533, guid: fdb650dc9ff9be6439b926c9cee70b7b, type: 3}
   - {fileID: 5100911261983560170, guid: 83b3a0847e93baf4ead0e8b2632a2cbb, type: 3}
