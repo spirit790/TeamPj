@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6400907249197992670}
   - component: {fileID: -7409390322018542932}
   - component: {fileID: 4893870269194561860}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerDEV1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -150,6 +150,7 @@ MonoBehaviour:
   - {fileID: 2866181471422668051, guid: cbd6538232876e5438b57add8e8311c6, type: 3}
   modelNum: 0
   yOffset: -0.5
+  scaleOffet: 2
   isModelFixed: 1
 --- !u!114 &4893870269194561860
 MonoBehaviour:
