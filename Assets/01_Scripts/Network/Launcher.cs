@@ -10,10 +10,10 @@ public class Launcher : MonoBehaviourPunCallbacks
 {
 	string gameVersion = "1";
 
-    [SerializeField ]Button btnMatch;
-    [SerializeField ]Button btnCreate;
-    [SerializeField ]Button btnJoin;
-
+    [SerializeField] Button btnMatch;
+    [SerializeField] Button btnCreate;
+    [SerializeField] Button btnJoin;
+    [SerializeField] Image loadingPanel;
     private void Awake()
     {
         btnMatch.interactable = false;
@@ -24,8 +24,11 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        if(!PhotonNetwork.IsConnected)
-		    Connect();
+        if (!PhotonNetwork.IsConnected)
+        {
+            Connect();
+            loadingPanel.gameObject.SetActive(false);
+        }
         else
         {
             btnMatch.interactable = true;
@@ -57,5 +60,6 @@ public class Launcher : MonoBehaviourPunCallbacks
 #if UNITY_EDITOR_WIN
         PhotonNetwork.LocalPlayer.NickName = PhotonNetwork.LocalPlayer.UserId;
 #endif
+        loadingPanel.gameObject.SetActive(false);
     }
 }
