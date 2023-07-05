@@ -1,6 +1,8 @@
 <dependencies>
   <packages>
+    <package>com.google.android.gms:play-services-ads-identifier:17.0.0</package>
     <package>com.google.android.gms:play-services-base:18.2.0</package>
+    <package>com.google.android.gms:play-services-basement:17.2.1</package>
     <package>com.google.firebase:firebase-analytics:21.2.1</package>
     <package>com.google.firebase:firebase-app-unity:10.7.0</package>
     <package>com.google.firebase:firebase-auth:21.2.0</package>
@@ -11,6 +13,7 @@
     <package>com.google.firebase:firebase-firestore:24.4.5</package>
     <package>com.google.firebase:firebase-firestore-unity:10.7.0</package>
     <package>com.google.games:gpgs-plugin-support:0.10.14</package>
+    <package>com.ironsource.sdk:mediationsdk:7.2.5</package>
   </packages>
   <files>
     <file>Assets/Plugins/Android/androidx.annotation.annotation-1.5.0.jar</file>
@@ -90,6 +93,7 @@
     <file>Assets/Plugins/Android/com.google.guava.listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar</file>
     <file>Assets/Plugins/Android/com.google.j2objc.j2objc-annotations-1.3.jar</file>
     <file>Assets/Plugins/Android/com.google.protobuf.protobuf-javalite-3.21.7.jar</file>
+    <file>Assets/Plugins/Android/com.ironsource.sdk.mediationsdk-7.2.5.aar</file>
     <file>Assets/Plugins/Android/com.squareup.okio.okio-1.17.5.jar</file>
     <file>Assets/Plugins/Android/io.grpc.grpc-android-1.52.1.aar</file>
     <file>Assets/Plugins/Android/io.grpc.grpc-api-1.52.1.jar</file>
