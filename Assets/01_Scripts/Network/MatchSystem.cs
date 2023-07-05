@@ -38,7 +38,7 @@ public class MatchSystem : MonoBehaviourPunCallbacks
                 this.gameObject.SetActive(true);
                 btnCreate.interactable = false;
                 btnJoin.interactable = false;
-                btnMatch.transform.GetChild(1).GetComponent<Text>().text = "Cancel";
+                btnMatch.transform.GetChild(0).GetComponent<Text>().text = "Cancel";
                 PhotonNetwork.JoinRandomRoom();
                 StartCoroutine(Matching());
             }
@@ -48,7 +48,7 @@ public class MatchSystem : MonoBehaviourPunCallbacks
                 btnCreate.interactable = true;
                 btnJoin.interactable = true;
                 matchTimer = 0;
-                btnMatch.transform.GetChild(1).GetComponent<Text>().text = "Match";
+                btnMatch.transform.GetChild(0).GetComponent<Text>().text = "Match";
                 txtMatch.text = null;
                 txtMatchTime.text = "0";
                 PhotonNetwork.LeaveRoom();
@@ -130,8 +130,12 @@ public class MatchSystem : MonoBehaviourPunCallbacks
         {
             Debug.Log("Master");
             yield return new WaitForSeconds(PhotonNetwork.LevelLoadingProgress);
-
-            PhotonNetwork.LoadLevel(2);
+            if(int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMap].ToString()) == 0)
+                PhotonNetwork.LoadLevel(2);
+            else if (int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMap].ToString()) == 1)
+                PhotonNetwork.LoadLevel(3);
+            else if (int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMap].ToString()) == 2)
+                PhotonNetwork.LoadLevel(4);
         }
     }
     #endregion

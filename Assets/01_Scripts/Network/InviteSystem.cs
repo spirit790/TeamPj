@@ -121,7 +121,12 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             if (CheckIsAllReady())
             {
                 Debug.Log("Master");
-                PhotonNetwork.LoadLevel(2);
+                if (int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMap].ToString()) == 0)
+                    PhotonNetwork.LoadLevel(2);
+                else if (int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMap].ToString()) == 1)
+                    PhotonNetwork.LoadLevel(3);
+                else if (int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMap].ToString()) == 2)
+                    PhotonNetwork.LoadLevel(4);
             }
             else
             {
@@ -156,7 +161,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
 
     #endregion
 
-    #region Invite Method
+    #region Invite Room Method
     void PlayerEnteredRoom(Player player)
     {
         content.transform.GetChild(PhotonNetwork.CurrentRoom.PlayerCount - 1).GetComponentInChildren<Text>().text = player.ActorNumber.ToString();
@@ -206,6 +211,15 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             }
         }
         return true;
+    }
+
+    void RoomClear()
+    {
+        for (int i = 0; i < MATCH_COUNT_MAX; i++)
+        {
+            content.GetChild(i).GetComponentInChildren<Text>().text = EMPTY_STIRNG;
+            content.GetChild(i).GetChild(1).GetComponent<Toggle>().isOn = false;
+        }
     }
 
     #endregion
@@ -273,7 +287,6 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         roomPanel.transform.GetChild(0).GetComponent<Text>().text = PhotonNetwork.CurrentRoom.Name;
-        roomPanel.gameObject.SetActive(true);
         Debug.Log(PhotonNetwork.CurrentRoom.Name);
     }
 
@@ -332,11 +345,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        for (int i = 0; i < MATCH_COUNT_MAX; i++)
-        {
-            content.GetChild(i).GetComponentInChildren<Text>().text = EMPTY_STIRNG;
-            content.GetChild(i).GetChild(1).GetComponent<Toggle>().isOn = false;
-        }
+        RoomClear();
         isReady = false;
         roomPanel.gameObject.SetActive(false);
         this.gameObject.SetActive(false);

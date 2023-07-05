@@ -24,7 +24,18 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-		Connect();
+        if(!PhotonNetwork.IsConnected)
+		    Connect();
+        else
+        {
+            btnMatch.interactable = true;
+            btnJoin.interactable = true;
+            btnCreate.interactable = true;
+            if (GameManager.Instance.isReMatch)
+                btnMatch.onClick.Invoke();
+            else if (GameManager.Instance.isReInvite)
+                btnCreate.onClick.Invoke();
+        }
     }
     
     public void Connect()
@@ -40,9 +51,6 @@ public class Launcher : MonoBehaviourPunCallbacks
         btnJoin.interactable = true;
         btnCreate.interactable = true;
         Debug.Log("User Id : " + PhotonNetwork.LocalPlayer.UserId);
-        if (GameManager.Instance.isReMatch)
-            btnMatch.onClick.Invoke();
-        else if (GameManager.Instance.isReInvite)
-            btnCreate.onClick.Invoke();
+        
     }
 }
