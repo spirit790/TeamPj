@@ -194,6 +194,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     void Start()
     {
         Mode.OnGameOver += GameOver;
+#if UNITY_ANDROID
+        Application.targetFrameRate = 60;
+#else
+                QualitySettings.vSyncCount = 1;
+#endif
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
