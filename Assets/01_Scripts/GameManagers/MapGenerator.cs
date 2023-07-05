@@ -42,6 +42,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     public int concept;
     List<List<GameObject>> concepts = new List<List<GameObject>>();
     List<GameObject> obstaclePrefabs;
+    public List<GameObject> envPrefabs;
     public List<GameObject> groundPrefabs;
     public List<GameObject> roadPrefabs;
     
@@ -219,6 +220,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     private void DrawMap()
     {
         string[] mapData = strSendMapData.Split("\n");
+        Instantiate(envPrefabs[concept]);
         if (mapData != null)
         {
             for (int x = 0; x < width; x++)
