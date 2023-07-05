@@ -220,8 +220,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             isReInvite = false;
             isReMatch = false;
-            //resultPanel = GameObject.FindGameObjectWithTag("Result");
-            //resultPanel.SetActive(false);
             playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
             PlayersLeft = PlayerCount;
             int modeNum = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[KeyMode].ToString());
@@ -253,9 +251,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 default:
                     break;
             }
-            //currentGameMode.IsGameOver = true;
             Debug.Log("Master");
-            //TODO : ¸Ê ¼³Á¤
         }
     }
     public void GameOver()
