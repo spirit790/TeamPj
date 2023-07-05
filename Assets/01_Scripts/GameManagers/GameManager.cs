@@ -146,7 +146,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             dataCount = value;
             Debug.Log($"GameDatas Count {gameDatas.Count}");
-            if(dataCount == PhotonNetwork.CurrentRoom.PlayerCount)
+
+            if (PhotonNetwork.InRoom && dataCount == PhotonNetwork.CurrentRoom.PlayerCount)
             {
                 if (PhotonNetwork.IsMasterClient)
                 {
@@ -155,6 +156,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                     OnDataSent();
                 }
             }
+            
         }
     }
 
@@ -214,7 +216,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         // scene 순서는 추후 구현하면서 변경 및 확정하도록 함
 
         // 매치시작시 모드 선택,맵 생성
-        if(scene.buildIndex == 2)
+        if(scene.buildIndex >= 2)
         {
             isReInvite = false;
             isReMatch = false;
