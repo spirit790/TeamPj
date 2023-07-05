@@ -117,7 +117,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     /// 1 : 초대 시스템
     /// </summary>
     public string KeySystem { get { return KEY_SYSTEM; } }
-
     private bool isDead;
     public bool IsDead 
     {
@@ -257,8 +256,6 @@ public class GameManager : MonoBehaviourPunCallbacks
             //TODO : 맵 설정
         }
     }
-
-    
     public void GameOver()
     {
         Debug.Log($"{PhotonNetwork.LocalPlayer.NickName} ::: {winnerId} ::: {IsWin}");

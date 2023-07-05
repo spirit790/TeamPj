@@ -1258,6 +1258,11 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5184439918373066837, guid: 970a65f158b18b84e8f5dcb377dc668d,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7591189770289149689, guid: 970a65f158b18b84e8f5dcb377dc668d,
         type: 3}
       propertyPath: m_RootOrder
@@ -2519,6 +2524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f8a499545867b74b8fe0416a53f43d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxVol: 0
+  bgmVol: 0
+  loCalIndex: 0
   bgmClips:
   - {fileID: 8300000, guid: c09d44264b759419eaafa569f53b749a, type: 3}
   - {fileID: 8300000, guid: c27a49bd9b1dc4fe09b4b1766c197d74, type: 3}
@@ -4735,6 +4743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a81e80e42d682c47a1488119b42b528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxLength: 0
   IsCheck: 0
 --- !u!114 &1787339033
 MonoBehaviour:
