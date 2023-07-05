@@ -55,7 +55,6 @@ public class JoyStick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     {
         imageController.rectTransform.anchoredPosition = new Vector2(0, 0);
         touchPosition = Vector2.zero;
-        Debug.Log("End");
 
         imageBackGround.enabled = false;
         imageController.enabled = false;
