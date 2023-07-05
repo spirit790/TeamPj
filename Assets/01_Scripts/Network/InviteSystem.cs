@@ -284,11 +284,6 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     #endregion
 
     #region Photon Override Method
-    public override void OnCreatedRoom()
-    {
-        Debug.Log(PhotonNetwork.CurrentRoom.Name);
-    }
-
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         if (PhotonNetwork.IsMasterClient)
