@@ -18,7 +18,7 @@ public class ModeDeathMatch : Mode
         get { return diedAICount; }
         set
         {
-            diedAICount++;
+            diedAICount = value;
             StartCoroutine(AIRespawn());
         }
     }
@@ -30,7 +30,6 @@ public class ModeDeathMatch : Mode
 
     protected override void GameOverControl()
     {
-        base.GameOverControl();
         txtTimeLimit.text = targetKill.ToString();
         txtTimeLimit.text += "\n" + GameManager.Instance.playerKills;
     }
@@ -40,6 +39,7 @@ public class ModeDeathMatch : Mode
         base.PlayerKillControl();
         if (targetKill == GameManager.Instance.playerKills)
         {
+            txtTimeLimit.text += "\n" + GameManager.Instance.playerKills;
             GameManager.Instance.IsWin = true;
             photonView.RPC(nameof(PunGameOver), RpcTarget.All);
         }
@@ -89,6 +89,6 @@ public class ModeDeathMatch : Mode
     [PunRPC]
     void PunGameOver()
     {
-        isGameOver = true;
+        IsGameOver = true;
     }
 }

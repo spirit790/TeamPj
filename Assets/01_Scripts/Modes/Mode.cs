@@ -93,8 +93,8 @@ public class Mode : MonoBehaviourPunCallbacks
         // 이벤트 함수 등록
         AIPattern.OnAIDie += AIDieControl;
         PlayerController.OnPlayerDie += PlayerDieControl;
-        PlayerAttack.OnAIKill += AIKillControl;
         PlayerAttack.OnPlayerKill += PlayerKillControl;
+        PlayerAttack.OnAIKill += AIKillControl;
         photonView.ViewID = 997;
         GameStart();
     }
@@ -202,11 +202,6 @@ public class Mode : MonoBehaviourPunCallbacks
 
             yield return null;
         }
-
-        yield return null;
-
-        if (IsGameOver)
-            StartCoroutine(GameOver());
     }
     /// <summary>
     /// 게임오버 조건 처리
@@ -225,6 +220,7 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     protected virtual IEnumerator GameOver()
     {
+        Debug.Log("게임종료");
         yield return new WaitUntil(() => GameManager.Instance.isDataSented);
 
         GameObject panel1 = resultPanel.transform.GetChild(0).gameObject;
@@ -244,8 +240,7 @@ public class Mode : MonoBehaviourPunCallbacks
         panel3.transform.GetChild(1).GetComponent<Text>().text = mastAIKiller["NickName"].ToString();
         panel3.transform.GetChild(2).GetComponent<Text>().text = mastAIKiller["AIKills"].ToString() + "Kills";
 
-        resultPanel.gameObject.SetActive(true);
-        Debug.Log("게임종료");
+        resultPanel.SetActive(true);
     }
 
     private void AIBehaviourStop(bool isStop)
@@ -308,5 +303,11 @@ public class Mode : MonoBehaviourPunCallbacks
     protected void RpcSetPlayerName(int viewId,string playerName)
     {
         PhotonView.Find(viewId).name = playerName;
+    }
+
+    // 플레이어가 나가면 남은 플레이어 수 감소, 1명 남았을 시 게임 승리
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        photonView.RPC(nameof(RpcPlayerDie), RpcTarget.All);
     }
 }

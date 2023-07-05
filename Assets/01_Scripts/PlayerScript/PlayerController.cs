@@ -116,9 +116,9 @@ public class PlayerController : MonoBehaviourPun
         playerAgent.speed = moveSpeed;
         playerAgent.Move(playerAgent.speed * Time.deltaTime * dir);
     }
-
     public void OnDestroy()
     {
+        PlayerAttack.OnAIKill -= Stun;
         if (photonView.IsMine)
             OnPlayerDie(this);
     }
@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviourPun
     {
         isAttack = true;
         float[] animTime = anim.SetAttackAnim(isAttack);
-        StartCoroutine(AttackMove(animTime[0] + animTime[1]));
+        StartCoroutine(AttackMove(animTime[0],animTime[0] + animTime[1]));
         attackBtn.interactable = false;
 
         yield return new WaitForSeconds(animTime[0]);
@@ -160,17 +160,31 @@ public class PlayerController : MonoBehaviourPun
         attackCoroutine = null;
     }
 
-    IEnumerator AttackMove(float time)
+    IEnumerator AttackMove(float delayTime , float time)
     {
-        float moveSpeed = 5f;
-        float moveRatio = 0.2f;
+        float originTime = 0;
+        float moveSpeed = 0.5f;
+        float moveUpRatio = 0.3f;
+        float moveDownRatio = 0.15f;
+        float targetSpeed = 4f;
         Vector3 dir = this.dir;
-        while(time >= 0)
+
+        while(time >= originTime)
         {
-            time -= Time.deltaTime;
+            originTime += Time.deltaTime;
             playerAgent.Move(moveSpeed * Time.deltaTime * dir);
-            moveSpeed -= moveRatio;
-            if (isStun)
+
+            if (originTime < delayTime)
+            {
+                if (targetSpeed >= moveSpeed)
+                    moveSpeed += moveUpRatio;
+                else
+                    moveSpeed = targetSpeed;
+            }
+            else
+                moveSpeed -= moveDownRatio;
+
+            if (isStun || moveSpeed <= 0)
                 break;
             yield return null;
         }

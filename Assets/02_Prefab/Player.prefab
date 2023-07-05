@@ -3967,8 +3967,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 3612282937569248457, guid: 07f0bec310ee81244a9c2d3a4c6a57b7,
     type: 3}
-  attackAngle: 30
-  attackRange: 1
+  attackAngle: 40
+  attackRange: 1.2
 --- !u!114 &2327792985695116953
 MonoBehaviour:
   m_ObjectHideFlags: 0
