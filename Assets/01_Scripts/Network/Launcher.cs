@@ -27,7 +27,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.IsConnected)
         {
             Connect();
-            loadingPanel.gameObject.SetActive(false);
+            //loadingPanel.gameObject.SetActive(false);
         }
         else
         {
@@ -60,6 +60,6 @@ public class Launcher : MonoBehaviourPunCallbacks
 #if UNITY_EDITOR_WIN
         PhotonNetwork.LocalPlayer.NickName = PhotonNetwork.LocalPlayer.UserId;
 #endif
-        loadingPanel.gameObject.SetActive(false);
+        //loadingPanel.gameObject.SetActive(false);
     }
 }

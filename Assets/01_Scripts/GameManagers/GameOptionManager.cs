@@ -53,23 +53,27 @@ public class GameOptionManager : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        bgmPlayer = GameObject.FindWithTag("BgmPlayer").GetComponent<AudioSource>();
-        optionPanel = GameObject.FindWithTag("OptionPanel").transform.GetChild(0).gameObject;
-        bgmSlider = optionPanel.transform.GetChild(0).GetComponent<Slider>();
-        sfxSlider = optionPanel.transform.GetChild(1).GetComponent<Slider>();
-        localEngBtn = optionPanel.transform.GetChild(2).GetChild(0).GetComponent<Button>();
-        localKorBtn = optionPanel.transform.GetChild(2).GetChild(1).GetComponent<Button>();
-        closeBtn = optionPanel.transform.GetChild(3).GetComponent<Button>();
-        quitBtn = optionPanel.transform.GetChild(4).GetComponent<Button>();
+        if (scene.buildIndex > 0)
+        {
+            bgmPlayer = GameObject.FindWithTag("BgmPlayer").GetComponent<AudioSource>();
+            optionPanel = GameObject.FindWithTag("OptionPanel").transform.GetChild(0).gameObject;
+            bgmSlider = optionPanel.transform.GetChild(1).GetComponent<Slider>();
+            sfxSlider = optionPanel.transform.GetChild(2).GetComponent<Slider>();
+            localEngBtn = optionPanel.transform.GetChild(3).Find("Eng").GetComponent<Button>();
+            localKorBtn = optionPanel.transform.GetChild(3).Find("Kor").GetComponent<Button>();
+            closeBtn = optionPanel.transform.GetChild(4).GetComponent<Button>();
+            quitBtn = optionPanel.transform.GetChild(5).GetComponent<Button>();
 
-        quitBtn.onClick.AddListener(AppQuitBtn);
-        closeBtn.onClick.AddListener(CloseOptionPanelBtn);
-        bgmSlider.onValueChanged.AddListener(ChangeBgmVol);
-        sfxSlider.onValueChanged.AddListener(ChangeSfxVol);
-        localEngBtn.onClick.AddListener(() => ChangeLocale(0));
-        localKorBtn.onClick.AddListener(() => ChangeLocale(1));
+            quitBtn.onClick.AddListener(AppQuitBtn);
+            closeBtn.onClick.AddListener(CloseOptionPanelBtn);
+            bgmSlider.onValueChanged.AddListener(ChangeBgmVol);
+            sfxSlider.onValueChanged.AddListener(ChangeSfxVol);
+            localEngBtn.onClick.AddListener(() => ChangeLocale(0));
+            localKorBtn.onClick.AddListener(() => ChangeLocale(1));
 
-        PlayerPrefabLoad();
+            PlayerPrefabLoad();
+        }
+
         
         if (scene.buildIndex == 1)
         {
