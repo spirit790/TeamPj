@@ -23,18 +23,17 @@ public class MainThemeChanger : MonoBehaviour
         //skyBox = RenderSettings.skybox;
 
         SetMainTheme();
-
     }
 
     
     private void Update()
     {
         //for Test
-        if (Input.GetKeyDown(KeyCode.Space)) SetMainTheme();
+        //if (Input.GetKeyDown(KeyCode.Space)) SetMainTheme();
     }
     
 
-    private void SetMainTheme()
+    public void SetMainTheme()
     {
         int diceA = RollDice();
         postP.profile = postP_Profiles[diceA];
