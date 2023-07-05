@@ -40921,6 +40921,7 @@ MonoBehaviour:
   btnMatch: {fileID: 776129050}
   btnCreate: {fileID: 991938137}
   btnJoin: {fileID: 91239630}
+  loadingPanel: {fileID: 0}
 --- !u!4 &1844786712
 Transform:
   m_ObjectHideFlags: 0
