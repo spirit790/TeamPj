@@ -308,6 +308,7 @@ public class Mode : MonoBehaviourPunCallbacks
     // 플레이어가 나가면 남은 플레이어 수 감소, 1명 남았을 시 게임 승리
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
+        Debug.Log("플레이어 나감");
         photonView.RPC(nameof(RpcPlayerDie), RpcTarget.All);
     }
 }
