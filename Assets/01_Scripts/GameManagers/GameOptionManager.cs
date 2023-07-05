@@ -23,13 +23,14 @@ public class GameOptionManager : MonoBehaviour
     Button quitBtn;
     Button localEngBtn;
     Button localKorBtn;
-    MapGenerator mapGenerator;
 
     public float sfxVol;
     public float bgmVol;
     public int loCalIndex;
     public AudioClip[] bgmClips;
     public AudioClip[] sfxClips;
+
+
 
     private void Awake()
     {
@@ -77,30 +78,26 @@ public class GameOptionManager : MonoBehaviour
             bgmPlayer.loop = true;
             bgmPlayer.Play();
         }
-        if(scene.buildIndex == 2)
+        if (scene.buildIndex == 2)
         {
-            mapGenerator = GameObject.FindWithTag("MapGen").GetComponent<MapGenerator>();
-            if (mapGenerator.concept == 1)
-            {
-                bgmPlayer.clip = bgmClips[0];
-                bgmPlayer.volume = bgmVol;
-                bgmPlayer.loop = true;
-                bgmPlayer.Play();
-            }
-            if (mapGenerator.concept == 2)
-            {
-                bgmPlayer.clip = bgmClips[1];
-                bgmPlayer.volume = bgmVol;
-                bgmPlayer.loop = true;
-                bgmPlayer.Play();
-            }
-            if (mapGenerator.concept == 3)
-            {
-                bgmPlayer.clip = bgmClips[2];
-                bgmPlayer.volume = bgmVol;
-                bgmPlayer.loop = true;
-                bgmPlayer.Play();
-            }
+            bgmPlayer.clip = bgmClips[1];
+            bgmPlayer.volume = bgmVol;
+            bgmPlayer.loop = true;
+            bgmPlayer.Play();
+        }
+        if (scene.buildIndex == 3)
+        {
+            bgmPlayer.clip = bgmClips[2];
+            bgmPlayer.volume = bgmVol;
+            bgmPlayer.loop = true;
+            bgmPlayer.Play();
+        }
+        if (scene.buildIndex == 4)
+        {
+            bgmPlayer.clip = bgmClips[3];
+            bgmPlayer.volume = bgmVol;
+            bgmPlayer.loop = true;
+            bgmPlayer.Play();
         }
     }
 
