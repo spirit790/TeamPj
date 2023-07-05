@@ -40,9 +40,9 @@ public class Launcher : MonoBehaviourPunCallbacks
         btnJoin.interactable = true;
         btnCreate.interactable = true;
         Debug.Log("User Id : " + PhotonNetwork.LocalPlayer.UserId);
-        if (GameManager.Instance.isReMatch)
-            btnMatch.onClick.Invoke();
-        else if (GameManager.Instance.isReInvite)
-            btnCreate.onClick.Invoke();
+        //if (GameManager.Instance.isReMatch)
+        //    btnMatch.onClick.Invoke();
+        //else if (GameManager.Instance.isReInvite)
+        //    btnCreate.onClick.Invoke();
     }
 }
