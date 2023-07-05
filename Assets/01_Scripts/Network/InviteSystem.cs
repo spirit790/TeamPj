@@ -164,14 +164,14 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     #region Invite Room Method
     void PlayerEnteredRoom(Player player)
     {
-        content.transform.GetChild(PhotonNetwork.CurrentRoom.PlayerCount - 1).GetComponentInChildren<Text>().text = player.ActorNumber.ToString();
+        content.transform.GetChild(PhotonNetwork.CurrentRoom.PlayerCount - 1).GetComponentInChildren<Text>().text = player.NickName;
         Dictionary<string, bool> tempPlayerList = new Dictionary<string, bool>();
 
         foreach (var item in playerList)
         {
             tempPlayerList.Add(item.Key,item.Value);
         }
-        tempPlayerList.Add(player.ActorNumber.ToString(), false);
+        tempPlayerList.Add(player.NickName, false);
         playerList = tempPlayerList;
     }
 
@@ -179,7 +179,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            playerList.Remove(player.ActorNumber.ToString());
+            playerList.Remove(player.NickName);
             Debug.Log(playerList.Count);
             int i = 0;
             foreach (KeyValuePair<string,bool> item in playerList)
@@ -269,24 +269,23 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     void SetReady(Player player, bool isReady)
     {
         player.CustomProperties[KEY_READY] = isReady;
-        playerList[player.ActorNumber.ToString()] = isReady;
+        playerList[player.NickName] = isReady;
         int i = 0;
         foreach (KeyValuePair<string,bool> item in playerList)
         {
-            if (item.Key == player.ActorNumber.ToString())
+            if (item.Key == player.NickName)
             {
                 break;
             }
             i++;
         }
-        photonView.RPC(nameof(ShowPlayers),RpcTarget.All,i, player.ActorNumber.ToString(), isReady);
+        photonView.RPC(nameof(ShowPlayers),RpcTarget.All,i, player.NickName, isReady);
     }
     #endregion
 
     #region Photon Override Method
     public override void OnCreatedRoom()
     {
-        roomPanel.transform.GetChild(0).GetComponent<Text>().text = PhotonNetwork.CurrentRoom.Name;
         Debug.Log(PhotonNetwork.CurrentRoom.Name);
     }
 
@@ -304,7 +303,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             }
             photonView.RPC(nameof(ChangeModeValue), RpcTarget.All, selectMode.value);
         }
-        Debug.Log($"player entered {newPlayer.UserId}");
+        Debug.Log($"player entered {newPlayer.NickName}");
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
@@ -330,6 +329,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             Hashtable prop = new Hashtable { { KEY_READY, false } };
             PhotonNetwork.LocalPlayer.SetCustomProperties(prop);
         }
+        roomPanel.transform.GetChild(0).GetComponent<Text>().text = PhotonNetwork.CurrentRoom.Name;
         roomPanel.gameObject.SetActive(true);
         Debug.Log(PhotonNetwork.CurrentRoom.Name);
     }
