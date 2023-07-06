@@ -11592,7 +11592,7 @@ IL_0022:
 		L_3 = LocaleIdentifier_get_CultureInfo_m219CA437AF19CE1411AEAB32FED7D69E45E2447B(__this, NULL);
 		NullCheck(L_3);
 		String_t* L_4;
-		L_4 = VirtualFuncInvoker0< String_t* >::Invoke(20 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, L_3);
+		L_4 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, L_3);
 		G_B5_0 = L_4;
 	}
 
@@ -11803,12 +11803,12 @@ IL_0013:
 		L_2 = LocaleIdentifier_get_CultureInfo_m219CA437AF19CE1411AEAB32FED7D69E45E2447B(__this, NULL);
 		NullCheck(L_2);
 		String_t* L_3;
-		L_3 = VirtualFuncInvoker0< String_t* >::Invoke(20 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, L_2);
+		L_3 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, L_2);
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_4;
 		L_4 = LocaleIdentifier_get_CultureInfo_m219CA437AF19CE1411AEAB32FED7D69E45E2447B((&___0_other), NULL);
 		NullCheck(L_4);
 		String_t* L_5;
-		L_5 = VirtualFuncInvoker0< String_t* >::Invoke(20 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, L_4);
+		L_5 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, L_4);
 		int32_t L_6;
 		L_6 = String_CompareOrdinal_mC6F612DEA1F7B3BF24A44C79D17AF7F8C29C9D3C(L_3, L_5, NULL);
 		return L_6;
@@ -11958,7 +11958,7 @@ IL_0014:
 		L_6 = LocaleIdentifier_get_CultureInfo_m219CA437AF19CE1411AEAB32FED7D69E45E2447B((&V_0), NULL);
 		NullCheck(L_6);
 		String_t* L_7;
-		L_7 = VirtualFuncInvoker0< String_t* >::Invoke(20 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, L_6);
+		L_7 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, L_6);
 		return L_7;
 	}
 
@@ -12243,7 +12243,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Locale_t7BD9FB50247883E73B4CC92360943B0455CF0
 		L_10 = LocaleIdentifier_get_CultureInfo_m219CA437AF19CE1411AEAB32FED7D69E45E2447B(L_9, NULL);
 		NullCheck(L_10);
 		String_t* L_11;
-		L_11 = VirtualFuncInvoker0< String_t* >::Invoke(20 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, L_10);
+		L_11 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, L_10);
 		NullCheck(L_7);
 		Object_set_name_mC79E6DC8FFD72479C90F0C4CC7F42A0FEAF5AE47(L_7, L_11, NULL);
 	}
@@ -12300,7 +12300,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Locale_t7BD9FB50247883E73B4CC92360943B0455CF0
 		L_9 = LocaleIdentifier_get_CultureInfo_m219CA437AF19CE1411AEAB32FED7D69E45E2447B(L_8, NULL);
 		NullCheck(L_9);
 		String_t* L_10;
-		L_10 = VirtualFuncInvoker0< String_t* >::Invoke(20 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, L_9);
+		L_10 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, L_9);
 		NullCheck(L_6);
 		Locale_set_LocaleName_mE5D0ECD60DEF885E7CB0867AEF6E7F0E2F32B6C3_inline(L_6, L_10, NULL);
 	}
@@ -12968,7 +12968,7 @@ IL_0152_1:
 				CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_46 = V_6;
 				NullCheck(L_46);
 				CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_47;
-				L_47 = VirtualFuncInvoker0< CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* >::Invoke(10 /* System.Globalization.CultureInfo System.Globalization.CultureInfo::get_Parent() */, L_46);
+				L_47 = VirtualFuncInvoker0< CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* >::Invoke(9 /* System.Globalization.CultureInfo System.Globalization.CultureInfo::get_Parent() */, L_46);
 				V_6 = L_47;
 			}
 

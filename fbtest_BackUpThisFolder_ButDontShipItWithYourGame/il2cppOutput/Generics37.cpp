@@ -100,8 +100,6 @@ struct EqualityComparer_1_t92563A67F1C1ECDC3FE387C46498E2E56B59F3C2;
 struct EqualityComparer_1_tBE7039362398A2C9BD71FAAAB935B7FF9F6EA862;
 // System.Collections.Generic.EqualityComparer`1<UnityEngine.Vector3Int>
 struct EqualityComparer_1_tE6E8D94B4D1DB3845EC548C4F693E989CCEBEE09;
-// System.Func`2<System.Collections.Generic.KeyValuePair`2<System.Object,System.Object>,System.Collections.Generic.KeyValuePair`2<System.Object,System.Object>>
-struct Func_2_t697109EC5B03AD9FFB8D76A89CE3FEFD65C9BC26;
 // System.Func`2<System.Object,System.Object>
 struct Func_2_tACBF5A1656250800CE861707354491F0611F6624;
 // System.Collections.Generic.HashSet`1<System.Byte>
@@ -488,11 +486,6 @@ IL2CPP_EXTERN_C_END
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
 
-// System.Linq.IdentityFunction`1/<>c<System.Collections.Generic.KeyValuePair`2<System.Object,System.Object>>
-struct U3CU3Ec_tDE0CC60C90E02A891F4DB2DD8D862D944AC9B01C  : public RuntimeObject
-{
-};
-
 // System.Linq.IdentityFunction`1/<>c<System.Object>
 struct U3CU3Ec_t7E990DF86AAE5B8D2106FCCA5355CE03DE71CB17  : public RuntimeObject
 {
@@ -791,11 +784,6 @@ struct IDictionaryDebugView_2_t3F886BE0187A4BBE2B10FCB1354FE8D59D8CE462  : publi
 
 // System.Collections.Generic.IDictionaryDebugView`2<System.Object,System.Object>
 struct IDictionaryDebugView_2_tA077A066AFF3F65CBE5AF8D5FA034E72F51AF259  : public RuntimeObject
-{
-};
-
-// System.Linq.IdentityFunction`1<System.Collections.Generic.KeyValuePair`2<System.Object,System.Object>>
-struct IdentityFunction_1_t4A817A8CFA905A29E70EB79FD7874FC422B192AE  : public RuntimeObject
 {
 };
 
@@ -1598,11 +1586,6 @@ struct Comparison_1_t62E531E7B8260E2C6C2718C3BDB8CF8655139645  : public Multicas
 {
 };
 
-// System.Func`2<System.Collections.Generic.KeyValuePair`2<System.Object,System.Object>,System.Collections.Generic.KeyValuePair`2<System.Object,System.Object>>
-struct Func_2_t697109EC5B03AD9FFB8D76A89CE3FEFD65C9BC26  : public MulticastDelegate_t
-{
-};
-
 // System.Func`2<System.Object,System.Object>
 struct Func_2_tACBF5A1656250800CE861707354491F0611F6624  : public MulticastDelegate_t
 {
@@ -1691,17 +1674,6 @@ struct ArgumentOutOfRangeException_tEA2822DAF62B10EEED00E0E3A341D4BAF78CF85F  : 
 	// System.Object System.ArgumentOutOfRangeException::_actualValue
 	RuntimeObject* ____actualValue_19;
 };
-
-// System.Linq.IdentityFunction`1/<>c<System.Collections.Generic.KeyValuePair`2<System.Object,System.Object>>
-struct U3CU3Ec_tDE0CC60C90E02A891F4DB2DD8D862D944AC9B01C_StaticFields
-{
-	// System.Linq.IdentityFunction`1/<>c<TElement> System.Linq.IdentityFunction`1/<>c::<>9
-	U3CU3Ec_tDE0CC60C90E02A891F4DB2DD8D862D944AC9B01C* ___U3CU3E9_0;
-	// System.Func`2<TElement,TElement> System.Linq.IdentityFunction`1/<>c::<>9__1_0
-	Func_2_t697109EC5B03AD9FFB8D76A89CE3FEFD65C9BC26* ___U3CU3E9__1_0_1;
-};
-
-// System.Linq.IdentityFunction`1/<>c<System.Collections.Generic.KeyValuePair`2<System.Object,System.Object>>
 
 // System.Linq.IdentityFunction`1/<>c<System.Object>
 struct U3CU3Ec_t7E990DF86AAE5B8D2106FCCA5355CE03DE71CB17_StaticFields
@@ -1844,10 +1816,6 @@ struct EqualityComparer_1_tE6E8D94B4D1DB3845EC548C4F693E989CCEBEE09_StaticFields
 // System.Collections.Generic.IDictionaryDebugView`2<System.Object,System.Object>
 
 // System.Collections.Generic.IDictionaryDebugView`2<System.Object,System.Object>
-
-// System.Linq.IdentityFunction`1<System.Collections.Generic.KeyValuePair`2<System.Object,System.Object>>
-
-// System.Linq.IdentityFunction`1<System.Collections.Generic.KeyValuePair`2<System.Object,System.Object>>
 
 // System.Linq.IdentityFunction`1<System.Object>
 
@@ -2128,10 +2096,6 @@ struct Type_t_StaticFields
 // System.Comparison`1<System.Object>
 
 // System.Comparison`1<System.Object>
-
-// System.Func`2<System.Collections.Generic.KeyValuePair`2<System.Object,System.Object>,System.Collections.Generic.KeyValuePair`2<System.Object,System.Object>>
-
-// System.Func`2<System.Collections.Generic.KeyValuePair`2<System.Object,System.Object>,System.Collections.Generic.KeyValuePair`2<System.Object,System.Object>>
 
 // System.Func`2<System.Object,System.Object>
 
@@ -60449,55 +60413,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HybridReferenceDictionary_2__ctor_m3B28E
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Func`2<TElement,TElement> System.Linq.IdentityFunction`1<System.Collections.Generic.KeyValuePair`2<System.Object,System.Object>>::get_Instance()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Func_2_t697109EC5B03AD9FFB8D76A89CE3FEFD65C9BC26* IdentityFunction_1_get_Instance_mA51A38B60A0ADC6F3036ADA22139BD6F0EBBD8D4_gshared (const RuntimeMethod* method) 
-{
-	Func_2_t697109EC5B03AD9FFB8D76A89CE3FEFD65C9BC26* G_B2_0 = NULL;
-	Func_2_t697109EC5B03AD9FFB8D76A89CE3FEFD65C9BC26* G_B1_0 = NULL;
-	{
-		il2cpp_codegen_runtime_class_init_inline(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 0));
-		Func_2_t697109EC5B03AD9FFB8D76A89CE3FEFD65C9BC26* L_0 = ((U3CU3Ec_tDE0CC60C90E02A891F4DB2DD8D862D944AC9B01C_StaticFields*)il2cpp_codegen_static_fields_for(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 0)))->___U3CU3E9__1_0_1;
-		Func_2_t697109EC5B03AD9FFB8D76A89CE3FEFD65C9BC26* L_1 = L_0;
-		G_B1_0 = L_1;
-		if (L_1)
-		{
-			G_B2_0 = L_1;
-			goto IL_001f;
-		}
-	}
-	{
-		il2cpp_codegen_runtime_class_init_inline(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 0));
-		U3CU3Ec_tDE0CC60C90E02A891F4DB2DD8D862D944AC9B01C* L_2 = ((U3CU3Ec_tDE0CC60C90E02A891F4DB2DD8D862D944AC9B01C_StaticFields*)il2cpp_codegen_static_fields_for(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 0)))->___U3CU3E9_0;
-		Func_2_t697109EC5B03AD9FFB8D76A89CE3FEFD65C9BC26* L_3 = (Func_2_t697109EC5B03AD9FFB8D76A89CE3FEFD65C9BC26*)il2cpp_codegen_object_new(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 2));
-		NullCheck(L_3);
-		((  void (*) (Func_2_t697109EC5B03AD9FFB8D76A89CE3FEFD65C9BC26*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 3)))(L_3, (RuntimeObject*)L_2, (intptr_t)((void*)il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 1)), il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 3));
-		Func_2_t697109EC5B03AD9FFB8D76A89CE3FEFD65C9BC26* L_4 = L_3;
-		((U3CU3Ec_tDE0CC60C90E02A891F4DB2DD8D862D944AC9B01C_StaticFields*)il2cpp_codegen_static_fields_for(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 0)))->___U3CU3E9__1_0_1 = L_4;
-		Il2CppCodeGenWriteBarrier((void**)(&((U3CU3Ec_tDE0CC60C90E02A891F4DB2DD8D862D944AC9B01C_StaticFields*)il2cpp_codegen_static_fields_for(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 0)))->___U3CU3E9__1_0_1), (void*)L_4);
-		G_B2_0 = L_4;
-	}
-
-IL_001f:
-	{
-		return G_B2_0;
-	}
-}
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
