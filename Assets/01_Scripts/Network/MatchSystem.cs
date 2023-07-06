@@ -153,7 +153,7 @@ public class MatchSystem : MonoBehaviourPunCallbacks
             if(matchTimeSet == 0)
                 waitTime = DEFAULT_WAIT_TIME;
             else
-                waitTime = DEFAULT_WAIT_TIME / matchTimeSet;
+                waitTime = DEFAULT_WAIT_TIME / matchTimeSet + DEFAULT_WAIT_TIME / matchTimeSet;
         }
         Debug.Log("waitTimeSet");
     }

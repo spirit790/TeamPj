@@ -64,7 +64,8 @@ public class Mode : MonoBehaviourPunCallbacks
         }
     }
     private float waitStartTime = 3f;
-
+    public BannerAds bannerAds;
+    public InterstitialAds interAds;
     public delegate void GameOverEvent();
     public static event GameOverEvent OnGameOver;
 
@@ -159,6 +160,14 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     public virtual void GameStart()
     {
+#if UNITY_ANDROID
+        Application.targetFrameRate = 60;
+#else
+                QualitySettings.vSyncCount = 1;
+#endif
+
+        bannerAds = GameObject.FindGameObjectWithTag("Ads").GetComponent<BannerAds>();
+        interAds = GameObject.FindGameObjectWithTag("Ads").GetComponent<InterstitialAds>();
         StartCoroutine(GamePlaying());
     }
     /// <summary>
@@ -167,6 +176,7 @@ public class Mode : MonoBehaviourPunCallbacks
     /// <returns></returns>
     protected IEnumerator GamePlaying()
     {
+        bannerAds.Show();
         // 모든 클라이언트가 맵생성 할때까지 대기
         yield return new WaitUntil(() => GameManager.Instance.mapGenerateCount == PhotonNetwork.CurrentRoom.PlayerCount);
 
@@ -183,6 +193,7 @@ public class Mode : MonoBehaviourPunCallbacks
         yield return new WaitUntil(() => isCreatedAI);
         yield return new WaitForSeconds(5f);
 
+        bannerAds.Hide();
         // 로딩 종료
         loadingPanel.gameObject.SetActive(false);
 
@@ -233,9 +244,11 @@ public class Mode : MonoBehaviourPunCallbacks
             Dictionary<string, object> mostAIKiller = GameManager.Instance.GetMostAIKiller();
 
             photonView.RPC(nameof(RpcShowResult), RpcTarget.All,
-                mostKiller["NickName"], mostKiller["PlayerKills"],
-                winner["NickName"], winner["PlayerKills"],
-                mostAIKiller["NickName"], mostAIKiller["AIKills"]);
+                mostKiller["NickName"].ToString(), mostKiller["PlayerKills"].ToString(),
+                winner["NickName"].ToString(), winner["PlayerKills"].ToString(),
+                mostAIKiller["NickName"].ToString(), mostAIKiller["AIKills"].ToString());
+
+
         }
     }
 
@@ -299,12 +312,18 @@ public class Mode : MonoBehaviourPunCallbacks
         panel1.transform.GetChild(1).GetComponent<Text>().text = panel1Name;
         panel1.transform.GetChild(2).GetComponent<Text>().text = panel1Kills;
 
-        panel2.transform.GetChild(1).GetComponent<Text>().text = panel1Kills;
+        panel2.transform.GetChild(1).GetComponent<Text>().text = panel2Name;
         panel2.transform.GetChild(2).GetComponent<Text>().text = panel2Kills;
 
         panel3.transform.GetChild(1).GetComponent<Text>().text = panel3Name;
         panel3.transform.GetChild(2).GetComponent<Text>().text = panel3Kills;
         resultPanel.SetActive(true);
+
+        if (!GameManager.Instance.IsWin)
+        {
+            bannerAds.Show();
+            interAds.Show();
+        }
     }
 
     [PunRPC]
