@@ -23,10 +23,7 @@ public class BannerAds : MonoBehaviour
             StopCoroutine(_coroutine);
         }
 
-        if (Advertisement.Banner.isLoaded)
-        {
-            Advertisement.Banner.Hide();
-        }
+        Hide();
     }
 
     public void Show()
@@ -37,7 +34,13 @@ public class BannerAds : MonoBehaviour
         }
         _coroutine = StartCoroutine(ShowBannerWhenInitialized());
     }
-
+    public void Hide()
+    {
+        if (Advertisement.Banner.isLoaded)
+        {
+            Advertisement.Banner.Hide();
+        }
+    }
     IEnumerator ShowBannerWhenInitialized()
     {
         WaitForSeconds wait = new WaitForSeconds(0.5f);

@@ -160,10 +160,15 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     public virtual void GameStart()
     {
+#if UNITY_ANDROID
         Application.targetFrameRate = 60;
-        StartCoroutine(GamePlaying());
+#else
+                QualitySettings.vSyncCount = 1;
+#endif
+
         bannerAds = GameObject.FindGameObjectWithTag("Ads").GetComponent<BannerAds>();
         interAds = GameObject.FindGameObjectWithTag("Ads").GetComponent<InterstitialAds>();
+        StartCoroutine(GamePlaying());
     }
     /// <summary>
     /// 메인게임 시작시 호출
@@ -171,6 +176,7 @@ public class Mode : MonoBehaviourPunCallbacks
     /// <returns></returns>
     protected IEnumerator GamePlaying()
     {
+        bannerAds.Show();
         // 모든 클라이언트가 맵생성 할때까지 대기
         yield return new WaitUntil(() => GameManager.Instance.mapGenerateCount == PhotonNetwork.CurrentRoom.PlayerCount);
 
@@ -187,6 +193,7 @@ public class Mode : MonoBehaviourPunCallbacks
         yield return new WaitUntil(() => isCreatedAI);
         yield return new WaitForSeconds(5f);
 
+        bannerAds.Hide();
         // 로딩 종료
         loadingPanel.gameObject.SetActive(false);
 
@@ -312,9 +319,11 @@ public class Mode : MonoBehaviourPunCallbacks
         panel3.transform.GetChild(2).GetComponent<Text>().text = panel3Kills;
         resultPanel.SetActive(true);
 
-        resultPanel.SetActive(true);
-        bannerAds.Show();
-        interAds.Show();
+        if (!GameManager.Instance.IsWin)
+        {
+            bannerAds.Show();
+            interAds.Show();
+        }
     }
 
     [PunRPC]
