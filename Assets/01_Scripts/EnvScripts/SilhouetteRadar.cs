@@ -59,6 +59,8 @@ public class SilhouetteRadar : MonoBehaviour
 
         actorRenderer[0].material.DOFade(1, freq / 2);
         actorRenderer[2].material.DOFade(1, freq / 2);
+        actorRenderer[3].material.DOFade(1, freq / 2);
+
 
         //Debug.Log(actor.name + "¹à¾ÆÁø´Ù~");
 
@@ -66,6 +68,7 @@ public class SilhouetteRadar : MonoBehaviour
 
         actorRenderer[0].material.DOFade(0, freq / 2);
         actorRenderer[2].material.DOFade(0, freq / 2);
+        actorRenderer[3].material.DOFade(1, freq / 2);
 
         //Debug.Log(actor.name + "Èå·ÁÁø´Ù~");
 
