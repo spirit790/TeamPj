@@ -42,6 +42,18 @@ MonoBehaviour:
     m_Localized: Return
     m_Metadata:
       m_Items: []
+  - m_Id: 21998242652160
+    m_Localized: Room code
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22123899805696
+    m_Localized: Join
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22151150198784
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
