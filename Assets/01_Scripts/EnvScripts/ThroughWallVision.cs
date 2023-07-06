@@ -25,11 +25,15 @@ public class ThroughWallVision : MonoBehaviour
     }
     void Update()
     {
-        DetectingByCam();
+        if (characterTr != null)
+        {
+            DetectingByCam();
+        }
     }
 
     public void DetectingByCam()
     {
+
         float dist = Vector3.Distance(camTr.position, characterTr.position);
 
         Vector3 dir = (characterTr.position - camTr.position).normalized;

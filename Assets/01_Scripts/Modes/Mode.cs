@@ -135,7 +135,6 @@ public class Mode : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             ai = PhotonNetwork.InstantiateRoomObject(aiPrefab.name, SpawnPos, Quaternion.identity);
-            StartCoroutine(ai.GetComponent<AIPattern>().StopMove(waitStartTime));
         }
         aiList.Add(ai);
     }
@@ -189,6 +188,9 @@ public class Mode : MonoBehaviourPunCallbacks
 
         // AI 생성 -> 마스터클라이언트가 생성후 관리
         CreateAI();
+
+        AIBehaviourStop(true);
+
         // AI 생성 대기
         yield return new WaitUntil(() => isCreatedAI);
         yield return new WaitForSeconds(5f);
@@ -196,6 +198,7 @@ public class Mode : MonoBehaviourPunCallbacks
         bannerAds.Hide();
         // 로딩 종료
         loadingPanel.gameObject.SetActive(false);
+
 
         // 게임시작 대기시간 시작
         while (waitStartTime >= 0)
@@ -206,6 +209,8 @@ public class Mode : MonoBehaviourPunCallbacks
         }
         if(myPlayerObject.GetPhotonView().IsMine)
             myPlayerObject.GetComponent<PlayerController>().enabled = true;
+
+        AIBehaviourStop(false);
 
         txtWaitStartTime.text = null;
 
@@ -258,8 +263,10 @@ public class Mode : MonoBehaviourPunCallbacks
         {
             foreach (GameObject ai in aiList)
             {
-                if(ai != null)
+                if (ai != null)
                     ai.GetComponent<AIPattern>().enabled = !isStop;
+                //if (ai != null)
+                //    ai.GetComponent<AIPattern>().Stop(isStop);
             }
         }
     }

@@ -22022,7 +22022,7 @@ IL_0020:
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_8 = V_1;
 		NullCheck(L_8);
 		NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472* L_9;
-		L_9 = VirtualFuncInvoker0< NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472* >::Invoke(16 /* System.Globalization.NumberFormatInfo System.Globalization.CultureInfo::get_NumberFormat() */, L_8);
+		L_9 = VirtualFuncInvoker0< NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472* >::Invoke(15 /* System.Globalization.NumberFormatInfo System.Globalization.CultureInfo::get_NumberFormat() */, L_8);
 		return L_9;
 	}
 
@@ -22240,7 +22240,7 @@ IL_0021:
 		L_10 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_9, NULL);
 		NullCheck(L_8);
 		RuntimeObject* L_11;
-		L_11 = VirtualFuncInvoker1< RuntimeObject*, Type_t* >::Invoke(21 /* System.Object System.Globalization.CultureInfo::GetFormat(System.Type) */, L_8, L_10);
+		L_11 = VirtualFuncInvoker1< RuntimeObject*, Type_t* >::Invoke(20 /* System.Object System.Globalization.CultureInfo::GetFormat(System.Type) */, L_8, L_10);
 		return ((NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472*)CastclassSealed((RuntimeObject*)L_11, NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472_il2cpp_TypeInfo_var));
 	}
 }

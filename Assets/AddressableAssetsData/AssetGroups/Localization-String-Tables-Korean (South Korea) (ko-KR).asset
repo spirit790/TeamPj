@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Korean (South Korea) (ko-KR)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-String-Tables-Korean (South Korea) (ko-KR)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: b0ee0886c4c846441b8f9ee08c333860
+  m_SerializeEntries:
+  - m_GUID: 83fcf71454d4dde46a4bd7e084ca140a
+    m_Address: CopyCatKiller.main_ko-KR
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko-KR
+    - Preload
+  - m_GUID: 720d4a6f983465a42af9eb94ae9609d6
+    m_Address: CopyCatKiller.OptionCanvers_ko-KR
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko-KR
+    - Preload
+  - m_GUID: 1ff6aa4d359be1c42b4f126a5993f81c
+    m_Address: CopyCatKiller.InGame_ko-KR
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko-KR
+    - Preload
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 49831b6d4d91486409165362a3053f10, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: fce4db6aa5d37f148a03475539ab7ac9, type: 2}
+    - {fileID: 11400000, guid: 24af5e3e07bb39240a5dd5c3c36efd1b, type: 2}
