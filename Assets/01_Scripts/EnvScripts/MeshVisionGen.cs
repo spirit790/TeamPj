@@ -30,7 +30,7 @@ public class MeshVisionGen : MonoBehaviour
     {
         DOTween.Init();
 
-        targetTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        //targetTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
         
     }
