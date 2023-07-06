@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: CopyCatKiller Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: CopyCatKiller
+  m_TableCollectionNameGuidString: e5139b66ba621794290ac741e556f131
+  m_Entries:
+  - m_Id: 17208205312
+    m_Key: Match
+    m_Metadata:
+      m_Items: []
+  - m_Id: 115321364480
+    m_Key: Join
+    m_Metadata:
+      m_Items: []
+  - m_Id: 153640525824
+    m_Key: Create
+    m_Metadata:
+      m_Items: []
+  - m_Id: 232564744192
+    m_Key: Loading....
+    m_Metadata:
+      m_Items: []
+  - m_Id: 553491914752
+    m_Key: MostKiller
+    m_Metadata:
+      m_Items: []
+  - m_Id: 900495073280
+    m_Key: Winner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1020657688576
+    m_Key: AI/Worst
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1314741313536
+    m_Key: ReMatch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2130080456704
+    m_Key: BgmSlider
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2184841289728
+    m_Key: SfxSlider
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2247122509824
+    m_Key: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2297118613504
+    m_Key: Close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2340710014976
+    m_Key: Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2401414176768
+    m_Key: ENG
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2459631116288
+    m_Key: Kor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2784886808576
+    m_Key: NetworkError
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3160008581120
+    m_Key: Exit
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5908993330014584834
+  references:
+    version: 2
+    RefIds:
+    - rid: 5908993330014584834
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1688613816751

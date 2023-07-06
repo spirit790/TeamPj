@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
-  m_Name: HidecStringTable
+  m_Name: CopyCatKiller
   m_EditorClassIdentifier: 
-  m_SharedTableData: {fileID: 11400000, guid: 39bf3aa7302e07c43b82aaa4c6cf0a62, type: 2}
+  m_SharedTableData: {fileID: 11400000, guid: e5139b66ba621794290ac741e556f131, type: 2}
   m_Tables:
-  - {fileID: 11400000, guid: 0199b31d0687283439d0458adf27c74c, type: 2}
-  - {fileID: 11400000, guid: 42f621a3a35c9aa459d217351a5fd95b, type: 2}
+  - {fileID: 11400000, guid: 608eea0e4ed1ece4382816de930f796a, type: 2}
+  - {fileID: 11400000, guid: c6d9f4d727a63bf42b398bd3302fe0fd, type: 2}
   m_Extensions: []
   m_Group: String Table
   references:

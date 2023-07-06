@@ -15,16 +15,17 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-Korean (ko)
   m_Data:
     m_SerializedData: []
-  m_GUID: 29c45624e8bea524b82db19e5d21fa79
+  m_GUID: 538762a63563235428b1b3ef01e7c24b
   m_SerializeEntries:
-  - m_GUID: 42f621a3a35c9aa459d217351a5fd95b
-    m_Address: HidecStringTable_ko
+  - m_GUID: c6d9f4d727a63bf42b398bd3302fe0fd
+    m_Address: CopyCatKiller_ko
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ko
+    - Preload
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 49831b6d4d91486409165362a3053f10, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: f5a342b49eabdbc4e9313483b4afc024, type: 2}
-    - {fileID: 11400000, guid: 958935ab097511c4e805a03836269bcb, type: 2}
+    - {fileID: 11400000, guid: bf1320019138a664c839d1896c3e22ca, type: 2}
+    - {fileID: 11400000, guid: bbf2452b015c7924aacddf6e1c68cc83, type: 2}
