@@ -39,7 +39,7 @@ public class Launcher : MonoBehaviourPunCallbacks
             else if (GameManager.Instance.isReInvite)
                 btnCreate.onClick.Invoke();
         }
-        GameObject.FindGameObjectWithTag("NickNameText").GetComponent<Text>().text = GameManager.Instance.nickName;
+        
     }
     
     public void Connect()
