@@ -27,8 +27,15 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     const int MATCH_COUNT_MAX = 8;
 
     const string KEY_READY = "ready";
-    const string EMPTY_STIRNG = "Empty";
+    const string STRING_EMPTY = "...";
+    const string STRING_READY= "준비";
+    const string STRING_CANCEL = "취소";
+    const string STRING_NULL_ROOM = "없는 방입니다.";
+    const string STRING_START_FAIL = "준비가 안되었습니다.";
 
+    const string MODE_NAME_BATTLELOYAL = "배틀로얄";
+    const string MODE_NAME_AREA = "점령전";
+    const string MODE_NAME_DEATHMATCH= "대학살";
     private bool isReady;
     public bool IsReady
     {
@@ -41,13 +48,13 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             isReady = value;
             if (isReady)
             {
-                btnStart.GetComponentInChildren<Text>().text = "준비 취소";
+                btnStart.GetComponentInChildren<Text>().text = STRING_READY;
                 photonView.RPC(nameof(SetReady), RpcTarget.MasterClient,PhotonNetwork.LocalPlayer, isReady);
                 Debug.Log("준비완료" + PhotonNetwork.LocalPlayer.CustomProperties[KEY_READY]);
             }
             else
             {
-                btnStart.GetComponentInChildren<Text>().text = "준비";
+                btnStart.GetComponentInChildren<Text>().text = STRING_CANCEL;
                 if(PhotonNetwork.InRoom)
                     photonView.RPC(nameof(SetReady), RpcTarget.MasterClient, PhotonNetwork.LocalPlayer, isReady);
             }
@@ -133,7 +140,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             }
             else
             {
-                txtStartFail.text = "준비가 안되었습니다.";
+                txtStartFail.text = STRING_START_FAIL;
                 txtStartFail.gameObject.transform.DOSpiral(2f).OnComplete(()=>txtStartFail.text = "");
             }
         }
@@ -190,7 +197,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
                 photonView.RPC(nameof(ShowPlayers), RpcTarget.All, i,item.Key,item.Value);
                 i++;
             }
-            photonView.RPC(nameof(ShowPlayers), RpcTarget.All, i, EMPTY_STIRNG, false);
+            photonView.RPC(nameof(ShowPlayers), RpcTarget.All, i, STRING_EMPTY, false);
         }
     }
 
@@ -220,7 +227,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     {
         for (int i = 0; i < MATCH_COUNT_MAX; i++)
         {
-            content.GetChild(i).GetComponentInChildren<Text>().text = EMPTY_STIRNG;
+            content.GetChild(i).GetComponentInChildren<Text>().text = STRING_EMPTY;
             content.GetChild(i).GetChild(1).GetComponent<Toggle>().isOn = false;
         }
     }
@@ -268,13 +275,13 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         switch (modeNum)
         {
             case 0:
-                txtMode.text = "배틀로얄";
+                txtMode.text = MODE_NAME_BATTLELOYAL;
                 break;
             case 1:
-                txtMode.text = "점령전";
+                txtMode.text = MODE_NAME_AREA;
                 break;
             case 2:
-                txtMode.text = "대학살";
+                txtMode.text = MODE_NAME_DEATHMATCH;
                 break;
             default:
                 break;
@@ -335,7 +342,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         {
             txtMode.gameObject.SetActive(true);
             selectMode.gameObject.SetActive(false);
-            btnStart.GetComponentInChildren<Text>().text = "준비";
+            btnStart.GetComponentInChildren<Text>().text = STRING_READY;
             Hashtable prop = new Hashtable { { KEY_READY, false } };
             PhotonNetwork.LocalPlayer.SetCustomProperties(prop);
         }
@@ -349,7 +356,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         Debug.Log($"message : {message} , returnCode : {returnCode}");
         joinRoomPanel.gameObject.SetActive(true);
         if (returnCode == 32758)
-            joinRoomPanel.transform.GetChild(1).GetComponent<Text>().text = "없는 방입니다.";
+            joinRoomPanel.transform.GetChild(1).GetComponent<Text>().text = STRING_NULL_ROOM;
         this.gameObject.SetActive(false);
     }
 
