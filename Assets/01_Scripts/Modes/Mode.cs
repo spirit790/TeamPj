@@ -64,7 +64,8 @@ public class Mode : MonoBehaviourPunCallbacks
         }
     }
     private float waitStartTime = 3f;
-
+    public BannerAds bannerAds;
+    public InterstitialAds interAds;
     public delegate void GameOverEvent();
     public static event GameOverEvent OnGameOver;
 
@@ -160,6 +161,8 @@ public class Mode : MonoBehaviourPunCallbacks
     public virtual void GameStart()
     {
         StartCoroutine(GamePlaying());
+        bannerAds = GameObject.FindGameObjectWithTag("Ads").GetComponent<BannerAds>();
+        interAds = GameObject.FindGameObjectWithTag("Ads").GetComponent<InterstitialAds>();
     }
     /// <summary>
     /// 메인게임 시작시 호출
@@ -244,6 +247,8 @@ public class Mode : MonoBehaviourPunCallbacks
         panel3.transform.GetChild(2).GetComponent<Text>().text = mastAIKiller["AIKills"].ToString() + "Kills";
 
         resultPanel.SetActive(true);
+        bannerAds.Show();
+        interAds.Show();
     }
 
     private void AIBehaviourStop(bool isStop)

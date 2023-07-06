@@ -18,6 +18,7 @@ TagManager:
   - MapGen
   - Result
   - Loading
+  - Ads
   layers:
   - Default
   - TransparentFX
