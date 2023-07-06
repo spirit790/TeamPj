@@ -100,7 +100,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
                 int rand = Random.Range(0, 81);
                 if(count < structures && rand < structures)
                 {
-                    GameObject structure = Instantiate(obstaclePrefabs[rand], new Vector3(i + chunkY * chunkWidth, 1, j + chunkX * chunkHeight), transform.rotation);
+                    GameObject structure = Instantiate(obstaclePrefabs[rand], new Vector3(i + chunkY * chunkWidth, obstaclePrefabs[rand].transform.position.y, j + chunkX * chunkHeight), transform.rotation);
                     structure.isStatic = true;
                     structure.transform.SetParent(gameObject.transform);
                     count++;
