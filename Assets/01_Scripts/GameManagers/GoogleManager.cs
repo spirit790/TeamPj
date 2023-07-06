@@ -70,7 +70,7 @@ public class GoogleManager : MonoBehaviour
                 Debug.Log(userID);
                 logText.text = Social.localUser.id + "\n" + Social.localUser.userName;
                 IsGoogleLoginSuccess = true;
-                OnGetUserInfo();
+                StartCoroutine(LoginCompleteCoroutine());
             }
             else
             {
@@ -140,8 +140,7 @@ public class GoogleManager : MonoBehaviour
                 Debug.Log("가입 완료");
                 signUpPanel.SetActive(false);
                 //updatePanel.SetActive(true);
-                OnGetUserInfo();
-                SceneManager.LoadScene(1);
+                StartCoroutine(LoginCompleteCoroutine());
             }
             else
             {
@@ -150,7 +149,11 @@ public class GoogleManager : MonoBehaviour
         });
     }
 
-    
+    IEnumerator LoginCompleteCoroutine()
+    {
+        yield return StartCoroutine(GetUserInfo());
+        SceneManager.LoadScene(1);
+    }
     public void OnUpdateUserGameData()
     {
         int wins = 0;
