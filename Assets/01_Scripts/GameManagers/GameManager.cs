@@ -153,26 +153,12 @@ public class GameManager : MonoBehaviourPunCallbacks
                 {
                     SendData();
                     photonView.RPC(nameof(RpcIsDataSented), RpcTarget.All);
-                    OnDataSent();
                 }
             }
             
         }
     }
 
-    public GameObject resultPanel;
-
-    //public delegate void PlayersLeftOne();
-    //public static PlayersLeftOne OnPlayersLeftOne;
-
-    public delegate void DataSent();
-    public static event DataSent OnDataSent;
-
-    [PunRPC]
-    void ShowPanel()
-    {
-        resultPanel.SetActive(true);
-    }
     [PunRPC]
     void RpcIsDataSented()
     {

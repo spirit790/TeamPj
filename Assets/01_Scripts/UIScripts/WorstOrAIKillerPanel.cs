@@ -13,8 +13,8 @@ public class WorstOrAIKillerPanel : MonoBehaviourPun
     public Text killsTxt;
     void OnEnable()
     {
-        if(PhotonNetwork.IsMasterClient)
-            GameManager.OnDataSent += GetWorstOrAIKillerData;
+        //if(PhotonNetwork.IsMasterClient)
+        //    GameManager.OnDataSent += GetWorstOrAIKillerData;
     }
 
     void GetWorstOrAIKillerData()
