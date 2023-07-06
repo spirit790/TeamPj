@@ -596,8 +596,8 @@ extern void U3CCreateGameDataU3Ed__29_System_Collections_Generic_IEnumeratorU3CS
 extern void U3CCreateGameDataU3Ed__29_System_Collections_IEnumerator_Reset_m26A6BAD481B06D615E6B8334AFBF7406E0F1B90D (void);
 // 0x00000124 System.Object GoogleManager/<CreateGameData>d__29::System.Collections.IEnumerator.get_Current()
 extern void U3CCreateGameDataU3Ed__29_System_Collections_IEnumerator_get_Current_mC6B491563E78D797F68E856B2739E567329CAA6C (void);
-// 0x00000125 System.Void MapGenerator::Start()
-extern void MapGenerator_Start_m5EBCAA1FAF824AF85CCE35C0E8A6D3342F3865D0 (void);
+// 0x00000125 System.Void MapGenerator::Awake()
+extern void MapGenerator_Awake_mCF50A61DCFF1D0F2DBB3B9E864C65B8C01444ED7 (void);
 // 0x00000126 System.Void MapGenerator::MakeChunk(System.Int32,System.Int32,System.Int32)
 extern void MapGenerator_MakeChunk_mA207A6EFC0A36DB86C3C2B3F596E08A834CC3CED (void);
 // 0x00000127 System.Void MapGenerator::MakeRandomZonePos()
@@ -4606,7 +4606,7 @@ static Il2CppMethodPointer s_methodPointers[2233] =
 	U3CCreateGameDataU3Ed__29_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m69935CF1EC39C55B37AFC591509FC163AF318659,
 	U3CCreateGameDataU3Ed__29_System_Collections_IEnumerator_Reset_m26A6BAD481B06D615E6B8334AFBF7406E0F1B90D,
 	U3CCreateGameDataU3Ed__29_System_Collections_IEnumerator_get_Current_mC6B491563E78D797F68E856B2739E567329CAA6C,
-	MapGenerator_Start_m5EBCAA1FAF824AF85CCE35C0E8A6D3342F3865D0,
+	MapGenerator_Awake_mCF50A61DCFF1D0F2DBB3B9E864C65B8C01444ED7,
 	MapGenerator_MakeChunk_mA207A6EFC0A36DB86C3C2B3F596E08A834CC3CED,
 	MapGenerator_MakeRandomZonePos_m04F6D9499E42B25F044D7786949764A687AC65A2,
 	MapGenerator_GenerateMap_m3B11B426064119B73C13E4B473584F9F9C49B75C,
