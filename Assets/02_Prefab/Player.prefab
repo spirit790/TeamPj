@@ -3933,7 +3933,7 @@ GameObject:
   - component: {fileID: 2327792985695116953}
   - component: {fileID: 8841780485427617570}
   - component: {fileID: -6400907249197992670}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4608,22 +4608,22 @@ PrefabInstance:
     - target: {fileID: 9032213465119006489, guid: dcdfb7660290eec499733f644bd39cbd,
         type: 3}
       propertyPath: m_SynchronizeParameters.Array.data[0].SynchronizeType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9032213465119006489, guid: dcdfb7660290eec499733f644bd39cbd,
         type: 3}
       propertyPath: m_SynchronizeParameters.Array.data[1].SynchronizeType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9032213465119006489, guid: dcdfb7660290eec499733f644bd39cbd,
         type: 3}
       propertyPath: m_SynchronizeParameters.Array.data[2].SynchronizeType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9032213465119006489, guid: dcdfb7660290eec499733f644bd39cbd,
         type: 3}
       propertyPath: m_SynchronizeParameters.Array.data[3].SynchronizeType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcdfb7660290eec499733f644bd39cbd, type: 3}
@@ -4798,7 +4798,7 @@ PrefabInstance:
     - target: {fileID: 1150502992482432017, guid: 74694ec7a7cb58748a371ea44965dd5a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.273
+      value: -0.442
       objectReference: {fileID: 0}
     - target: {fileID: 1150502992482432017, guid: 74694ec7a7cb58748a371ea44965dd5a,
         type: 3}
@@ -4839,6 +4839,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1260787854298448335, guid: 74694ec7a7cb58748a371ea44965dd5a,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1260787854298448335, guid: 74694ec7a7cb58748a371ea44965dd5a,
+        type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1398410182043559107, guid: 74694ec7a7cb58748a371ea44965dd5a,
         type: 3}
