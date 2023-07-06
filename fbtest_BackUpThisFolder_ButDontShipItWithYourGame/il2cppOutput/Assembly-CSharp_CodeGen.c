@@ -816,96 +816,96 @@ extern void Mode_PlayerKillControl_m50399927E816A8426788114285D158831442C082 (vo
 extern void Mode_AIKillControl_m51B7EEED03679B97B0E6B3CFE99B9A366072D1CC (void);
 // 0x00000192 System.Void Mode::RpcPlayerDie()
 extern void Mode_RpcPlayerDie_mB940F00085EDAE0AE3D5EF115627618902B5715D (void);
-// 0x00000193 System.Void Mode::RpcCreatePlayer()
+// 0x00000193 System.Void Mode::RpcShowResult(System.String,System.String,System.String,System.String,System.String,System.String)
+extern void Mode_RpcShowResult_m10E636EA8DAB7EFDF2FDB706BC845E00270EF505 (void);
+// 0x00000194 System.Void Mode::RpcCreatePlayer()
 extern void Mode_RpcCreatePlayer_m0C015705E6E40620302142FCF11AB4F76E843633 (void);
-// 0x00000194 System.Void Mode::RpcSetPlayerName(System.Int32,System.String)
+// 0x00000195 System.Void Mode::RpcSetPlayerName(System.Int32,System.String)
 extern void Mode_RpcSetPlayerName_m456B8B789DA1747E879444EBDA4E1838FF67E03D (void);
-// 0x00000195 System.Void Mode::RpcCreateAI()
+// 0x00000196 System.Void Mode::RpcCreateAI()
 extern void Mode_RpcCreateAI_mBBA74C1EEA0478D588B1A23278FA17AC12B88248 (void);
-// 0x00000196 System.Void Mode::OnPlayerLeftRoom(Photon.Realtime.Player)
+// 0x00000197 System.Void Mode::OnPlayerLeftRoom(Photon.Realtime.Player)
 extern void Mode_OnPlayerLeftRoom_mE0712C647C5EEF908BDB35E2D017D52A2A4DC2A2 (void);
-// 0x00000197 System.Void Mode::.ctor()
+// 0x00000198 System.Void Mode::.ctor()
 extern void Mode__ctor_mABF17A20C591CF8BC2D00A41D869E1A1329ED644 (void);
-// 0x00000198 System.Boolean Mode::<GamePlaying>b__36_2()
+// 0x00000199 System.Boolean Mode::<GamePlaying>b__36_2()
 extern void Mode_U3CGamePlayingU3Eb__36_2_m9AF75F36A3E4A16C62257B2006E639DC28728442 (void);
-// 0x00000199 System.Void Mode/GameOverEvent::.ctor(System.Object,System.IntPtr)
+// 0x0000019A System.Void Mode/GameOverEvent::.ctor(System.Object,System.IntPtr)
 extern void GameOverEvent__ctor_m5B9C77454D1ED1ECD5FEE69539D805BE4FCF1845 (void);
-// 0x0000019A System.Void Mode/GameOverEvent::Invoke()
+// 0x0000019B System.Void Mode/GameOverEvent::Invoke()
 extern void GameOverEvent_Invoke_mAE6F3F9C6E77A9F912519E11FB2DC9CCFA7DA9DF (void);
-// 0x0000019B System.IAsyncResult Mode/GameOverEvent::BeginInvoke(System.AsyncCallback,System.Object)
+// 0x0000019C System.IAsyncResult Mode/GameOverEvent::BeginInvoke(System.AsyncCallback,System.Object)
 extern void GameOverEvent_BeginInvoke_mF64532FF52D64D1E9F0B4E24DC7FEDB9766A82B1 (void);
-// 0x0000019C System.Void Mode/GameOverEvent::EndInvoke(System.IAsyncResult)
+// 0x0000019D System.Void Mode/GameOverEvent::EndInvoke(System.IAsyncResult)
 extern void GameOverEvent_EndInvoke_mFDCB2FBE759BFF2FCE9CBA79770A4A69413B0F90 (void);
-// 0x0000019D System.Void Mode/<>c::.cctor()
+// 0x0000019E System.Void Mode/<>c::.cctor()
 extern void U3CU3Ec__cctor_mEA5D3A65D34A7DC077C9A860F8473B2BA50D56E6 (void);
-// 0x0000019E System.Void Mode/<>c::.ctor()
+// 0x0000019F System.Void Mode/<>c::.ctor()
 extern void U3CU3Ec__ctor_m715B667A90CE98739F53EABAFAA32A47529ADAD8 (void);
-// 0x0000019F System.Boolean Mode/<>c::<GamePlaying>b__36_0()
+// 0x000001A0 System.Boolean Mode/<>c::<GamePlaying>b__36_0()
 extern void U3CU3Ec_U3CGamePlayingU3Eb__36_0_mFD00B78801C171EB24DA5C936487AF39D63B12A1 (void);
-// 0x000001A0 System.Boolean Mode/<>c::<GamePlaying>b__36_1()
+// 0x000001A1 System.Boolean Mode/<>c::<GamePlaying>b__36_1()
 extern void U3CU3Ec_U3CGamePlayingU3Eb__36_1_m76AF27E376E640B883D0E4F88514AF59EA72772F (void);
-// 0x000001A1 System.Boolean Mode/<>c::<GameOver>b__38_0()
+// 0x000001A2 System.Boolean Mode/<>c::<GameOver>b__38_0()
 extern void U3CU3Ec_U3CGameOverU3Eb__38_0_m1BB89D512E19416A59CC4A2F7D372508707ED6DC (void);
-// 0x000001A2 System.Void Mode/<GamePlaying>d__36::.ctor(System.Int32)
+// 0x000001A3 System.Void Mode/<GamePlaying>d__36::.ctor(System.Int32)
 extern void U3CGamePlayingU3Ed__36__ctor_m924A76B77DC477A368C8F57B341B6D697271B5DF (void);
-// 0x000001A3 System.Void Mode/<GamePlaying>d__36::System.IDisposable.Dispose()
+// 0x000001A4 System.Void Mode/<GamePlaying>d__36::System.IDisposable.Dispose()
 extern void U3CGamePlayingU3Ed__36_System_IDisposable_Dispose_m5EF4F1C31140C166AE1C9776D0D4C900D0B6F2EB (void);
-// 0x000001A4 System.Boolean Mode/<GamePlaying>d__36::MoveNext()
+// 0x000001A5 System.Boolean Mode/<GamePlaying>d__36::MoveNext()
 extern void U3CGamePlayingU3Ed__36_MoveNext_m8CF3472661C730A3390C69D6C5232B7FA10D355D (void);
-// 0x000001A5 System.Object Mode/<GamePlaying>d__36::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+// 0x000001A6 System.Object Mode/<GamePlaying>d__36::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
 extern void U3CGamePlayingU3Ed__36_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mB136B563FBE35D6B4D05CB9FD8296A57B9229F1D (void);
-// 0x000001A6 System.Void Mode/<GamePlaying>d__36::System.Collections.IEnumerator.Reset()
+// 0x000001A7 System.Void Mode/<GamePlaying>d__36::System.Collections.IEnumerator.Reset()
 extern void U3CGamePlayingU3Ed__36_System_Collections_IEnumerator_Reset_mF782E7879A9C84BAA2767C5F5EC6B8D89529A7DD (void);
-// 0x000001A7 System.Object Mode/<GamePlaying>d__36::System.Collections.IEnumerator.get_Current()
+// 0x000001A8 System.Object Mode/<GamePlaying>d__36::System.Collections.IEnumerator.get_Current()
 extern void U3CGamePlayingU3Ed__36_System_Collections_IEnumerator_get_Current_mA171474DB420A5526A56F21B67135ED961921A77 (void);
-// 0x000001A8 System.Void Mode/<GameOver>d__38::.ctor(System.Int32)
+// 0x000001A9 System.Void Mode/<GameOver>d__38::.ctor(System.Int32)
 extern void U3CGameOverU3Ed__38__ctor_m488B4B41EB456F3C5681A83EA37850F20ECC4C9D (void);
-// 0x000001A9 System.Void Mode/<GameOver>d__38::System.IDisposable.Dispose()
+// 0x000001AA System.Void Mode/<GameOver>d__38::System.IDisposable.Dispose()
 extern void U3CGameOverU3Ed__38_System_IDisposable_Dispose_m0B39BCB67D61A110A7FF407ABCA670D5F22356BA (void);
-// 0x000001AA System.Boolean Mode/<GameOver>d__38::MoveNext()
+// 0x000001AB System.Boolean Mode/<GameOver>d__38::MoveNext()
 extern void U3CGameOverU3Ed__38_MoveNext_mBFFB568C614AE5FAF0219422CA9BE0385045F7F6 (void);
-// 0x000001AB System.Object Mode/<GameOver>d__38::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+// 0x000001AC System.Object Mode/<GameOver>d__38::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
 extern void U3CGameOverU3Ed__38_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mF75FDBC017CB6127A91E8D3739453FECB770C824 (void);
-// 0x000001AC System.Void Mode/<GameOver>d__38::System.Collections.IEnumerator.Reset()
+// 0x000001AD System.Void Mode/<GameOver>d__38::System.Collections.IEnumerator.Reset()
 extern void U3CGameOverU3Ed__38_System_Collections_IEnumerator_Reset_m990C4F85935FE6BA765FF9641FD2B8BE5B208654 (void);
-// 0x000001AD System.Object Mode/<GameOver>d__38::System.Collections.IEnumerator.get_Current()
+// 0x000001AE System.Object Mode/<GameOver>d__38::System.Collections.IEnumerator.get_Current()
 extern void U3CGameOverU3Ed__38_System_Collections_IEnumerator_get_Current_m154F09FB62357AFD9B24169DB9B12090B87A6AD1 (void);
-// 0x000001AE System.Boolean InviteSystem::get_IsReady()
+// 0x000001AF System.Boolean InviteSystem::get_IsReady()
 extern void InviteSystem_get_IsReady_mC74F6F460903AB23057FE0F3B9123260491A2AD6 (void);
-// 0x000001AF System.Void InviteSystem::set_IsReady(System.Boolean)
+// 0x000001B0 System.Void InviteSystem::set_IsReady(System.Boolean)
 extern void InviteSystem_set_IsReady_m0195BCC16823422111DA48E66291FBA7BA500EB3 (void);
-// 0x000001B0 System.Void InviteSystem::Start()
+// 0x000001B1 System.Void InviteSystem::Start()
 extern void InviteSystem_Start_m2B5B4F1849D10EE7EE226A342FC0FF53F682A4E1 (void);
-// 0x000001B1 System.Void InviteSystem::CreateRoom()
+// 0x000001B2 System.Void InviteSystem::CreateRoom()
 extern void InviteSystem_CreateRoom_m89A08E9E9391337E95618630258B6B8DA4C5DC70 (void);
-// 0x000001B2 System.Void InviteSystem::JoinRoom()
+// 0x000001B3 System.Void InviteSystem::JoinRoom()
 extern void InviteSystem_JoinRoom_m5887A02A4D40623C54165EAA2B93AEC7A70158A5 (void);
-// 0x000001B3 System.Void InviteSystem::StartGame()
+// 0x000001B4 System.Void InviteSystem::StartGame()
 extern void InviteSystem_StartGame_m2A5BBCA92108997799ECBAF4D65DBEB59920D028 (void);
-// 0x000001B4 System.Void InviteSystem::QuitRoom()
+// 0x000001B5 System.Void InviteSystem::QuitRoom()
 extern void InviteSystem_QuitRoom_m2F27510F1D58A35BF317F4E256B391502350E5A1 (void);
-// 0x000001B5 System.Void InviteSystem::ChangeMode()
+// 0x000001B6 System.Void InviteSystem::ChangeMode()
 extern void InviteSystem_ChangeMode_mAD351AAE070B172A5561B99F8841EC28C075029C (void);
-// 0x000001B6 System.Void InviteSystem::PlayerEnteredRoom(Photon.Realtime.Player)
+// 0x000001B7 System.Void InviteSystem::PlayerEnteredRoom(Photon.Realtime.Player)
 extern void InviteSystem_PlayerEnteredRoom_m92FC35EE888BDBD0141F0A525CB7F2B8EEAE99C2 (void);
-// 0x000001B7 System.Void InviteSystem::PlayerLeftRoom(Photon.Realtime.Player)
+// 0x000001B8 System.Void InviteSystem::PlayerLeftRoom(Photon.Realtime.Player)
 extern void InviteSystem_PlayerLeftRoom_mB848BA7E7B886AC195B178B96D2A9B290D2F285A (void);
-// 0x000001B8 System.Void InviteSystem::ResetJoinRoomPanel()
+// 0x000001B9 System.Void InviteSystem::ResetJoinRoomPanel()
 extern void InviteSystem_ResetJoinRoomPanel_mA00CE500EB246832CE4B7517D246FC9BB07A1743 (void);
-// 0x000001B9 System.Boolean InviteSystem::CheckIsAllReady()
+// 0x000001BA System.Boolean InviteSystem::CheckIsAllReady()
 extern void InviteSystem_CheckIsAllReady_m31A8B194875C130D42209D5D6B35A7443CDFBC0D (void);
-// 0x000001BA System.Void InviteSystem::RoomClear()
+// 0x000001BB System.Void InviteSystem::RoomClear()
 extern void InviteSystem_RoomClear_mF3F01BD80B1733CDAA66BFE5C008EDDD76E34300 (void);
-// 0x000001BB System.Void InviteSystem::ShowPlayers(System.Int32,System.String,System.Boolean)
+// 0x000001BC System.Void InviteSystem::ShowPlayers(System.Int32,System.String,System.Boolean)
 extern void InviteSystem_ShowPlayers_mF93E3262D2E2ACF46480C04EB33C06CF983121AF (void);
-// 0x000001BC System.Void InviteSystem::ChangeModeValue(System.Int32)
+// 0x000001BD System.Void InviteSystem::ChangeModeValue(System.Int32)
 extern void InviteSystem_ChangeModeValue_m56B4A116DC27B167AD1A27406C0CDF2469C52C40 (void);
-// 0x000001BD System.Void InviteSystem::ShowMode(System.Int32)
+// 0x000001BE System.Void InviteSystem::ShowMode(System.Int32)
 extern void InviteSystem_ShowMode_m7F06CE249F69370A0D5DB66792245AADAF38D93E (void);
-// 0x000001BE System.Void InviteSystem::SetReady(Photon.Realtime.Player,System.Boolean)
+// 0x000001BF System.Void InviteSystem::SetReady(Photon.Realtime.Player,System.Boolean)
 extern void InviteSystem_SetReady_m4A61926385A8D5FB9CC7597FF97E609818825E09 (void);
-// 0x000001BF System.Void InviteSystem::OnCreatedRoom()
-extern void InviteSystem_OnCreatedRoom_m1FACD77D0DBE64E3CE078173FB32497D291B5CD4 (void);
 // 0x000001C0 System.Void InviteSystem::OnPlayerEnteredRoom(Photon.Realtime.Player)
 extern void InviteSystem_OnPlayerEnteredRoom_m6F1AB16E3074FF98BD0721A01CAD38959C5424D7 (void);
 // 0x000001C1 System.Void InviteSystem::OnPlayerLeftRoom(Photon.Realtime.Player)
@@ -6927,6 +6927,7 @@ static Il2CppMethodPointer s_methodPointers[3433] =
 	Mode_PlayerKillControl_m50399927E816A8426788114285D158831442C082,
 	Mode_AIKillControl_m51B7EEED03679B97B0E6B3CFE99B9A366072D1CC,
 	Mode_RpcPlayerDie_mB940F00085EDAE0AE3D5EF115627618902B5715D,
+	Mode_RpcShowResult_m10E636EA8DAB7EFDF2FDB706BC845E00270EF505,
 	Mode_RpcCreatePlayer_m0C015705E6E40620302142FCF11AB4F76E843633,
 	Mode_RpcSetPlayerName_m456B8B789DA1747E879444EBDA4E1838FF67E03D,
 	Mode_RpcCreateAI_mBBA74C1EEA0478D588B1A23278FA17AC12B88248,
@@ -6971,7 +6972,6 @@ static Il2CppMethodPointer s_methodPointers[3433] =
 	InviteSystem_ChangeModeValue_m56B4A116DC27B167AD1A27406C0CDF2469C52C40,
 	InviteSystem_ShowMode_m7F06CE249F69370A0D5DB66792245AADAF38D93E,
 	InviteSystem_SetReady_m4A61926385A8D5FB9CC7597FF97E609818825E09,
-	InviteSystem_OnCreatedRoom_m1FACD77D0DBE64E3CE078173FB32497D291B5CD4,
 	InviteSystem_OnPlayerEnteredRoom_m6F1AB16E3074FF98BD0721A01CAD38959C5424D7,
 	InviteSystem_OnPlayerLeftRoom_mF5E4E7C22EBF23B38A03AA3304EDDC3FD7D08B1D,
 	InviteSystem_OnJoinedRoom_m395EA5FEC793E3391258D0DB386A255AA4855B63,
@@ -10448,6 +10448,7 @@ static const int32_t s_InvokerIndices[3433] =
 	8390,
 	8390,
 	8390,
+	396,
 	8390,
 	3658,
 	8390,
@@ -10492,7 +10493,6 @@ static const int32_t s_InvokerIndices[3433] =
 	6754,
 	6754,
 	3955,
-	8390,
 	6788,
 	6788,
 	8390,
