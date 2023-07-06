@@ -19,6 +19,9 @@ TagManager:
   - Result
   - Loading
   - Ads
+  - Bullet
+  - FxTemporaire
+  - NickNameText
   layers:
   - Default
   - TransparentFX

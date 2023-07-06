@@ -39,6 +39,7 @@ public class Launcher : MonoBehaviourPunCallbacks
             else if (GameManager.Instance.isReInvite)
                 btnCreate.onClick.Invoke();
         }
+        
     }
     
     public void Connect()
