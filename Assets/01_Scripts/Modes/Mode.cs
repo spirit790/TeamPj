@@ -64,7 +64,8 @@ public class Mode : MonoBehaviourPunCallbacks
         }
     }
     private float waitStartTime = 3f;
-
+    public BannerAds bannerAds;
+    public InterstitialAds interAds;
     public delegate void GameOverEvent();
     public static event GameOverEvent OnGameOver;
 
@@ -159,7 +160,10 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     public virtual void GameStart()
     {
+        Application.targetFrameRate = 60;
         StartCoroutine(GamePlaying());
+        bannerAds = GameObject.FindGameObjectWithTag("Ads").GetComponent<BannerAds>();
+        interAds = GameObject.FindGameObjectWithTag("Ads").GetComponent<InterstitialAds>();
     }
     /// <summary>
     /// 메인게임 시작시 호출
@@ -233,9 +237,11 @@ public class Mode : MonoBehaviourPunCallbacks
             Dictionary<string, object> mostAIKiller = GameManager.Instance.GetMostAIKiller();
 
             photonView.RPC(nameof(RpcShowResult), RpcTarget.All,
-                mostKiller["NickName"], mostKiller["PlayerKills"],
-                winner["NickName"], winner["PlayerKills"],
-                mostAIKiller["NickName"], mostAIKiller["AIKills"]);
+                mostKiller["NickName"].ToString(), mostKiller["PlayerKills"].ToString(),
+                winner["NickName"].ToString(), winner["PlayerKills"].ToString(),
+                mostAIKiller["NickName"].ToString(), mostAIKiller["AIKills"].ToString());
+
+
         }
     }
 
@@ -299,12 +305,16 @@ public class Mode : MonoBehaviourPunCallbacks
         panel1.transform.GetChild(1).GetComponent<Text>().text = panel1Name;
         panel1.transform.GetChild(2).GetComponent<Text>().text = panel1Kills;
 
-        panel2.transform.GetChild(1).GetComponent<Text>().text = panel1Kills;
+        panel2.transform.GetChild(1).GetComponent<Text>().text = panel2Name;
         panel2.transform.GetChild(2).GetComponent<Text>().text = panel2Kills;
 
         panel3.transform.GetChild(1).GetComponent<Text>().text = panel3Name;
         panel3.transform.GetChild(2).GetComponent<Text>().text = panel3Kills;
         resultPanel.SetActive(true);
+
+        resultPanel.SetActive(true);
+        bannerAds.Show();
+        interAds.Show();
     }
 
     [PunRPC]
