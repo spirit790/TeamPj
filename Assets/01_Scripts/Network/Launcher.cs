@@ -36,7 +36,7 @@ public class Launcher : MonoBehaviourPunCallbacks
             btnCreate.interactable = true;
             if (GameManager.Instance.isReMatch)
                 btnMatch.onClick.Invoke();
-            else if (GameManager.Instance.isReInvite)
+            else if (GameManager.Instance.isReInvite && PhotonNetwork.InRoom)
                 btnCreate.onClick.Invoke();
         }
         GameObject.FindGameObjectWithTag("NickNameText").GetComponent<Text>().text = GameManager.Instance.nickName;

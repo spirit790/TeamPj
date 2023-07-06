@@ -12,7 +12,6 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     [Header("UI Invite")]
     [SerializeField] Image roomPanel;
     [SerializeField] Image joinRoomPanel;
-    [SerializeField] Image playerListImg;
     [SerializeField] Button btnQuit;
     [SerializeField] Button btnStart;
     [SerializeField] InputField inputCode;
@@ -48,13 +47,13 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             isReady = value;
             if (isReady)
             {
-                btnStart.GetComponentInChildren<Text>().text = STRING_READY;
+                btnStart.GetComponentInChildren<Text>().text = STRING_CANCEL;
                 photonView.RPC(nameof(SetReady), RpcTarget.MasterClient,PhotonNetwork.LocalPlayer, isReady);
                 Debug.Log("준비완료" + PhotonNetwork.LocalPlayer.CustomProperties[KEY_READY]);
             }
             else
             {
-                btnStart.GetComponentInChildren<Text>().text = STRING_CANCEL;
+                btnStart.GetComponentInChildren<Text>().text = STRING_READY;
                 if(PhotonNetwork.InRoom)
                     photonView.RPC(nameof(SetReady), RpcTarget.MasterClient, PhotonNetwork.LocalPlayer, isReady);
             }
