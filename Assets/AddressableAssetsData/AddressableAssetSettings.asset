@@ -46,8 +46,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c6f822e912c849b43b0dadaaabc3b76a, type: 2}
   - {fileID: 11400000, guid: b6ab4b4147dcaa04789d7ef734799837, type: 2}
   - {fileID: 11400000, guid: a1b04b4bbe32d6c4389d688a0343d3d5, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 11400000, guid: caca4ef37cef0e84cb7cfa9b970ec02d, type: 2}
   - {fileID: 11400000, guid: 8d9b795b90c1d2343b8932329785675e, type: 2}
   - {fileID: 11400000, guid: 5bc43ed234dfd5f40bde91aac6447dcd, type: 2}
@@ -57,10 +55,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5e2d9f0631b85934980eda9053c7d9c4, type: 2}
   - {fileID: 11400000, guid: 65016406dcb87d1419f3e3e489ad3f5a, type: 2}
   - {fileID: 0}
-  - {fileID: 11400000, guid: c5dab35b511741d488a5a603e0afb725, type: 2}
-  - {fileID: 11400000, guid: 44b4b15d0daec33429f6f8860b1e19df, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: 10868c0100afd254eb3b8ccd19ce0408, type: 2}
   - {fileID: 11400000, guid: ea23a3fe4b3f7a446a4330ec48c43892, type: 2}
+  - {fileID: 11400000, guid: c5dab35b511741d488a5a603e0afb725, type: 2}
+  - {fileID: 11400000, guid: 44b4b15d0daec33429f6f8860b1e19df, type: 2}
+  - {fileID: 11400000, guid: 1ebc90e8eb6df464dabee54df0493ab2, type: 2}
+  - {fileID: 11400000, guid: 1a2174e503f6f214aaf49c4f71389c57, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -107,6 +108,8 @@ MonoBehaviour:
     - Locale-ko
     - Preload
     - Locale-ja
+    - Locale-en-US
+    - Locale-ko-KR
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 2bfe47a36fb2ca64e90eca480397d536, type: 2}
