@@ -7946,6 +7946,7 @@ GameObject:
   - component: {fileID: 1849628636}
   - component: {fileID: 1849628641}
   - component: {fileID: 1849628642}
+  - component: {fileID: 1849628643}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8101,6 +8102,7 @@ MonoBehaviour:
   virtualCamera: {fileID: 1599056267}
   vision: {fileID: 1865975787}
   wallVision: {fileID: 1849628642}
+  radar: {fileID: 1849628643}
 --- !u!114 &1849628642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8113,8 +8115,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de39c8eceaed05244b481bd4b39e8034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 0}
   wallFadeTime: 0.33
+--- !u!114 &1849628643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849628635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b82bd1724e2ef524cbae6cf6b90344c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radarMaskNum: 6
+  radarTime: 2
+  radarRange: 5
 --- !u!1 &1851401757
 GameObject:
   m_ObjectHideFlags: 0

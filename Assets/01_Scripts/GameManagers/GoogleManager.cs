@@ -97,9 +97,6 @@ public class GoogleManager : MonoBehaviour
             DocumentSnapshot snapShot = task.Result;
             if (snapShot.Exists)
             {
-                // 게임시작 씬전환 등
-                //updatePanel.SetActive(true);
-                SceneManager.LoadScene(1);
             }
             else
             {
@@ -152,7 +149,8 @@ public class GoogleManager : MonoBehaviour
     IEnumerator LoginCompleteCoroutine()
     {
         yield return StartCoroutine(GetUserInfo());
-        SceneManager.LoadScene(1);
+        yield return SceneManager.LoadSceneAsync(1);
+        GameObject.FindGameObjectWithTag("NickNameText").GetComponent<Text>().text = GameManager.Instance.nickName;
     }
     public void OnUpdateUserGameData()
     {

@@ -5,22 +5,18 @@ using DG.Tweening;
 
 public class SilhouetteRadar : MonoBehaviour
 {
-    private Transform centerTr;
+    private Transform playerTr;
     public int radarMaskNum = 6;
     private int layerMask;
     private float curTime;
     public float radarTime = 2f;
     public float radarRange = 5f;
 
-    private void Awake()
-    {
-        gameObject.layer = 0;
-    }
     void Start()
     {
         DOTween.Init();
         layerMask = 1 << radarMaskNum;
-        centerTr = GetComponent<Transform>();
+        playerTr = GetComponent<Transform>();
     }
 
     void Update()
@@ -36,8 +32,8 @@ public class SilhouetteRadar : MonoBehaviour
 
     private void InvisibleRadar()
     {
-        Debug.DrawLine(centerTr.position, centerTr.position + Vector3.right * radarRange, Color.red, 2f, true);
-        var actors =  Physics.OverlapSphere(centerTr.position, radarRange, layerMask);
+        Debug.DrawLine(playerTr.position, playerTr.position + Vector3.right * radarRange, Color.red, 2f, true);
+        var actors =  Physics.OverlapSphere(playerTr.position, radarRange, layerMask);
 
         foreach (var actor in actors)
         {
@@ -73,5 +69,11 @@ public class SilhouetteRadar : MonoBehaviour
         //Debug.Log(actor.name + "»Â∑¡¡¯¥Ÿ~");
 
         yield return new WaitForSeconds(radarTime / 2);
+    }
+
+    public void SetRadarCenter(Transform target)
+    {
+        playerTr = target;
+        playerTr.gameObject.layer = 0;
     }
 }
