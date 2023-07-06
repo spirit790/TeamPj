@@ -33,12 +33,12 @@ public class ColorSetter : MonoBehaviour
             model.GetComponent<Renderer>().material = modelsMatter[rndC];
         }
 
-        if (!isWeaponFixed)
+        if (isWeaponFixed)
         {
             weaponModel.GetComponent<Renderer>().material = weaponMatter[weaponNum];
 
         }
-        else if(isWeaponFixed)
+        else if(!isWeaponFixed)
         {
             int rndW = Random.Range(0, weaponMatter.Length);
             weaponModel.GetComponent<Renderer>().material = weaponMatter[rndW];
