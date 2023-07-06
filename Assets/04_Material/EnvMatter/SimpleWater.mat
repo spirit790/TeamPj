@@ -89,7 +89,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
-    - _BubbleNoise: 0
+    - _BubbleNoise: -100.77
     - _Bubbles: 0.553
     - _BumpScale: 1
     - _ClearCoatMask: 0
@@ -117,7 +117,7 @@ Material:
     - _SrcBlend: 1
     - _Surface: 0
     - _WaterBoundary: 1.19
-    - _WaveHeight: 0.1
+    - _WaveHeight: 0.3
     - _WavePower: 0.8
     - _WaveTime: 0.5
     - _Waving: 1
