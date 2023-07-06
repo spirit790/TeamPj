@@ -39,6 +39,7 @@ public class Launcher : MonoBehaviourPunCallbacks
             else if (GameManager.Instance.isReInvite)
                 btnCreate.onClick.Invoke();
         }
+        GameObject.FindGameObjectWithTag("NickNameText").GetComponent<Text>().text = GameManager.Instance.nickName;
     }
     
     public void Connect()
@@ -55,7 +56,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         btnCreate.interactable = true;
         Debug.Log("User Id : " + PhotonNetwork.LocalPlayer.UserId);
 #if UNITY_ANDROID
-        PhotonNetwork.LocalPlayer.NickName = Social.localUser.id;
+        PhotonNetwork.LocalPlayer.NickName = GameManager.Instance.nickName;
 #endif
 #if UNITY_EDITOR_WIN
         PhotonNetwork.LocalPlayer.NickName = PhotonNetwork.LocalPlayer.UserId;

@@ -10,8 +10,8 @@ public class MostKillerPanel : MonoBehaviourPun
     public Text killsTxt;
     void OnEnable()
     {
-        if(PhotonNetwork.IsMasterClient)
-            GameManager.OnDataSent += GetMostKillerData;
+        //if(PhotonNetwork.IsMasterClient)
+        //    GameManager.OnDataSent += GetMostKillerData;
     }
 
     void GetMostKillerData()

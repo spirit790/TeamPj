@@ -64,7 +64,8 @@ public class Mode : MonoBehaviourPunCallbacks
         }
     }
     private float waitStartTime = 3f;
-
+    public BannerAds bannerAds;
+    public InterstitialAds interAds;
     public delegate void GameOverEvent();
     public static event GameOverEvent OnGameOver;
 
@@ -159,6 +160,14 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     public virtual void GameStart()
     {
+#if UNITY_ANDROID
+        Application.targetFrameRate = 60;
+#else
+                QualitySettings.vSyncCount = 1;
+#endif
+
+        bannerAds = GameObject.FindGameObjectWithTag("Ads").GetComponent<BannerAds>();
+        interAds = GameObject.FindGameObjectWithTag("Ads").GetComponent<InterstitialAds>();
         StartCoroutine(GamePlaying());
     }
     /// <summary>
@@ -167,6 +176,7 @@ public class Mode : MonoBehaviourPunCallbacks
     /// <returns></returns>
     protected IEnumerator GamePlaying()
     {
+        bannerAds.Show();
         // 모든 클라이언트가 맵생성 할때까지 대기
         yield return new WaitUntil(() => GameManager.Instance.mapGenerateCount == PhotonNetwork.CurrentRoom.PlayerCount);
 
@@ -183,6 +193,7 @@ public class Mode : MonoBehaviourPunCallbacks
         yield return new WaitUntil(() => isCreatedAI);
         yield return new WaitForSeconds(5f);
 
+        bannerAds.Hide();
         // 로딩 종료
         loadingPanel.gameObject.SetActive(false);
 
@@ -226,24 +237,19 @@ public class Mode : MonoBehaviourPunCallbacks
         Debug.Log("게임종료");
         yield return new WaitUntil(() => GameManager.Instance.isDataSented);
 
-        GameObject panel1 = resultPanel.transform.GetChild(0).gameObject;
-        GameObject panel2 = resultPanel.transform.GetChild(1).gameObject;
-        GameObject panel3 = resultPanel.transform.GetChild(2).gameObject;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            Dictionary<string, object> mostKiller = GameManager.Instance.GetMostPlayerKiller();
+            Dictionary<string, object> winner = GameManager.Instance.GetWinner();
+            Dictionary<string, object> mostAIKiller = GameManager.Instance.GetMostAIKiller();
 
-        Dictionary<string, object> mostKiller = GameManager.Instance.GetMostPlayerKiller();
-        Dictionary<string, object> winner = GameManager.Instance.GetWinner();
-        Dictionary<string, object> mastAIKiller = GameManager.Instance.GetMostAIKiller();
+            photonView.RPC(nameof(RpcShowResult), RpcTarget.All,
+                mostKiller["NickName"].ToString(), mostKiller["PlayerKills"].ToString(),
+                winner["NickName"].ToString(), winner["PlayerKills"].ToString(),
+                mostAIKiller["NickName"].ToString(), mostAIKiller["AIKills"].ToString());
 
-        panel1.transform.GetChild(1).GetComponent<Text>().text = mostKiller["NickName"].ToString();
-        panel1.transform.GetChild(2).GetComponent<Text>().text = mostKiller["PlayerKills"].ToString() + "Kills";
 
-        panel2.transform.GetChild(1).GetComponent<Text>().text = winner["NickName"].ToString();
-        panel2.transform.GetChild(2).GetComponent<Text>().text = winner["PlayerKills"].ToString() + "Kills";
-
-        panel3.transform.GetChild(1).GetComponent<Text>().text = mastAIKiller["NickName"].ToString();
-        panel3.transform.GetChild(2).GetComponent<Text>().text = mastAIKiller["AIKills"].ToString() + "Kills";
-
-        resultPanel.SetActive(true);
+        }
     }
 
     private void AIBehaviourStop(bool isStop)
@@ -293,6 +299,30 @@ public class Mode : MonoBehaviourPunCallbacks
                 Debug.LogWarning("win");
             }
             IsGameOver = true;
+        }
+    }
+
+    [PunRPC]
+    protected void RpcShowResult(string panel1Name, string panel1Kills, string panel2Name, string panel2Kills, string panel3Name, string panel3Kills)
+    {
+        GameObject panel1 = resultPanel.transform.GetChild(0).gameObject;
+        GameObject panel2 = resultPanel.transform.GetChild(1).gameObject;
+        GameObject panel3 = resultPanel.transform.GetChild(2).gameObject;
+
+        panel1.transform.GetChild(1).GetComponent<Text>().text = panel1Name;
+        panel1.transform.GetChild(2).GetComponent<Text>().text = panel1Kills;
+
+        panel2.transform.GetChild(1).GetComponent<Text>().text = panel2Name;
+        panel2.transform.GetChild(2).GetComponent<Text>().text = panel2Kills;
+
+        panel3.transform.GetChild(1).GetComponent<Text>().text = panel3Name;
+        panel3.transform.GetChild(2).GetComponent<Text>().text = panel3Kills;
+        resultPanel.SetActive(true);
+
+        if (!GameManager.Instance.IsWin)
+        {
+            bannerAds.Show();
+            interAds.Show();
         }
     }
 

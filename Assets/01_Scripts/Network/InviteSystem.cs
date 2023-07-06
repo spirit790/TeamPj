@@ -56,6 +56,8 @@ public class InviteSystem : MonoBehaviourPunCallbacks
 
     string randomWords = "abcdefghijklmnopqrstuvwxyz0123456789";
 
+    
+
     [SerializeField] bool isDebug = false;
 
     private void Start()
@@ -72,6 +74,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         this.gameObject.SetActive(true);
         if (GameManager.Instance.isReInvite)
         {
+            ShowAllPlayers();
             roomPanel.gameObject.SetActive(true);
         }
         else
@@ -221,7 +224,19 @@ public class InviteSystem : MonoBehaviourPunCallbacks
             content.GetChild(i).GetChild(1).GetComponent<Toggle>().isOn = false;
         }
     }
-
+    void ShowAllPlayers()
+    {
+        foreach (var item in PhotonNetwork.CurrentRoom.Players)
+        {
+            playerList.Add(item.Value.NickName, false);
+        }
+        int i = 0;
+        foreach (var item in playerList)
+        {
+            content.transform.GetChild(i).GetComponentInChildren<Text>().text = item.Key;
+            i++;
+        }
+    }
     #endregion
 
     #region PunRPC Method
@@ -284,11 +299,6 @@ public class InviteSystem : MonoBehaviourPunCallbacks
     #endregion
 
     #region Photon Override Method
-    public override void OnCreatedRoom()
-    {
-        Debug.Log(PhotonNetwork.CurrentRoom.Name);
-    }
-
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         if (PhotonNetwork.IsMasterClient)
