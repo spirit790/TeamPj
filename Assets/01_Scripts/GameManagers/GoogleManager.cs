@@ -290,6 +290,11 @@ public class GoogleManager : MonoBehaviour
                 GameManager.Instance.userInfo = snapshot.ToDictionary();
                 Debug.Log(GameManager.Instance.userInfo.Count);
                 GameManager.Instance.nickName = GameManager.Instance.userInfo["NickName"].ToString();
+                if(SceneManager.GetActiveScene().buildIndex == 1)
+                {
+                    Debug.Log("GoogleManager Scene 1");
+                    GameObject.FindGameObjectWithTag("NickNameText").GetComponent<Text>().text = GameManager.Instance.nickName;
+                }
             }
         });
     }

@@ -902,6 +902,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteral2FCFDB59FECE97F4E76A80FFE0D5EB9254BFF236
 IL2CPP_EXTERN_C String_t* _stringLiteral3152E557E1DAD4076D72C85EA320ACFF91283398;
 IL2CPP_EXTERN_C String_t* _stringLiteral31CB10D3EBABE854DFE7BC0304C14922A2F5971E;
 IL2CPP_EXTERN_C String_t* _stringLiteral32189949CB1CA4A6EBB1A643EBE2DB69713D5407;
+IL2CPP_EXTERN_C String_t* _stringLiteral32F76F811D4224C2BAD998C195AE09938B68DB7F;
 IL2CPP_EXTERN_C String_t* _stringLiteral3326D291B7AB412B1AB019E4A28A26BFE32981B5;
 IL2CPP_EXTERN_C String_t* _stringLiteral350B2E03F6B7193079F6F6DCE208EB7D98736C79;
 IL2CPP_EXTERN_C String_t* _stringLiteral378F2A2277727E3F33599E270749A10E7C2B55E1;
@@ -7270,6 +7271,13 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void GameManager_set_PlayerCount_
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_set_PlayersLeft_m4A08038960C682C947BBBBF75A2E3C9FF29D0604 (GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* __this, int32_t ___0_value, const RuntimeMethod* method) ;
 // System.Void GameManager::set_DataCount(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_set_DataCount_m3E2D5ED123F484CD5DC6A29BD1791DBBD0BDA01E (GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* __this, int32_t ___0_value, const RuntimeMethod* method) ;
+// UnityEngine.GameObject UnityEngine.GameObject::FindGameObjectWithTag(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* GameObject_FindGameObjectWithTag_mF0229BC2074CE9EEA72FAB1E5A4BC2AEC3D2CDBE (String_t* ___0_tag, const RuntimeMethod* method) ;
+// T UnityEngine.GameObject::GetComponent<UnityEngine.UI.Text>()
+inline Text_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62* GameObject_GetComponent_TisText_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62_mBE6B722369FF149589D3D42A6A8435A9C5045B3F (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method)
+{
+	return ((  Text_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62* (*) (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*, const RuntimeMethod*))GameObject_GetComponent_TisRuntimeObject_m6EAED4AA356F0F48288F67899E5958792395563B_gshared)(__this, method);
+}
 // System.Int32 GameManager::get_PlayerCount()
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t GameManager_get_PlayerCount_m0CD8F69AEB2482165BC71910F0C12BE335AE6685_inline (GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6* __this, const RuntimeMethod* method) ;
 // ExitGames.Client.Photon.Hashtable Photon.Realtime.RoomInfo::get_CustomProperties()
@@ -7307,6 +7315,8 @@ inline void Dictionary_2__ctor_mC4F3DF292BAD88F4BF193C49CD689FAEBC4570A9 (Dictio
 {
 	((  void (*) (Dictionary_2_tA348003A3C1CEFB3096E9D2A0BC7F1AC8EC4F710*, const RuntimeMethod*))Dictionary_2__ctor_m5B32FBC624618211EB461D59CFBB10E987FD1329_gshared)(__this, method);
 }
+// UnityEngine.SocialPlatforms.ILocalUser UnityEngine.Social::get_localUser()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Social_get_localUser_m7ED6D68F8CBFB7930562BE54601520AEED1D0CE4 (const RuntimeMethod* method) ;
 // System.Void System.Collections.Generic.Dictionary`2<System.String,System.Object>::Add(TKey,TValue)
 inline void Dictionary_2_Add_m5875DF2ACE933D734119C088B2E7C9C63F49B443 (Dictionary_2_tA348003A3C1CEFB3096E9D2A0BC7F1AC8EC4F710* __this, String_t* ___0_key, RuntimeObject* ___1_value, const RuntimeMethod* method)
 {
@@ -7489,8 +7499,6 @@ inline Locale_t7BD9FB50247883E73B4CC92360943B0455CF02B9* List_1_get_Item_m371BFB
 }
 // System.Void UnityEngine.Localization.Settings.LocalizationSettings::set_SelectedLocale(UnityEngine.Localization.Locale)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LocalizationSettings_set_SelectedLocale_m19FDCECD3A7667D216F3CD160E0A9F7078D262A1 (Locale_t7BD9FB50247883E73B4CC92360943B0455CF02B9* ___0_value, const RuntimeMethod* method) ;
-// UnityEngine.SocialPlatforms.ILocalUser UnityEngine.Social::get_localUser()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Social_get_localUser_m7ED6D68F8CBFB7930562BE54601520AEED1D0CE4 (const RuntimeMethod* method) ;
 // System.Collections.IEnumerator GoogleManager::CheckUserInfo(System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GoogleManager_CheckUserInfo_mF3D5CF2F452A9D9E036B8A3CBF0210625E8DB5BB (GoogleManager_tCE3C252C3D62D10DC02B9F1200DB81A4AC1BCC84* __this, String_t* ___0_userId, const RuntimeMethod* method) ;
 // System.Void GooglePlayGames.PlayGamesPlatform::set_DebugLogEnabled(System.Boolean)
@@ -7693,8 +7701,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RoadMaker_SmoothMap_mC7E31E55A8006D0B9BB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RoadMaker_DrawMap_m17BAB5324D1A8C769F3FCECD8C865D589B614E20 (RoadMaker_t7768C76BD0FEFF3D5ED0805FBA628584688D507E* __this, const RuntimeMethod* method) ;
 // System.Int32 RoadMaker::GetSurroundingWallCount(System.Int32,System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t RoadMaker_GetSurroundingWallCount_mB1181929397BAB15BE62A6C0299F2F5DA6F9782B (RoadMaker_t7768C76BD0FEFF3D5ED0805FBA628584688D507E* __this, int32_t ___0_gridX, int32_t ___1_gridY, const RuntimeMethod* method) ;
-// UnityEngine.GameObject UnityEngine.GameObject::FindGameObjectWithTag(System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* GameObject_FindGameObjectWithTag_mF0229BC2074CE9EEA72FAB1E5A4BC2AEC3D2CDBE (String_t* ___0_tag, const RuntimeMethod* method) ;
 // T UnityEngine.GameObject::GetComponent<MapGenerator>()
 inline MapGenerator_tF06BD24367649B5388369163E0012EEBF4263A8A* GameObject_GetComponent_TisMapGenerator_tF06BD24367649B5388369163E0012EEBF4263A8A_m9E82046042752DA5E57FBF79C3D89F71890825D9 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method)
 {
@@ -7802,11 +7808,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void GameOverEvent_Invoke_mAE6F3F9C6E77A9F912519E11FB2DC9CCFA7DA9DF_inline (GameOverEvent_t92969ACBC9284792D156EB8173EA65FD777DB482* __this, const RuntimeMethod* method) ;
 // System.Void Mode::AIBehaviourStop(System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Mode_AIBehaviourStop_m2A9173C4DDFCF6B67A20BC0DE8484ABC5CF75EF2 (Mode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211* __this, bool ___0_isStop, const RuntimeMethod* method) ;
-// T UnityEngine.GameObject::GetComponent<UnityEngine.UI.Text>()
-inline Text_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62* GameObject_GetComponent_TisText_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62_mBE6B722369FF149589D3D42A6A8435A9C5045B3F (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method)
-{
-	return ((  Text_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62* (*) (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*, const RuntimeMethod*))GameObject_GetComponent_TisRuntimeObject_m6EAED4AA356F0F48288F67899E5958792395563B_gshared)(__this, method);
-}
 // T UnityEngine.GameObject::GetComponent<UnityEngine.UI.Image>()
 inline Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E* GameObject_GetComponent_TisImage_tBC1D03F63BF71132E9A5E472B8742F172A011E7E_mA59EA7D5F9133B2593F4AB70B099928BA955EE7D (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method)
 {
@@ -14793,10 +14794,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_OnSceneLoaded_m493DEFC27D67D
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GameObject_GetComponent_TisText_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62_mBE6B722369FF149589D3D42A6A8435A9C5045B3F_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_get_Item_mBF6FF7C2B0EC580927A6DBD6B66E35706DA1C68A_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_Instantiate_TisMode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211_m1A790C9246797DC8095D67D6EBE9B99FA510EAF1_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&PhotonNetwork_tBF04D378B56DDA80F9DB8E08DF87D5B532C22B99_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral32F76F811D4224C2BAD998C195AE09938B68DB7F);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralBA83DB5A980FBE2B5ED8E19D69F81E0DD3C2BF85);
 		s_Il2CppMethodInitialized = true;
 	}
@@ -14809,7 +14812,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_OnSceneLoaded_m493DEFC27D67D
 		L_0 = Scene_get_buildIndex_m82B6E0C96C85C952B7A2D794DB73CDA99AA9A57E((&___0_scene), NULL);
 		if ((!(((uint32_t)L_0) == ((uint32_t)1))))
 		{
-			goto IL_0057;
+			goto IL_0071;
 		}
 	}
 	{
@@ -14835,16 +14838,25 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_OnSceneLoaded_m493DEFC27D67D
 		__this->___death_22 = 0;
 		// DataCount = 0;
 		GameManager_set_DataCount_m3E2D5ED123F484CD5DC6A29BD1791DBBD0BDA01E(__this, 0, NULL);
+		// GameObject.FindGameObjectWithTag("NickNameText").GetComponent<Text>().text = nickName;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_1;
+		L_1 = GameObject_FindGameObjectWithTag_mF0229BC2074CE9EEA72FAB1E5A4BC2AEC3D2CDBE(_stringLiteral32F76F811D4224C2BAD998C195AE09938B68DB7F, NULL);
+		NullCheck(L_1);
+		Text_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62* L_2;
+		L_2 = GameObject_GetComponent_TisText_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62_mBE6B722369FF149589D3D42A6A8435A9C5045B3F(L_1, GameObject_GetComponent_TisText_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62_mBE6B722369FF149589D3D42A6A8435A9C5045B3F_RuntimeMethod_var);
+		String_t* L_3 = __this->___nickName_25;
+		NullCheck(L_2);
+		VirtualActionInvoker1< String_t* >::Invoke(75 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_2, L_3);
 	}
 
-IL_0057:
+IL_0071:
 	{
 		// if(scene.buildIndex >= 2)
-		int32_t L_1;
-		L_1 = Scene_get_buildIndex_m82B6E0C96C85C952B7A2D794DB73CDA99AA9A57E((&___0_scene), NULL);
-		if ((((int32_t)L_1) < ((int32_t)2)))
+		int32_t L_4;
+		L_4 = Scene_get_buildIndex_m82B6E0C96C85C952B7A2D794DB73CDA99AA9A57E((&___0_scene), NULL);
+		if ((((int32_t)L_4) < ((int32_t)2)))
 		{
-			goto IL_0173;
+			goto IL_018d;
 		}
 	}
 	{
@@ -14854,143 +14866,143 @@ IL_0057:
 		__this->___isReMatch_9 = (bool)0;
 		// playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
 		il2cpp_codegen_runtime_class_init_inline(PhotonNetwork_tBF04D378B56DDA80F9DB8E08DF87D5B532C22B99_il2cpp_TypeInfo_var);
-		Room_t9CCA5C06B8CE2E5E1EE24AD17360F218C4E36373* L_2;
-		L_2 = PhotonNetwork_get_CurrentRoom_m72D3601299E109EED858E132DE1BD316226BA38D(NULL);
-		NullCheck(L_2);
-		int32_t L_3;
-		L_3 = Room_get_PlayerCount_m663432EB660EDFF2D7428BD6B6AE7142505BFE1F(L_2, NULL);
-		__this->___playerCount_11 = L_3;
-		// PlayersLeft = PlayerCount;
-		int32_t L_4;
-		L_4 = GameManager_get_PlayerCount_m0CD8F69AEB2482165BC71910F0C12BE335AE6685_inline(__this, NULL);
-		GameManager_set_PlayersLeft_m4A08038960C682C947BBBBF75A2E3C9FF29D0604(__this, L_4, NULL);
-		// int modeNum = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[KeyMode].ToString());
 		Room_t9CCA5C06B8CE2E5E1EE24AD17360F218C4E36373* L_5;
 		L_5 = PhotonNetwork_get_CurrentRoom_m72D3601299E109EED858E132DE1BD316226BA38D(NULL);
 		NullCheck(L_5);
-		Hashtable_tD626399B3ADFD501225241D7366103F35472542A* L_6;
-		L_6 = RoomInfo_get_CustomProperties_mE54DDDE221FC51475970867611765A4205AFD422_inline(L_5, NULL);
-		String_t* L_7;
-		L_7 = GameManager_get_KeyMode_m8C2801CBB98920C08FFBC739C7FFF87FA8CF20D1(__this, NULL);
-		NullCheck(L_6);
-		RuntimeObject* L_8;
-		L_8 = Hashtable_get_Item_m33995CAF3384BA31ADA32E8B6D3AA69946190CA9(L_6, L_7, NULL);
+		int32_t L_6;
+		L_6 = Room_get_PlayerCount_m663432EB660EDFF2D7428BD6B6AE7142505BFE1F(L_5, NULL);
+		__this->___playerCount_11 = L_6;
+		// PlayersLeft = PlayerCount;
+		int32_t L_7;
+		L_7 = GameManager_get_PlayerCount_m0CD8F69AEB2482165BC71910F0C12BE335AE6685_inline(__this, NULL);
+		GameManager_set_PlayersLeft_m4A08038960C682C947BBBBF75A2E3C9FF29D0604(__this, L_7, NULL);
+		// int modeNum = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[KeyMode].ToString());
+		Room_t9CCA5C06B8CE2E5E1EE24AD17360F218C4E36373* L_8;
+		L_8 = PhotonNetwork_get_CurrentRoom_m72D3601299E109EED858E132DE1BD316226BA38D(NULL);
 		NullCheck(L_8);
-		String_t* L_9;
-		L_9 = VirtualFuncInvoker0< String_t* >::Invoke(3 /* System.String System.Object::ToString() */, L_8);
-		int32_t L_10;
-		L_10 = Int32_Parse_m273CA1A9C7717C99641291A95C543711C0202AF0(L_9, NULL);
-		V_0 = L_10;
-		// Mode currentGameMode = Instantiate(modes[modeNum]);
-		List_1_t6E944434594965BBCF23E9B7B3F86546AA125682* L_11 = __this->___modes_28;
-		int32_t L_12 = V_0;
+		Hashtable_tD626399B3ADFD501225241D7366103F35472542A* L_9;
+		L_9 = RoomInfo_get_CustomProperties_mE54DDDE221FC51475970867611765A4205AFD422_inline(L_8, NULL);
+		String_t* L_10;
+		L_10 = GameManager_get_KeyMode_m8C2801CBB98920C08FFBC739C7FFF87FA8CF20D1(__this, NULL);
+		NullCheck(L_9);
+		RuntimeObject* L_11;
+		L_11 = Hashtable_get_Item_m33995CAF3384BA31ADA32E8B6D3AA69946190CA9(L_9, L_10, NULL);
 		NullCheck(L_11);
-		Mode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211* L_13;
-		L_13 = List_1_get_Item_mBF6FF7C2B0EC580927A6DBD6B66E35706DA1C68A(L_11, L_12, List_1_get_Item_mBF6FF7C2B0EC580927A6DBD6B66E35706DA1C68A_RuntimeMethod_var);
+		String_t* L_12;
+		L_12 = VirtualFuncInvoker0< String_t* >::Invoke(3 /* System.String System.Object::ToString() */, L_11);
+		int32_t L_13;
+		L_13 = Int32_Parse_m273CA1A9C7717C99641291A95C543711C0202AF0(L_12, NULL);
+		V_0 = L_13;
+		// Mode currentGameMode = Instantiate(modes[modeNum]);
+		List_1_t6E944434594965BBCF23E9B7B3F86546AA125682* L_14 = __this->___modes_28;
+		int32_t L_15 = V_0;
+		NullCheck(L_14);
+		Mode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211* L_16;
+		L_16 = List_1_get_Item_mBF6FF7C2B0EC580927A6DBD6B66E35706DA1C68A(L_14, L_15, List_1_get_Item_mBF6FF7C2B0EC580927A6DBD6B66E35706DA1C68A_RuntimeMethod_var);
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		Mode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211* L_14;
-		L_14 = Object_Instantiate_TisMode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211_m1A790C9246797DC8095D67D6EBE9B99FA510EAF1(L_13, Object_Instantiate_TisMode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211_m1A790C9246797DC8095D67D6EBE9B99FA510EAF1_RuntimeMethod_var);
-		V_1 = L_14;
+		Mode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211* L_17;
+		L_17 = Object_Instantiate_TisMode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211_m1A790C9246797DC8095D67D6EBE9B99FA510EAF1(L_16, Object_Instantiate_TisMode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211_m1A790C9246797DC8095D67D6EBE9B99FA510EAF1_RuntimeMethod_var);
+		V_1 = L_17;
 		// currentGameMode.modeName = currentGameMode.GetType().Name;
-		Mode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211* L_15 = V_1;
-		Mode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211* L_16 = V_1;
-		NullCheck(L_16);
-		Type_t* L_17;
-		L_17 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(L_16, NULL);
-		NullCheck(L_17);
-		String_t* L_18;
-		L_18 = VirtualFuncInvoker0< String_t* >::Invoke(8 /* System.String System.Reflection.MemberInfo::get_Name() */, L_17);
-		NullCheck(L_15);
-		L_15->___modeName_18 = L_18;
-		Il2CppCodeGenWriteBarrier((void**)(&L_15->___modeName_18), (void*)L_18);
-		// Debug.Log(currentGameMode.name);
+		Mode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211* L_18 = V_1;
 		Mode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211* L_19 = V_1;
 		NullCheck(L_19);
-		String_t* L_20;
-		L_20 = Object_get_name_mAC2F6B897CF1303BA4249B4CB55271AFACBB6392(L_19, NULL);
+		Type_t* L_20;
+		L_20 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(L_19, NULL);
+		NullCheck(L_20);
+		String_t* L_21;
+		L_21 = VirtualFuncInvoker0< String_t* >::Invoke(8 /* System.String System.Reflection.MemberInfo::get_Name() */, L_20);
+		NullCheck(L_18);
+		L_18->___modeName_18 = L_21;
+		Il2CppCodeGenWriteBarrier((void**)(&L_18->___modeName_18), (void*)L_21);
+		// Debug.Log(currentGameMode.name);
+		Mode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211* L_22 = V_1;
+		NullCheck(L_22);
+		String_t* L_23;
+		L_23 = Object_get_name_mAC2F6B897CF1303BA4249B4CB55271AFACBB6392(L_22, NULL);
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
-		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(L_20, NULL);
-		int32_t L_21 = V_0;
-		switch (L_21)
+		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(L_23, NULL);
+		int32_t L_24 = V_0;
+		switch (L_24)
 		{
 			case 0:
 			{
-				goto IL_00f0;
+				goto IL_010a;
 			}
 			case 1:
 			{
-				goto IL_0129;
+				goto IL_0143;
 			}
 			case 2:
 			{
-				goto IL_014a;
+				goto IL_0164;
 			}
 		}
 	}
 	{
-		goto IL_0169;
+		goto IL_0183;
 	}
 
-IL_00f0:
+IL_010a:
 	{
 		// gameMode = Modes.BATTLEROYAL;
 		__this->___gameMode_13 = 0;
 		// currentGameMode.Set(playerCount, battleAIRatio, battleTimeLimit);
-		Mode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211* L_22 = V_1;
-		int32_t L_23 = __this->___playerCount_11;
-		int32_t L_24 = __this->___battleAIRatio_14;
-		float L_25 = __this->___battleTimeLimit_15;
-		NullCheck(L_22);
-		VirtualActionInvoker3< int32_t, int32_t, float >::Invoke(54 /* System.Void Mode::Set(System.Int32,System.Int32,System.Single) */, L_22, L_23, L_24, L_25);
+		Mode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211* L_25 = V_1;
+		int32_t L_26 = __this->___playerCount_11;
+		int32_t L_27 = __this->___battleAIRatio_14;
+		float L_28 = __this->___battleTimeLimit_15;
+		NullCheck(L_25);
+		VirtualActionInvoker3< int32_t, int32_t, float >::Invoke(54 /* System.Void Mode::Set(System.Int32,System.Int32,System.Single) */, L_25, L_26, L_27, L_28);
 		// string tempString = Random.Range(0, 1000).ToString();
-		int32_t L_26;
-		L_26 = Random_Range_m6763D9767F033357F88B6637F048F4ACA4123B68(0, ((int32_t)1000), NULL);
-		V_2 = L_26;
-		String_t* L_27;
-		L_27 = Int32_ToString_m030E01C24E294D6762FB0B6F37CB541581F55CA5((&V_2), NULL);
+		int32_t L_29;
+		L_29 = Random_Range_m6763D9767F033357F88B6637F048F4ACA4123B68(0, ((int32_t)1000), NULL);
+		V_2 = L_29;
+		String_t* L_30;
+		L_30 = Int32_ToString_m030E01C24E294D6762FB0B6F37CB541581F55CA5((&V_2), NULL);
 		// Debug.Log(tempString);
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
-		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(L_27, NULL);
+		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(L_30, NULL);
 		// break;
-		goto IL_0169;
+		goto IL_0183;
 	}
 
-IL_0129:
+IL_0143:
 	{
 		// gameMode = Modes.AREA;
 		__this->___gameMode_13 = 1;
 		// currentGameMode.Set(playerCount, areaAIRatio, areaTimeLimit);
-		Mode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211* L_28 = V_1;
-		int32_t L_29 = __this->___playerCount_11;
-		int32_t L_30 = __this->___areaAIRatio_16;
-		float L_31 = __this->___areaTimeLimit_17;
-		NullCheck(L_28);
-		VirtualActionInvoker3< int32_t, int32_t, float >::Invoke(54 /* System.Void Mode::Set(System.Int32,System.Int32,System.Single) */, L_28, L_29, L_30, L_31);
+		Mode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211* L_31 = V_1;
+		int32_t L_32 = __this->___playerCount_11;
+		int32_t L_33 = __this->___areaAIRatio_16;
+		float L_34 = __this->___areaTimeLimit_17;
+		NullCheck(L_31);
+		VirtualActionInvoker3< int32_t, int32_t, float >::Invoke(54 /* System.Void Mode::Set(System.Int32,System.Int32,System.Single) */, L_31, L_32, L_33, L_34);
 		// break;
-		goto IL_0169;
+		goto IL_0183;
 	}
 
-IL_014a:
+IL_0164:
 	{
 		// gameMode = Modes.DEATHMATCH;
 		__this->___gameMode_13 = 2;
 		// currentGameMode.Set(playerCount, deathAIRatio, deathTimeLimit);
-		Mode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211* L_32 = V_1;
-		int32_t L_33 = __this->___playerCount_11;
-		int32_t L_34 = __this->___deathAIRatio_18;
-		float L_35 = __this->___deathTimeLimit_19;
-		NullCheck(L_32);
-		VirtualActionInvoker3< int32_t, int32_t, float >::Invoke(54 /* System.Void Mode::Set(System.Int32,System.Int32,System.Single) */, L_32, L_33, L_34, L_35);
+		Mode_t2519F112E0BDBDA2FCC2C2F468DB780428CEA211* L_35 = V_1;
+		int32_t L_36 = __this->___playerCount_11;
+		int32_t L_37 = __this->___deathAIRatio_18;
+		float L_38 = __this->___deathTimeLimit_19;
+		NullCheck(L_35);
+		VirtualActionInvoker3< int32_t, int32_t, float >::Invoke(54 /* System.Void Mode::Set(System.Int32,System.Int32,System.Single) */, L_35, L_36, L_37, L_38);
 	}
 
-IL_0169:
+IL_0183:
 	{
 		// Debug.Log("Master");
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(_stringLiteralBA83DB5A980FBE2B5ED8E19D69F81E0DD3C2BF85, NULL);
 	}
 
-IL_0173:
+IL_018d:
 	{
 		// }
 		return;
@@ -15007,6 +15019,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_GameOver_mF1BD400E7F84A0B533
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_Add_m5875DF2ACE933D734119C088B2E7C9C63F49B443_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2__ctor_mC4F3DF292BAD88F4BF193C49CD689FAEBC4570A9_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_tA348003A3C1CEFB3096E9D2A0BC7F1AC8EC4F710_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&IUserProfile_tF23DFE5CF90A1020C168F5751F7C4F2B628E22E3_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Int32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_Add_mA293F10765359D70384794AA7DA94A25FA0AC15E_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_get_Count_mBE391563AD77CA4C4E18715CEF71AFE50866F8F7_RuntimeMethod_var);
@@ -15056,7 +15069,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_GameOver_mF1BD400E7F84A0B533
 		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(L_11, NULL);
 		// Dictionary<string, object> data = new Dictionary<string, object>
 		// {
-		//     { "GoogleId", PhotonNetwork.LocalPlayer.NickName },
+		//     { "GoogleId", Social.localUser.id },
 		//     { "IsWin", IsWin },
 		//     { "Death", death },
 		//     { "PlayerKills", playerKills },
@@ -15067,11 +15080,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameManager_GameOver_mF1BD400E7F84A0B533
 		NullCheck(L_12);
 		Dictionary_2__ctor_mC4F3DF292BAD88F4BF193C49CD689FAEBC4570A9(L_12, Dictionary_2__ctor_mC4F3DF292BAD88F4BF193C49CD689FAEBC4570A9_RuntimeMethod_var);
 		Dictionary_2_tA348003A3C1CEFB3096E9D2A0BC7F1AC8EC4F710* L_13 = L_12;
-		Player_tC864A64FC55FA6E30EFD6B6FF314C9725DDA363C* L_14;
-		L_14 = PhotonNetwork_get_LocalPlayer_mEA3335FEF4E4B55C1EFAC8AFA8D5F7E3D7FBE4DC(NULL);
+		RuntimeObject* L_14;
+		L_14 = Social_get_localUser_m7ED6D68F8CBFB7930562BE54601520AEED1D0CE4(NULL);
 		NullCheck(L_14);
 		String_t* L_15;
-		L_15 = Player_get_NickName_mC1B2AC59B8850ABEB4DA27199675066DC3BF0738_inline(L_14, NULL);
+		L_15 = InterfaceFuncInvoker0< String_t* >::Invoke(1 /* System.String UnityEngine.SocialPlatforms.IUserProfile::get_id() */, IUserProfile_tF23DFE5CF90A1020C168F5751F7C4F2B628E22E3_il2cpp_TypeInfo_var, L_14);
 		NullCheck(L_13);
 		Dictionary_2_Add_m5875DF2ACE933D734119C088B2E7C9C63F49B443(L_13, _stringLiteral2D8E553D2D60AC17860265A3A5ED1219A528D854, L_15, Dictionary_2_Add_m5875DF2ACE933D734119C088B2E7C9C63F49B443_RuntimeMethod_var);
 		Dictionary_2_tA348003A3C1CEFB3096E9D2A0BC7F1AC8EC4F710* L_16 = L_13;
