@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -202,6 +203,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             playerKills = 0;
             death = 0;
             DataCount = 0;
+            GameObject.FindGameObjectWithTag("NickNameText").GetComponent<Text>().text = nickName;
         }
         // 게임 시작 단계에서 모드 정해지고 실행되도록, game scene에서 실행되도록
         // scene 순서는 추후 구현하면서 변경 및 확정하도록 함
@@ -251,7 +253,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         Debug.Log($"PlayerCount {PhotonNetwork.CurrentRoom.PlayerCount}");
         Dictionary<string, object> data = new Dictionary<string, object>
         {
-            { "GoogleId", PhotonNetwork.LocalPlayer.NickName },
+            { "GoogleId", Social.localUser.id },
             { "IsWin", IsWin },
             { "Death", death },
             { "PlayerKills", playerKills },

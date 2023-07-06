@@ -29580,10 +29580,8 @@ struct UI_PopUp_Start_t706F677A8828D02C1F934028183DD96C706650D7  : public MonoBe
 {
 	// UnityEngine.RectTransform UI_PopUp_Start::rect
 	RectTransform_t6C5DA5E41A89E0F488B001E45E58963480E543A5* ___rect_4;
-	// UnityEngine.GameObject UI_PopUp_Start::effect
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___effect_5;
 	// System.Single UI_PopUp_Start::fxScale
-	float ___fxScale_6;
+	float ___fxScale_5;
 };
 
 // UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
@@ -47357,9 +47355,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5557[1] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5558[1] = 
 {
 	static_cast<int32_t>(offsetof(UI_PopUp_t5A792974198E7EA04A05E41E52C77F4E2749B51C, ___rect_4)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5559[3] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5559[2] = 
 {
-	static_cast<int32_t>(offsetof(UI_PopUp_Start_t706F677A8828D02C1F934028183DD96C706650D7, ___rect_4)),static_cast<int32_t>(offsetof(UI_PopUp_Start_t706F677A8828D02C1F934028183DD96C706650D7, ___effect_5)),static_cast<int32_t>(offsetof(UI_PopUp_Start_t706F677A8828D02C1F934028183DD96C706650D7, ___fxScale_6)),};
+	static_cast<int32_t>(offsetof(UI_PopUp_Start_t706F677A8828D02C1F934028183DD96C706650D7, ___rect_4)),static_cast<int32_t>(offsetof(UI_PopUp_Start_t706F677A8828D02C1F934028183DD96C706650D7, ___fxScale_5)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable5560[2] = 
 {
 	static_cast<int32_t>(offsetof(WinnerPanel_tB5F7465004B812376EF18BC076CFF1851737EAE0, ___nickNameTxt_5)),static_cast<int32_t>(offsetof(WinnerPanel_tB5F7465004B812376EF18BC076CFF1851737EAE0, ___killsTxt_6)),};
