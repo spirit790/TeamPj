@@ -99,7 +99,7 @@ public class ThroughWallVision : MonoBehaviour
         mat.DOFade(alpha, wallFadeTime);
         //mat.color = matColor;
     }
-    public void SetVisionTarget(Transform target)
+    public void SetWallTarget(Transform target)
     {
         character = target;
     }
