@@ -202,7 +202,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             aiKills = 0;
             playerKills = 0;
             death = 0;
-            DataCount = 0;          
+            DataCount = 0;            
         }
         // 게임 시작 단계에서 모드 정해지고 실행되도록, game scene에서 실행되도록
         // scene 순서는 추후 구현하면서 변경 및 확정하도록 함
