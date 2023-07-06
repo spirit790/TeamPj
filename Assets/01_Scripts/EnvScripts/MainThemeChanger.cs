@@ -15,6 +15,7 @@ public class MainThemeChanger : MonoBehaviour
     [Range(0, 10)] public int cRatio;
 
     public GameObject[] mainThemes;
+    public GameObject effect;
 
     //public int
     void Start()
@@ -49,6 +50,9 @@ public class MainThemeChanger : MonoBehaviour
         int diceB = RollDice();
 
         mainThemes[diceB].SetActive(true);
+
+        GameObject efx = Instantiate(effect);
+        efx.transform.position = new Vector3(0, 0, -0.5f);
     }
 
     private int RollDice()
