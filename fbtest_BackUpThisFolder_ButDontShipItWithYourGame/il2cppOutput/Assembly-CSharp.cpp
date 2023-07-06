@@ -13518,9 +13518,30 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ThroughWallVision_Start_m383D06D94C54B91
 // System.Void ThroughWallVision::Update()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ThroughWallVision_Update_mB3315BCCAE47217C55B9A6CD1A2861D4BFE575A3 (ThroughWallVision_tC9A8E8D4B8FCDC71CB9980BC7AA8EC9FA54135F3* __this, const RuntimeMethod* method) 
 {
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// if (characterTr != null)
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = __this->___characterTr_6;
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_1;
+		L_1 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_1)
+		{
+			goto IL_0014;
+		}
+	}
 	{
 		// DetectingByCam();
 		ThroughWallVision_DetectingByCam_mD14E5D1549ABEA350E6D657F16DB692278549E6D(__this, NULL);
+	}
+
+IL_0014:
+	{
 		// }
 		return;
 	}
