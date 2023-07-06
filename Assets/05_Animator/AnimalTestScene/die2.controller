@@ -10,8 +10,8 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 4797182467115181653}
-    m_Position: {x: 410, y: 100, z: 0}
+    m_State: {fileID: 2876397212076264824}
+    m_Position: {x: 577.40216, y: -117.989334, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -21,14 +21,14 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 4797182467115181653}
+  m_DefaultState: {fileID: 2876397212076264824}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Animator Controller
+  m_Name: die2
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -44,14 +44,14 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &4797182467115181653
+--- !u!1102 &2876397212076264824
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ATK1
+  m_Name: Die2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -64,7 +64,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b879d93f6ad2e3d4681e180c8716daf1, type: 3}
+  m_Motion: {fileID: 7400000, guid: 7ec33b338c1e07f40a6757106561f7d8, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
