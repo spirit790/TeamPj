@@ -3827,6 +3827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flavorText: '''till the last one standing'
+  waitTime: 3
 --- !u!114 &1321201050
 MonoBehaviour:
   m_ObjectHideFlags: 0
