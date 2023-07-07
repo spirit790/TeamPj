@@ -4635,7 +4635,8 @@ PrefabInstance:
       propertyPath: m_SynchronizeParameters.Array.data[3].SynchronizeType
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6809075333709064327, guid: dcdfb7660290eec499733f644bd39cbd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dcdfb7660290eec499733f644bd39cbd, type: 3}
 --- !u!4 &6256007063422872037 stripped
 Transform:
