@@ -3999,8 +3999,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b68d1413fae0f40bf7dff28a54bc66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffect: {fileID: 3612282937569248457, guid: 07f0bec310ee81244a9c2d3a4c6a57b7,
+  aihitEffect: {fileID: 3612282937569248457, guid: 07f0bec310ee81244a9c2d3a4c6a57b7,
     type: 3}
+  playerHitEffect: {fileID: 100002, guid: 857bdb4b1a2af0d4fac6372dacfa4ac2, type: 3}
   attackAngle: 40
   attackRange: 1.2
 --- !u!114 &2327792985695116953

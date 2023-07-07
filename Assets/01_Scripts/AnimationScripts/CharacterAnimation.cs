@@ -68,9 +68,14 @@ public class CharacterAnimation : MonoBehaviour
         }
     }
 
-    public void SetStunAnim(bool isStun)
+    public IEnumerator SetStunAnim(float time)
     {
-        characterAnim.SetBool(PARAM_STUN, isStun);
+        while(time >= 0)
+        {
+            time -= Time.deltaTime;
+            characterAnim.SetFloat(PARAM_STUN, time);
+            yield return null;
+        }
     }
 
     public float[] SetAttackAnim(bool isAttack)
