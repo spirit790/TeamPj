@@ -49586,13 +49586,112 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7266641966082077849}
+  - component: {fileID: 7266641966082077851}
+  - component: {fileID: 7266641966082077852}
+  - component: {fileID: 7266641966082077853}
   m_Layer: 0
   m_Name: tiles_stone
-  m_TagString: Untagged
+  m_TagString: MapGen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7266641966082077851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7266641966082077850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d2096cd70323e41b419f2f0b958b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chunkX: 4
+  chunkZ: 3
+  chunkWidth: 9
+  chunkHeight: 9
+  pos: {x: 0, y: 0, z: 0}
+  areaZonePos: {x: 0, y: 0, z: 0}
+  mainBuildingPos1: {x: 0, y: 0, z: 0}
+  mainBuildingPos2: {x: 0, y: 0, z: 0}
+  posList: []
+  width: 0
+  height: 0
+  strMapData: 
+  strSendMapData: 
+  seed: 
+  groundPrefab: {fileID: 0}
+  roadPrefab: {fileID: 0}
+  randomFillPercent: 0
+  concept: 0
+  groundPrefabs: []
+  roadPrefabs: []
+  jungleObstacles:
+  - {fileID: 2799890415279464533, guid: fdb650dc9ff9be6439b926c9cee70b7b, type: 3}
+  - {fileID: 5100911261983560170, guid: 83b3a0847e93baf4ead0e8b2632a2cbb, type: 3}
+  - {fileID: 4075323177792160440, guid: 646defaafd7070244b3e9723112e4a8f, type: 3}
+  schoolObstacles:
+  - {fileID: 2076827031859337642, guid: 2a116dd5ac4a7b246a2535fe9632f9fe, type: 3}
+  - {fileID: 1078037115635412706, guid: 104069bc0dfba4549bc140c12f8fb8ce, type: 3}
+  - {fileID: 4263781603327254010, guid: 567e231ac5749a14e85b9bacba5ae98c, type: 3}
+  towerObstacles:
+  - {fileID: 6406751210271862619, guid: 95616e1b7d958c643b01c0c4a310f150, type: 3}
+  - {fileID: 8847329464610452033, guid: b13e4dbe78e408648a32a55f8f942e5e, type: 3}
+  - {fileID: 3884911492069250670, guid: 2fc5f8512f62e6f4fb3b054b0cc99b21, type: 3}
+--- !u!114 &7266641966082077852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7266641966082077850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &7266641966082077853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7266641966082077850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 0}
+  m_BuildHeightMesh: 0
 --- !u!4 &7266641966116074265
 Transform:
   m_ObjectHideFlags: 0
