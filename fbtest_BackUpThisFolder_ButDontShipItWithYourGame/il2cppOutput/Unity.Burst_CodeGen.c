@@ -240,51 +240,117 @@ extern void SharedStatic_GetOrCreateSharedStaticInternal_m9850783202F2E2DCA43597
 extern void PreserveAttribute__ctor_m5C7C403F74E9EAEB24409A43B4EB60B4A161AB0F (void);
 // 0x00000074 System.UInt64 Unity.Burst.Intrinsics.Common::umul128(System.UInt64,System.UInt64,System.UInt64&)
 extern void Common_umul128_m6BE762AD1B87296A151EDD918A0802E9FB0846B7 (void);
-// 0x00000075 System.Void Unity.Burst.Intrinsics.v256::.ctor(System.Int32)
+// 0x00000075 System.Void Unity.Burst.Intrinsics.V64DebugView::.ctor(Unity.Burst.Intrinsics.v64)
+extern void V64DebugView__ctor_m8B93FD41843CFE85E56FC106908748A512866D1A (void);
+// 0x00000076 System.Byte[] Unity.Burst.Intrinsics.V64DebugView::get_Byte()
+extern void V64DebugView_get_Byte_mE7321132F0F960DA5F4CC5F3C8C4D9590F36DE07 (void);
+// 0x00000077 System.SByte[] Unity.Burst.Intrinsics.V64DebugView::get_SByte()
+extern void V64DebugView_get_SByte_mA1DE53CFFD29D00D1A6528CE3E0B8F0B3F72D67A (void);
+// 0x00000078 System.UInt16[] Unity.Burst.Intrinsics.V64DebugView::get_UShort()
+extern void V64DebugView_get_UShort_m4C3D69D63F19D810D57037A9995F13DA774AF073 (void);
+// 0x00000079 System.Int16[] Unity.Burst.Intrinsics.V64DebugView::get_SShort()
+extern void V64DebugView_get_SShort_mAE042049E9C8FE8E64B0A6137925E52B9B9F8C67 (void);
+// 0x0000007A System.UInt32[] Unity.Burst.Intrinsics.V64DebugView::get_UInt()
+extern void V64DebugView_get_UInt_mE120B248349776B5E95E087918250943D7F37E78 (void);
+// 0x0000007B System.Int32[] Unity.Burst.Intrinsics.V64DebugView::get_SInt()
+extern void V64DebugView_get_SInt_m95264A7FEB41EE36E88D59B41F5E9883905BE0A9 (void);
+// 0x0000007C System.Single[] Unity.Burst.Intrinsics.V64DebugView::get_Float()
+extern void V64DebugView_get_Float_m188E7E0F9CB70BD06CA2CFCA7553925383BB4B57 (void);
+// 0x0000007D System.Int64[] Unity.Burst.Intrinsics.V64DebugView::get_SLong()
+extern void V64DebugView_get_SLong_m5AE3B8B83A826AB95DC13079E5F63733821C47F6 (void);
+// 0x0000007E System.UInt64[] Unity.Burst.Intrinsics.V64DebugView::get_ULong()
+extern void V64DebugView_get_ULong_m6B56894B5D3051DD10F1032933E9AB33407FED9D (void);
+// 0x0000007F System.Double[] Unity.Burst.Intrinsics.V64DebugView::get_Double()
+extern void V64DebugView_get_Double_mA4EF50063B9C4EB7AE40EB8DED550BA69246B222 (void);
+// 0x00000080 System.Void Unity.Burst.Intrinsics.V128DebugView::.ctor(Unity.Burst.Intrinsics.v128)
+extern void V128DebugView__ctor_mC42F6FFDF54C60C5A059034BAB8BB5E10E038693 (void);
+// 0x00000081 System.Byte[] Unity.Burst.Intrinsics.V128DebugView::get_Byte()
+extern void V128DebugView_get_Byte_m41DAE52D58F88364298B4821CBD5F8553314D4DD (void);
+// 0x00000082 System.SByte[] Unity.Burst.Intrinsics.V128DebugView::get_SByte()
+extern void V128DebugView_get_SByte_mEF603AAD6E9C28351548B61DFA501711D093EB24 (void);
+// 0x00000083 System.UInt16[] Unity.Burst.Intrinsics.V128DebugView::get_UShort()
+extern void V128DebugView_get_UShort_m08A2C3357E1D21BED05A9CD3792365A71ED87205 (void);
+// 0x00000084 System.Int16[] Unity.Burst.Intrinsics.V128DebugView::get_SShort()
+extern void V128DebugView_get_SShort_m0ECA44D738B5735389A60F057FE18E8197EDD22A (void);
+// 0x00000085 System.UInt32[] Unity.Burst.Intrinsics.V128DebugView::get_UInt()
+extern void V128DebugView_get_UInt_m5E2CB21FBDD5A6DAF84D67E70F58235EC0FC6AF6 (void);
+// 0x00000086 System.Int32[] Unity.Burst.Intrinsics.V128DebugView::get_SInt()
+extern void V128DebugView_get_SInt_m80A4E5E0F0951876499F460205296B37A044DF92 (void);
+// 0x00000087 System.Single[] Unity.Burst.Intrinsics.V128DebugView::get_Float()
+extern void V128DebugView_get_Float_m4349267DC73E577EE2C0DA71DE0460082F8CFC7C (void);
+// 0x00000088 System.Int64[] Unity.Burst.Intrinsics.V128DebugView::get_SLong()
+extern void V128DebugView_get_SLong_m799B8A54511F2E4CCB22A0F8A4047997EF8A9B4B (void);
+// 0x00000089 System.UInt64[] Unity.Burst.Intrinsics.V128DebugView::get_ULong()
+extern void V128DebugView_get_ULong_m712AFB4F0D411802F483802463DDED5FDB024A98 (void);
+// 0x0000008A System.Double[] Unity.Burst.Intrinsics.V128DebugView::get_Double()
+extern void V128DebugView_get_Double_m6608D5731324AACA6FFCB159D1ADD73C7476CFD8 (void);
+// 0x0000008B System.Void Unity.Burst.Intrinsics.V256DebugView::.ctor(Unity.Burst.Intrinsics.v256)
+extern void V256DebugView__ctor_mD72189AE846873932A2B7DA4A4ADB0F137A80719 (void);
+// 0x0000008C System.Byte[] Unity.Burst.Intrinsics.V256DebugView::get_Byte()
+extern void V256DebugView_get_Byte_m30250D6D408C21BBA598F32747B4E8920CCB1DE3 (void);
+// 0x0000008D System.SByte[] Unity.Burst.Intrinsics.V256DebugView::get_SByte()
+extern void V256DebugView_get_SByte_m2007C72F3A25CE7C9416516F0BD4095A248E861B (void);
+// 0x0000008E System.UInt16[] Unity.Burst.Intrinsics.V256DebugView::get_UShort()
+extern void V256DebugView_get_UShort_m035F4653F8E38CB40257967EFEBFE1E9A48E8234 (void);
+// 0x0000008F System.Int16[] Unity.Burst.Intrinsics.V256DebugView::get_SShort()
+extern void V256DebugView_get_SShort_m85ADD78029A67E2352678C2FD4BE5274F4DFADE7 (void);
+// 0x00000090 System.UInt32[] Unity.Burst.Intrinsics.V256DebugView::get_UInt()
+extern void V256DebugView_get_UInt_mB41C94D3A0BF8F26107008EC6EA33AA20ADF6141 (void);
+// 0x00000091 System.Int32[] Unity.Burst.Intrinsics.V256DebugView::get_SInt()
+extern void V256DebugView_get_SInt_mF7DEA4A87AA028E0C722CB32061827B9F3D6044B (void);
+// 0x00000092 System.Single[] Unity.Burst.Intrinsics.V256DebugView::get_Float()
+extern void V256DebugView_get_Float_m6BB84136BDD10A1AB3F758F448837BA8A013ECFF (void);
+// 0x00000093 System.Int64[] Unity.Burst.Intrinsics.V256DebugView::get_SLong()
+extern void V256DebugView_get_SLong_mEFC8C9382C072366371F2CA2D5EEB140A87AB963 (void);
+// 0x00000094 System.UInt64[] Unity.Burst.Intrinsics.V256DebugView::get_ULong()
+extern void V256DebugView_get_ULong_m749636BFF56ED53852F7685BB69917D137061DA9 (void);
+// 0x00000095 System.Double[] Unity.Burst.Intrinsics.V256DebugView::get_Double()
+extern void V256DebugView_get_Double_m3232A8A1120069BC0D9FA04039D0C1431E7E6E72 (void);
+// 0x00000096 System.Void Unity.Burst.Intrinsics.v256::.ctor(System.Int32)
 extern void v256__ctor_m267402531F6CFFB7F6B60508FF475D5DF65B20EE (void);
-// 0x00000076 System.Void Unity.Burst.Intrinsics.v256::.ctor(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)
+// 0x00000097 System.Void Unity.Burst.Intrinsics.v256::.ctor(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)
 extern void v256__ctor_mA9B9CC971837A7F271235EFCFFEA5D12E2E67E4A (void);
-// 0x00000077 Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx::mm256_load_ps(System.Void*)
+// 0x00000098 Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx::mm256_load_ps(System.Void*)
 extern void Avx_mm256_load_ps_mDEC29DE0AC8C7A62975D63B512D5FD825D83E749 (void);
-// 0x00000078 System.Void Unity.Burst.Intrinsics.X86/Avx::mm256_store_ps(System.Void*,Unity.Burst.Intrinsics.v256)
+// 0x00000099 System.Void Unity.Burst.Intrinsics.X86/Avx::mm256_store_ps(System.Void*,Unity.Burst.Intrinsics.v256)
 extern void Avx_mm256_store_ps_mAA874350740C462A1059A066894E57E93D7B6697 (void);
-// 0x00000079 Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx::mm256_loadu_si256(System.Void*)
+// 0x0000009A Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx::mm256_loadu_si256(System.Void*)
 extern void Avx_mm256_loadu_si256_m63575B1FA1C174A5D442A2F53E7A1708AC7E7F31 (void);
-// 0x0000007A System.Void Unity.Burst.Intrinsics.X86/Avx::mm256_storeu_si256(System.Void*,Unity.Burst.Intrinsics.v256)
+// 0x0000009B System.Void Unity.Burst.Intrinsics.X86/Avx::mm256_storeu_si256(System.Void*,Unity.Burst.Intrinsics.v256)
 extern void Avx_mm256_storeu_si256_m52989726D29436BCF95D32D4319C6CBDF31D11D4 (void);
-// 0x0000007B Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx::mm256_set1_epi32(System.Int32)
+// 0x0000009C Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx::mm256_set1_epi32(System.Int32)
 extern void Avx_mm256_set1_epi32_m326DB72B5F59FC760340BFD50C022F573F032D3C (void);
-// 0x0000007C System.Boolean Unity.Burst.Intrinsics.X86/Avx2::get_IsAvx2Supported()
+// 0x0000009D System.Boolean Unity.Burst.Intrinsics.X86/Avx2::get_IsAvx2Supported()
 extern void Avx2_get_IsAvx2Supported_mDE53DA491B5B96753F6558B1DF3C5D5A9BB1ADB4 (void);
-// 0x0000007D Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx2::mm256_xor_si256(Unity.Burst.Intrinsics.v256,Unity.Burst.Intrinsics.v256)
+// 0x0000009E Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx2::mm256_xor_si256(Unity.Burst.Intrinsics.v256,Unity.Burst.Intrinsics.v256)
 extern void Avx2_mm256_xor_si256_mDD46C306F796DE4284677678DB751CC4AD998614 (void);
-// 0x0000007E Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx2::mm256_add_epi64(Unity.Burst.Intrinsics.v256,Unity.Burst.Intrinsics.v256)
+// 0x0000009F Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx2::mm256_add_epi64(Unity.Burst.Intrinsics.v256,Unity.Burst.Intrinsics.v256)
 extern void Avx2_mm256_add_epi64_m0312FD16FB80EFA4C0B72A8FBB32C2735285F9B8 (void);
-// 0x0000007F Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx2::mm256_mul_epu32(Unity.Burst.Intrinsics.v256,Unity.Burst.Intrinsics.v256)
+// 0x000000A0 Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx2::mm256_mul_epu32(Unity.Burst.Intrinsics.v256,Unity.Burst.Intrinsics.v256)
 extern void Avx2_mm256_mul_epu32_mBA8AE42AD7D5F226187ECD9FD132F6EC138C6512 (void);
-// 0x00000080 Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx2::mm256_slli_epi64(Unity.Burst.Intrinsics.v256,System.Int32)
+// 0x000000A1 Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx2::mm256_slli_epi64(Unity.Burst.Intrinsics.v256,System.Int32)
 extern void Avx2_mm256_slli_epi64_m81DB24BED37FB2D8CBDDC0B6B655F920642BB559 (void);
-// 0x00000081 Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx2::mm256_srli_epi64(Unity.Burst.Intrinsics.v256,System.Int32)
+// 0x000000A2 Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx2::mm256_srli_epi64(Unity.Burst.Intrinsics.v256,System.Int32)
 extern void Avx2_mm256_srli_epi64_m629ADF7A5EBCAC5A84A2CA773EE8F18FE66DDD58 (void);
-// 0x00000082 Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx2::mm256_shuffle_epi32(Unity.Burst.Intrinsics.v256,System.Int32)
+// 0x000000A3 Unity.Burst.Intrinsics.v256 Unity.Burst.Intrinsics.X86/Avx2::mm256_shuffle_epi32(Unity.Burst.Intrinsics.v256,System.Int32)
 extern void Avx2_mm256_shuffle_epi32_m226985CA8797C3192874F3822295A40BDEEA850B (void);
-// 0x00000083 System.Int32 Unity.Burst.Intrinsics.X86/Sse::SHUFFLE(System.Int32,System.Int32,System.Int32,System.Int32)
+// 0x000000A4 System.Int32 Unity.Burst.Intrinsics.X86/Sse::SHUFFLE(System.Int32,System.Int32,System.Int32,System.Int32)
 extern void Sse_SHUFFLE_m80B322C7F945F0225AFA5E2995108547DA36391E (void);
-// 0x00000084 Unity.Burst.Intrinsics.v128 Unity.Burst.Intrinsics.X86/Sse2::add_epi64(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)
+// 0x000000A5 Unity.Burst.Intrinsics.v128 Unity.Burst.Intrinsics.X86/Sse2::add_epi64(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)
 extern void Sse2_add_epi64_m7F48D1953DDBDBF38CA494BABE0A3390BA6C86BF (void);
-// 0x00000085 Unity.Burst.Intrinsics.v128 Unity.Burst.Intrinsics.X86/Sse2::mul_epu32(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)
+// 0x000000A6 Unity.Burst.Intrinsics.v128 Unity.Burst.Intrinsics.X86/Sse2::mul_epu32(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)
 extern void Sse2_mul_epu32_mCD9FF71C6DA28E454D1EBE3249DC4F9E99DC11DB (void);
-// 0x00000086 Unity.Burst.Intrinsics.v128 Unity.Burst.Intrinsics.X86/Sse2::slli_epi64(Unity.Burst.Intrinsics.v128,System.Int32)
+// 0x000000A7 Unity.Burst.Intrinsics.v128 Unity.Burst.Intrinsics.X86/Sse2::slli_epi64(Unity.Burst.Intrinsics.v128,System.Int32)
 extern void Sse2_slli_epi64_mB984CF9AA56B47FDD860A6C0D9DCC5CFEC420B4D (void);
-// 0x00000087 Unity.Burst.Intrinsics.v128 Unity.Burst.Intrinsics.X86/Sse2::srli_epi64(Unity.Burst.Intrinsics.v128,System.Int32)
+// 0x000000A8 Unity.Burst.Intrinsics.v128 Unity.Burst.Intrinsics.X86/Sse2::srli_epi64(Unity.Burst.Intrinsics.v128,System.Int32)
 extern void Sse2_srli_epi64_m2B154276738045C80B2C8857CFDB232487262CFD (void);
-// 0x00000088 Unity.Burst.Intrinsics.v128 Unity.Burst.Intrinsics.X86/Sse2::xor_si128(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)
+// 0x000000A9 Unity.Burst.Intrinsics.v128 Unity.Burst.Intrinsics.X86/Sse2::xor_si128(Unity.Burst.Intrinsics.v128,Unity.Burst.Intrinsics.v128)
 extern void Sse2_xor_si128_m54213FFE7B2D891507E00B3395DB3AC25820A8A9 (void);
-// 0x00000089 Unity.Burst.Intrinsics.v128 Unity.Burst.Intrinsics.X86/Sse2::shuffle_epi32(Unity.Burst.Intrinsics.v128,System.Int32)
+// 0x000000AA Unity.Burst.Intrinsics.v128 Unity.Burst.Intrinsics.X86/Sse2::shuffle_epi32(Unity.Burst.Intrinsics.v128,System.Int32)
 extern void Sse2_shuffle_epi32_m1EA2B8A82D93417EA3B3789381D8117DC635F35F (void);
-// 0x0000008A System.Void Unity.Burst.CompilerServices.AssumeRangeAttribute::.ctor(System.Int64,System.Int64)
+// 0x000000AB System.Void Unity.Burst.CompilerServices.AssumeRangeAttribute::.ctor(System.Int64,System.Int64)
 extern void AssumeRangeAttribute__ctor_m079EDF7E5EEC31A177E1B9825784AB0C8192ECE7 (void);
-static Il2CppMethodPointer s_methodPointers[138] = 
+static Il2CppMethodPointer s_methodPointers[171] = 
 {
 	EmbeddedAttribute__ctor_m1987D9EDD695EB253C5DAAE3909C9FCD69E7681C,
 	IsReadOnlyAttribute__ctor_mD2F5692D77429D270289E727F57B341383B57A27,
@@ -402,6 +468,39 @@ static Il2CppMethodPointer s_methodPointers[138] =
 	SharedStatic_GetOrCreateSharedStaticInternal_m9850783202F2E2DCA43597CD97C129C683D6FEBD,
 	PreserveAttribute__ctor_m5C7C403F74E9EAEB24409A43B4EB60B4A161AB0F,
 	Common_umul128_m6BE762AD1B87296A151EDD918A0802E9FB0846B7,
+	V64DebugView__ctor_m8B93FD41843CFE85E56FC106908748A512866D1A,
+	V64DebugView_get_Byte_mE7321132F0F960DA5F4CC5F3C8C4D9590F36DE07,
+	V64DebugView_get_SByte_mA1DE53CFFD29D00D1A6528CE3E0B8F0B3F72D67A,
+	V64DebugView_get_UShort_m4C3D69D63F19D810D57037A9995F13DA774AF073,
+	V64DebugView_get_SShort_mAE042049E9C8FE8E64B0A6137925E52B9B9F8C67,
+	V64DebugView_get_UInt_mE120B248349776B5E95E087918250943D7F37E78,
+	V64DebugView_get_SInt_m95264A7FEB41EE36E88D59B41F5E9883905BE0A9,
+	V64DebugView_get_Float_m188E7E0F9CB70BD06CA2CFCA7553925383BB4B57,
+	V64DebugView_get_SLong_m5AE3B8B83A826AB95DC13079E5F63733821C47F6,
+	V64DebugView_get_ULong_m6B56894B5D3051DD10F1032933E9AB33407FED9D,
+	V64DebugView_get_Double_mA4EF50063B9C4EB7AE40EB8DED550BA69246B222,
+	V128DebugView__ctor_mC42F6FFDF54C60C5A059034BAB8BB5E10E038693,
+	V128DebugView_get_Byte_m41DAE52D58F88364298B4821CBD5F8553314D4DD,
+	V128DebugView_get_SByte_mEF603AAD6E9C28351548B61DFA501711D093EB24,
+	V128DebugView_get_UShort_m08A2C3357E1D21BED05A9CD3792365A71ED87205,
+	V128DebugView_get_SShort_m0ECA44D738B5735389A60F057FE18E8197EDD22A,
+	V128DebugView_get_UInt_m5E2CB21FBDD5A6DAF84D67E70F58235EC0FC6AF6,
+	V128DebugView_get_SInt_m80A4E5E0F0951876499F460205296B37A044DF92,
+	V128DebugView_get_Float_m4349267DC73E577EE2C0DA71DE0460082F8CFC7C,
+	V128DebugView_get_SLong_m799B8A54511F2E4CCB22A0F8A4047997EF8A9B4B,
+	V128DebugView_get_ULong_m712AFB4F0D411802F483802463DDED5FDB024A98,
+	V128DebugView_get_Double_m6608D5731324AACA6FFCB159D1ADD73C7476CFD8,
+	V256DebugView__ctor_mD72189AE846873932A2B7DA4A4ADB0F137A80719,
+	V256DebugView_get_Byte_m30250D6D408C21BBA598F32747B4E8920CCB1DE3,
+	V256DebugView_get_SByte_m2007C72F3A25CE7C9416516F0BD4095A248E861B,
+	V256DebugView_get_UShort_m035F4653F8E38CB40257967EFEBFE1E9A48E8234,
+	V256DebugView_get_SShort_m85ADD78029A67E2352678C2FD4BE5274F4DFADE7,
+	V256DebugView_get_UInt_mB41C94D3A0BF8F26107008EC6EA33AA20ADF6141,
+	V256DebugView_get_SInt_mF7DEA4A87AA028E0C722CB32061827B9F3D6044B,
+	V256DebugView_get_Float_m6BB84136BDD10A1AB3F758F448837BA8A013ECFF,
+	V256DebugView_get_SLong_mEFC8C9382C072366371F2CA2D5EEB140A87AB963,
+	V256DebugView_get_ULong_m749636BFF56ED53852F7685BB69917D137061DA9,
+	V256DebugView_get_Double_m3232A8A1120069BC0D9FA04039D0C1431E7E6E72,
 	v256__ctor_m267402531F6CFFB7F6B60508FF475D5DF65B20EE,
 	v256__ctor_mA9B9CC971837A7F271235EFCFFEA5D12E2E67E4A,
 	Avx_mm256_load_ps_mDEC29DE0AC8C7A62975D63B512D5FD825D83E749,
@@ -463,149 +562,182 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[19] =
 	{ 0x0600006A, tFloatUnion64_IsNegative_m5427680D1918AB7410EDC266B0524E42313F171B_AdjustorThunk },
 	{ 0x0600006B, tFloatUnion64_GetExponent_m85B0BB29969C376B7FF866A1793C1997645D1D60_AdjustorThunk },
 	{ 0x0600006C, tFloatUnion64_GetMantissa_m6EAD50CE3D1BFDABD12A308F2FF83F586F61328C_AdjustorThunk },
-	{ 0x06000075, v256__ctor_m267402531F6CFFB7F6B60508FF475D5DF65B20EE_AdjustorThunk },
-	{ 0x06000076, v256__ctor_mA9B9CC971837A7F271235EFCFFEA5D12E2E67E4A_AdjustorThunk },
+	{ 0x06000096, v256__ctor_m267402531F6CFFB7F6B60508FF475D5DF65B20EE_AdjustorThunk },
+	{ 0x06000097, v256__ctor_mA9B9CC971837A7F271235EFCFFEA5D12E2E67E4A_AdjustorThunk },
 };
-static const int32_t s_InvokerIndices[138] = 
+static const int32_t s_InvokerIndices[171] = 
 {
-	8389,
-	8389,
-	6753,
-	6753,
-	6677,
-	6787,
-	8389,
-	3626,
-	12591,
-	12086,
-	10184,
-	9509,
-	12660,
-	12660,
-	6787,
-	12591,
-	12461,
-	11914,
-	12660,
-	3969,
-	8126,
-	6787,
-	8236,
-	12660,
-	8389,
-	4973,
-	6677,
-	8126,
-	8126,
-	6677,
-	6677,
-	8236,
-	11012,
-	12174,
-	11914,
-	8389,
-	8389,
-	8389,
-	12660,
-	12591,
-	12660,
-	9987,
-	8389,
-	9987,
-	8903,
-	9378,
-	9370,
-	9369,
-	9380,
-	9369,
-	9380,
-	9381,
-	9382,
-	9377,
-	9372,
-	9373,
-	9375,
-	9383,
-	10332,
-	9376,
-	8904,
-	8902,
-	10994,
-	8973,
-	8973,
-	11172,
-	8902,
-	10684,
-	10213,
-	12404,
-	11171,
-	10668,
-	10668,
-	10668,
-	10668,
-	10675,
-	11555,
-	12461,
-	12461,
-	12509,
-	11563,
-	10675,
-	11563,
-	11445,
-	11563,
-	8626,
-	8906,
-	9379,
-	9371,
-	12660,
-	8389,
+	8442,
+	8442,
+	6778,
+	6778,
+	6702,
+	6812,
+	8442,
+	3630,
+	12687,
+	12169,
+	10240,
+	9563,
+	12756,
+	12756,
+	6812,
+	12687,
+	12545,
+	11997,
+	12756,
+	3974,
+	8178,
+	6812,
+	8288,
+	12756,
+	8442,
+	4986,
+	6702,
+	8178,
+	8178,
+	6702,
+	6702,
+	8288,
+	11080,
+	12258,
+	11997,
+	8442,
+	8442,
+	8442,
+	12756,
+	12687,
+	12756,
+	10043,
+	8442,
+	10043,
+	8957,
+	9432,
+	9424,
+	9423,
+	9434,
+	9423,
+	9434,
+	9435,
+	9436,
+	9431,
+	9426,
+	9427,
+	9429,
+	9437,
+	10388,
+	9430,
+	8958,
+	8956,
+	11062,
+	9027,
+	9027,
+	11240,
+	8956,
+	10740,
+	10269,
+	12488,
+	11239,
+	10724,
+	10724,
+	10724,
+	10724,
+	10731,
+	11623,
+	12545,
+	12545,
+	12593,
+	11631,
+	10731,
+	11631,
+	11513,
+	11631,
+	8680,
+	8960,
+	9433,
+	9425,
+	12756,
+	8442,
 	701,
-	8112,
+	8164,
 	1385,
-	8126,
-	8199,
-	8236,
-	8199,
-	6294,
-	8126,
-	6914,
-	6913,
-	8126,
-	8372,
-	8372,
-	8126,
-	8372,
-	8373,
+	8178,
+	8251,
+	8288,
+	8251,
+	6309,
+	8178,
+	6942,
+	6941,
+	8178,
+	8425,
+	8425,
+	8178,
+	8425,
+	8426,
 	0,
 	0,
 	0,
 	0,
 	0,
-	9508,
-	8389,
-	10558,
-	6753,
-	4080,
-	12506,
-	11566,
-	12506,
-	11566,
-	12507,
+	9562,
+	8442,
+	10614,
+	6979,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	6977,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	6978,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	8288,
+	6778,
+	4085,
+	12590,
+	11634,
+	12590,
+	11634,
 	12591,
-	11724,
-	11724,
-	11724,
-	11723,
-	11723,
-	11723,
-	9613,
-	11722,
-	11722,
-	11721,
-	11721,
-	11722,
-	11721,
-	3920,
+	12687,
+	11792,
+	11792,
+	11792,
+	11791,
+	11791,
+	11791,
+	9668,
+	11790,
+	11790,
+	11789,
+	11789,
+	11790,
+	11789,
+	3925,
 };
 static const Il2CppTokenIndexMethodTuple s_reversePInvokeIndices[1] = 
 {
@@ -633,7 +765,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_Unity_Burst_CodeGenModule;
 const Il2CppCodeGenModule g_Unity_Burst_CodeGenModule = 
 {
 	"Unity.Burst.dll",
-	138,
+	171,
 	s_methodPointers,
 	19,
 	s_adjustorThunks,
