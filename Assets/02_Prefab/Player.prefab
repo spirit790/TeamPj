@@ -4542,6 +4542,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8611056954457721079, guid: dcdfb7660290eec499733f644bd39cbd,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611056954457721079, guid: dcdfb7660290eec499733f644bd39cbd,
+        type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -4633,6 +4638,11 @@ PrefabInstance:
     - target: {fileID: 9032213465119006489, guid: dcdfb7660290eec499733f644bd39cbd,
         type: 3}
       propertyPath: m_SynchronizeParameters.Array.data[3].SynchronizeType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032213465119006489, guid: dcdfb7660290eec499733f644bd39cbd,
+        type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[4].SynchronizeType
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
