@@ -22,8 +22,6 @@ public class DashGauge : MonoBehaviour
         dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
         dGauge = gameObject.GetComponent<Slider>();
         nowDashGauge = maxDashGauge;
-        dGauge.GetComponentInChildren<Image>().enabled = false;
-        dGauge.GetComponentsInChildren<Image>()[1].enabled = false;
     }
 
     void Update()
