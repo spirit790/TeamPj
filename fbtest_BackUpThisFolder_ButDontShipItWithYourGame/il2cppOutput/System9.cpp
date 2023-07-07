@@ -25881,7 +25881,7 @@ IL_007c_1:
 			L_22 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_21, NULL);
 			NullCheck(L_20);
 			RuntimeObject* L_23;
-			L_23 = VirtualFuncInvoker1< RuntimeObject*, Type_t* >::Invoke(21 /* System.Object System.Globalization.CultureInfo::GetFormat(System.Type) */, L_20, L_22);
+			L_23 = VirtualFuncInvoker1< RuntimeObject*, Type_t* >::Invoke(20 /* System.Object System.Globalization.CultureInfo::GetFormat(System.Type) */, L_20, L_22);
 			V_2 = ((NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472*)CastclassSealed((RuntimeObject*)L_23, NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472_il2cpp_TypeInfo_var));
 			String_t* L_24 = V_0;
 			NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472* L_25 = V_2;
@@ -26023,7 +26023,7 @@ IL_0043:
 		L_15 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_14, NULL);
 		NullCheck(L_13);
 		RuntimeObject* L_16;
-		L_16 = VirtualFuncInvoker1< RuntimeObject*, Type_t* >::Invoke(21 /* System.Object System.Globalization.CultureInfo::GetFormat(System.Type) */, L_13, L_15);
+		L_16 = VirtualFuncInvoker1< RuntimeObject*, Type_t* >::Invoke(20 /* System.Object System.Globalization.CultureInfo::GetFormat(System.Type) */, L_13, L_15);
 		V_0 = ((NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472*)CastclassSealed((RuntimeObject*)L_16, NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472_il2cpp_TypeInfo_var));
 		RuntimeObject* L_17 = ___2_value;
 		NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472* L_18 = V_0;
@@ -27947,7 +27947,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SortedList_2_t2C42570AE3175B5EB5DBC4BAB327E97
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_6 = ___0_culture;
 		NullCheck(L_6);
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_7;
-		L_7 = VirtualFuncInvoker0< CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* >::Invoke(10 /* System.Globalization.CultureInfo System.Globalization.CultureInfo::get_Parent() */, L_6);
+		L_7 = VirtualFuncInvoker0< CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* >::Invoke(9 /* System.Globalization.CultureInfo System.Globalization.CultureInfo::get_Parent() */, L_6);
 		SortedList_2_t2C42570AE3175B5EB5DBC4BAB327E970526FB9C9* L_8;
 		L_8 = ComponentResourceManager_FillResources_m2BFE2D29A233F1AF1E24CC295590528E455AEBCB(__this, L_7, (&V_1), NULL);
 		V_0 = L_8;
@@ -29036,7 +29036,7 @@ IL_000f:
 		L_9 = CultureInfo_get_CurrentCulture_m8A4580F49DDD7E9DB34C699965423DB8E3BBA9A5(NULL);
 		NullCheck(L_9);
 		CompareInfo_t1B1A6AC3486B570C76ABA52149C9BD4CD82F9E57* L_10;
-		L_10 = VirtualFuncInvoker0< CompareInfo_t1B1A6AC3486B570C76ABA52149C9BD4CD82F9E57* >::Invoke(14 /* System.Globalization.CompareInfo System.Globalization.CultureInfo::get_CompareInfo() */, L_9);
+		L_10 = VirtualFuncInvoker0< CompareInfo_t1B1A6AC3486B570C76ABA52149C9BD4CD82F9E57* >::Invoke(13 /* System.Globalization.CompareInfo System.Globalization.CultureInfo::get_CompareInfo() */, L_9);
 		String_t* L_11 = V_0;
 		String_t* L_12 = V_1;
 		NullCheck(L_10);

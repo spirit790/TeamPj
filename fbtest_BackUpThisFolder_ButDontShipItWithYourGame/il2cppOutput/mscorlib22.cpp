@@ -11250,26 +11250,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* CultureInfo_get_Name_mA9A5A43462A6E
 		return L_0;
 	}
 }
-// System.String System.Globalization.CultureInfo::get_NativeName()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* CultureInfo_get_NativeName_mE0E1A21278AEBA19B8BC28905975831AB4F4B3CD (CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* __this, const RuntimeMethod* method) 
-{
-	{
-		bool L_0 = __this->___constructed_26;
-		if (L_0)
-		{
-			goto IL_000e;
-		}
-	}
-	{
-		CultureInfo_Construct_m2D51CC70221149B7175CC84E85A07E422762FB25(__this, NULL);
-	}
-
-IL_000e:
-	{
-		String_t* L_1 = __this->___nativename_15;
-		return L_1;
-	}
-}
 // System.Globalization.Calendar System.Globalization.CultureInfo::get_Calendar()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Calendar_t0A117CC7532A54C17188C2EFEA1F79DB20DF3A3B* CultureInfo_get_Calendar_mBF3B6ABCC88ABDD7D953A48087512B66E98B469A (CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* __this, const RuntimeMethod* method) 
 {
@@ -11362,9 +11342,9 @@ IL_0019:
 	}
 	{
 		String_t* L_5;
-		L_5 = VirtualFuncInvoker0< String_t* >::Invoke(20 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, __this);
+		L_5 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, __this);
 		String_t* L_6;
-		L_6 = VirtualFuncInvoker0< String_t* >::Invoke(20 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, __this);
+		L_6 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, __this);
 		NullCheck(L_6);
 		int32_t L_7;
 		L_7 = String_get_Length_m42625D67623FA5CC7A44D47425CE86FB946542D2_inline(L_6, NULL);
@@ -11398,9 +11378,9 @@ IL_0064:
 	}
 	{
 		String_t* L_13;
-		L_13 = VirtualFuncInvoker0< String_t* >::Invoke(20 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, __this);
+		L_13 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, __this);
 		String_t* L_14;
-		L_14 = VirtualFuncInvoker0< String_t* >::Invoke(20 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, __this);
+		L_14 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Globalization.CultureInfo::get_EnglishName() */, __this);
 		NullCheck(L_14);
 		int32_t L_15;
 		L_15 = String_get_Length_m42625D67623FA5CC7A44D47425CE86FB946542D2_inline(L_14, NULL);
@@ -11641,7 +11621,7 @@ IL_000e:
 		L_3->___cached_serialized_form_27 = (ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*)NULL;
 		Il2CppCodeGenWriteBarrier((void**)(&L_3->___cached_serialized_form_27), (void*)(ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*)NULL);
 		bool L_4;
-		L_4 = VirtualFuncInvoker0< bool >::Invoke(15 /* System.Boolean System.Globalization.CultureInfo::get_IsNeutralCulture() */, __this);
+		L_4 = VirtualFuncInvoker0< bool >::Invoke(14 /* System.Boolean System.Globalization.CultureInfo::get_IsNeutralCulture() */, __this);
 		if (L_4)
 		{
 			goto IL_005c;
@@ -11650,20 +11630,20 @@ IL_000e:
 	{
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_5 = V_0;
 		NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472* L_6;
-		L_6 = VirtualFuncInvoker0< NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472* >::Invoke(16 /* System.Globalization.NumberFormatInfo System.Globalization.CultureInfo::get_NumberFormat() */, __this);
+		L_6 = VirtualFuncInvoker0< NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472* >::Invoke(15 /* System.Globalization.NumberFormatInfo System.Globalization.CultureInfo::get_NumberFormat() */, __this);
 		NullCheck(L_6);
 		RuntimeObject* L_7;
 		L_7 = NumberFormatInfo_Clone_m12C86C3EBA330551B09ABDC700AD0D86CC800134(L_6, NULL);
 		NullCheck(L_5);
-		VirtualActionInvoker1< NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472* >::Invoke(17 /* System.Void System.Globalization.CultureInfo::set_NumberFormat(System.Globalization.NumberFormatInfo) */, L_5, ((NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472*)CastclassSealed((RuntimeObject*)L_7, NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472_il2cpp_TypeInfo_var)));
+		VirtualActionInvoker1< NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472* >::Invoke(16 /* System.Void System.Globalization.CultureInfo::set_NumberFormat(System.Globalization.NumberFormatInfo) */, L_5, ((NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472*)CastclassSealed((RuntimeObject*)L_7, NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472_il2cpp_TypeInfo_var)));
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_8 = V_0;
 		DateTimeFormatInfo_t0457520F9FA7B5C8EAAEB3AD50413B6AEEB7458A* L_9;
-		L_9 = VirtualFuncInvoker0< DateTimeFormatInfo_t0457520F9FA7B5C8EAAEB3AD50413B6AEEB7458A* >::Invoke(18 /* System.Globalization.DateTimeFormatInfo System.Globalization.CultureInfo::get_DateTimeFormat() */, __this);
+		L_9 = VirtualFuncInvoker0< DateTimeFormatInfo_t0457520F9FA7B5C8EAAEB3AD50413B6AEEB7458A* >::Invoke(17 /* System.Globalization.DateTimeFormatInfo System.Globalization.CultureInfo::get_DateTimeFormat() */, __this);
 		NullCheck(L_9);
 		RuntimeObject* L_10;
 		L_10 = DateTimeFormatInfo_Clone_mCBA61859E15A29FC79AC3CDAA616D063901540E8(L_9, NULL);
 		NullCheck(L_8);
-		VirtualActionInvoker1< DateTimeFormatInfo_t0457520F9FA7B5C8EAAEB3AD50413B6AEEB7458A* >::Invoke(19 /* System.Void System.Globalization.CultureInfo::set_DateTimeFormat(System.Globalization.DateTimeFormatInfo) */, L_8, ((DateTimeFormatInfo_t0457520F9FA7B5C8EAAEB3AD50413B6AEEB7458A*)CastclassSealed((RuntimeObject*)L_10, DateTimeFormatInfo_t0457520F9FA7B5C8EAAEB3AD50413B6AEEB7458A_il2cpp_TypeInfo_var)));
+		VirtualActionInvoker1< DateTimeFormatInfo_t0457520F9FA7B5C8EAAEB3AD50413B6AEEB7458A* >::Invoke(18 /* System.Void System.Globalization.CultureInfo::set_DateTimeFormat(System.Globalization.DateTimeFormatInfo) */, L_8, ((DateTimeFormatInfo_t0457520F9FA7B5C8EAAEB3AD50413B6AEEB7458A*)CastclassSealed((RuntimeObject*)L_10, DateTimeFormatInfo_t0457520F9FA7B5C8EAAEB3AD50413B6AEEB7458A_il2cpp_TypeInfo_var)));
 	}
 
 IL_005c:
@@ -11780,7 +11760,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR CultureInfoU5BU5D_t3F54FF291A190FBE27B4B3324C
 		L_14 = CultureInfo_get_InvariantCulture_mD1E96DC845E34B10F78CB744B0CB5D7D63CEB1E6(NULL);
 		NullCheck(L_14);
 		RuntimeObject* L_15;
-		L_15 = VirtualFuncInvoker0< RuntimeObject* >::Invoke(13 /* System.Object System.Globalization.CultureInfo::Clone() */, L_14);
+		L_15 = VirtualFuncInvoker0< RuntimeObject* >::Invoke(12 /* System.Object System.Globalization.CultureInfo::Clone() */, L_14);
 		NullCheck(L_11);
 		ArrayElementTypeCheck (L_11, ((CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0*)CastclassClass((RuntimeObject*)L_15, CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0_il2cpp_TypeInfo_var)));
 		(L_11)->SetAt(static_cast<il2cpp_array_size_t>(L_13), (CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0*)((CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0*)CastclassClass((RuntimeObject*)L_15, CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0_il2cpp_TypeInfo_var)));
@@ -11924,7 +11904,7 @@ IL_0018:
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_5 = ___0_ci;
 		NullCheck(L_5);
 		RuntimeObject* L_6;
-		L_6 = VirtualFuncInvoker0< RuntimeObject* >::Invoke(13 /* System.Object System.Globalization.CultureInfo::Clone() */, L_5);
+		L_6 = VirtualFuncInvoker0< RuntimeObject* >::Invoke(12 /* System.Object System.Globalization.CultureInfo::Clone() */, L_5);
 		V_0 = ((CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0*)CastclassClass((RuntimeObject*)L_6, CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0_il2cpp_TypeInfo_var));
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_7 = V_0;
 		NullCheck(L_7);
@@ -12308,7 +12288,7 @@ IL_0036:
 	{
 		CultureData_tEEFDCF4ECA1BBF6C0C8C94EB3541657245598F9D* L_5 = __this->___m_cultureData_28;
 		Calendar_t0A117CC7532A54C17188C2EFEA1F79DB20DF3A3B* L_6;
-		L_6 = VirtualFuncInvoker0< Calendar_t0A117CC7532A54C17188C2EFEA1F79DB20DF3A3B* >::Invoke(9 /* System.Globalization.Calendar System.Globalization.CultureInfo::get_Calendar() */, __this);
+		L_6 = VirtualFuncInvoker0< Calendar_t0A117CC7532A54C17188C2EFEA1F79DB20DF3A3B* >::Invoke(8 /* System.Globalization.Calendar System.Globalization.CultureInfo::get_Calendar() */, __this);
 		DateTimeFormatInfo_t0457520F9FA7B5C8EAAEB3AD50413B6AEEB7458A* L_7 = (DateTimeFormatInfo_t0457520F9FA7B5C8EAAEB3AD50413B6AEEB7458A*)il2cpp_codegen_object_new(DateTimeFormatInfo_t0457520F9FA7B5C8EAAEB3AD50413B6AEEB7458A_il2cpp_TypeInfo_var);
 		NullCheck(L_7);
 		DateTimeFormatInfo__ctor_mF2D9E1D2DCF721C669300E240CC00AB95DADC09F(L_7, L_5, L_6, NULL);
@@ -12440,7 +12420,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* CultureInfo_GetFormat_mBEAD758
 	}
 	{
 		NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472* L_4;
-		L_4 = VirtualFuncInvoker0< NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472* >::Invoke(16 /* System.Globalization.NumberFormatInfo System.Globalization.CultureInfo::get_NumberFormat() */, __this);
+		L_4 = VirtualFuncInvoker0< NumberFormatInfo_t8E26808B202927FEBF9064FCFEEA4D6E076E6472* >::Invoke(15 /* System.Globalization.NumberFormatInfo System.Globalization.CultureInfo::get_NumberFormat() */, __this);
 		V_0 = L_4;
 		goto IL_0036;
 	}
@@ -12461,7 +12441,7 @@ IL_001d:
 	}
 	{
 		DateTimeFormatInfo_t0457520F9FA7B5C8EAAEB3AD50413B6AEEB7458A* L_9;
-		L_9 = VirtualFuncInvoker0< DateTimeFormatInfo_t0457520F9FA7B5C8EAAEB3AD50413B6AEEB7458A* >::Invoke(18 /* System.Globalization.DateTimeFormatInfo System.Globalization.CultureInfo::get_DateTimeFormat() */, __this);
+		L_9 = VirtualFuncInvoker0< DateTimeFormatInfo_t0457520F9FA7B5C8EAAEB3AD50413B6AEEB7458A* >::Invoke(17 /* System.Globalization.DateTimeFormatInfo System.Globalization.CultureInfo::get_DateTimeFormat() */, __this);
 		V_0 = L_9;
 	}
 
@@ -13328,7 +13308,7 @@ IL_003c:
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_14 = V_1;
 		NullCheck(L_14);
 		bool L_15;
-		L_15 = VirtualFuncInvoker0< bool >::Invoke(15 /* System.Boolean System.Globalization.CultureInfo::get_IsNeutralCulture() */, L_14);
+		L_15 = VirtualFuncInvoker0< bool >::Invoke(14 /* System.Boolean System.Globalization.CultureInfo::get_IsNeutralCulture() */, L_14);
 		if (!L_15)
 		{
 			goto IL_0050;

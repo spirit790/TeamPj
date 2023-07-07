@@ -19846,7 +19846,7 @@ IL_0048:
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_19 = V_3;
 		NullCheck(L_19);
 		String_t* L_20;
-		L_20 = VirtualFuncInvoker0< String_t* >::Invoke(12 /* System.String System.Globalization.CultureInfo::get_TwoLetterISOLanguageName() */, L_19);
+		L_20 = VirtualFuncInvoker0< String_t* >::Invoke(11 /* System.String System.Globalization.CultureInfo::get_TwoLetterISOLanguageName() */, L_19);
 		il2cpp_codegen_runtime_class_init_inline(PluralRules_t890160F665E299F0870E59ECCB7B1A983DBE0FDF_il2cpp_TypeInfo_var);
 		PluralRuleDelegate_t213B97385BFAA2FC6DD3FB1670EB206DFFA4D594* L_21;
 		L_21 = PluralRules_GetPluralRule_mDC6E7140F63D8C74DC5F7D22808CF34CB8AA0E8D(L_20, NULL);
@@ -19911,7 +19911,7 @@ IL_007a:
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_31 = V_7;
 		NullCheck(L_31);
 		String_t* L_32;
-		L_32 = VirtualFuncInvoker0< String_t* >::Invoke(12 /* System.String System.Globalization.CultureInfo::get_TwoLetterISOLanguageName() */, L_31);
+		L_32 = VirtualFuncInvoker0< String_t* >::Invoke(11 /* System.String System.Globalization.CultureInfo::get_TwoLetterISOLanguageName() */, L_31);
 		V_6 = L_32;
 		goto IL_00e8;
 	}
@@ -22296,7 +22296,7 @@ IL_0040:
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_13 = V_1;
 		NullCheck(L_13);
 		String_t* L_14;
-		L_14 = VirtualFuncInvoker0< String_t* >::Invoke(12 /* System.String System.Globalization.CultureInfo::get_TwoLetterISOLanguageName() */, L_13);
+		L_14 = VirtualFuncInvoker0< String_t* >::Invoke(11 /* System.String System.Globalization.CultureInfo::get_TwoLetterISOLanguageName() */, L_13);
 		TimeTextInfo_t1FE879E1D4D396F0A108FAD034F4B6FEAFAE17B1* L_15;
 		L_15 = CommonLanguagesTimeTextInfo_GetTimeTextInfo_m1B26CBF6B954D0213C447EE6FD47EC6418F86BF6(L_14, NULL);
 		return L_15;
@@ -32546,7 +32546,7 @@ IL_000d:
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_2 = V_0;
 		NullCheck(L_2);
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_3;
-		L_3 = VirtualFuncInvoker0< CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* >::Invoke(10 /* System.Globalization.CultureInfo System.Globalization.CultureInfo::get_Parent() */, L_2);
+		L_3 = VirtualFuncInvoker0< CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* >::Invoke(9 /* System.Globalization.CultureInfo System.Globalization.CultureInfo::get_Parent() */, L_2);
 		V_0 = L_3;
 		goto IL_002c;
 	}
@@ -32564,7 +32564,7 @@ IL_0018:
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_7 = V_0;
 		NullCheck(L_7);
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_8;
-		L_8 = VirtualFuncInvoker0< CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* >::Invoke(10 /* System.Globalization.CultureInfo System.Globalization.CultureInfo::get_Parent() */, L_7);
+		L_8 = VirtualFuncInvoker0< CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* >::Invoke(9 /* System.Globalization.CultureInfo System.Globalization.CultureInfo::get_Parent() */, L_7);
 		V_0 = L_8;
 	}
 
@@ -35394,7 +35394,7 @@ IL_000d:
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_8 = V_0;
 		NullCheck(L_8);
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_9;
-		L_9 = VirtualFuncInvoker0< CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* >::Invoke(10 /* System.Globalization.CultureInfo System.Globalization.CultureInfo::get_Parent() */, L_8);
+		L_9 = VirtualFuncInvoker0< CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* >::Invoke(9 /* System.Globalization.CultureInfo System.Globalization.CultureInfo::get_Parent() */, L_8);
 		V_0 = L_9;
 		goto IL_0040;
 	}
@@ -35414,7 +35414,7 @@ IL_002c:
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_14 = V_0;
 		NullCheck(L_14);
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_15;
-		L_15 = VirtualFuncInvoker0< CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* >::Invoke(10 /* System.Globalization.CultureInfo System.Globalization.CultureInfo::get_Parent() */, L_14);
+		L_15 = VirtualFuncInvoker0< CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* >::Invoke(9 /* System.Globalization.CultureInfo System.Globalization.CultureInfo::get_Parent() */, L_14);
 		V_0 = L_15;
 	}
 

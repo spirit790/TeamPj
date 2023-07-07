@@ -10,7 +10,7 @@ public class ThroughWallVision : MonoBehaviour
     private List<Transform> visibleWalls = new List<Transform>();
 
     private Transform camTr;
-    public Transform character;
+    private Transform characterTr;
     private int detectingLayer = 1 << 9 | 1 << 10;
 
     [Range(0.1f, 1f)]
@@ -25,14 +25,18 @@ public class ThroughWallVision : MonoBehaviour
     }
     void Update()
     {
-        DetectingByCam();
+        if (characterTr != null)
+        {
+            DetectingByCam();
+        }
     }
 
     public void DetectingByCam()
     {
-        float dist = Vector3.Distance(camTr.position, character.position);
 
-        Vector3 dir = (character.position - camTr.position).normalized;
+        float dist = Vector3.Distance(camTr.position, characterTr.position);
+
+        Vector3 dir = (characterTr.position - camTr.position).normalized;
 
         RaycastHit[] hits = Physics.RaycastAll(camTr.position, dir, dist, detectingLayer);
 
@@ -101,6 +105,6 @@ public class ThroughWallVision : MonoBehaviour
     }
     public void SetWallTarget(Transform target)
     {
-        character = target;
+        characterTr = target;
     }
 }

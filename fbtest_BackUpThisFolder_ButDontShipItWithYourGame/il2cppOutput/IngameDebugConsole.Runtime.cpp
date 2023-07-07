@@ -7480,7 +7480,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DebugLogConsole__cctor_m75A152ACAB9CFE5C
 		CultureInfo__ctor_m13C68B1478A97FC5FA9653C46B2C42DA01573FFB(L_165, _stringLiteral3A971881AF6B7B211E34707E857DEC5F36487877, NULL);
 		NullCheck(L_165);
 		CompareInfo_t1B1A6AC3486B570C76ABA52149C9BD4CD82F9E57* L_166;
-		L_166 = VirtualFuncInvoker0< CompareInfo_t1B1A6AC3486B570C76ABA52149C9BD4CD82F9E57* >::Invoke(14 /* System.Globalization.CompareInfo System.Globalization.CultureInfo::get_CompareInfo() */, L_165);
+		L_166 = VirtualFuncInvoker0< CompareInfo_t1B1A6AC3486B570C76ABA52149C9BD4CD82F9E57* >::Invoke(13 /* System.Globalization.CompareInfo System.Globalization.CultureInfo::get_CompareInfo() */, L_165);
 		((DebugLogConsole_tD4575289A02D94FC8841D22AE24DE8216C32A707_StaticFields*)il2cpp_codegen_static_fields_for(DebugLogConsole_tD4575289A02D94FC8841D22AE24DE8216C32A707_il2cpp_TypeInfo_var))->___caseInsensitiveComparer_6 = L_166;
 		Il2CppCodeGenWriteBarrier((void**)(&((DebugLogConsole_tD4575289A02D94FC8841D22AE24DE8216C32A707_StaticFields*)il2cpp_codegen_static_fields_for(DebugLogConsole_tD4575289A02D94FC8841D22AE24DE8216C32A707_il2cpp_TypeInfo_var))->___caseInsensitiveComparer_6), (void*)L_166);
 		// AddCommand( "help", "Prints all commands", LogAllCommands );

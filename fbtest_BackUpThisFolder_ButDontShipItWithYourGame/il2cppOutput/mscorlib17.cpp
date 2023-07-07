@@ -26815,7 +26815,7 @@ IL_009e:
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_15 = __this->___U3CcurrentCultureU3E5__3_4;
 		NullCheck(L_15);
 		CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* L_16;
-		L_16 = VirtualFuncInvoker0< CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* >::Invoke(10 /* System.Globalization.CultureInfo System.Globalization.CultureInfo::get_Parent() */, L_15);
+		L_16 = VirtualFuncInvoker0< CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0* >::Invoke(9 /* System.Globalization.CultureInfo System.Globalization.CultureInfo::get_Parent() */, L_15);
 		__this->___U3CcurrentCultureU3E5__3_4 = L_16;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CcurrentCultureU3E5__3_4), (void*)L_16);
 		ResourceFallbackManager_tA9AEF3A7D4BA4E858760C519D387C56908A2E422* L_17 = V_1;
@@ -29817,7 +29817,7 @@ IL_0047:
 		L_20 = CultureInfo_get_InvariantCulture_mD1E96DC845E34B10F78CB744B0CB5D7D63CEB1E6(NULL);
 		NullCheck(L_20);
 		CompareInfo_t1B1A6AC3486B570C76ABA52149C9BD4CD82F9E57* L_21;
-		L_21 = VirtualFuncInvoker0< CompareInfo_t1B1A6AC3486B570C76ABA52149C9BD4CD82F9E57* >::Invoke(14 /* System.Globalization.CompareInfo System.Globalization.CultureInfo::get_CompareInfo() */, L_20);
+		L_21 = VirtualFuncInvoker0< CompareInfo_t1B1A6AC3486B570C76ABA52149C9BD4CD82F9E57* >::Invoke(13 /* System.Globalization.CompareInfo System.Globalization.CultureInfo::get_CompareInfo() */, L_20);
 		V_2 = L_21;
 		V_3 = (String_t*)NULL;
 		RuntimeAssembly_tA26A4DE82E77826DFC3D58AD976BCFC6BCA918AF* L_22 = ___0_satellite;
