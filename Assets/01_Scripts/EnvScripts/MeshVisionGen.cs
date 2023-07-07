@@ -84,10 +84,14 @@ public class MeshVisionGen : MonoBehaviour
                     시야 영역에 유저나 AI에 있을 때
 
                     */
-                    SkinnedMeshRenderer hitRenderer = hit.transform.GetComponentInChildren<SkinnedMeshRenderer>();
-                    hitRenderer.enabled = true;
-                    hitRenderer.material.renderQueue = visibleRenderQueue;
+                    SkinnedMeshRenderer[] hitRenderers = hit.transform.GetComponentsInChildren<SkinnedMeshRenderer>();
+                    MeshRenderer weaponRenderer = hit.transform.GetComponentInChildren<MeshRenderer>();
+                    hitRenderers[0].enabled = true;
+                    hitRenderers[0].material.renderQueue = visibleRenderQueue;
+                    hitRenderers[1].enabled = true;
                     hit.transform.gameObject.layer = 7;
+                    weaponRenderer.enabled = true;
+
                     visibleActors.Add(hit.transform);
                 }
                 else
@@ -149,17 +153,26 @@ public class MeshVisionGen : MonoBehaviour
 
         for (int i = 0; i < trs.Count; i++)
         {
-            if (Mathf.Acos(Vector3.Dot(targetTr.forward, (trs[i].position - transform.position).normalized)) * Mathf.Rad2Deg >= lightAngle / 2)
             {
-                SkinnedMeshRenderer[] trsRenderer = trs[i].GetComponentsInChildren<SkinnedMeshRenderer>();
+                if (trs[i] != null)
+                {
+                    if (Mathf.Acos(Vector3.Dot(targetTr.forward, (trs[i].position - transform.position).normalized)) * Mathf.Rad2Deg >= lightAngle / 2)
+                    {
+                        SkinnedMeshRenderer[] trsRenderer = trs[i].GetComponentsInChildren<SkinnedMeshRenderer>();
+                        MeshRenderer weaponRenderer = trs[i].GetComponentInChildren<MeshRenderer>();
+                        
 
-                trs[i].gameObject.layer = 6;
-                trsRenderer[0].material.renderQueue = invisibleRenderQueue;
-                trsRenderer[0].enabled = false;
+                        trs[i].gameObject.layer = 6;
+                        trsRenderer[0].material.renderQueue = invisibleRenderQueue;
+                        trsRenderer[0].enabled = false;
+                        trsRenderer[1].enabled = false;
+                        weaponRenderer.enabled = false;
+                        FadeActors(trsRenderer[2], 0, 1f);
 
-                FadeActors(trsRenderer[2], 0, 1f);
-
-                trs.Remove(trs[i]);
+                        trs.Remove(trs[i]);
+                    }
+                        
+                }              
             }
         }
     }
