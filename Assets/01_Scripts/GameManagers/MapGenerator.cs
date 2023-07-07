@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
 using UnityEngine;
@@ -56,6 +57,9 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     [Header("TowerObstacles")]
     public List<GameObject> towerObstacles;
 
+    bool isMapGenDone = false;
+
+    int chunkCount = 0;
     void Awake()
     {
         concepts.Add(jungleObstacles);
@@ -73,15 +77,15 @@ public class MapGenerator : MonoBehaviourPunCallbacks
             {
                 for (int j = 0; j < chunkX; j++)
                 {
+                    chunkCount++;
                     photonView.RPC(nameof(SendChunkData), RpcTarget.All, obstaclePrefabs.Count, i, j);
                 }
             }
+            //photonView.RPC(nameof(MapGenDone), RpcTarget.All);         
         }
+        //StartCoroutine(MapGenDoneCoroutine());
 
-
-        NavMesh.RemoveAllNavMeshData();
-        gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
-        photonView.RPC(nameof(SendIsReady), RpcTarget.AllBufferedViaServer);
+        
 
         //width = chunkX * chunkWidth;
         //height = chunkZ * chunkHeight;
@@ -94,6 +98,19 @@ public class MapGenerator : MonoBehaviourPunCallbacks
         MakeRandomZonePos();
         randomIndex = Random.Range(0, posList.Count);
         areaZonePos = posList[randomIndex];
+    }
+    [PunRPC]
+    void MapGenDone()
+    {
+        isMapGenDone = true;
+    }
+
+    IEnumerator MapGenDoneCoroutine()
+    {
+        yield return new WaitUntil(() => isMapGenDone);
+        NavMesh.RemoveAllNavMeshData();
+        gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
+        photonView.RPC(nameof(SendIsReady), RpcTarget.AllBufferedViaServer);
     }
     public void MakeChunk(int structures, int chunkX, int chunkY)
     {
@@ -292,14 +309,25 @@ public class MapGenerator : MonoBehaviourPunCallbacks
         rand = num;
         if (count < structures && rand < structures)
         {
-            GameObject structure = Instantiate(obstaclePrefabs[rand], new Vector3(i + chunkY * chunkWidth, obstaclePrefabs[rand].transform.localPosition.y, j + chunkX * chunkHeight), transform.rotation);
-            structure.isStatic = true;
-            structure.transform.SetParent(gameObject.transform);
+            StartCoroutine(MakeObstacle(obstaclePrefabs[rand], new Vector3(i + chunkY * chunkWidth, obstaclePrefabs[rand].transform.localPosition.y, j + chunkX * chunkHeight), transform.rotation, i, j));
             count++;
         }
-        //Debug.Log(num);
-    }
 
+    }
+    IEnumerator MakeObstacle(GameObject prefab, Vector3 pos, Quaternion rot, int i, int j)
+    {
+        GameObject structure;
+        yield return structure = Instantiate(prefab, pos, rot);
+        structure.isStatic = true;
+        structure.transform.SetParent(gameObject.transform);
+        //if (chunkCount == chunkX * chunkZ - 1 && i == chunkHeight - 1 && j == chunkWidth - 1)
+        //{
+        //    Debug.Log("Done");
+        //    NavMesh.RemoveAllNavMeshData();
+        //    gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
+        //    photonView.RPC(nameof(SendIsReady), RpcTarget.AllBufferedViaServer);
+        //}
+    }
     [PunRPC]
     void SendRandomIndex(int n)
     {
