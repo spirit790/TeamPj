@@ -70,7 +70,6 @@ public class GoogleManager : MonoBehaviour
                 Debug.Log(userID);
                 logText.text = Social.localUser.id + "\n" + Social.localUser.userName;
                 IsGoogleLoginSuccess = true;
-                StartCoroutine(LoginCompleteCoroutine());
             }
             else
             {
@@ -97,6 +96,7 @@ public class GoogleManager : MonoBehaviour
             DocumentSnapshot snapShot = task.Result;
             if (snapShot.Exists)
             {
+                StartCoroutine(LoginCompleteCoroutine());
             }
             else
             {

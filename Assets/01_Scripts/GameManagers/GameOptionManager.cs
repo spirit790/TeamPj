@@ -23,6 +23,7 @@ public class GameOptionManager : MonoBehaviour
     Button quitBtn;
     Button localEngBtn;
     Button localKorBtn;
+    public GameObject touchImage;
 
     public float sfxVol;
     public float bgmVol;
@@ -45,10 +46,6 @@ public class GameOptionManager : MonoBehaviour
             Destroy(gameObject);
         }
         SceneManager.sceneLoaded += OnSceneLoaded;
-        
-    }
-    public void Start()
-    {
         
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -112,6 +109,12 @@ public class GameOptionManager : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            OnTouchBegan();
+            TouchImage();
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             optionPanel.SetActive(true);
@@ -126,6 +129,11 @@ public class GameOptionManager : MonoBehaviour
             }
         }
 #endif
+    }
+    void TouchImage()
+    {
+        Vector3 touchPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+        Instantiate(touchImage, touchPos, Quaternion.identity);
     }
 
 
@@ -222,7 +230,7 @@ public class GameOptionManager : MonoBehaviour
     /// <summary>
     /// 확률적 터치소리변경
     /// </summary>
-    private void OnMouseDown()
+    private void OnTouchBegan()
     {
         int randomSfx = Random.Range(0, 100);
 
