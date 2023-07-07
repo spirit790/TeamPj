@@ -31908,7 +31908,7 @@ GameObject:
   - component: {fileID: 7385983473761489331}
   m_Layer: 0
   m_Name: tiles
-  m_TagString: Untagged
+  m_TagString: MapGen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
