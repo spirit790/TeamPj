@@ -23,8 +23,9 @@ public class GameOptionManager : MonoBehaviour
     Button quitBtn;
     Button localEngBtn;
     Button localKorBtn;
-    public GameObject touchImage;
 
+    public GameObject touchImage;
+    
     public float sfxVol;
     public float bgmVol;
     public int loCalIndex;
@@ -109,12 +110,16 @@ public class GameOptionManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            OnTouchBegan();
-            TouchImage();
-        }
+        int touchBiildIndex = SceneManager.GetActiveScene().buildIndex;
 
+        if (touchBiildIndex == 1)
+        {
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                OnTouchBegan();
+                TouchImage();
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             optionPanel.SetActive(true);
@@ -130,11 +135,7 @@ public class GameOptionManager : MonoBehaviour
         }
 #endif
     }
-    void TouchImage()
-    {
-        Vector3 touchPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-        Instantiate(touchImage, touchPos, Quaternion.identity);
-    }
+    
 
 
     //현지화 변수와 함수
@@ -248,6 +249,12 @@ public class GameOptionManager : MonoBehaviour
         }        
     }
     #endregion
+    void TouchImage()
+    {
+        Vector3 touchPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+        Instantiate(touchImage, touchPos, Quaternion.identity);
+    }
+
 
     #region PlayerPrefab
     /// <summary>
