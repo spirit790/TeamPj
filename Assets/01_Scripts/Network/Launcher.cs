@@ -27,7 +27,6 @@ public class Launcher : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.IsConnected)
         {
             Connect();
-            //loadingPanel.gameObject.SetActive(false);
         }
         else
         {
@@ -38,8 +37,9 @@ public class Launcher : MonoBehaviourPunCallbacks
                 btnMatch.onClick.Invoke();
             else if (GameManager.Instance.isReInvite && PhotonNetwork.InRoom)
                 btnCreate.onClick.Invoke();
+            loadingPanel.gameObject.SetActive(false);
         }
-        
+
     }
     
     public void Connect()
@@ -61,6 +61,6 @@ public class Launcher : MonoBehaviourPunCallbacks
 #if UNITY_EDITOR_WIN
         PhotonNetwork.LocalPlayer.NickName = PhotonNetwork.LocalPlayer.UserId;
 #endif
-        //loadingPanel.gameObject.SetActive(false);
+        loadingPanel.gameObject.SetActive(false);
     }
 }
