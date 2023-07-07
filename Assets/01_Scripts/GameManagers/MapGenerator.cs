@@ -81,11 +81,12 @@ public class MapGenerator : MonoBehaviourPunCallbacks
                     photonView.RPC(nameof(SendChunkData), RpcTarget.All, obstaclePrefabs.Count, i, j);
                 }
             }
-            //photonView.RPC(nameof(MapGenDone), RpcTarget.All);         
+            photonView.RPC(nameof(MapGenDone), RpcTarget.All);
         }
-        //StartCoroutine(MapGenDoneCoroutine());
+        //photonView.RPC(nameof(SendIsReady), RpcTarget.AllBufferedViaServer);
+        StartCoroutine(MapGenDoneCoroutine());
 
-        
+
 
         //width = chunkX * chunkWidth;
         //height = chunkZ * chunkHeight;
