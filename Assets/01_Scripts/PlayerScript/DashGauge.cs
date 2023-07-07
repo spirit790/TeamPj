@@ -22,8 +22,6 @@ public class DashGauge : MonoBehaviour
         dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
         dGauge = gameObject.GetComponent<Slider>();
         nowDashGauge = maxDashGauge;
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-
         dGauge.GetComponentInChildren<Image>().enabled = false;
         dGauge.GetComponentsInChildren<Image>()[1].enabled = false;
     }
@@ -35,29 +33,19 @@ public class DashGauge : MonoBehaviour
 
     public void GaugeMinus()
     {
-        if(playerController.moveSpeed !=0)
+        if (dashBtn.IsCheck)
         {
-            if (dashBtn.IsCheck)
+            nowDashGauge--;         
+            if (nowDashGauge <= 1)
             {
-                dGauge.GetComponentInChildren<Image>().enabled = true;
-                dGauge.GetComponentsInChildren<Image>()[1].enabled = true;
-                nowDashGauge--;
-                if (nowDashGauge <= 1)
-                {
-                    nowDashGauge = 0;
-                    dashBtn.IsCheck = false;
-                }
+                nowDashGauge = 0;
+                dashBtn.IsCheck = false;
             }
-            else if (nowDashGauge != maxDashGauge)
-            {
-                nowDashGauge++;
-                if (nowDashGauge == maxDashGauge)
-                {
-                    dGauge.GetComponentInChildren<Image>().enabled = false;
-                    dGauge.GetComponentsInChildren<Image>()[1].enabled = false;
-                }
-            }
-            dGauge.value = (float)nowDashGauge / (float)maxDashGauge;
-        }        
+        }
+        else if (nowDashGauge != maxDashGauge)
+        {
+            nowDashGauge++;
+        }
+        dGauge.value = (float)nowDashGauge / (float)maxDashGauge;
     }
 }

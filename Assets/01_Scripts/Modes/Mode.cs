@@ -160,7 +160,7 @@ public class Mode : MonoBehaviourPunCallbacks
     public virtual void GameStart()
     {
 #if UNITY_ANDROID
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 30;
 #else
                 QualitySettings.vSyncCount = 1;
 #endif

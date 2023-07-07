@@ -100,6 +100,7 @@ public class PlayerController : MonoBehaviourPun
         if (dir.x == 0 && dir.z == 0)
         {
             moveSpeed = 0;
+            dashBtn.IsCheck = false;
         }
         else if (!(dir.x == 0 && dir.z == 0))
         {
