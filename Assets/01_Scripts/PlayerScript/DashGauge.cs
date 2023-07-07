@@ -9,9 +9,10 @@ public class DashGauge : MonoBehaviour
     Slider dGauge;
     DashBtn dashBtn;
 
-
-    public int maxDashGauge;
-    public int nowDashGauge;
+    [SerializeField]
+    int maxDashGauge;
+    [SerializeField]
+    int nowDashGauge;
 
     void Awake()
     {
