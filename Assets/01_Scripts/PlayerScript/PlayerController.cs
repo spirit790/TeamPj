@@ -100,6 +100,7 @@ public class PlayerController : MonoBehaviourPun
         if (dir.x == 0 && dir.z == 0)
         {
             moveSpeed = 0;
+            dashBtn.IsCheck = false;
         }
         else if (!(dir.x == 0 && dir.z == 0))
         {
@@ -193,10 +194,9 @@ public class PlayerController : MonoBehaviourPun
     IEnumerator StunControl()
     {
         isStun = true;
-        anim.SetStunAnim(isStun);
+        StartCoroutine(anim.SetStunAnim(stunTime));
         yield return new WaitForSeconds(stunTime);
         isStun = false;
-        anim.SetStunAnim(isStun);
     }
 
     void Stun()

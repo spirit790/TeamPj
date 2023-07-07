@@ -12,7 +12,8 @@ public class PlayerAttack : MonoBehaviourPun
     public delegate void AIKill();
     public static event AIKill OnAIKill;
 
-    [SerializeField] GameObject hitEffect;
+    [SerializeField] GameObject aihitEffect;
+    [SerializeField] GameObject playerHitEffect;
 
     public int attackAngle = 30;
     public float attackRange = 1f;
@@ -59,7 +60,7 @@ public class PlayerAttack : MonoBehaviourPun
         {
             Debug.Log("AI Kill");
             OnAIKill();
-            photonView.RPC(nameof(InstantiateHitEffect), RpcTarget.MasterClient, targets[0].position);
+            photonView.RPC(nameof(InstantiateAIHitEffect), RpcTarget.MasterClient, targets[0].position);
             int viewId = targets[0].transform.parent.gameObject.GetPhotonView().ViewID;
             photonView.RPC(nameof(KillAI), RpcTarget.MasterClient, viewId);
         }
@@ -67,7 +68,7 @@ public class PlayerAttack : MonoBehaviourPun
         {
             Debug.Log("Player Kill");
             OnPlayerKill();
-            photonView.RPC(nameof(InstantiateHitEffect), RpcTarget.MasterClient, targets[0].position);
+            photonView.RPC(nameof(InstantiatePlayerHitEffect), RpcTarget.MasterClient, targets[0].position);
             int viewId = targets[0].transform.parent.gameObject.GetPhotonView().ViewID;
             photonView.RPC(nameof(KillPlyaer), RpcTarget.All, viewId);
         }
@@ -77,9 +78,15 @@ public class PlayerAttack : MonoBehaviourPun
     }
 
     [PunRPC]
-    void InstantiateHitEffect(Vector3 pos)
+    void InstantiateAIHitEffect(Vector3 pos)
     {
-        PhotonNetwork.InstantiateRoomObject(hitEffect.name, pos, Quaternion.identity);
+        PhotonNetwork.InstantiateRoomObject(aihitEffect.name, pos, Quaternion.identity);
+    }
+
+    [PunRPC]
+    void InstantiatePlayerHitEffect(Vector3 pos)
+    {
+        PhotonNetwork.InstantiateRoomObject(playerHitEffect.name, pos, Quaternion.identity);
     }
 
     [PunRPC]
