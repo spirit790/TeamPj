@@ -227,6 +227,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                     gameMode = Modes.BATTLEROYAL;
                     currentGameMode.Set(playerCount, battleAIRatio, battleTimeLimit);
                     string tempString = Random.Range(0, 1000).ToString();
+                    currentGameMode.modeName = "BATTLE ROYALE";
                     Debug.Log(tempString);
                     
                     break;
@@ -234,11 +235,15 @@ public class GameManager : MonoBehaviourPunCallbacks
                     // areaConquer
                     gameMode = Modes.AREA;
                     currentGameMode.Set(playerCount, areaAIRatio, areaTimeLimit);
+                    currentGameMode.modeName = "CONQUER";
+
                     break;
                 case 2:
                     // deathMatch
                     gameMode = Modes.DEATHMATCH;
                     currentGameMode.Set(playerCount, deathAIRatio, deathTimeLimit);
+                    currentGameMode.modeName = "DEATH MATCH";
+
                     break;
                 default:
                     break;

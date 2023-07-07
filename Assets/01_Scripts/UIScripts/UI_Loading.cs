@@ -9,28 +9,30 @@ public class UI_Loading : MonoBehaviour
     Text txt;
 
     public string flavorText;
+    [Range(1f, 5f)]
+    public float waitTime = 3f;
 
     IEnumerator Start()
     {
         txt = GetComponent<Text>();
-        txt.DOText(flavorText, 3f);
-        yield return new WaitForSeconds(3f);
+        txt.DOText(flavorText, waitTime);
+        yield return new WaitForSeconds(waitTime);
         StartCoroutine(txtTween(txt));
     }
 
     IEnumerator txtTween(Text targetTxt)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.33f);
 
         targetTxt.text += ".";
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.33f);
 
         targetTxt.text += ".";
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.33f);
 
         targetTxt.text += ".";
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.33f);
 
         targetTxt.text = flavorText;
 
