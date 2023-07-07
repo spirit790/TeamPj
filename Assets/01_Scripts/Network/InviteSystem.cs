@@ -333,13 +333,13 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         {
             selectMode.gameObject.SetActive(true);
             btnStart.gameObject.SetActive(true);
-            txtMode.gameObject.SetActive(false);
+            txtMode.transform.parent.gameObject.SetActive(false);
 
             PlayerEnteredRoom(PhotonNetwork.LocalPlayer);
         }
         else
         {
-            txtMode.gameObject.SetActive(true);
+            txtMode.transform.parent.gameObject.SetActive(true);
             selectMode.gameObject.SetActive(false);
             btnStart.GetComponentInChildren<Text>().text = STRING_READY;
             Hashtable prop = new Hashtable { { KEY_READY, false } };
