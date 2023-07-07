@@ -65,8 +65,8 @@ public class MapGenerator : MonoBehaviourPunCallbacks
         chunk = new int[chunkHeight, chunkWidth];
         concept = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMap].ToString());
         obstaclePrefabs = concepts[concept];
-        groundPrefab = groundPrefabs[concept];
-        roadPrefab = roadPrefabs[concept];
+        //groundPrefab = groundPrefabs[concept];
+        //roadPrefab = roadPrefabs[concept];
         if (PhotonNetwork.IsMasterClient)
         {
             for (int i = 0; i < chunkZ; i++)
@@ -78,11 +78,16 @@ public class MapGenerator : MonoBehaviourPunCallbacks
             }
         }
 
-        width = chunkX * chunkWidth;
-        height = chunkZ * chunkHeight;
-        map = new int[width, height];
 
-        GenerateMap();
+        NavMesh.RemoveAllNavMeshData();
+        gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
+        photonView.RPC(nameof(SendIsReady), RpcTarget.AllBufferedViaServer);
+
+        //width = chunkX * chunkWidth;
+        //height = chunkZ * chunkHeight;
+        //map = new int[width, height];
+
+        //GenerateMap();
 
         mainBuildingPos1 = new Vector3(width / 2f - chunkWidth / 2f, 0, height / 2f);
         mainBuildingPos2 = new Vector3(width / 2f + chunkWidth / 2f, 0, height / 2f);
@@ -278,6 +283,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
                 }
             }
         }
+
     }
 
     [PunRPC]

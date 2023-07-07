@@ -9,9 +9,12 @@ public class DashGauge : MonoBehaviour
     Slider dGauge;
     DashBtn dashBtn;
 
+    [SerializeField]
+    int maxDashGauge;
+    [SerializeField]
+    int nowDashGauge;
 
-    public int maxDashGauge;
-    public int nowDashGauge;
+    PlayerController playerController;
 
     void Awake()
     {
@@ -19,6 +22,7 @@ public class DashGauge : MonoBehaviour
         dashBtn = GameObject.FindGameObjectWithTag("DashBtn").GetComponent<DashBtn>();
         dGauge = gameObject.GetComponent<Slider>();
         nowDashGauge = maxDashGauge;
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
         dGauge.GetComponentInChildren<Image>().enabled = false;
         dGauge.GetComponentsInChildren<Image>()[1].enabled = false;
@@ -31,28 +35,29 @@ public class DashGauge : MonoBehaviour
 
     public void GaugeMinus()
     {
-        if(dashBtn.IsCheck)
+        if(playerController.moveSpeed !=0)
         {
-            dGauge.GetComponentInChildren<Image>().enabled = true;
-            dGauge.GetComponentsInChildren<Image>()[1].enabled = true;
-            nowDashGauge--;
-            if(nowDashGauge <= 1)
+            if (dashBtn.IsCheck)
             {
-                nowDashGauge = 0;
-                dashBtn.IsCheck = false;                
+                dGauge.GetComponentInChildren<Image>().enabled = true;
+                dGauge.GetComponentsInChildren<Image>()[1].enabled = true;
+                nowDashGauge--;
+                if (nowDashGauge <= 1)
+                {
+                    nowDashGauge = 0;
+                    dashBtn.IsCheck = false;
+                }
             }
-        }
-        else if(nowDashGauge != maxDashGauge)
-        {
-            nowDashGauge++;
-            if(nowDashGauge == maxDashGauge)
+            else if (nowDashGauge != maxDashGauge)
             {
-                dGauge.GetComponentInChildren<Image>().enabled = false;
-                dGauge.GetComponentsInChildren<Image>()[1].enabled = false;
+                nowDashGauge++;
+                if (nowDashGauge == maxDashGauge)
+                {
+                    dGauge.GetComponentInChildren<Image>().enabled = false;
+                    dGauge.GetComponentsInChildren<Image>()[1].enabled = false;
+                }
             }
-        }
-
-        dGauge.value = (float)nowDashGauge / (float)maxDashGauge;
+            dGauge.value = (float)nowDashGauge / (float)maxDashGauge;
+        }        
     }
-
 }

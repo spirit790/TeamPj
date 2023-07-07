@@ -108,8 +108,8 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
-    agentSlope: 45
-    agentClimb: 0.4
+    agentSlope: 20
+    agentClimb: 0.2
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -1841,6 +1841,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6408837131483756151, guid: a48017c1851afd64c86af89d85404cc2,
+        type: 3}
+      propertyPath: touchImage
+      value: 
+      objectReference: {fileID: 1327168884979346, guid: 6fcbce87e7245e041810d1f80e7d2f3f,
+        type: 3}
     - target: {fileID: 6408837131483756151, guid: a48017c1851afd64c86af89d85404cc2,
         type: 3}
       propertyPath: bgmClips.Array.size

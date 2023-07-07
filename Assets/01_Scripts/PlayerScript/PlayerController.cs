@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviourPun
     Coroutine attackCoroutine;
 
     [Header("Move")]
-    [SerializeField] private float moveSpeed;
+    public float moveSpeed;
     [SerializeField] private float normalSpeed;
     [SerializeField] private float dashSpeed;
     [SerializeField] private float roteSpeed;
