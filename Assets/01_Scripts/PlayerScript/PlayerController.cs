@@ -194,10 +194,9 @@ public class PlayerController : MonoBehaviourPun
     IEnumerator StunControl()
     {
         isStun = true;
-        anim.SetStunAnim(isStun);
+        StartCoroutine(anim.SetStunAnim(stunTime));
         yield return new WaitForSeconds(stunTime);
         isStun = false;
-        anim.SetStunAnim(isStun);
     }
 
     void Stun()
