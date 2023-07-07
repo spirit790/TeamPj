@@ -32,14 +32,17 @@ public class SilhouetteRadar : MonoBehaviour
 
     private void InvisibleRadar()
     {
-        Debug.DrawLine(playerTr.position, playerTr.position + Vector3.right * radarRange, Color.red, 2f, true);
-        var actors =  Physics.OverlapSphere(playerTr.position, radarRange, layerMask);
-
-        foreach (var actor in actors)
+        if(playerTr != null)
         {
-            if (actor.name == "Player") continue;
+            Debug.DrawLine(playerTr.position, playerTr.position + Vector3.right * radarRange, Color.red, 2f, true);
+            var actors = Physics.OverlapSphere(playerTr.position, radarRange, layerMask);
 
-            StartCoroutine(RadarFade(actor.transform, radarTime));
+            foreach (var actor in actors)
+            {
+                if (actor.name == "Player") continue;
+
+                StartCoroutine(RadarFade(actor.transform, radarTime));
+            }
         }
     }
 
