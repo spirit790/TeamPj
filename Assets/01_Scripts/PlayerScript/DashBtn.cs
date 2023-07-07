@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class DashBtn : MonoBehaviour
 {
     GameOptionManager gameOptionManager;
-    public float sfxLength;
+    [SerializeField]
+    float sfxLength;
 
     public bool IsCheck;
     private void Awake()
@@ -18,10 +19,7 @@ public class DashBtn : MonoBehaviour
     {
         gameOptionManager = GameOptionManager.Instance();
     }
-    public void Update()
-    {
 
-    }
     /// <summary>
     /// Dash버튼은 오로지 check의 true false값만 확인 이 값을 가져다가 Player에서 상태변환
     /// </summary>
@@ -40,9 +38,9 @@ public class DashBtn : MonoBehaviour
     }
     IEnumerator PlayeDashSfx()
     {
+        IsCheck = true;
         while (IsCheck)
-        {
-            IsCheck = true;
+        {            
             gameOptionManager.PlaySfxSound("Dash", transform.position, gameOptionManager.sfxVol);
             yield return new WaitForSeconds(sfxLength);
         }
