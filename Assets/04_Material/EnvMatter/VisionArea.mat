@@ -136,7 +136,7 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     - _basAlpha: 0.8
-    - _baseAlpha: 0.6
+    - _baseAlpha: 0.75
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0, g: 0, b: 0, a: 1}

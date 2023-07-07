@@ -86,9 +86,11 @@ public class MeshVisionGen : MonoBehaviour
                     */
                     SkinnedMeshRenderer[] hitRenderers = hit.transform.GetComponentsInChildren<SkinnedMeshRenderer>();
                     MeshRenderer weaponRenderer = hit.transform.GetComponentInChildren<MeshRenderer>();
+                    GameObject shadow = hit.transform.parent.Find("Shadow").gameObject;
                     hitRenderers[0].enabled = true;
                     hitRenderers[0].material.renderQueue = visibleRenderQueue;
                     hitRenderers[1].enabled = true;
+                    shadow.SetActive(true);
                     hit.transform.gameObject.layer = 7;
                     weaponRenderer.enabled = true;
 
@@ -160,12 +162,13 @@ public class MeshVisionGen : MonoBehaviour
                     {
                         SkinnedMeshRenderer[] trsRenderer = trs[i].GetComponentsInChildren<SkinnedMeshRenderer>();
                         MeshRenderer weaponRenderer = trs[i].GetComponentInChildren<MeshRenderer>();
-                        
+                        GameObject shadow = trs[i].parent.Find("Shadow").gameObject;
 
                         trs[i].gameObject.layer = 6;
                         trsRenderer[0].material.renderQueue = invisibleRenderQueue;
                         trsRenderer[0].enabled = false;
                         trsRenderer[1].enabled = false;
+                        shadow.SetActive(false);
                         weaponRenderer.enabled = false;
                         FadeActors(trsRenderer[2], 0, 1f);
 

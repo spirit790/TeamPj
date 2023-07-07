@@ -290,6 +290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0676aa93a1e1d2742b715392882ce7b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightAngle: 160
+  lightAngle: 120
   lightRange: 15
   visionDensity: 3
+  visibleRenderQueue: 3001
+  invisibleRenderQueue: 3000
