@@ -4066,7 +4066,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 360c8b79ae665ff4f9142accf4fa7926, type: 3}
     m_FontSize: 60
     m_FontStyle: 1
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 60
     m_Alignment: 1
@@ -4887,6 +4887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flavorText: '''till the last one standing'
+  waitTime: 3
 --- !u!114 &1568926604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9185,8 +9186,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605287111923444332}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.0015, y: -0, z: 66.1037}
-  m_LocalScale: {x: 77.19115, y: 3.5721, z: 78.30717}
+  m_LocalPosition: {x: 24.0015, y: -0, z: 66.4049}
+  m_LocalScale: {x: 77.19115, y: 3.5721, z: 77.7042}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605287113766572433}
@@ -29614,8 +29615,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605287113039562595}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.2922, y: 0, z: 31.562}
-  m_LocalScale: {x: 60.65687, y: 3.5721, z: 84.45318}
+  m_LocalPosition: {x: -30.4524, y: 0, z: 31.562}
+  m_LocalScale: {x: 60.335533, y: 3.5721, z: 84.45318}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605287113766572433}
@@ -45540,8 +45541,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605287113612696942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.7484, y: 0, z: -21.2081}
-  m_LocalScale: {x: 102.843895, y: 3.5721, z: 42.27445}
+  m_LocalPosition: {x: 26.7484, y: 0, z: -21.4226}
+  m_LocalScale: {x: 102.843895, y: 3.5721, z: 41.847477}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605287113766572433}
@@ -49210,8 +49211,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605287113835962603}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 65.0713, y: 0, z: 31.562}
-  m_LocalScale: {x: 58.470493, y: 3.5721, z: 84.45318}
+  m_LocalPosition: {x: 65.36, y: 0, z: 31.562}
+  m_LocalScale: {x: 57.891636, y: 3.5721, z: 84.45318}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605287113766572433}
