@@ -35,8 +35,6 @@ public class DashGauge : MonoBehaviour
     {
         if (dashBtn.IsCheck)
         {
-            dGauge.GetComponentInChildren<Image>().enabled = true;
-            dGauge.GetComponentsInChildren<Image>()[1].enabled = true;
             nowDashGauge--;         
             if (nowDashGauge <= 1)
             {
@@ -47,11 +45,6 @@ public class DashGauge : MonoBehaviour
         else if (nowDashGauge != maxDashGauge)
         {
             nowDashGauge++;
-            if (nowDashGauge == maxDashGauge)
-            {
-                dGauge.GetComponentInChildren<Image>().enabled = false;
-                dGauge.GetComponentsInChildren<Image>()[1].enabled = false;
-            }
         }
         dGauge.value = (float)nowDashGauge / (float)maxDashGauge;
     }
