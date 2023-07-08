@@ -119,15 +119,25 @@ public class PlayerController : MonoBehaviourPun
     }
     public void OnDestroy()
     {
-        PlayerAttack.OnAIKill -= Stun;
-        if (photonView.IsMine)
-            OnPlayerDie(this);
+        //PlayerAttack.OnAIKill -= Stun;
+        
+    }
+
+    public void OnEnable()
+    {
+        IsDead = false;
+        isStun = false;
+        isAttack = false;
     }
 
     public void PlayerDead()
     {
+        //if (photonView.IsMine)
+        //    PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.LocalPlayer);
+        if(photonView.IsMine)
+            photonView.RPC(nameof(RpcPlayerDead), RpcTarget.All, photonView.ViewID);
         if (photonView.IsMine)
-            PhotonNetwork.DestroyPlayerObjects(PhotonNetwork.LocalPlayer);
+            OnPlayerDie(this);
     }
 
     void OnClickAtk()
@@ -202,5 +212,11 @@ public class PlayerController : MonoBehaviourPun
     void Stun()
     {
         StartCoroutine(StunControl());
+    }
+    
+    [PunRPC]
+    void RpcPlayerDead(int viewId)
+    {
+        PhotonView.Find(viewId).gameObject.SetActive(false);
     }
 }

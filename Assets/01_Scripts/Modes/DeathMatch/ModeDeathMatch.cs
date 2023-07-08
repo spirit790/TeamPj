@@ -48,7 +48,6 @@ public class ModeDeathMatch : Mode
     protected override void PlayerDieControl(PlayerController player)
     {
         GameManager.Instance.IsDead = true;
-        Debug.Log("player respawn");
         if (PhotonNetwork.IsConnected && !isGameOver)
         {
             StartCoroutine(PlayerRespawn());
@@ -66,7 +65,12 @@ public class ModeDeathMatch : Mode
     IEnumerator PlayerRespawn()
     {
         yield return new WaitForSeconds(playerRespawnTime);
-        CreatePlayer();
+        if (GameManager.Instance.IsDead)
+        {
+            Debug.Log("respawn");
+            myPlayerObject.transform.position = SpawnPos;
+            photonView.RPC(nameof(RpcPlayerRespawn), RpcTarget.All, myPlayerObject.GetPhotonView().ViewID);
+        }
         GameManager.Instance.IsDead = false;
     }
 
@@ -90,5 +94,11 @@ public class ModeDeathMatch : Mode
     void PunGameOver()
     {
         IsGameOver = true;
+    }
+
+    [PunRPC]
+    void RpcPlayerRespawn(int viewId)
+    {
+        PhotonView.Find(viewId).gameObject.SetActive(true);
     }
 }
