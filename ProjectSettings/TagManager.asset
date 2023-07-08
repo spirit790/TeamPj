@@ -22,6 +22,7 @@ TagManager:
   - Bullet
   - FxTemporaire
   - NickNameText
+  - Env
   layers:
   - Default
   - TransparentFX
