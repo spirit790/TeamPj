@@ -61,12 +61,14 @@ public class CharacterAnimation : MonoBehaviour
             speed += speedRatio;
             characterAnim.SetFloat(PARAM_MOVE, speed);
         }
-        else if(speed >= 0)
+        else if (speed >= 0 || characterAgent.speed == 0)
         {
+            if (speed < 0) return;
             speed -= speedRatio;
             characterAnim.SetFloat(PARAM_MOVE, speed);
         }
     }
+
 
     public IEnumerator SetStunAnim(float time)
     {
