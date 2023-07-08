@@ -56,10 +56,7 @@ public class ModeDeathMatch : Mode
 
     protected override void AIDieControl()
     {
-        if (!isGameOver)
-        {
-            photonView.RPC(nameof(SetDiedAICount), RpcTarget.MasterClient);
-        }
+        DiedAICount++;
     }
 
     IEnumerator PlayerRespawn()
