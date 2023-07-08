@@ -124,8 +124,14 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     {
         yield return new WaitUntil(() => isMapGenDone);
         NavMesh.RemoveAllNavMeshData();
-        gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
+        yield return StartCoroutine(BuildNavMeshCoroutine());
         photonView.RPC(nameof(SendIsReady), RpcTarget.AllBufferedViaServer);
+    }
+    IEnumerator BuildNavMeshCoroutine()
+    {
+        yield return new WaitForSeconds(5f);
+        gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
+        yield return new WaitForSeconds(3f);
     }
     public void MakeChunk(int structures, int chunkX, int chunkY)
     {
@@ -333,6 +339,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     {
         GameObject structure;
         yield return structure = Instantiate(prefab, pos, rot);
+        structure.layer = 12;
         structure.isStatic = true;
         structure.transform.SetParent(gameObject.transform);
         //if (chunkCount == chunkX * chunkZ - 1 && i == chunkHeight - 1 && j == chunkWidth - 1)
