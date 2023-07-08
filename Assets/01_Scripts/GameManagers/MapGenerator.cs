@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
 using UnityEngine;
@@ -56,8 +57,17 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     [Header("TowerObstacles")]
     public List<GameObject> towerObstacles;
 
+    bool isMapGenDone = false;
+    int enabledCount = 0;
+    MeshRenderer[] mrs;
     void Awake()
     {
+        mrs = GameObject.FindGameObjectWithTag("Env").GetComponentsInChildren<MeshRenderer>();
+        foreach (var mr in mrs)
+        {
+            mr.enabled= false;
+            enabledCount++;
+        }
         concepts.Add(jungleObstacles);
         concepts.Add(schoolObstacles);
         concepts.Add(towerObstacles);
@@ -76,12 +86,12 @@ public class MapGenerator : MonoBehaviourPunCallbacks
                     photonView.RPC(nameof(SendChunkData), RpcTarget.All, obstaclePrefabs.Count, i, j);
                 }
             }
+            photonView.RPC(nameof(MapGenDone), RpcTarget.All);
         }
+        //photonView.RPC(nameof(SendIsReady), RpcTarget.AllBufferedViaServer);
+        //StartCoroutine(MapGenDoneCoroutine());
+        StartCoroutine(BakeCoroutine());
 
-
-        NavMesh.RemoveAllNavMeshData();
-        gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
-        photonView.RPC(nameof(SendIsReady), RpcTarget.AllBufferedViaServer);
 
         //width = chunkX * chunkWidth;
         //height = chunkZ * chunkHeight;
@@ -94,6 +104,34 @@ public class MapGenerator : MonoBehaviourPunCallbacks
         MakeRandomZonePos();
         randomIndex = Random.Range(0, posList.Count);
         areaZonePos = posList[randomIndex];
+    }
+    [PunRPC]
+    void MapGenDone()
+    {
+        isMapGenDone = true;
+    }
+    IEnumerator BakeCoroutine()
+    {
+        yield return new WaitUntil(() => enabledCount == mrs.Length);
+        yield return StartCoroutine(MapGenDoneCoroutine());
+        transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+        foreach (var mr in mrs)
+        {
+            mr.enabled = true;
+        }
+    }
+    IEnumerator MapGenDoneCoroutine()
+    {
+        yield return new WaitUntil(() => isMapGenDone);
+        NavMesh.RemoveAllNavMeshData();
+        yield return StartCoroutine(BuildNavMeshCoroutine());
+        photonView.RPC(nameof(SendIsReady), RpcTarget.AllBufferedViaServer);
+    }
+    IEnumerator BuildNavMeshCoroutine()
+    {
+        yield return new WaitForSeconds(5f);
+        gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
+        yield return new WaitForSeconds(3f);
     }
     public void MakeChunk(int structures, int chunkX, int chunkY)
     {
@@ -292,14 +330,26 @@ public class MapGenerator : MonoBehaviourPunCallbacks
         rand = num;
         if (count < structures && rand < structures)
         {
-            GameObject structure = Instantiate(obstaclePrefabs[rand], new Vector3(i + chunkY * chunkWidth, obstaclePrefabs[rand].transform.localPosition.y, j + chunkX * chunkHeight), transform.rotation);
-            structure.isStatic = true;
-            structure.transform.SetParent(gameObject.transform);
+            StartCoroutine(MakeObstacle(obstaclePrefabs[rand], new Vector3(i + chunkY * chunkWidth, obstaclePrefabs[rand].transform.localPosition.y, j + chunkX * chunkHeight), transform.rotation, i, j));
             count++;
         }
-        //Debug.Log(num);
-    }
 
+    }
+    IEnumerator MakeObstacle(GameObject prefab, Vector3 pos, Quaternion rot, int i, int j)
+    {
+        GameObject structure;
+        yield return structure = Instantiate(prefab, pos, rot);
+        structure.layer = 12;
+        structure.isStatic = true;
+        structure.transform.SetParent(gameObject.transform);
+        //if (chunkCount == chunkX * chunkZ - 1 && i == chunkHeight - 1 && j == chunkWidth - 1)
+        //{
+        //    Debug.Log("Done");
+        //    NavMesh.RemoveAllNavMeshData();
+        //    gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
+        //    photonView.RPC(nameof(SendIsReady), RpcTarget.AllBufferedViaServer);
+        //}
+    }
     [PunRPC]
     void SendRandomIndex(int n)
     {
