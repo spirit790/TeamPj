@@ -3914,19 +3914,6 @@ struct DeferredCallbackRegisterRequest_tA5BE4066185FD0EB6B33A28B02B58660CE4A22AD
 	int32_t ___incrementRefCount_1;
 };
 
-// Unity.Collections.RewindableAllocator/MemoryBlock
-struct MemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84 
-{
-	// System.Byte* Unity.Collections.RewindableAllocator/MemoryBlock::m_pointer
-	uint8_t* ___m_pointer_0;
-	// System.Int64 Unity.Collections.RewindableAllocator/MemoryBlock::m_bytes
-	int64_t ___m_bytes_1;
-	// System.Int64 Unity.Collections.RewindableAllocator/MemoryBlock::m_current
-	int64_t ___m_current_2;
-	// System.Int64 Unity.Collections.RewindableAllocator/MemoryBlock::m_allocations
-	int64_t ___m_allocations_3;
-};
-
 // UnityEngine.UIElements.StylePropertyAnimationSystem/ElementPropertyPair
 struct ElementPropertyPair_t4CBC92D2F951A9EB378EBFB6713B7566B0FA6814 
 {
@@ -4426,15 +4413,6 @@ struct AlignOfHelper_1_tC30E7E77ABA00AC20BBD2C4B9E2107AF567C3908
 	uint8_t ___dummy_0;
 	// T Unity.Collections.LowLevel.Unsafe.UnsafeUtility/AlignOfHelper`1::data
 	uint4_t6C69CBFAE9BF0F727D52B68779D4A3F0DBA8D5C9 ___data_1;
-};
-
-// Unity.Collections.LowLevel.Unsafe.UnsafeUtility/AlignOfHelper`1<Unity.Collections.RewindableAllocator/MemoryBlock>
-struct AlignOfHelper_1_t68C3D8AC24508C31F35B828E6206CA7933E9B711 
-{
-	// System.Byte Unity.Collections.LowLevel.Unsafe.UnsafeUtility/AlignOfHelper`1::dummy
-	uint8_t ___dummy_0;
-	// T Unity.Collections.LowLevel.Unsafe.UnsafeUtility/AlignOfHelper`1::data
-	MemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84 ___data_1;
 };
 
 // UnityEngine.UIElements.StylePropertyAnimationSystem/Values`1/StyleData<UnityEngine.UIElements.Background>
@@ -7490,10 +7468,6 @@ struct UsingEntry_t0454AD34026FDFD1733CE07BD4AE807B0FBCE484_StaticFields
 // Unity.Collections.LowLevel.Unsafe.UnsafeUtility/AlignOfHelper`1<Unity.Mathematics.uint4>
 
 // Unity.Collections.LowLevel.Unsafe.UnsafeUtility/AlignOfHelper`1<Unity.Mathematics.uint4>
-
-// Unity.Collections.LowLevel.Unsafe.UnsafeUtility/AlignOfHelper`1<Unity.Collections.RewindableAllocator/MemoryBlock>
-
-// Unity.Collections.LowLevel.Unsafe.UnsafeUtility/AlignOfHelper`1<Unity.Collections.RewindableAllocator/MemoryBlock>
 
 // UnityEngine.UIElements.StylePropertyAnimationSystem/Values`1/StyleData<UnityEngine.UIElements.Background>
 
@@ -21041,14 +21015,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Action_9_Invoke_m2C6537E1E8DA4F3AC2F589E
 	typedef void (*FunctionPointerType) (RuntimeObject*, RuntimeObject*, RuntimeObject*, RuntimeObject*, RuntimeObject*, RuntimeObject*, RuntimeObject*, RuntimeObject*, RuntimeObject*, RuntimeObject*, const RuntimeMethod*);
 	((FunctionPointerType)__this->___invoke_impl_1)((Il2CppObject*)__this->___method_code_6, ___0_arg1, ___1_arg2, ___2_arg3, ___3_arg4, ___4_arg5, ___5_arg6, ___6_arg7, ___7_arg8, ___8_arg9, reinterpret_cast<RuntimeMethod*>(__this->___method_3));
 }
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

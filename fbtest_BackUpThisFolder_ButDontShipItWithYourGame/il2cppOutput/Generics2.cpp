@@ -2221,52 +2221,6 @@ struct Translate_t494F6E802F8A640D67819C9D26BE62DED1218A8E_marshaled_com
 	int32_t ___m_isNone_3;
 };
 
-// Unity.Collections.AllocatorManager/TableEntry
-struct TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE 
-{
-	// System.IntPtr Unity.Collections.AllocatorManager/TableEntry::function
-	intptr_t ___function_0;
-	// System.IntPtr Unity.Collections.AllocatorManager/TableEntry::state
-	intptr_t ___state_1;
-};
-
-// Unity.Collections.AllocatorManager/Array16`1<Unity.Collections.AllocatorManager/TableEntry>
-struct Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F 
-{
-	// T Unity.Collections.AllocatorManager/Array16`1::f0
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f0_0;
-	// T Unity.Collections.AllocatorManager/Array16`1::f1
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f1_1;
-	// T Unity.Collections.AllocatorManager/Array16`1::f2
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f2_2;
-	// T Unity.Collections.AllocatorManager/Array16`1::f3
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f3_3;
-	// T Unity.Collections.AllocatorManager/Array16`1::f4
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f4_4;
-	// T Unity.Collections.AllocatorManager/Array16`1::f5
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f5_5;
-	// T Unity.Collections.AllocatorManager/Array16`1::f6
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f6_6;
-	// T Unity.Collections.AllocatorManager/Array16`1::f7
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f7_7;
-	// T Unity.Collections.AllocatorManager/Array16`1::f8
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f8_8;
-	// T Unity.Collections.AllocatorManager/Array16`1::f9
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f9_9;
-	// T Unity.Collections.AllocatorManager/Array16`1::f10
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f10_10;
-	// T Unity.Collections.AllocatorManager/Array16`1::f11
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f11_11;
-	// T Unity.Collections.AllocatorManager/Array16`1::f12
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f12_12;
-	// T Unity.Collections.AllocatorManager/Array16`1::f13
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f13_13;
-	// T Unity.Collections.AllocatorManager/Array16`1::f14
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f14_14;
-	// T Unity.Collections.AllocatorManager/Array16`1::f15
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f15_15;
-};
-
 // UnityEngine.UIElements.StylePropertyAnimationSystem/Values`1/StyleData<UnityEngine.UIElements.TransformOrigin>
 struct StyleData_tDA8B8711D8BD18C0D6EB99A929976DDC956DD167 
 {
@@ -2414,43 +2368,6 @@ struct VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115  : public Focusab
 	List_1_t96E9133B70FB6765E6B138E810D33E18901715DA* ___m_RunningAnimations_64;
 };
 
-// Unity.Collections.AllocatorManager/Array256`1<Unity.Collections.AllocatorManager/TableEntry>
-struct Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 
-{
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f0
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f0_0;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f1
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f1_1;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f2
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f2_2;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f3
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f3_3;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f4
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f4_4;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f5
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f5_5;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f6
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f6_6;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f7
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f7_7;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f8
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f8_8;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f9
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f9_9;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f10
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f10_10;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f11
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f11_11;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f12
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f12_12;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f13
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f13_13;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f14
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f14_14;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f15
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f15_15;
-};
-
 // System.Comparison`1<UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<System.Object>>
 struct Comparison_1_t43C14CB31ECD1E68BDD3FA03081F3927D769BFE7  : public MulticastDelegate_t
 {
@@ -2589,64 +2506,6 @@ struct InvalidOperationException_t5DDE4D49B7405FAAB1E4576F4715A42A3FAD4BAB  : pu
 // System.Threading.ThreadAbortException
 struct ThreadAbortException_tCA1833E5D49782387EDF3BDCBDB90597B273F3C4  : public SystemException_tCC48D868298F4C0705279823E34B00F4FBDB7295
 {
-};
-
-// Unity.Collections.AllocatorManager/Array4096`1<Unity.Collections.AllocatorManager/TableEntry>
-struct Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 
-{
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f0
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f0_0;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f1
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f1_1;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f2
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f2_2;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f3
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f3_3;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f4
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f4_4;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f5
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f5_5;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f6
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f6_6;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f7
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f7_7;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f8
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f8_8;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f9
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f9_9;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f10
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f10_10;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f11
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f11_11;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f12
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f12_12;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f13
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f13_13;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f14
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f14_14;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f15
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f15_15;
-};
-
-// Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>
-struct Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6 
-{
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f0
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f0_0;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f1
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f1_1;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f2
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f2_2;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f3
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f3_3;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f4
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f4_4;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f5
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f5_5;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f6
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f6_6;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f7
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f7_7;
 };
 
 // System.Buffers.ArrayPool`1<System.Byte>
@@ -3439,14 +3298,6 @@ struct Exception_t_StaticFields
 
 // UnityEngine.UIElements.StyleSheets.StylePropertyId
 
-// Unity.Collections.AllocatorManager/TableEntry
-
-// Unity.Collections.AllocatorManager/TableEntry
-
-// Unity.Collections.AllocatorManager/Array16`1<Unity.Collections.AllocatorManager/TableEntry>
-
-// Unity.Collections.AllocatorManager/Array16`1<Unity.Collections.AllocatorManager/TableEntry>
-
 // UnityEngine.UIElements.StylePropertyAnimationSystem/Values`1/StyleData<UnityEngine.UIElements.TransformOrigin>
 
 // UnityEngine.UIElements.StylePropertyAnimationSystem/Values`1/StyleData<UnityEngine.UIElements.TransformOrigin>
@@ -3484,10 +3335,6 @@ struct VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115_StaticFields
 
 // UnityEngine.UIElements.VisualElement
 
-// Unity.Collections.AllocatorManager/Array256`1<Unity.Collections.AllocatorManager/TableEntry>
-
-// Unity.Collections.AllocatorManager/Array256`1<Unity.Collections.AllocatorManager/TableEntry>
-
 // System.Comparison`1<UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<System.Object>>
 
 // System.Comparison`1<UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<System.Object>>
@@ -3599,14 +3446,6 @@ struct VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115_StaticFields
 // System.Threading.ThreadAbortException
 
 // System.Threading.ThreadAbortException
-
-// Unity.Collections.AllocatorManager/Array4096`1<Unity.Collections.AllocatorManager/TableEntry>
-
-// Unity.Collections.AllocatorManager/Array4096`1<Unity.Collections.AllocatorManager/TableEntry>
-
-// Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>
-
-// Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
@@ -4865,8 +4704,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnimationDataSet_2_RemoveAll_mF0C0A4A979
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnimationDataSet_2_RemoveAll_m0475F5BF622C302FE16B1E9D731ABB7B0ABA4838_gshared (AnimationDataSet_2_tB6DDCD2FDFA114849F7C40F1C87A714449EE4095* __this, const RuntimeMethod* method) ;
 // System.Void UnityEngine.UIElements.StylePropertyAnimationSystem/AnimationDataSet`2<System.Object,System.Object>::GetActivePropertiesForElement(UnityEngine.UIElements.VisualElement,System.Collections.Generic.List`1<UnityEngine.UIElements.StyleSheets.StylePropertyId>)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AnimationDataSet_2_GetActivePropertiesForElement_mA348A4FDE2E52699D3386F516352CF2354D5BAF1_gshared (AnimationDataSet_2_tB6DDCD2FDFA114849F7C40F1C87A714449EE4095* __this, VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* ___0_ve, List_1_t365205E6BE687FCF41975C16741DD9C303C1C269* ___1_outProperties, const RuntimeMethod* method) ;
-// T& Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>::ElementAt(System.Int32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE* Array32768_1_ElementAt_mAF50A1B3FAA1E10902B5B1A6AFD81BE97AF4B59F_gshared (Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6* __this, int32_t ___0_index, const RuntimeMethod* method) ;
 // System.Void System.Collections.Generic.ArrayBuilder`1<System.Object>::.ctor(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ArrayBuilder_1__ctor_m8E8DD3AA57717454D00DB293E26D6E050CA1987E_gshared (ArrayBuilder_1_t62352007D7E9EC905E47AF7D59ABC4E83597D50C* __this, int32_t ___0_capacity, const RuntimeMethod* method) ;
 // T[] System.Collections.Generic.ArrayBuilder`1<System.Object>::ToArray()
@@ -5186,11 +5023,6 @@ inline void AnimationDataSet_2_RemoveAll_m0475F5BF622C302FE16B1E9D731ABB7B0ABA48
 inline void AnimationDataSet_2_GetActivePropertiesForElement_mA348A4FDE2E52699D3386F516352CF2354D5BAF1 (AnimationDataSet_2_tB6DDCD2FDFA114849F7C40F1C87A714449EE4095* __this, VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* ___0_ve, List_1_t365205E6BE687FCF41975C16741DD9C303C1C269* ___1_outProperties, const RuntimeMethod* method)
 {
 	((  void (*) (AnimationDataSet_2_tB6DDCD2FDFA114849F7C40F1C87A714449EE4095*, VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115*, List_1_t365205E6BE687FCF41975C16741DD9C303C1C269*, const RuntimeMethod*))AnimationDataSet_2_GetActivePropertiesForElement_mA348A4FDE2E52699D3386F516352CF2354D5BAF1_gshared)(__this, ___0_ve, ___1_outProperties, method);
-}
-// T& Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>::ElementAt(System.Int32)
-inline TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE* Array32768_1_ElementAt_mAF50A1B3FAA1E10902B5B1A6AFD81BE97AF4B59F (Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6* __this, int32_t ___0_index, const RuntimeMethod* method)
-{
-	return ((  TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE* (*) (Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6*, int32_t, const RuntimeMethod*))Array32768_1_ElementAt_mAF50A1B3FAA1E10902B5B1A6AFD81BE97AF4B59F_gshared)(__this, ___0_index, method);
 }
 // System.Void System.Collections.Generic.ArrayBuilder`1<System.Object>::.ctor(System.Int32)
 inline void ArrayBuilder_1__ctor_m8E8DD3AA57717454D00DB293E26D6E050CA1987E (ArrayBuilder_1_t62352007D7E9EC905E47AF7D59ABC4E83597D50C* __this, int32_t ___0_capacity, const RuntimeMethod* method)
@@ -7270,65 +7102,6 @@ IL2CPP_EXTERN_C  void AnimationDataSet_2_GetActivePropertiesForElement_mA348A4FD
 	_thisAdjusted = reinterpret_cast<AnimationDataSet_2_tB6DDCD2FDFA114849F7C40F1C87A714449EE4095*>(__this + _offset);
 	AnimationDataSet_2_GetActivePropertiesForElement_mA348A4FDE2E52699D3386F516352CF2354D5BAF1(_thisAdjusted, ___0_ve, ___1_outProperties, method);
 }
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// T& Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>::ElementAt(System.Int32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE* Array32768_1_ElementAt_mAF50A1B3FAA1E10902B5B1A6AFD81BE97AF4B59F_gshared (Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6* __this, int32_t ___0_index, const RuntimeMethod* method) 
-{
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8* V_0 = NULL;
-	{
-		// unsafe { fixed(Array4096<T>* p = &f0) { return ref UnsafeUtility.AsRef<T>((T*)p + index); } }
-		Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8* L_0 = (Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8*)(&__this->___f0_0);
-		V_0 = L_0;
-		// unsafe { fixed(Array4096<T>* p = &f0) { return ref UnsafeUtility.AsRef<T>((T*)p + index); } }
-		Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8* L_1 = V_0;
-		// unsafe { fixed(Array4096<T>* p = &f0) { return ref UnsafeUtility.AsRef<T>((T*)p + index); } }
-		int32_t L_2 = ___0_index;
-		uint32_t L_3 = sizeof(TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE);
-		TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE* L_4;
-		L_4 = ((  TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE* (*) (void*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 1)))((void*)((intptr_t)il2cpp_codegen_add((intptr_t)((uintptr_t)L_1), ((intptr_t)il2cpp_codegen_multiply(((intptr_t)L_2), (int32_t)L_3)))), il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 1));
-		return L_4;
-	}
-}
-IL2CPP_EXTERN_C  TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE* Array32768_1_ElementAt_mAF50A1B3FAA1E10902B5B1A6AFD81BE97AF4B59F_AdjustorThunk (RuntimeObject* __this, int32_t ___0_index, const RuntimeMethod* method)
-{
-	Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6* _thisAdjusted;
-	int32_t _offset = 1;
-	_thisAdjusted = reinterpret_cast<Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6*>(__this + _offset);
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE* _returnValue;
-	_returnValue = Array32768_1_ElementAt_mAF50A1B3FAA1E10902B5B1A6AFD81BE97AF4B59F(_thisAdjusted, ___0_index, method);
-	return _returnValue;
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

@@ -802,8 +802,6 @@ struct BaseInvokableCall_tB912356039B1D3806B23DFBC7E9CFA1BCC82F339;
 struct BaseVisualElementPanel_tE3811F3D1474B72CB6CD5BCEECFF5B5CBEC1E303;
 // System.Reflection.Binder
 struct Binder_t91BFCE95A7057FADF4D8A1A342AFE52872246235;
-// System.Byte
-struct Byte_t94D9231AC217BE4D2E004C4CD32DF6D099EA41A3;
 // System.Globalization.Calendar
 struct Calendar_t0A117CC7532A54C17188C2EFEA1F79DB20DF3A3B;
 // System.Threading.CancellationTokenSource
@@ -2838,28 +2836,6 @@ struct VoidTaskResult_t73B628B764C6668DAAAE2D37BD6FC07BCA27A5AC
 	};
 };
 
-// Unity.Collections.AllocatorManager/AllocatorHandle
-struct AllocatorHandle_t3CA09720B1F89F91A8DDBA95E74C28A1EC3E3148 
-{
-	// System.UInt16 Unity.Collections.AllocatorManager/AllocatorHandle::Index
-	uint16_t ___Index_0;
-	// System.UInt16 Unity.Collections.AllocatorManager/AllocatorHandle::Version
-	uint16_t ___Version_1;
-};
-
-// Unity.Collections.RewindableAllocator/MemoryBlock
-struct MemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84 
-{
-	// System.Byte* Unity.Collections.RewindableAllocator/MemoryBlock::m_pointer
-	uint8_t* ___m_pointer_0;
-	// System.Int64 Unity.Collections.RewindableAllocator/MemoryBlock::m_bytes
-	int64_t ___m_bytes_1;
-	// System.Int64 Unity.Collections.RewindableAllocator/MemoryBlock::m_current
-	int64_t ___m_current_2;
-	// System.Int64 Unity.Collections.RewindableAllocator/MemoryBlock::m_allocations
-	int64_t ___m_allocations_3;
-};
-
 // UnityEngine.UIElements.UQuery/UQueryMatcher
 struct UQueryMatcher_tF8783F54BA397641240DA7025126F6301EF53FF8  : public HierarchyTraversal_t89B1D4664C1C066FEED9B372488A3F751CB6FE7D
 {
@@ -2937,17 +2913,6 @@ struct Task_1_tE41CFF640EB7C045550D9D0D92BE67533B084C17  : public Task_t751C4CC3
 {
 	// TResult System.Threading.Tasks.Task`1::m_result
 	VoidTaskResult_t73B628B764C6668DAAAE2D37BD6FC07BCA27A5AC ___m_result_38;
-};
-
-// Unity.Collections.UnmanagedArray`1<Unity.Collections.RewindableAllocator/MemoryBlock>
-struct UnmanagedArray_1_t7A336330780E05C924BB57ED337DDD2A66701FAB 
-{
-	// System.IntPtr Unity.Collections.UnmanagedArray`1::m_pointer
-	intptr_t ___m_pointer_0;
-	// System.Int32 Unity.Collections.UnmanagedArray`1::m_length
-	int32_t ___m_length_1;
-	// Unity.Collections.AllocatorManager/AllocatorHandle Unity.Collections.UnmanagedArray`1::m_allocator
-	AllocatorHandle_t3CA09720B1F89F91A8DDBA95E74C28A1EC3E3148 ___m_allocator_2;
 };
 
 // System.Threading.Tasks.UnwrapPromise`1<System.Boolean>
@@ -5291,14 +5256,6 @@ struct Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3_StaticFields
 
 // System.Threading.Tasks.VoidTaskResult
 
-// Unity.Collections.AllocatorManager/AllocatorHandle
-
-// Unity.Collections.AllocatorManager/AllocatorHandle
-
-// Unity.Collections.RewindableAllocator/MemoryBlock
-
-// Unity.Collections.RewindableAllocator/MemoryBlock
-
 // UnityEngine.UIElements.UQuery/UQueryMatcher
 
 // UnityEngine.UIElements.UQuery/UQueryMatcher
@@ -5327,10 +5284,6 @@ struct Task_1_tE41CFF640EB7C045550D9D0D92BE67533B084C17_StaticFields
 };
 
 // System.Threading.Tasks.Task`1<System.Threading.Tasks.VoidTaskResult>
-
-// Unity.Collections.UnmanagedArray`1<Unity.Collections.RewindableAllocator/MemoryBlock>
-
-// Unity.Collections.UnmanagedArray`1<Unity.Collections.RewindableAllocator/MemoryBlock>
 
 // System.Threading.Tasks.UnwrapPromise`1<System.Boolean>
 
@@ -6729,10 +6682,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool UQueryState_1_Equals_mD35A6743162EA3D3D4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UQueryState_1_GetHashCode_m20DCD93A49AEC50C2B816604897E7C298AAD8058_gshared (UQueryState_1_tDA47936DEF27643350186CA4E1DED7053A3D02B2* __this, const RuntimeMethod* method) ;
 // T System.Collections.Generic.List`1<System.Object>::get_Item(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* List_1_get_Item_m33561245D64798C2AB07584C0EC4F240E4839A38_gshared (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, int32_t ___0_index, const RuntimeMethod* method) ;
-// System.Void Unity.Collections.UnmanagedArray`1<Unity.Collections.RewindableAllocator/MemoryBlock>::Dispose()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnmanagedArray_1_Dispose_m6633B12AACEBE579F9A33E39939490C0F9078F66_gshared (UnmanagedArray_1_t7A336330780E05C924BB57ED337DDD2A66701FAB* __this, const RuntimeMethod* method) ;
-// T& Unity.Collections.UnmanagedArray`1<Unity.Collections.RewindableAllocator/MemoryBlock>::get_Item(System.Int32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84* UnmanagedArray_1_get_Item_mE315B3406730DD2D42AF15133B69737FF041A160_gshared (UnmanagedArray_1_t7A336330780E05C924BB57ED337DDD2A66701FAB* __this, int32_t ___0_index, const RuntimeMethod* method) ;
 // TResult System.Threading.Tasks.Task`1<System.Object>::get_Result()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Task_1_get_Result_m6897AA7D4A583F9E81EC01C1BF788372D64C5A26_gshared (Task_1_t0C4CD3A5BB93A184420D73218644C56C70FDA7E2* __this, const RuntimeMethod* method) ;
 // System.Int32 System.Collections.ObjectModel.ReadOnlyCollection`1<System.Object>::get_Count()
@@ -7083,20 +7032,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void InvokableCall_Invoke_m6F4828FD2B3E3BBB7A
 inline int32_t List_1_get_Count_mD86BEA5DB3090332216B9FA14BD79A4E5247614B_inline (List_1_t91E36549D76184780FD8995722CD4A87A2650C23* __this, const RuntimeMethod* method)
 {
 	return ((  int32_t (*) (List_1_t91E36549D76184780FD8995722CD4A87A2650C23*, const RuntimeMethod*))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
-}
-// System.Void* System.IntPtr::op_Explicit(System.IntPtr)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void* IntPtr_op_Explicit_m2728CBA081E79B97DDCF1D4FAD77B309CA1E94BF (intptr_t ___0_value, const RuntimeMethod* method) ;
-// Unity.Collections.AllocatorManager/AllocatorHandle Unity.Collections.AllocatorManager/AllocatorHandle::op_Implicit(Unity.Collections.Allocator)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR AllocatorHandle_t3CA09720B1F89F91A8DDBA95E74C28A1EC3E3148 AllocatorHandle_op_Implicit_mDCF4431F31BB4A09438AE644785C4273F86B2B8D (int32_t ___0_a, const RuntimeMethod* method) ;
-// System.Void Unity.Collections.UnmanagedArray`1<Unity.Collections.RewindableAllocator/MemoryBlock>::Dispose()
-inline void UnmanagedArray_1_Dispose_m6633B12AACEBE579F9A33E39939490C0F9078F66 (UnmanagedArray_1_t7A336330780E05C924BB57ED337DDD2A66701FAB* __this, const RuntimeMethod* method)
-{
-	((  void (*) (UnmanagedArray_1_t7A336330780E05C924BB57ED337DDD2A66701FAB*, const RuntimeMethod*))UnmanagedArray_1_Dispose_m6633B12AACEBE579F9A33E39939490C0F9078F66_gshared)(__this, method);
-}
-// T& Unity.Collections.UnmanagedArray`1<Unity.Collections.RewindableAllocator/MemoryBlock>::get_Item(System.Int32)
-inline MemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84* UnmanagedArray_1_get_Item_mE315B3406730DD2D42AF15133B69737FF041A160 (UnmanagedArray_1_t7A336330780E05C924BB57ED337DDD2A66701FAB* __this, int32_t ___0_index, const RuntimeMethod* method)
-{
-	return ((  MemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84* (*) (UnmanagedArray_1_t7A336330780E05C924BB57ED337DDD2A66701FAB*, int32_t, const RuntimeMethod*))UnmanagedArray_1_get_Item_mE315B3406730DD2D42AF15133B69737FF041A160_gshared)(__this, ___0_index, method);
 }
 // System.Threading.Tasks.TaskCreationOptions System.Threading.Tasks.Task::get_CreationOptions()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Task_get_CreationOptions_mB24B764C9D18CE5122EB3F0C27272A338074FF14 (Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572* __this, const RuntimeMethod* method) ;
@@ -27328,58 +27263,6 @@ IL_00cd:
 	{
 		return;
 	}
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void Unity.Collections.UnmanagedArray`1<Unity.Collections.RewindableAllocator/MemoryBlock>::Dispose()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnmanagedArray_1_Dispose_m6633B12AACEBE579F9A33E39939490C0F9078F66_gshared (UnmanagedArray_1_t7A336330780E05C924BB57ED337DDD2A66701FAB* __this, const RuntimeMethod* method) 
-{
-	{
-		// Memory.Unmanaged.Free((T*)m_pointer, Allocator.Persistent);
-		intptr_t L_0 = (intptr_t)__this->___m_pointer_0;
-		void* L_1;
-		L_1 = IntPtr_op_Explicit_m2728CBA081E79B97DDCF1D4FAD77B309CA1E94BF(L_0, NULL);
-		AllocatorHandle_t3CA09720B1F89F91A8DDBA95E74C28A1EC3E3148 L_2;
-		L_2 = AllocatorHandle_op_Implicit_mDCF4431F31BB4A09438AE644785C4273F86B2B8D((int32_t)4, NULL);
-		((  void (*) (MemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84*, AllocatorHandle_t3CA09720B1F89F91A8DDBA95E74C28A1EC3E3148, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 0)))((MemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84*)L_1, L_2, il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 0));
-		// }
-		return;
-	}
-}
-IL2CPP_EXTERN_C  void UnmanagedArray_1_Dispose_m6633B12AACEBE579F9A33E39939490C0F9078F66_AdjustorThunk (RuntimeObject* __this, const RuntimeMethod* method)
-{
-	UnmanagedArray_1_t7A336330780E05C924BB57ED337DDD2A66701FAB* _thisAdjusted;
-	int32_t _offset = 1;
-	_thisAdjusted = reinterpret_cast<UnmanagedArray_1_t7A336330780E05C924BB57ED337DDD2A66701FAB*>(__this + _offset);
-	UnmanagedArray_1_Dispose_m6633B12AACEBE579F9A33E39939490C0F9078F66(_thisAdjusted, method);
-}
-// T& Unity.Collections.UnmanagedArray`1<Unity.Collections.RewindableAllocator/MemoryBlock>::get_Item(System.Int32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84* UnmanagedArray_1_get_Item_mE315B3406730DD2D42AF15133B69737FF041A160_gshared (UnmanagedArray_1_t7A336330780E05C924BB57ED337DDD2A66701FAB* __this, int32_t ___0_index, const RuntimeMethod* method) 
-{
-	{
-		// get { unsafe { return ref ((T*)m_pointer)[index]; } }
-		intptr_t L_0 = (intptr_t)__this->___m_pointer_0;
-		void* L_1;
-		L_1 = IntPtr_op_Explicit_m2728CBA081E79B97DDCF1D4FAD77B309CA1E94BF(L_0, NULL);
-		int32_t L_2 = ___0_index;
-		uint32_t L_3 = sizeof(MemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84);
-		return (MemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84*)(((void*)il2cpp_codegen_add((intptr_t)L_1, ((intptr_t)il2cpp_codegen_multiply(((intptr_t)L_2), (int32_t)L_3)))));
-	}
-}
-IL2CPP_EXTERN_C  MemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84* UnmanagedArray_1_get_Item_mE315B3406730DD2D42AF15133B69737FF041A160_AdjustorThunk (RuntimeObject* __this, int32_t ___0_index, const RuntimeMethod* method)
-{
-	UnmanagedArray_1_t7A336330780E05C924BB57ED337DDD2A66701FAB* _thisAdjusted;
-	int32_t _offset = 1;
-	_thisAdjusted = reinterpret_cast<UnmanagedArray_1_t7A336330780E05C924BB57ED337DDD2A66701FAB*>(__this + _offset);
-	MemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84* _returnValue;
-	_returnValue = UnmanagedArray_1_get_Item_mE315B3406730DD2D42AF15133B69737FF041A160(_thisAdjusted, ___0_index, method);
-	return _returnValue;
 }
 #ifdef __clang__
 #pragma clang diagnostic pop

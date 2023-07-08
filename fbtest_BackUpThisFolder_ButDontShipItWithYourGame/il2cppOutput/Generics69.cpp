@@ -1172,20 +1172,6 @@ struct SharedObjectPool_1_t81E33CE7C8FD116C81F6BD07447B1F342468C6BF  : public Sh
 	Stack_1_tAD790A47551563636908E21E4F08C54C0C323EB5* ___m_Pool_1;
 };
 
-// Unity.Burst.SharedStatic`1<Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>>
-struct SharedStatic_1_t129696039C3927DC9D39A2FADEBB24D67B1CD74E 
-{
-	// System.Void* Unity.Burst.SharedStatic`1::_buffer
-	void* ____buffer_0;
-};
-
-// Unity.Burst.SharedStatic`1<Unity.Burst.FunctionPointer`1<System.Object>>
-struct SharedStatic_1_tE6D7548D21D8ED69C6AC8ECAD846CDB43304B444 
-{
-	// System.Void* Unity.Burst.SharedStatic`1::_buffer
-	void* ____buffer_0;
-};
-
 // System.Collections.Generic.HashSet`1/Slot<System.Byte>
 struct Slot_t1D177A0784EA90F4851AB7E34169E808731D6AA3 
 {
@@ -1465,13 +1451,6 @@ struct Int32_t680FF22E76F6EFAD4375103CBBFFA0421349384C
 {
 	// System.Int32 System.Int32::m_value
 	int32_t ___m_value_0;
-};
-
-// System.Int64
-struct Int64_t092CFB123BE63C28ACDAF65C68F21A526050DBA3 
-{
-	// System.Int64 System.Int64::m_value
-	int64_t ___m_value_0;
 };
 
 // System.IntPtr
@@ -1764,13 +1743,6 @@ struct Enumerator_tEA93FE2B778D098F590CA168BEFC4CD85D73A6B9
 	KeyValuePair_2_tFC32D2507216293851350D29B64D79F950B55230 ____current_3;
 	// System.Int32 System.Collections.Generic.Dictionary`2/Enumerator::_getEnumeratorRetType
 	int32_t ____getEnumeratorRetType_4;
-};
-
-// Unity.Burst.FunctionPointer`1<System.Object>
-struct FunctionPointer_1_tE1DC1EC606FB2242FB50357BBA39BB4AEDECFCB2 
-{
-	// System.IntPtr Unity.Burst.FunctionPointer`1::_ptr
-	intptr_t ____ptr_0;
 };
 
 // System.Collections.Generic.KeyValuePair`2<System.Int32,System.ValueTuple`2<System.Object,System.Int32>>
@@ -2080,15 +2052,6 @@ struct SafeHandle_tC1A4DA80DA89B867CC011B707A07275230321BF7  : public CriticalFi
 	bool ____fullyInitialized_3;
 };
 
-// Unity.Collections.AllocatorManager/TableEntry
-struct TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE 
-{
-	// System.IntPtr Unity.Collections.AllocatorManager/TableEntry::function
-	intptr_t ___function_0;
-	// System.IntPtr Unity.Collections.AllocatorManager/TableEntry::state
-	intptr_t ___state_1;
-};
-
 // System.Array/RawData
 struct RawData_t37CAF2D3F74B7723974ED7CEEE9B297D8FA64ED0  : public RuntimeObject
 {
@@ -2222,43 +2185,6 @@ struct Vertex_t866886E5B21385F87593E8FD54686DD4AF75F4D5_marshaled_com
 	int32_t ___borderEdge_4;
 	int32_t ___uvSeamEdge_5;
 	int32_t ___uvFoldoverEdge_6;
-};
-
-// Unity.Collections.AllocatorManager/Array16`1<Unity.Collections.AllocatorManager/TableEntry>
-struct Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F 
-{
-	// T Unity.Collections.AllocatorManager/Array16`1::f0
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f0_0;
-	// T Unity.Collections.AllocatorManager/Array16`1::f1
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f1_1;
-	// T Unity.Collections.AllocatorManager/Array16`1::f2
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f2_2;
-	// T Unity.Collections.AllocatorManager/Array16`1::f3
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f3_3;
-	// T Unity.Collections.AllocatorManager/Array16`1::f4
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f4_4;
-	// T Unity.Collections.AllocatorManager/Array16`1::f5
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f5_5;
-	// T Unity.Collections.AllocatorManager/Array16`1::f6
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f6_6;
-	// T Unity.Collections.AllocatorManager/Array16`1::f7
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f7_7;
-	// T Unity.Collections.AllocatorManager/Array16`1::f8
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f8_8;
-	// T Unity.Collections.AllocatorManager/Array16`1::f9
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f9_9;
-	// T Unity.Collections.AllocatorManager/Array16`1::f10
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f10_10;
-	// T Unity.Collections.AllocatorManager/Array16`1::f11
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f11_11;
-	// T Unity.Collections.AllocatorManager/Array16`1::f12
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f12_12;
-	// T Unity.Collections.AllocatorManager/Array16`1::f13
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f13_13;
-	// T Unity.Collections.AllocatorManager/Array16`1::f14
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f14_14;
-	// T Unity.Collections.AllocatorManager/Array16`1::f15
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f15_15;
 };
 
 // System.ReadOnlySpan`1<System.Byte>
@@ -2466,43 +2392,6 @@ struct UIRAtlasAllocator_t70FA0F3477E077A18096F66B51F6A2B205825BD7  : public Run
 	bool ___U3CdisposedU3Ek__BackingField_12;
 };
 
-// Unity.Collections.AllocatorManager/Array256`1<Unity.Collections.AllocatorManager/TableEntry>
-struct Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 
-{
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f0
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f0_0;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f1
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f1_1;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f2
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f2_2;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f3
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f3_3;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f4
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f4_4;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f5
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f5_5;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f6
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f6_6;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f7
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f7_7;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f8
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f8_8;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f9
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f9_9;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f10
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f10_10;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f11
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f11_11;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f12
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f12_12;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f13
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f13_13;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f14
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f14_14;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f15
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f15_15;
-};
-
 // System.Func`1<UnityEngine.Experimental.Rendering.RenderGraphModule.RenderGraphObjectPool/SharedObjectPool`1<System.Object>>
 struct Func_1_t53C4116C2332EE2DA04D052ADCCCE7204AB1D1D0  : public MulticastDelegate_t
 {
@@ -2618,43 +2507,6 @@ struct Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4  : public Texture_t79
 {
 };
 
-// Unity.Collections.AllocatorManager/Array4096`1<Unity.Collections.AllocatorManager/TableEntry>
-struct Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 
-{
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f0
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f0_0;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f1
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f1_1;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f2
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f2_2;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f3
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f3_3;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f4
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f4_4;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f5
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f5_5;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f6
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f6_6;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f7
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f7_7;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f8
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f8_8;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f9
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f9_9;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f10
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f10_10;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f11
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f11_11;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f12
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f12_12;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f13
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f13_13;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f14
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f14_14;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f15
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f15_15;
-};
-
 // System.ArgumentNullException
 struct ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129  : public ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263
 {
@@ -2665,27 +2517,6 @@ struct ArgumentOutOfRangeException_tEA2822DAF62B10EEED00E0E3A341D4BAF78CF85F  : 
 {
 	// System.Object System.ArgumentOutOfRangeException::_actualValue
 	RuntimeObject* ____actualValue_19;
-};
-
-// Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>
-struct Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6 
-{
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f0
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f0_0;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f1
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f1_1;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f2
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f2_2;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f3
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f3_3;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f4
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f4_4;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f5
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f5_5;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f6
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f6_6;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f7
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f7_7;
 };
 
 // System.Collections.Generic.Comparer`1<System.Int32>
@@ -2998,14 +2829,6 @@ struct SharedObjectPool_1_t81E33CE7C8FD116C81F6BD07447B1F342468C6BF_StaticFields
 
 // UnityEngine.Experimental.Rendering.RenderGraphModule.RenderGraphObjectPool/SharedObjectPool`1<System.Object>
 
-// Unity.Burst.SharedStatic`1<Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>>
-
-// Unity.Burst.SharedStatic`1<Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>>
-
-// Unity.Burst.SharedStatic`1<Unity.Burst.FunctionPointer`1<System.Object>>
-
-// Unity.Burst.SharedStatic`1<Unity.Burst.FunctionPointer`1<System.Object>>
-
 // System.Collections.Generic.HashSet`1/Slot<System.Byte>
 
 // System.Collections.Generic.HashSet`1/Slot<System.Byte>
@@ -3089,10 +2912,6 @@ struct Char_t521A6F19B456D956AF452D926C32709DC03D6B17_StaticFields
 // System.Int32
 
 // System.Int32
-
-// System.Int64
-
-// System.Int64
 
 // System.IntPtr
 struct IntPtr_t_StaticFields
@@ -3246,10 +3065,6 @@ struct Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3_StaticFields
 // System.Collections.Generic.Dictionary`2/Enumerator<System.Object,System.Object>
 
 // System.Collections.Generic.Dictionary`2/Enumerator<System.Object,System.Object>
-
-// Unity.Burst.FunctionPointer`1<System.Object>
-
-// Unity.Burst.FunctionPointer`1<System.Object>
 
 // System.Collections.Generic.KeyValuePair`2<System.Int32,System.ValueTuple`2<System.Object,System.Int32>>
 
@@ -3532,10 +3347,6 @@ struct UIRAtlasAllocator_t70FA0F3477E077A18096F66B51F6A2B205825BD7_StaticFields
 // System.ArgumentOutOfRangeException
 
 // System.ArgumentOutOfRangeException
-
-// Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>
-
-// Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
@@ -4278,14 +4089,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool NativeArray_1_get_IsCreated_m60E0066AC25
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool NativeArray_1_get_IsCreated_mD9622F7595F5F0E1CEEA6699AA249F1FB0FD5C5D_gshared (NativeArray_1_t0783F5E3C7AF6C600A6A20DA7A32D82CA836528D* __this, const RuntimeMethod* method) ;
 // System.Void System.Collections.Generic.List`1<System.Object>::Add(T)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void List_1_Add_mEBCF994CC3814631017F46A387B1A192ED6C85C7_gshared_inline (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, RuntimeObject* ___0_item, const RuntimeMethod* method) ;
-// System.Void Unity.Burst.SharedStatic`1<Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>>::.ctor(System.Void*)
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void SharedStatic_1__ctor_m89A249ED6BB8BC4F7E0C0B4E6D821EF8B7F2AA86_gshared_inline (SharedStatic_1_t129696039C3927DC9D39A2FADEBB24D67B1CD74E* __this, void* ___0_buffer, const RuntimeMethod* method) ;
-// T& Unity.Burst.SharedStatic`1<Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>>::get_Data()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6* SharedStatic_1_get_Data_m8180C13CDCA02B5FA3E363D8259EDD6AE7BC49B1_gshared (SharedStatic_1_t129696039C3927DC9D39A2FADEBB24D67B1CD74E* __this, const RuntimeMethod* method) ;
-// System.Void Unity.Burst.SharedStatic`1<Unity.Burst.FunctionPointer`1<System.Object>>::.ctor(System.Void*)
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void SharedStatic_1__ctor_mF12DE1F4163B89924A72CC5A4F8AF98977B94EDA_gshared_inline (SharedStatic_1_tE6D7548D21D8ED69C6AC8ECAD846CDB43304B444* __this, void* ___0_buffer, const RuntimeMethod* method) ;
-// T& Unity.Burst.SharedStatic`1<Unity.Burst.FunctionPointer`1<System.Object>>::get_Data()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FunctionPointer_1_tE1DC1EC606FB2242FB50357BBA39BB4AEDECFCB2* SharedStatic_1_get_Data_mB5F855CAE2B6F83A2D6A10DAABF9B29053B4F11F_gshared (SharedStatic_1_tE6D7548D21D8ED69C6AC8ECAD846CDB43304B444* __this, const RuntimeMethod* method) ;
 // TKey System.Collections.Generic.KeyValuePair`2<System.Int32,System.ValueTuple`2<System.Object,System.Int32>>::get_Key()
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t KeyValuePair_2_get_Key_m9EDC1432A690EB5D78CFD8FB67CE925C2EE5E116_gshared_inline (KeyValuePair_2_t472CF116DEB4A9261996D42F3FB67E7595E0EC3F* __this, const RuntimeMethod* method) ;
 // TValue System.Collections.Generic.KeyValuePair`2<System.Int32,System.ValueTuple`2<System.Object,System.Int32>>::get_Value()
@@ -4526,28 +4329,6 @@ inline void List_1_Add_m8B0FA309C00B9848454D1EB714C2BC18CB4775B7_inline (List_1_
 }
 // System.Void UnityEngine.Experimental.Rendering.RenderGraphModule.RenderGraphObjectPool/SharedObjectPoolBase::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SharedObjectPoolBase__ctor_m34384565D933407EF906528A12090A0B368A0A8D (SharedObjectPoolBase_t9E5CE604659E65FF5879D63774B24C62183B54C4* __this, const RuntimeMethod* method) ;
-// System.Void Unity.Burst.SharedStatic`1<Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>>::.ctor(System.Void*)
-inline void SharedStatic_1__ctor_m89A249ED6BB8BC4F7E0C0B4E6D821EF8B7F2AA86_inline (SharedStatic_1_t129696039C3927DC9D39A2FADEBB24D67B1CD74E* __this, void* ___0_buffer, const RuntimeMethod* method)
-{
-	((  void (*) (SharedStatic_1_t129696039C3927DC9D39A2FADEBB24D67B1CD74E*, void*, const RuntimeMethod*))SharedStatic_1__ctor_m89A249ED6BB8BC4F7E0C0B4E6D821EF8B7F2AA86_gshared_inline)(__this, ___0_buffer, method);
-}
-// T& Unity.Burst.SharedStatic`1<Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>>::get_Data()
-inline Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6* SharedStatic_1_get_Data_m8180C13CDCA02B5FA3E363D8259EDD6AE7BC49B1 (SharedStatic_1_t129696039C3927DC9D39A2FADEBB24D67B1CD74E* __this, const RuntimeMethod* method)
-{
-	return ((  Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6* (*) (SharedStatic_1_t129696039C3927DC9D39A2FADEBB24D67B1CD74E*, const RuntimeMethod*))SharedStatic_1_get_Data_m8180C13CDCA02B5FA3E363D8259EDD6AE7BC49B1_gshared)(__this, method);
-}
-// System.Void* Unity.Burst.SharedStatic::GetOrCreateSharedStaticInternal(System.Int64,System.Int64,System.UInt32,System.UInt32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void* SharedStatic_GetOrCreateSharedStaticInternal_m9850783202F2E2DCA43597CD97C129C683D6FEBD (int64_t ___0_getHashCode64, int64_t ___1_getSubHashCode64, uint32_t ___2_sizeOf, uint32_t ___3_alignment, const RuntimeMethod* method) ;
-// System.Void Unity.Burst.SharedStatic`1<Unity.Burst.FunctionPointer`1<System.Object>>::.ctor(System.Void*)
-inline void SharedStatic_1__ctor_mF12DE1F4163B89924A72CC5A4F8AF98977B94EDA_inline (SharedStatic_1_tE6D7548D21D8ED69C6AC8ECAD846CDB43304B444* __this, void* ___0_buffer, const RuntimeMethod* method)
-{
-	((  void (*) (SharedStatic_1_tE6D7548D21D8ED69C6AC8ECAD846CDB43304B444*, void*, const RuntimeMethod*))SharedStatic_1__ctor_mF12DE1F4163B89924A72CC5A4F8AF98977B94EDA_gshared_inline)(__this, ___0_buffer, method);
-}
-// T& Unity.Burst.SharedStatic`1<Unity.Burst.FunctionPointer`1<System.Object>>::get_Data()
-inline FunctionPointer_1_tE1DC1EC606FB2242FB50357BBA39BB4AEDECFCB2* SharedStatic_1_get_Data_mB5F855CAE2B6F83A2D6A10DAABF9B29053B4F11F (SharedStatic_1_tE6D7548D21D8ED69C6AC8ECAD846CDB43304B444* __this, const RuntimeMethod* method)
-{
-	return ((  FunctionPointer_1_tE1DC1EC606FB2242FB50357BBA39BB4AEDECFCB2* (*) (SharedStatic_1_tE6D7548D21D8ED69C6AC8ECAD846CDB43304B444*, const RuntimeMethod*))SharedStatic_1_get_Data_mB5F855CAE2B6F83A2D6A10DAABF9B29053B4F11F_gshared)(__this, method);
-}
 // System.Void System.InvalidOperationException::.ctor(System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void InvalidOperationException__ctor_mE4CB6F4712AB6D99A2358FBAE2E052B3EE976162 (InvalidOperationException_t5DDE4D49B7405FAAB1E4576F4715A42A3FAD4BAB* __this, String_t* ___0_message, const RuntimeMethod* method) ;
 // System.String SR::Format(System.String,System.Object)
@@ -11292,222 +11073,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SharedObjectPool_1__cctor_mCE0D25CDF7994
 		((SharedObjectPool_1_t81E33CE7C8FD116C81F6BD07447B1F342468C6BF_StaticFields*)il2cpp_codegen_static_fields_for(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 8)))->___s_Instance_2 = L_1;
 		Il2CppCodeGenWriteBarrier((void**)(&((SharedObjectPool_1_t81E33CE7C8FD116C81F6BD07447B1F342468C6BF_StaticFields*)il2cpp_codegen_static_fields_for(il2cpp_rgctx_data(InitializedTypeInfo(method->klass)->rgctx_data, 8)))->___s_Instance_2), (void*)L_1);
 		return;
-	}
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void Unity.Burst.SharedStatic`1<Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>>::.ctor(System.Void*)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SharedStatic_1__ctor_m89A249ED6BB8BC4F7E0C0B4E6D821EF8B7F2AA86_gshared (SharedStatic_1_t129696039C3927DC9D39A2FADEBB24D67B1CD74E* __this, void* ___0_buffer, const RuntimeMethod* method) 
-{
-	{
-		// _buffer = buffer;
-		void* L_0 = ___0_buffer;
-		__this->____buffer_0 = L_0;
-		// }
-		return;
-	}
-}
-IL2CPP_EXTERN_C  void SharedStatic_1__ctor_m89A249ED6BB8BC4F7E0C0B4E6D821EF8B7F2AA86_AdjustorThunk (RuntimeObject* __this, void* ___0_buffer, const RuntimeMethod* method)
-{
-	SharedStatic_1_t129696039C3927DC9D39A2FADEBB24D67B1CD74E* _thisAdjusted;
-	int32_t _offset = 1;
-	_thisAdjusted = reinterpret_cast<SharedStatic_1_t129696039C3927DC9D39A2FADEBB24D67B1CD74E*>(__this + _offset);
-	SharedStatic_1__ctor_m89A249ED6BB8BC4F7E0C0B4E6D821EF8B7F2AA86_inline(_thisAdjusted, ___0_buffer, method);
-}
-// T& Unity.Burst.SharedStatic`1<Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>>::get_Data()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6* SharedStatic_1_get_Data_m8180C13CDCA02B5FA3E363D8259EDD6AE7BC49B1_gshared (SharedStatic_1_t129696039C3927DC9D39A2FADEBB24D67B1CD74E* __this, const RuntimeMethod* method) 
-{
-	{
-		// return ref Unsafe.AsRef<T>(_buffer);
-		void* L_0 = (void*)__this->____buffer_0;
-		Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6* L_1;
-		L_1 = ((  Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6* (*) (void*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 0)))(L_0, il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 0));
-		return L_1;
-	}
-}
-IL2CPP_EXTERN_C  Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6* SharedStatic_1_get_Data_m8180C13CDCA02B5FA3E363D8259EDD6AE7BC49B1_AdjustorThunk (RuntimeObject* __this, const RuntimeMethod* method)
-{
-	SharedStatic_1_t129696039C3927DC9D39A2FADEBB24D67B1CD74E* _thisAdjusted;
-	int32_t _offset = 1;
-	_thisAdjusted = reinterpret_cast<SharedStatic_1_t129696039C3927DC9D39A2FADEBB24D67B1CD74E*>(__this + _offset);
-	Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6* _returnValue;
-	_returnValue = SharedStatic_1_get_Data_m8180C13CDCA02B5FA3E363D8259EDD6AE7BC49B1(_thisAdjusted, method);
-	return _returnValue;
-}
-// Unity.Burst.SharedStatic`1<T> Unity.Burst.SharedStatic`1<Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>>::GetOrCreateUnsafe(System.UInt32,System.Int64,System.Int64)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SharedStatic_1_t129696039C3927DC9D39A2FADEBB24D67B1CD74E SharedStatic_1_GetOrCreateUnsafe_m3F14C3056028F85D1801C32FBECF240E44B618A9_gshared (uint32_t ___0_alignment, int64_t ___1_hashCode, int64_t ___2_subHashCode, const RuntimeMethod* method) 
-{
-	int32_t G_B2_0 = 0;
-	int64_t G_B2_1 = 0;
-	int64_t G_B2_2 = 0;
-	int32_t G_B1_0 = 0;
-	int64_t G_B1_1 = 0;
-	int64_t G_B1_2 = 0;
-	uint32_t G_B3_0 = 0;
-	int32_t G_B3_1 = 0;
-	int64_t G_B3_2 = 0;
-	int64_t G_B3_3 = 0;
-	{
-		// return new SharedStatic<T>(SharedStatic.GetOrCreateSharedStaticInternal(
-		//     hashCode,
-		//     subHashCode,
-		//     (uint)UnsafeUtility.SizeOf<T>(),
-		//     alignment == 0 ? DefaultAlignment : alignment));
-		int64_t L_0 = ___1_hashCode;
-		int64_t L_1 = ___2_subHashCode;
-		int32_t L_2;
-		L_2 = ((  int32_t (*) (const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 1)))(il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 1));
-		uint32_t L_3 = ___0_alignment;
-		G_B1_0 = L_2;
-		G_B1_1 = L_1;
-		G_B1_2 = L_0;
-		if (!L_3)
-		{
-			G_B2_0 = L_2;
-			G_B2_1 = L_1;
-			G_B2_2 = L_0;
-			goto IL_000d;
-		}
-	}
-	{
-		uint32_t L_4 = ___0_alignment;
-		G_B3_0 = L_4;
-		G_B3_1 = G_B1_0;
-		G_B3_2 = G_B1_1;
-		G_B3_3 = G_B1_2;
-		goto IL_000f;
-	}
-
-IL_000d:
-	{
-		G_B3_0 = ((uint32_t)(((int32_t)16)));
-		G_B3_1 = G_B2_0;
-		G_B3_2 = G_B2_1;
-		G_B3_3 = G_B2_2;
-	}
-
-IL_000f:
-	{
-		void* L_5;
-		L_5 = SharedStatic_GetOrCreateSharedStaticInternal_m9850783202F2E2DCA43597CD97C129C683D6FEBD(G_B3_3, G_B3_2, (uint32_t)G_B3_1, G_B3_0, NULL);
-		SharedStatic_1_t129696039C3927DC9D39A2FADEBB24D67B1CD74E L_6;
-		memset((&L_6), 0, sizeof(L_6));
-		SharedStatic_1__ctor_m89A249ED6BB8BC4F7E0C0B4E6D821EF8B7F2AA86_inline((&L_6), L_5, /*hidden argument*/il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 3));
-		return L_6;
-	}
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void Unity.Burst.SharedStatic`1<Unity.Burst.FunctionPointer`1<System.Object>>::.ctor(System.Void*)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SharedStatic_1__ctor_mF12DE1F4163B89924A72CC5A4F8AF98977B94EDA_gshared (SharedStatic_1_tE6D7548D21D8ED69C6AC8ECAD846CDB43304B444* __this, void* ___0_buffer, const RuntimeMethod* method) 
-{
-	{
-		// _buffer = buffer;
-		void* L_0 = ___0_buffer;
-		__this->____buffer_0 = L_0;
-		// }
-		return;
-	}
-}
-IL2CPP_EXTERN_C  void SharedStatic_1__ctor_mF12DE1F4163B89924A72CC5A4F8AF98977B94EDA_AdjustorThunk (RuntimeObject* __this, void* ___0_buffer, const RuntimeMethod* method)
-{
-	SharedStatic_1_tE6D7548D21D8ED69C6AC8ECAD846CDB43304B444* _thisAdjusted;
-	int32_t _offset = 1;
-	_thisAdjusted = reinterpret_cast<SharedStatic_1_tE6D7548D21D8ED69C6AC8ECAD846CDB43304B444*>(__this + _offset);
-	SharedStatic_1__ctor_mF12DE1F4163B89924A72CC5A4F8AF98977B94EDA_inline(_thisAdjusted, ___0_buffer, method);
-}
-// T& Unity.Burst.SharedStatic`1<Unity.Burst.FunctionPointer`1<System.Object>>::get_Data()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FunctionPointer_1_tE1DC1EC606FB2242FB50357BBA39BB4AEDECFCB2* SharedStatic_1_get_Data_mB5F855CAE2B6F83A2D6A10DAABF9B29053B4F11F_gshared (SharedStatic_1_tE6D7548D21D8ED69C6AC8ECAD846CDB43304B444* __this, const RuntimeMethod* method) 
-{
-	{
-		// return ref Unsafe.AsRef<T>(_buffer);
-		void* L_0 = (void*)__this->____buffer_0;
-		FunctionPointer_1_tE1DC1EC606FB2242FB50357BBA39BB4AEDECFCB2* L_1;
-		L_1 = ((  FunctionPointer_1_tE1DC1EC606FB2242FB50357BBA39BB4AEDECFCB2* (*) (void*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 0)))(L_0, il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 0));
-		return L_1;
-	}
-}
-IL2CPP_EXTERN_C  FunctionPointer_1_tE1DC1EC606FB2242FB50357BBA39BB4AEDECFCB2* SharedStatic_1_get_Data_mB5F855CAE2B6F83A2D6A10DAABF9B29053B4F11F_AdjustorThunk (RuntimeObject* __this, const RuntimeMethod* method)
-{
-	SharedStatic_1_tE6D7548D21D8ED69C6AC8ECAD846CDB43304B444* _thisAdjusted;
-	int32_t _offset = 1;
-	_thisAdjusted = reinterpret_cast<SharedStatic_1_tE6D7548D21D8ED69C6AC8ECAD846CDB43304B444*>(__this + _offset);
-	FunctionPointer_1_tE1DC1EC606FB2242FB50357BBA39BB4AEDECFCB2* _returnValue;
-	_returnValue = SharedStatic_1_get_Data_mB5F855CAE2B6F83A2D6A10DAABF9B29053B4F11F(_thisAdjusted, method);
-	return _returnValue;
-}
-// Unity.Burst.SharedStatic`1<T> Unity.Burst.SharedStatic`1<Unity.Burst.FunctionPointer`1<System.Object>>::GetOrCreateUnsafe(System.UInt32,System.Int64,System.Int64)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SharedStatic_1_tE6D7548D21D8ED69C6AC8ECAD846CDB43304B444 SharedStatic_1_GetOrCreateUnsafe_mAC5BCA72979FDF433F59E3B513067AFEBE675E5D_gshared (uint32_t ___0_alignment, int64_t ___1_hashCode, int64_t ___2_subHashCode, const RuntimeMethod* method) 
-{
-	int32_t G_B2_0 = 0;
-	int64_t G_B2_1 = 0;
-	int64_t G_B2_2 = 0;
-	int32_t G_B1_0 = 0;
-	int64_t G_B1_1 = 0;
-	int64_t G_B1_2 = 0;
-	uint32_t G_B3_0 = 0;
-	int32_t G_B3_1 = 0;
-	int64_t G_B3_2 = 0;
-	int64_t G_B3_3 = 0;
-	{
-		// return new SharedStatic<T>(SharedStatic.GetOrCreateSharedStaticInternal(
-		//     hashCode,
-		//     subHashCode,
-		//     (uint)UnsafeUtility.SizeOf<T>(),
-		//     alignment == 0 ? DefaultAlignment : alignment));
-		int64_t L_0 = ___1_hashCode;
-		int64_t L_1 = ___2_subHashCode;
-		int32_t L_2;
-		L_2 = ((  int32_t (*) (const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 1)))(il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 1));
-		uint32_t L_3 = ___0_alignment;
-		G_B1_0 = L_2;
-		G_B1_1 = L_1;
-		G_B1_2 = L_0;
-		if (!L_3)
-		{
-			G_B2_0 = L_2;
-			G_B2_1 = L_1;
-			G_B2_2 = L_0;
-			goto IL_000d;
-		}
-	}
-	{
-		uint32_t L_4 = ___0_alignment;
-		G_B3_0 = L_4;
-		G_B3_1 = G_B1_0;
-		G_B3_2 = G_B1_1;
-		G_B3_3 = G_B1_2;
-		goto IL_000f;
-	}
-
-IL_000d:
-	{
-		G_B3_0 = ((uint32_t)(((int32_t)16)));
-		G_B3_1 = G_B2_0;
-		G_B3_2 = G_B2_1;
-		G_B3_3 = G_B2_2;
-	}
-
-IL_000f:
-	{
-		void* L_5;
-		L_5 = SharedStatic_GetOrCreateSharedStaticInternal_m9850783202F2E2DCA43597CD97C129C683D6FEBD(G_B3_3, G_B3_2, (uint32_t)G_B3_1, G_B3_0, NULL);
-		SharedStatic_1_tE6D7548D21D8ED69C6AC8ECAD846CDB43304B444 L_6;
-		memset((&L_6), 0, sizeof(L_6));
-		SharedStatic_1__ctor_mF12DE1F4163B89924A72CC5A4F8AF98977B94EDA_inline((&L_6), L_5, /*hidden argument*/il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 3));
-		return L_6;
 	}
 }
 #ifdef __clang__
@@ -24817,26 +24382,6 @@ IL_0034:
 	{
 		RuntimeObject* L_9 = ___0_item;
 		((  void (*) (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D*, RuntimeObject*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->klass->rgctx_data, 11)))(__this, L_9, il2cpp_rgctx_method(method->klass->rgctx_data, 11));
-		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void SharedStatic_1__ctor_m89A249ED6BB8BC4F7E0C0B4E6D821EF8B7F2AA86_gshared_inline (SharedStatic_1_t129696039C3927DC9D39A2FADEBB24D67B1CD74E* __this, void* ___0_buffer, const RuntimeMethod* method) 
-{
-	{
-		// _buffer = buffer;
-		void* L_0 = ___0_buffer;
-		__this->____buffer_0 = L_0;
-		// }
-		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void SharedStatic_1__ctor_mF12DE1F4163B89924A72CC5A4F8AF98977B94EDA_gshared_inline (SharedStatic_1_tE6D7548D21D8ED69C6AC8ECAD846CDB43304B444* __this, void* ___0_buffer, const RuntimeMethod* method) 
-{
-	{
-		// _buffer = buffer;
-		void* L_0 = ___0_buffer;
-		__this->____buffer_0 = L_0;
-		// }
 		return;
 	}
 }

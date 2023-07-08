@@ -1150,11 +1150,6 @@ struct Unsafe_t013486CBD5A88F5F394651AB34F2AC5AE97E71E4  : public RuntimeObject
 {
 };
 
-// Unity.Burst.Unsafe
-struct Unsafe_t7A5BFA4CCC4DE54D6A25FB6312C3DB95A35D2B9E  : public RuntimeObject
-{
-};
-
 // Unity.Collections.LowLevel.Unsafe.UnsafeUtility
 struct UnsafeUtility_tC3E6B7D52A973A81739E8BD97D6E757BA8371D46  : public RuntimeObject
 {
@@ -5388,19 +5383,6 @@ struct DeferredCallbackRegisterRequest_tA5BE4066185FD0EB6B33A28B02B58660CE4A22AD
 	int32_t ___incrementRefCount_1;
 };
 
-// Unity.Collections.RewindableAllocator/MemoryBlock
-struct MemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84 
-{
-	// System.Byte* Unity.Collections.RewindableAllocator/MemoryBlock::m_pointer
-	uint8_t* ___m_pointer_0;
-	// System.Int64 Unity.Collections.RewindableAllocator/MemoryBlock::m_bytes
-	int64_t ___m_bytes_1;
-	// System.Int64 Unity.Collections.RewindableAllocator/MemoryBlock::m_current
-	int64_t ___m_current_2;
-	// System.Int64 Unity.Collections.RewindableAllocator/MemoryBlock::m_allocations
-	int64_t ___m_allocations_3;
-};
-
 // UnityEngine.UIElements.TemplateAsset/AttributeOverride
 struct AttributeOverride_t58F1DF22E69714D48ECBEEAD266D443A858BADEF 
 {
@@ -6006,15 +5988,6 @@ struct AlignOfHelper_1_tC30E7E77ABA00AC20BBD2C4B9E2107AF567C3908
 	uint4_t6C69CBFAE9BF0F727D52B68779D4A3F0DBA8D5C9 ___data_1;
 };
 
-// Unity.Collections.LowLevel.Unsafe.UnsafeUtility/AlignOfHelper`1<Unity.Collections.RewindableAllocator/MemoryBlock>
-struct AlignOfHelper_1_t68C3D8AC24508C31F35B828E6206CA7933E9B711 
-{
-	// System.Byte Unity.Collections.LowLevel.Unsafe.UnsafeUtility/AlignOfHelper`1::dummy
-	uint8_t ___dummy_0;
-	// T Unity.Collections.LowLevel.Unsafe.UnsafeUtility/AlignOfHelper`1::data
-	MemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84 ___data_1;
-};
-
 // System.Collections.Generic.Dictionary`2/Enumerator<System.Int32,System.Collections.Generic.List`1<UnityEngine.Rendering.Volume>>
 struct Enumerator_tF2ABD9A26EA19AAEF2C14625002F720A060C1375 
 {
@@ -6043,13 +6016,6 @@ struct Enumerator_tE92C1AC40A104A179B94F8A013728FD9314CFBD3
 	KeyValuePair_2_tDC26B09C26BA829DDE331BCB6AF7C508C763D7A3 ____current_3;
 	// System.Int32 System.Collections.Generic.Dictionary`2/Enumerator::_getEnumeratorRetType
 	int32_t ____getEnumeratorRetType_4;
-};
-
-// Unity.Burst.FunctionPointer`1<System.Object>
-struct FunctionPointer_1_tE1DC1EC606FB2242FB50357BBA39BB4AEDECFCB2 
-{
-	// System.IntPtr Unity.Burst.FunctionPointer`1::_ptr
-	intptr_t ____ptr_0;
 };
 
 // UnityEngine.UIElements.UIR.Utility/GPUBuffer`1<System.UInt16>
@@ -7666,15 +7632,6 @@ struct quaternion_tD6BCBECAF088B9EBAE2345EC8534C7A1A4C910D4
 	float4_t89D9A294E7A79BD81BFBDD18654508532958555E ___value_0;
 };
 
-// Unity.Collections.AllocatorManager/TableEntry
-struct TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE 
-{
-	// System.IntPtr Unity.Collections.AllocatorManager/TableEntry::function
-	intptr_t ___function_0;
-	// System.IntPtr Unity.Collections.AllocatorManager/TableEntry::state
-	intptr_t ___state_1;
-};
-
 // UnityEngine.Rendering.Universal.DecalCreateDrawCallSystem/DrawCallJob
 struct DrawCallJob_t3EA2ABC822AD5DF50675A5B437DAB927DB95215D 
 {
@@ -8267,43 +8224,6 @@ struct AlignOfHelper_1_t94F041B0AFDEA77FD676F1529D4C5B3B2687CDBE
 	uint8_t ___dummy_0;
 	// T Unity.Collections.LowLevel.Unsafe.UnsafeUtility/AlignOfHelper`1::data
 	LightData_tAC4023737E9903DE3F96B993AA323E062ABCB9ED ___data_1;
-};
-
-// Unity.Collections.AllocatorManager/Array16`1<Unity.Collections.AllocatorManager/TableEntry>
-struct Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F 
-{
-	// T Unity.Collections.AllocatorManager/Array16`1::f0
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f0_0;
-	// T Unity.Collections.AllocatorManager/Array16`1::f1
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f1_1;
-	// T Unity.Collections.AllocatorManager/Array16`1::f2
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f2_2;
-	// T Unity.Collections.AllocatorManager/Array16`1::f3
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f3_3;
-	// T Unity.Collections.AllocatorManager/Array16`1::f4
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f4_4;
-	// T Unity.Collections.AllocatorManager/Array16`1::f5
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f5_5;
-	// T Unity.Collections.AllocatorManager/Array16`1::f6
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f6_6;
-	// T Unity.Collections.AllocatorManager/Array16`1::f7
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f7_7;
-	// T Unity.Collections.AllocatorManager/Array16`1::f8
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f8_8;
-	// T Unity.Collections.AllocatorManager/Array16`1::f9
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f9_9;
-	// T Unity.Collections.AllocatorManager/Array16`1::f10
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f10_10;
-	// T Unity.Collections.AllocatorManager/Array16`1::f11
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f11_11;
-	// T Unity.Collections.AllocatorManager/Array16`1::f12
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f12_12;
-	// T Unity.Collections.AllocatorManager/Array16`1::f13
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f13_13;
-	// T Unity.Collections.AllocatorManager/Array16`1::f14
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f14_14;
-	// T Unity.Collections.AllocatorManager/Array16`1::f15
-	TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE ___f15_15;
 };
 
 // DG.Tweening.Core.TweenerCore`3<UnityEngine.Color,UnityEngine.Color,DG.Tweening.Plugins.Options.ColorOptions>
@@ -9421,43 +9341,6 @@ struct AlignOfHelper_1_tCF2BF428E8F7EBC47D95992EE7C0924CB7B4F194
 	RenderStateBlock_tFC570EF2C8F3A817FECD578E385D18CEEEA06733 ___data_1;
 };
 
-// Unity.Collections.AllocatorManager/Array256`1<Unity.Collections.AllocatorManager/TableEntry>
-struct Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 
-{
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f0
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f0_0;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f1
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f1_1;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f2
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f2_2;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f3
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f3_3;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f4
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f4_4;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f5
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f5_5;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f6
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f6_6;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f7
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f7_7;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f8
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f8_8;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f9
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f9_9;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f10
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f10_10;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f11
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f11_11;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f12
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f12_12;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f13
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f13_13;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f14
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f14_14;
-	// Unity.Collections.AllocatorManager/Array16`1<T> Unity.Collections.AllocatorManager/Array256`1::f15
-	Array16_1_tD7DC1805EB67B07DF30FB4A25D3C1D0D5C0F9A9F ___f15_15;
-};
-
 // DG.Tweening.Core.DOGetter`1<UnityEngine.Color>
 struct DOGetter_1_t4DFFF7454A1BCD259676FED36CCF2114E34B5B95  : public MulticastDelegate_t
 {
@@ -9756,43 +9639,6 @@ struct CharTransform_t261A12D563F1399A48E5924D39CAB027B9023BE3_marshaled_com
 	TMP_MeshInfo_t320C52212E9D672EBB5F5C18C3E0700AA33DD76B_marshaled_com ____meshInfo_12;
 };
 
-// Unity.Collections.AllocatorManager/Array4096`1<Unity.Collections.AllocatorManager/TableEntry>
-struct Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 
-{
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f0
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f0_0;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f1
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f1_1;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f2
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f2_2;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f3
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f3_3;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f4
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f4_4;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f5
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f5_5;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f6
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f6_6;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f7
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f7_7;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f8
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f8_8;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f9
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f9_9;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f10
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f10_10;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f11
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f11_11;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f12
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f12_12;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f13
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f13_13;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f14
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f14_14;
-	// Unity.Collections.AllocatorManager/Array256`1<T> Unity.Collections.AllocatorManager/Array4096`1::f15
-	Array256_1_t5410033DC9920374048839AA4B80BA4420373D59 ___f15_15;
-};
-
 // System.ArgumentNullException
 struct ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129  : public ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263
 {
@@ -9801,27 +9647,6 @@ struct ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129  : public
 // UnityEngine.MonoBehaviour
 struct MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71  : public Behaviour_t01970CFBBA658497AE30F311C447DB0440BAB7FA
 {
-};
-
-// Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>
-struct Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6 
-{
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f0
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f0_0;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f1
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f1_1;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f2
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f2_2;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f3
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f3_3;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f4
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f4_4;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f5
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f5_5;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f6
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f6_6;
-	// Unity.Collections.AllocatorManager/Array4096`1<T> Unity.Collections.AllocatorManager/Array32768`1::f7
-	Array4096_1_t97465F61B5971FE36BADFE9A629DEB33EF47E8D8 ___f7_7;
 };
 
 // UnityEngine.Rendering.Volume
@@ -10050,10 +9875,6 @@ struct StyleComplexSelector_tE46C29F65FDBA48D3152781187401C8B55B7D8AD_StaticFiel
 // System.Runtime.CompilerServices.Unsafe
 
 // System.Runtime.CompilerServices.Unsafe
-
-// Unity.Burst.Unsafe
-
-// Unity.Burst.Unsafe
 
 // Unity.Collections.LowLevel.Unsafe.UnsafeUtility
 
@@ -10887,10 +10708,6 @@ struct DelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232_StaticFields
 
 // UnityEngine.ResourceManagement.ResourceManager/DeferredCallbackRegisterRequest
 
-// Unity.Collections.RewindableAllocator/MemoryBlock
-
-// Unity.Collections.RewindableAllocator/MemoryBlock
-
 // UnityEngine.UIElements.TemplateAsset/AttributeOverride
 
 // UnityEngine.UIElements.TemplateAsset/AttributeOverride
@@ -11024,10 +10841,6 @@ struct UsingEntry_t0454AD34026FDFD1733CE07BD4AE807B0FBCE484_StaticFields
 
 // Unity.Collections.LowLevel.Unsafe.UnsafeUtility/AlignOfHelper`1<Unity.Mathematics.uint4>
 
-// Unity.Collections.LowLevel.Unsafe.UnsafeUtility/AlignOfHelper`1<Unity.Collections.RewindableAllocator/MemoryBlock>
-
-// Unity.Collections.LowLevel.Unsafe.UnsafeUtility/AlignOfHelper`1<Unity.Collections.RewindableAllocator/MemoryBlock>
-
 // System.Collections.Generic.Dictionary`2/Enumerator<System.Int32,System.Collections.Generic.List`1<UnityEngine.Rendering.Volume>>
 
 // System.Collections.Generic.Dictionary`2/Enumerator<System.Int32,System.Collections.Generic.List`1<UnityEngine.Rendering.Volume>>
@@ -11035,10 +10848,6 @@ struct UsingEntry_t0454AD34026FDFD1733CE07BD4AE807B0FBCE484_StaticFields
 // System.Collections.Generic.Dictionary`2/Enumerator<System.Int32,System.Object>
 
 // System.Collections.Generic.Dictionary`2/Enumerator<System.Int32,System.Object>
-
-// Unity.Burst.FunctionPointer`1<System.Object>
-
-// Unity.Burst.FunctionPointer`1<System.Object>
 
 // UnityEngine.UIElements.UIR.Utility/GPUBuffer`1<System.UInt16>
 
@@ -11438,10 +11247,6 @@ struct quaternion_tD6BCBECAF088B9EBAE2345EC8534C7A1A4C910D4_StaticFields
 };
 
 // Unity.Mathematics.quaternion
-
-// Unity.Collections.AllocatorManager/TableEntry
-
-// Unity.Collections.AllocatorManager/TableEntry
 
 // UnityEngine.Rendering.Universal.DecalCreateDrawCallSystem/DrawCallJob
 
@@ -12043,10 +11848,6 @@ struct UpdateTransformsJob_t7CF957169E8C6560084F48A51BC15A447F3002C7_StaticField
 // System.ArgumentNullException
 
 // System.ArgumentNullException
-
-// Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>
-
-// Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>
 
 // UnityEngine.Rendering.Volume
 
@@ -32176,39 +31977,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Unsafe_WriteUnaligned_TisUInt32_t1833D51
 		return;
 	}
 }
-// T& Unity.Burst.Unsafe::AsRef<Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>>(System.Void*)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6* Unsafe_AsRef_TisArray32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6_mA61D216FC909FB8B42CB2EDBD3146EF82808E8D9_gshared (void* ___0_source, const RuntimeMethod* method) 
-{
-	int32_t* V_0 = NULL;
-	{
-		void* L_0 = ___0_source;
-		V_0 = (int32_t*)L_0;
-		int32_t* L_1 = V_0;
-		return (Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6*)(L_1);
-	}
-}
-// T& Unity.Burst.Unsafe::AsRef<Unity.Burst.FunctionPointer`1<System.Object>>(System.Void*)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR FunctionPointer_1_tE1DC1EC606FB2242FB50357BBA39BB4AEDECFCB2* Unsafe_AsRef_TisFunctionPointer_1_tE1DC1EC606FB2242FB50357BBA39BB4AEDECFCB2_mCAB795B304657DA043AC76D8A895BB87DA82C1C6_gshared (void* ___0_source, const RuntimeMethod* method) 
-{
-	int32_t* V_0 = NULL;
-	{
-		void* L_0 = ___0_source;
-		V_0 = (int32_t*)L_0;
-		int32_t* L_1 = V_0;
-		return (FunctionPointer_1_tE1DC1EC606FB2242FB50357BBA39BB4AEDECFCB2*)(L_1);
-	}
-}
-// T& Unity.Burst.Unsafe::AsRef<System.Object>(System.Void*)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject** Unsafe_AsRef_TisRuntimeObject_m3110F74680B25895CE4FCD5B77FB36E2712433EA_gshared (void* ___0_source, const RuntimeMethod* method) 
-{
-	int32_t* V_0 = NULL;
-	{
-		void* L_0 = ___0_source;
-		V_0 = (int32_t*)L_0;
-		int32_t* L_1 = V_0;
-		return (RuntimeObject**)(L_1);
-	}
-}
 // System.Void* Unity.Collections.LowLevel.Unsafe.UnsafeUtility::AddressOf<UnityEngine.Rendering.Universal.ReorderJob`1<UnityEngine.Rendering.Universal.LightMinMaxZ>>(T&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void* UnsafeUtility_AddressOf_TisReorderJob_1_tDAA45AF1869B34ED9756EB0EFD57DE23F02BBBBB_m6C9A96D214C0763DC1C54A03E3D94E939B7F0E66_gshared (ReorderJob_1_tDAA45AF1869B34ED9756EB0EFD57DE23F02BBBBB* ___0_output, const RuntimeMethod* method) 
 {
@@ -33103,25 +32871,6 @@ IL_000f:
 		return L_2;
 	}
 }
-// System.Int32 Unity.Collections.LowLevel.Unsafe.UnsafeUtility::AlignOf<Unity.Collections.RewindableAllocator/MemoryBlock>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UnsafeUtility_AlignOf_TisMemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84_m6AD8B4EF31CDD94CA734378B1443806DAFE68A05_gshared (const RuntimeMethod* method) 
-{
-	int32_t V_0 = 0;
-	{
-		int32_t L_0;
-		L_0 = ((  int32_t (*) (const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 0)))(il2cpp_rgctx_method(method->rgctx_data, 0));
-		int32_t L_1;
-		L_1 = ((  int32_t (*) (const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 1)))(il2cpp_rgctx_method(method->rgctx_data, 1));
-		V_0 = ((int32_t)il2cpp_codegen_subtract(L_0, L_1));
-		goto IL_000f;
-	}
-
-IL_000f:
-	{
-		int32_t L_2 = V_0;
-		return L_2;
-	}
-}
 // System.Int32 Unity.Collections.LowLevel.Unsafe.UnsafeUtility::AlignOf<UnityEngine.Rendering.Universal.ShaderInput/LightData>()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UnsafeUtility_AlignOf_TisLightData_tAC4023737E9903DE3F96B993AA323E062ABCB9ED_m9A2DCB3842EFC78E7CEE302EAC5D87C656CAB127_gshared (const RuntimeMethod* method) 
 {
@@ -33139,14 +32888,6 @@ IL_000f:
 	{
 		int32_t L_2 = V_0;
 		return L_2;
-	}
-}
-// T& Unity.Collections.LowLevel.Unsafe.UnsafeUtility::AsRef<Unity.Collections.AllocatorManager/TableEntry>(System.Void*)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE* UnsafeUtility_AsRef_TisTableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE_m12F6D8C38FB3A00F6AAF703301922FD0BF889CCF_gshared (void* ___0_ptr, const RuntimeMethod* method) 
-{
-	{
-		void* L_0 = ___0_ptr;
-		return (TableEntry_t5E44AFA7857A41AC654D7F248FD36B15D7835FFE*)(L_0);
 	}
 }
 // System.Void Unity.Collections.LowLevel.Unsafe.UnsafeUtility::CopyPtrToStructure<UnityEngine.Jobs.IJobParallelForTransformExtensions/TransformParallelForLoopStruct`1/TransformJobData<UnityEngine.Rendering.Universal.DecalUpdateCachedSystem/UpdateTransformsJob>>(System.Void*,T&)
@@ -34150,35 +33891,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UnsafeUtility_SizeOf_TisAlignOfHelper
 		return (int32_t)L_0;
 	}
 }
-// System.Int32 Unity.Collections.LowLevel.Unsafe.UnsafeUtility::SizeOf<Unity.Collections.LowLevel.Unsafe.UnsafeUtility/AlignOfHelper`1<Unity.Collections.RewindableAllocator/MemoryBlock>>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UnsafeUtility_SizeOf_TisAlignOfHelper_1_t68C3D8AC24508C31F35B828E6206CA7933E9B711_mFD97DC95FC388CD9482935B0A0B60279DA85D751_gshared (const RuntimeMethod* method) 
-{
-	{
-		uint32_t L_0 = sizeof(AlignOfHelper_1_t68C3D8AC24508C31F35B828E6206CA7933E9B711);
-		return (int32_t)L_0;
-	}
-}
 // System.Int32 Unity.Collections.LowLevel.Unsafe.UnsafeUtility::SizeOf<Unity.Collections.LowLevel.Unsafe.UnsafeUtility/AlignOfHelper`1<UnityEngine.Rendering.Universal.ShaderInput/LightData>>()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UnsafeUtility_SizeOf_TisAlignOfHelper_1_t94F041B0AFDEA77FD676F1529D4C5B3B2687CDBE_m24900167A465E60970A2D9AB677368738A548027_gshared (const RuntimeMethod* method) 
 {
 	{
 		uint32_t L_0 = sizeof(AlignOfHelper_1_t94F041B0AFDEA77FD676F1529D4C5B3B2687CDBE);
-		return (int32_t)L_0;
-	}
-}
-// System.Int32 Unity.Collections.LowLevel.Unsafe.UnsafeUtility::SizeOf<Unity.Collections.AllocatorManager/Array32768`1<Unity.Collections.AllocatorManager/TableEntry>>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UnsafeUtility_SizeOf_TisArray32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6_m548E4D71AFEF1CECD2CDC464941403E01E0031A4_gshared (const RuntimeMethod* method) 
-{
-	{
-		uint32_t L_0 = sizeof(Array32768_1_tF94DB9E949B98E267CCEE7E61378AA0A89C951D6);
-		return (int32_t)L_0;
-	}
-}
-// System.Int32 Unity.Collections.LowLevel.Unsafe.UnsafeUtility::SizeOf<Unity.Burst.FunctionPointer`1<System.Object>>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UnsafeUtility_SizeOf_TisFunctionPointer_1_tE1DC1EC606FB2242FB50357BBA39BB4AEDECFCB2_m382449C3D01222A024A10B475E3C4E78817DA1F5_gshared (const RuntimeMethod* method) 
-{
-	{
-		uint32_t L_0 = sizeof(FunctionPointer_1_tE1DC1EC606FB2242FB50357BBA39BB4AEDECFCB2);
 		return (int32_t)L_0;
 	}
 }
@@ -34555,14 +34272,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UnsafeUtility_SizeOf_TisLightMeshVert
 {
 	{
 		uint32_t L_0 = sizeof(LightMeshVertex_t5E886C7928458EB522BEB49D43C67ACC09EC7DCB);
-		return (int32_t)L_0;
-	}
-}
-// System.Int32 Unity.Collections.LowLevel.Unsafe.UnsafeUtility::SizeOf<Unity.Collections.RewindableAllocator/MemoryBlock>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UnsafeUtility_SizeOf_TisMemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84_m4A0947EA519A2614EC19544513888A4DC5F42919_gshared (const RuntimeMethod* method) 
-{
-	{
-		uint32_t L_0 = sizeof(MemoryBlock_t83C4AD217E04686899AC67FBD8D14A7C9AAC6E84);
 		return (int32_t)L_0;
 	}
 }

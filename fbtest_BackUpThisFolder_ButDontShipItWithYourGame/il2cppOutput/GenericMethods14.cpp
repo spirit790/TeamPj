@@ -5129,18 +5129,6 @@ struct FieldInfo_t  : public MemberInfo_t
 {
 };
 
-// Unity.Collections.FixedList
-struct FixedList_t0AE1DE9A0080EEA493060F3A2BA9D82F272BE9A2 
-{
-	union
-	{
-		struct
-		{
-		};
-		uint8_t FixedList_t0AE1DE9A0080EEA493060F3A2BA9D82F272BE9A2__padding[1];
-	};
-};
-
 // DG.Tweening.Plugins.Options.FloatOptions
 struct FloatOptions_t8A9B05DB7CF6CC90A27F300C2977D91A48B3FEF5 
 {
@@ -6130,36 +6118,6 @@ struct Hierarchy_t4CF226F0EDE9C117C51C505730FC80641B1F1677_marshaled_pinvoke
 struct Hierarchy_t4CF226F0EDE9C117C51C505730FC80641B1F1677_marshaled_com
 {
 	VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115* ___m_Owner_1;
-};
-
-// Unity.Mathematics.math/LongDoubleUnion
-struct LongDoubleUnion_tD71C400B6C4CD1A7F13CE8125AC6BBC7A22791CA 
-{
-	union
-	{
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			// System.Int64 Unity.Mathematics.math/LongDoubleUnion::longValue
-			int64_t ___longValue_0;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			int64_t ___longValue_0_forAlignmentOnly;
-		};
-		#pragma pack(push, tp, 1)
-		struct
-		{
-			// System.Double Unity.Mathematics.math/LongDoubleUnion::doubleValue
-			double ___doubleValue_1;
-		};
-		#pragma pack(pop, tp)
-		struct
-		{
-			double ___doubleValue_1_forAlignmentOnly;
-		};
-	};
 };
 
 // System.Linq.Enumerable/<CastIterator>d__99`1<System.Collections.DictionaryEntry>
@@ -12197,10 +12155,6 @@ struct Enum_t2A1A94B24E3B776EEF4E5E485E290BB9D4D072E2_StaticFields
 
 // System.Reflection.FieldInfo
 
-// Unity.Collections.FixedList
-
-// Unity.Collections.FixedList
-
 // UnityEngine.Hash128
 
 // UnityEngine.Hash128
@@ -12414,10 +12368,6 @@ struct float4_t89D9A294E7A79BD81BFBDD18654508532958555E_StaticFields
 // UnityEngine.Experimental.Rendering.ProbeVolumeSceneData/SerializablePVProfile
 
 // UnityEngine.Experimental.Rendering.ProbeVolumeSceneData/SerializablePVProfile
-
-// Unity.Mathematics.math/LongDoubleUnion
-
-// Unity.Mathematics.math/LongDoubleUnion
 
 // System.Linq.Enumerable/<CastIterator>d__99`1<System.Collections.DictionaryEntry>
 
@@ -15094,12 +15044,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ReaderWriterLock_ReleaseReaderLock_mC906
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FirebaseFirestoreSettings_EnsureAppliedToFirestoreProxy_m847B8D9ECFF48F4C9D1CB42F95AA31DD535E081E (FirebaseFirestoreSettings_t11C175390300DA61BEEAF164C92F25886E040534* __this, const RuntimeMethod* method) ;
 // Firebase.Dispatcher Firebase.Platform.FirebaseHandler::get_ThreadDispatcher()
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Dispatcher_tBD1370511B5D6C10B211FBD3AF8E4F9D6B3CD8C6* FirebaseHandler_get_ThreadDispatcher_m9AC2F2F2B74FC2A06A1C9077D636A5F02919455A_inline (const RuntimeMethod* method) ;
-// System.Int32 Unity.Mathematics.math::tzcnt(System.Int32)
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t math_tzcnt_m85FEAD596A8E327F7B6820310B7FBD9822BA735C_inline (int32_t ___0_x, const RuntimeMethod* method) ;
-// System.Int32 Unity.Mathematics.math::min(System.Int32,System.Int32)
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t math_min_m02D43DF516544C279AF660EA4731449C82991849_inline (int32_t ___0_x, int32_t ___1_y, const RuntimeMethod* method) ;
-// System.Int32 Unity.Mathematics.math::max(System.Int32,System.Int32)
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t math_max_m9083201D37A8ED0157B127B5878D9B7F3A2A40BE_inline (int32_t ___0_x, int32_t ___1_y, const RuntimeMethod* method) ;
 // System.Int32 UnityEngine.Mathf::NextPowerOfTwo(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Mathf_NextPowerOfTwo_mA1CE7F3EEF9B0B07AB2D586C030ED236D578F485 (int32_t ___0_value, const RuntimeMethod* method) ;
 // UnityEngine.Component UnityEngine.GameObject::AddComponent(System.Type)
@@ -15328,8 +15272,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* InterpretedFrame_Pop_mB08F9A41
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Vector2__ctor_m9525B79969AFFE3254B303A40997A56DEEB6F548_inline (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* __this, float ___0_x, float ___1_y, const RuntimeMethod* method) ;
 // System.Void UnityEngine.Vector3::.ctor(System.Single,System.Single,System.Single)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* __this, float ___0_x, float ___1_y, float ___2_z, const RuntimeMethod* method) ;
-// System.Int32 Unity.Mathematics.math::tzcnt(System.UInt32)
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t math_tzcnt_m07FD7550AAB5D94312E99571B112D652E8230360_inline (uint32_t ___0_x, const RuntimeMethod* method) ;
 // System.Boolean UnityEngine.Vector2::Equals(UnityEngine.Vector2)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Vector2_Equals_mDF84D5ED14E018609C6A9C9BAE016C1B33BCFF4C_inline (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___0_other, const RuntimeMethod* method) ;
 // System.Void System.Dynamic.Utils.ContractUtils::RequiresArrayRange<System.Collections.Generic.KeyValuePair`2<System.Object,System.Object>>(System.Collections.Generic.IList`1<T>,System.Int32,System.Int32,System.String,System.String)
@@ -34245,22 +34187,6 @@ IL_0026:
 		return L_7;
 	}
 }
-// System.Int32 Unity.Collections.FixedList::PaddingBytes<System.Int32>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t FixedList_PaddingBytes_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m7278B7393BC02D02620FEAB8B7F53D389CCDCDC5_gshared (const RuntimeMethod* method) 
-{
-	{
-		// return math.max(0, math.min(6, (1 << math.tzcnt(UnsafeUtility.SizeOf<T>())) - 2));
-		int32_t L_0;
-		L_0 = ((  int32_t (*) (const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 0)))(il2cpp_rgctx_method(method->rgctx_data, 0));
-		int32_t L_1;
-		L_1 = math_tzcnt_m85FEAD596A8E327F7B6820310B7FBD9822BA735C_inline(L_0, NULL);
-		int32_t L_2;
-		L_2 = math_min_m02D43DF516544C279AF660EA4731449C82991849_inline(6, ((int32_t)il2cpp_codegen_subtract(((int32_t)(1<<((int32_t)(L_1&((int32_t)31))))), 2)), NULL);
-		int32_t L_3;
-		L_3 = math_max_m9083201D37A8ED0157B127B5878D9B7F3A2A40BE_inline(0, L_2, NULL);
-		return L_3;
-	}
-}
 // System.Void UnityEngine.TextCore.Text.FontAsset::CopyListDataToArray<System.Object>(System.Collections.Generic.List`1<T>,T[]&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FontAsset_CopyListDataToArray_TisRuntimeObject_m7FD4B9CB3D64FC913380733FDFE8A125ACF442A2_gshared (FontAsset_t61A6446D934E582651044E33D250EA8D306AB958* __this, List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* ___0_srcList, ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918** ___1_dstArray, const RuntimeMethod* method) 
 {
@@ -41508,60 +41434,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Dispatcher_tBD1370511B5D6C10B211F
 		return L_0;
 	}
 }
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t math_tzcnt_m85FEAD596A8E327F7B6820310B7FBD9822BA735C_inline (int32_t ___0_x, const RuntimeMethod* method) 
-{
-	{
-		// public static int tzcnt(int x) { return tzcnt((uint)x); }
-		int32_t L_0 = ___0_x;
-		int32_t L_1;
-		L_1 = math_tzcnt_m07FD7550AAB5D94312E99571B112D652E8230360_inline(L_0, NULL);
-		return L_1;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t math_min_m02D43DF516544C279AF660EA4731449C82991849_inline (int32_t ___0_x, int32_t ___1_y, const RuntimeMethod* method) 
-{
-	{
-		// public static int min(int x, int y) { return x < y ? x : y; }
-		int32_t L_0 = ___0_x;
-		int32_t L_1 = ___1_y;
-		if ((((int32_t)L_0) < ((int32_t)L_1)))
-		{
-			goto IL_0006;
-		}
-	}
-	{
-		int32_t L_2 = ___1_y;
-		return L_2;
-	}
-
-IL_0006:
-	{
-		int32_t L_3 = ___0_x;
-		return L_3;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t math_max_m9083201D37A8ED0157B127B5878D9B7F3A2A40BE_inline (int32_t ___0_x, int32_t ___1_y, const RuntimeMethod* method) 
-{
-	{
-		// public static int max(int x, int y) { return x > y ? x : y; }
-		int32_t L_0 = ___0_x;
-		int32_t L_1 = ___1_y;
-		if ((((int32_t)L_0) > ((int32_t)L_1)))
-		{
-			goto IL_0006;
-		}
-	}
-	{
-		int32_t L_2 = ___1_y;
-		return L_2;
-	}
-
-IL_0006:
-	{
-		int32_t L_3 = ___0_x;
-		return L_3;
-	}
-}
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void IntPtr__ctor_m4F9A9B80F01996B610D5AE4797F20B98ECD0A3D9_inline (intptr_t* __this, void* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -41769,45 +41641,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Vector3__ctor_m376936E6B999E
 		float L_2 = ___2_z;
 		__this->___z_4 = L_2;
 		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t math_tzcnt_m07FD7550AAB5D94312E99571B112D652E8230360_inline (uint32_t ___0_x, const RuntimeMethod* method) 
-{
-	LongDoubleUnion_tD71C400B6C4CD1A7F13CE8125AC6BBC7A22791CA V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	{
-		// if (x == 0)
-		uint32_t L_0 = ___0_x;
-		if (L_0)
-		{
-			goto IL_0006;
-		}
-	}
-	{
-		// return 32;
-		return ((int32_t)32);
-	}
-
-IL_0006:
-	{
-		// x &= (uint)-x;
-		uint32_t L_1 = ___0_x;
-		uint32_t L_2 = ___0_x;
-		___0_x = ((int32_t)((int32_t)L_1&((int32_t)(uint32_t)((-((int64_t)(uint64_t)L_2))))));
-		// u.doubleValue = 0.0;
-		(&V_0)->___doubleValue_1 = (0.0);
-		// u.longValue = 0x4330000000000000L + x;
-		uint32_t L_3 = ___0_x;
-		(&V_0)->___longValue_0 = ((int64_t)il2cpp_codegen_add(((int64_t)4841369599423283200LL), ((int64_t)(uint64_t)L_3)));
-		// u.doubleValue -= 4503599627370496.0;
-		double* L_4 = (&(&V_0)->___doubleValue_1);
-		double* L_5 = L_4;
-		double L_6 = *((double*)L_5);
-		*((double*)L_5) = (double)((double)il2cpp_codegen_subtract(L_6, (4503599627370496.0)));
-		// return (int)(u.longValue >> 52) - 0x3FF;
-		LongDoubleUnion_tD71C400B6C4CD1A7F13CE8125AC6BBC7A22791CA L_7 = V_0;
-		int64_t L_8 = L_7.___longValue_0;
-		return ((int32_t)il2cpp_codegen_subtract(((int32_t)((int64_t)(L_8>>((int32_t)52)))), ((int32_t)1023)));
 	}
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Vector2_Equals_mDF84D5ED14E018609C6A9C9BAE016C1B33BCFF4C_inline (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7* __this, Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___0_other, const RuntimeMethod* method) 
