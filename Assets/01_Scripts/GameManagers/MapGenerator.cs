@@ -59,15 +59,8 @@ public class MapGenerator : MonoBehaviourPunCallbacks
 
     bool isMapGenDone = false;
     int enabledCount = 0;
-    MeshRenderer[] mrs;
     void Awake()
     {
-        mrs = GameObject.FindGameObjectWithTag("Env").GetComponentsInChildren<MeshRenderer>();
-        foreach (var mr in mrs)
-        {
-            mr.enabled= false;
-            enabledCount++;
-        }
         concepts.Add(jungleObstacles);
         concepts.Add(schoolObstacles);
         concepts.Add(towerObstacles);
@@ -112,19 +105,12 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     }
     IEnumerator BakeCoroutine()
     {
-        yield return new WaitUntil(() => enabledCount == mrs.Length);
-        yield return StartCoroutine(MapGenDoneCoroutine());
-        transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
-        foreach (var mr in mrs)
-        {
-            mr.enabled = true;
-        }
-    }
+        yield return StartCoroutine(MapGenDoneCoroutine());    }
     IEnumerator MapGenDoneCoroutine()
     {
         yield return new WaitUntil(() => isMapGenDone);
-        NavMesh.RemoveAllNavMeshData();
-        yield return StartCoroutine(BuildNavMeshCoroutine());
+        //NavMesh.RemoveAllNavMeshData();
+        //yield return StartCoroutine(BuildNavMeshCoroutine());
         photonView.RPC(nameof(SendIsReady), RpcTarget.AllBufferedViaServer);
     }
     IEnumerator BuildNavMeshCoroutine()

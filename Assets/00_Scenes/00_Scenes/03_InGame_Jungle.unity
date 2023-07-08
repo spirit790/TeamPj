@@ -125,7 +125,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 112111dfbbd0d2d47bfd7dde3a9b13ed, type: 2}
 --- !u!1 &5305197
 GameObject:
   m_ObjectHideFlags: 0
@@ -22987,7 +22987,7 @@ GameObject:
   - component: {fileID: 1561383699}
   - component: {fileID: 1561383702}
   - component: {fileID: 1561383701}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49549,7 +49549,7 @@ GameObject:
   - component: {fileID: 7266641966082077851}
   - component: {fileID: 7266641966082077852}
   - component: {fileID: 7266641966082077853}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: tiles_stone
   m_TagString: MapGen
   m_Icon: {fileID: 0}
@@ -49640,7 +49640,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4096
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
