@@ -59,6 +59,7 @@ public class Mode : MonoBehaviourPunCallbacks
             {
                 OnGameOver();
                 AIBehaviourStop(true);
+                PhotonNetwork.AutomaticallySyncScene = false;
                 StartCoroutine(GameOver());
             }
         }
