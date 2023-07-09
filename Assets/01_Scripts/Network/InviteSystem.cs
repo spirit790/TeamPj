@@ -85,7 +85,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         }
         else
         {
-            isDebug = true;
+            isDebug = false;
             string roomName = "";
             if (isDebug)
             {
