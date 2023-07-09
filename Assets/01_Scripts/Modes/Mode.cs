@@ -59,6 +59,7 @@ public class Mode : MonoBehaviourPunCallbacks
             {
                 OnGameOver();
                 AIBehaviourStop(true);
+                PhotonNetwork.AutomaticallySyncScene = false;
                 StartCoroutine(GameOver());
             }
         }
@@ -239,6 +240,10 @@ public class Mode : MonoBehaviourPunCallbacks
     /// </summary>
     protected virtual IEnumerator GameOver()
     {
+        AIPattern.OnAIDie -= AIDieControl;
+        PlayerController.OnPlayerDie -= PlayerDieControl;
+        PlayerAttack.OnPlayerKill -= PlayerKillControl;
+        PlayerAttack.OnAIKill -= AIKillControl;
         Debug.Log("게임종료");
         yield return new WaitUntil(() => GameManager.Instance.isDataSented);
 
@@ -264,7 +269,7 @@ public class Mode : MonoBehaviourPunCallbacks
             foreach (GameObject ai in aiList)
             {
                 if (ai != null)
-                    ai.GetComponent<AIPattern>().enabled = !isStop;
+                    ai.GetComponent<AIPattern>().Stop(isStop);
                 //if (ai != null)
                 //    ai.GetComponent<AIPattern>().Stop(isStop);
             }

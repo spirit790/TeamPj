@@ -58,7 +58,7 @@ public class MatchSystem : MonoBehaviourPunCallbacks
     }
 
     const float DEFAULT_WAIT_TIME = 10f;
-    const int MATCH_COUNT_MIN = 2;
+    const int MATCH_COUNT_MIN = 4;
     const int MATCH_COUNT_MAX = 8;
     private float matchTimer;
     private float waitTime = DEFAULT_WAIT_TIME;

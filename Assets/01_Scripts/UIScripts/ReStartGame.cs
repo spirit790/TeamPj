@@ -20,16 +20,12 @@ public class ReStartGame : MonoBehaviourPun
     {
         if(int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeySystem].ToString()) == 0)
         {
-            if(PhotonNetwork.IsMasterClient)
-                PhotonNetwork.DestroyAll();
             PhotonNetwork.LeaveRoom();
             GameManager.Instance.isReMatch = true;
             SceneManager.LoadScene(1);
         }
         else if(int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeySystem].ToString()) == 1)
         {
-            if(PhotonNetwork.IsMasterClient)
-                PhotonNetwork.DestroyAll();
             GameManager.Instance.isReInvite = true;
             SceneManager.LoadScene(1);
         }

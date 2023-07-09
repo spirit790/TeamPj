@@ -3040,6 +3040,40 @@ Transform:
   m_Father: {fileID: 8570140372349930281}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &331891072708597183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 2720605681321975779, guid: dcdfb7660290eec499733f644bd39cbd,
+    type: 3}
+  m_PrefabInstance: {fileID: 2403397590670395996}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 1
+    SynchronizeType: 2
+    Name: Move
+  - Type: 4
+    SynchronizeType: 2
+    Name: Attack
+  - Type: 3
+    SynchronizeType: 2
+    Name: AttackCoin
+  - Type: 9
+    SynchronizeType: 2
+    Name: Dead
+  - Type: 1
+    SynchronizeType: 2
+    Name: Stun
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!1 &6314727511914672756
 GameObject:
   m_ObjectHideFlags: 0
@@ -4511,50 +4545,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7591189770289149689}
     m_Modifications:
-    - target: {fileID: 7988971074179234051, guid: dcdfb7660290eec499733f644bd39cbd,
-        type: 3}
-      propertyPath: modelNum
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8533279525724895167, guid: dcdfb7660290eec499733f644bd39cbd,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 41b4531de298363479f0a35d26cce2df, type: 2}
     - target: {fileID: 8611056954457721079, guid: dcdfb7660290eec499733f644bd39cbd,
         type: 3}
       propertyPath: m_Name
       value: Cat
       objectReference: {fileID: 0}
-    - target: {fileID: 8611056954457721079, guid: dcdfb7660290eec499733f644bd39cbd,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8611056954457721079, guid: dcdfb7660290eec499733f644bd39cbd,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 8614075575504987065, guid: dcdfb7660290eec499733f644bd39cbd,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8614075575504987065, guid: dcdfb7660290eec499733f644bd39cbd,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8614075575504987065, guid: dcdfb7660290eec499733f644bd39cbd,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8614075575504987065, guid: dcdfb7660290eec499733f644bd39cbd,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8614075575504987065, guid: dcdfb7660290eec499733f644bd39cbd,
         type: 3}
@@ -4606,33 +4605,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9032213465119006489, guid: dcdfb7660290eec499733f644bd39cbd,
-        type: 3}
-      propertyPath: m_SynchronizeParameters.Array.data[0].SynchronizeType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9032213465119006489, guid: dcdfb7660290eec499733f644bd39cbd,
-        type: 3}
-      propertyPath: m_SynchronizeParameters.Array.data[1].SynchronizeType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9032213465119006489, guid: dcdfb7660290eec499733f644bd39cbd,
-        type: 3}
-      propertyPath: m_SynchronizeParameters.Array.data[2].SynchronizeType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9032213465119006489, guid: dcdfb7660290eec499733f644bd39cbd,
-        type: 3}
-      propertyPath: m_SynchronizeParameters.Array.data[3].SynchronizeType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9032213465119006489, guid: dcdfb7660290eec499733f644bd39cbd,
-        type: 3}
-      propertyPath: m_SynchronizeParameters.Array.data[4].SynchronizeType
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6809075333709064327, guid: dcdfb7660290eec499733f644bd39cbd, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcdfb7660290eec499733f644bd39cbd, type: 3}
 --- !u!4 &6256007063422872037 stripped
 Transform:

@@ -8,12 +8,15 @@ public class PrefabPool : MonoBehaviour
     [SerializeField] List<GameObject> prefabList;
     void Start()
     {
-        DefaultPool pool = PhotonNetwork.PrefabPool as DefaultPool;
-        if(prefabList != null && pool != null)
+        if (!PhotonNetwork.IsConnected)
         {
-            foreach (var prefab in prefabList)
+            DefaultPool pool = PhotonNetwork.PrefabPool as DefaultPool;
+            if (prefabList != null && pool != null)
             {
-                pool.ResourceCache.Add(prefab.name, prefab);
+                foreach (var prefab in prefabList)
+                {
+                    pool.ResourceCache.Add(prefab.name, prefab);
+                }
             }
         }
     }

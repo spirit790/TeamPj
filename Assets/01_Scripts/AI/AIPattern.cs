@@ -65,6 +65,8 @@ public class AIPattern : MonoBehaviourPun
     {
         if (PhotonNetwork.IsMasterClient)
         {
+            if (agent.isStopped)
+                agent.speed = 0;
             if (IsDone)
             {
                 IsDone = false;
@@ -74,7 +76,7 @@ public class AIPattern : MonoBehaviourPun
     
     void MoveTo(Vector3 target)
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient && !agent.isStopped)
         {
             agent.SetDestination(target);
             StrangeBehaviour();
@@ -93,9 +95,15 @@ public class AIPattern : MonoBehaviourPun
     public IEnumerator StopMove(float stopTime)
     {
         agent.speed = 0;
-        enabled = false;
+        agent.isStopped = true;
         yield return new WaitForSeconds(stopTime);
-        enabled = true;
+        agent.isStopped = false;
+        agent.speed = moveSpeed;
+    }
+
+    public void Stop(bool isStop)
+    {
+        agent.isStopped = isStop;
     }
 
     void AIDeadControl()
