@@ -84,6 +84,7 @@ public class Mode : MonoBehaviourPunCallbacks
         this.timeLimit = timeLimit;
         // 제한시간 표시 텍스트UI
         txtTimeLimit = GameObject.FindGameObjectWithTag("TimeLimit").GetComponent<Text>();
+        txtTimeLimit.transform.GetChild(0).gameObject.SetActive(true);
         // 게임시작전 대기시간 표시UI
         txtWaitStartTime = GameObject.FindGameObjectWithTag("WaitStartTime").GetComponent<Text>();
         // 로딩패널 UI
@@ -165,7 +166,6 @@ public class Mode : MonoBehaviourPunCallbacks
 #else
                 QualitySettings.vSyncCount = 1;
 #endif
-
         bannerAds = GameObject.FindGameObjectWithTag("Ads").GetComponent<BannerAds>();
         interAds = GameObject.FindGameObjectWithTag("Ads").GetComponent<InterstitialAds>();
         StartCoroutine(GamePlaying());

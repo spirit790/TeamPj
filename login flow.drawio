@@ -1,0 +1,88 @@
+<mxfile host="app.diagrams.net" modified="2023-07-10T05:07:16.718Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="PE1icxjX8j-3xV-Dfy06" version="21.4.0" type="device">
+  <diagram name="페이지-1" id="n_eAJ6Rc7-SZ2wUlZKYq">
+    <mxGraphModel dx="1195" dy="616" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="583" pageHeight="413" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="99aPFiN5MKctQeLLBgmt-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="99aPFiN5MKctQeLLBgmt-1" target="99aPFiN5MKctQeLLBgmt-19">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-1" value="게임 실행" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="80" y="60" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="99aPFiN5MKctQeLLBgmt-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="270" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="99aPFiN5MKctQeLLBgmt-5" target="99aPFiN5MKctQeLLBgmt-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="99aPFiN5MKctQeLLBgmt-5" target="99aPFiN5MKctQeLLBgmt-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-5" value="Firestore에 &lt;br&gt;유저 정보가 &lt;br&gt;존재하는가?" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="304" width="180" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="99aPFiN5MKctQeLLBgmt-9" target="99aPFiN5MKctQeLLBgmt-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-9" value="닉네임 입력" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="280" y="329" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="99aPFiN5MKctQeLLBgmt-13" target="99aPFiN5MKctQeLLBgmt-18">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="340" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-13" value="유저 정보 &lt;br&gt;초기화, 저장" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="280" y="440" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-17" value="예" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="260" y="215" as="geometry">
+            <mxPoint x="-150" y="75" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-18" value="메인씬 이동" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="80" y="510" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="99aPFiN5MKctQeLLBgmt-19" target="99aPFiN5MKctQeLLBgmt-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-19" value="GPGS 인증이&lt;br&gt;성공했는가?" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="160" width="180" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-20" value="게임 종료" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="420" y="185" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="99aPFiN5MKctQeLLBgmt-22" target="99aPFiN5MKctQeLLBgmt-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-22" value="에러창 팝업" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="280" y="185" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-25" value="예" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="260" y="359" as="geometry">
+            <mxPoint x="-150" y="75" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-28" value="아니오" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="390" y="130" as="geometry">
+            <mxPoint x="-150" y="75" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="99aPFiN5MKctQeLLBgmt-29" value="아니오" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="390" y="270" as="geometry">
+            <mxPoint x="-150" y="75" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
