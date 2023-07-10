@@ -2220,11 +2220,11 @@ MonoBehaviour:
   isReInvite: 0
   playersLeft: 0
   gameMode: 1
-  battleAIRatio: 10
+  battleAIRatio: 5
   battleTimeLimit: 120
-  areaAIRatio: 10
+  areaAIRatio: 5
   areaTimeLimit: 30
-  deathAIRatio: 10
+  deathAIRatio: 5
   deathTimeLimit: 300
   death: 0
   playerKills: 0

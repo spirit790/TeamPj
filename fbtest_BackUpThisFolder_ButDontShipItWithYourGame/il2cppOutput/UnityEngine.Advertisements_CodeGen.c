@@ -262,161 +262,163 @@ extern void Platform_U3CInitializeU3Eb__30_0_mEB796C951E73BA0B537422A268247B3E04
 extern void Platform_U3CInitializeU3Eb__30_1_m9423FFBD93E8054A2A2D245B3A6D93EBACABA182 (void);
 // 0x00000094 System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass33_0::.ctor()
 extern void U3CU3Ec__DisplayClass33_0__ctor_m9CCDD02EEBBDF0F18974FA9C74EC75BC6EF10914 (void);
-// 0x00000095 System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass33_0::<Show>b__0(System.Object,UnityEngine.Advertisements.Events.FinishEventArgs)
-extern void U3CU3Ec__DisplayClass33_0_U3CShowU3Eb__0_m3C2E994E6364D292BDBCC266C701698A3C9DB199 (void);
-// 0x00000096 System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass40_0::.ctor()
+// 0x00000095 System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass33_1::.ctor()
+extern void U3CU3Ec__DisplayClass33_1__ctor_mE258917C5DC6CA9D2D79F54414CAABCE49E34914 (void);
+// 0x00000096 System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass33_1::<Show>b__0(System.Object,UnityEngine.Advertisements.Events.FinishEventArgs)
+extern void U3CU3Ec__DisplayClass33_1_U3CShowU3Eb__0_mA05B3DD0F62B40C9DF93147D4D42FF47C33E4E26 (void);
+// 0x00000097 System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass40_0::.ctor()
 extern void U3CU3Ec__DisplayClass40_0__ctor_mF8EAC7E8597F90ADEBB36AC6F58A1DE742461C07 (void);
-// 0x00000097 System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass40_0::<UnityAdsReady>b__0()
+// 0x00000098 System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass40_0::<UnityAdsReady>b__0()
 extern void U3CU3Ec__DisplayClass40_0_U3CUnityAdsReadyU3Eb__0_mCD6BA7D8645C3C88EBC2FF7757D1B442ACC062CE (void);
-// 0x00000098 System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass41_0::.ctor()
+// 0x00000099 System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass41_0::.ctor()
 extern void U3CU3Ec__DisplayClass41_0__ctor_m438E35F00618700EA08CB7B7C00FF62B272E78E9 (void);
-// 0x00000099 System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass41_0::<UnityAdsDidError>b__0()
+// 0x0000009A System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass41_0::<UnityAdsDidError>b__0()
 extern void U3CU3Ec__DisplayClass41_0_U3CUnityAdsDidErrorU3Eb__0_m60E8E480EA92041D276966DE410719CCC6D1E261 (void);
-// 0x0000009A System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass42_0::.ctor()
+// 0x0000009B System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass42_0::.ctor()
 extern void U3CU3Ec__DisplayClass42_0__ctor_m40B9B14073BEEC931EEEA7FA785DA8FC43BCD618 (void);
-// 0x0000009B System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass42_0::<UnityAdsDidStart>b__0()
+// 0x0000009C System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass42_0::<UnityAdsDidStart>b__0()
 extern void U3CU3Ec__DisplayClass42_0_U3CUnityAdsDidStartU3Eb__0_mC4F896CE81AD561048780B9CCDC06061AAD96821 (void);
-// 0x0000009C System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass43_0::.ctor()
+// 0x0000009D System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass43_0::.ctor()
 extern void U3CU3Ec__DisplayClass43_0__ctor_m8EAAE99C1DF5DD815F96B4DAC6D350D81CC3CAC7 (void);
-// 0x0000009D System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass43_0::<UnityAdsDidFinish>b__0()
+// 0x0000009E System.Void UnityEngine.Advertisements.Platform.Platform/<>c__DisplayClass43_0::<UnityAdsDidFinish>b__0()
 extern void U3CU3Ec__DisplayClass43_0_U3CUnityAdsDidFinishU3Eb__0_m348FC8EBE5A9DADB767CE0BF9C4C85F8731C14E3 (void);
-// 0x0000009E System.Boolean UnityEngine.Advertisements.Platform.Unsupported.UnsupportedBanner::get_IsLoaded()
+// 0x0000009F System.Boolean UnityEngine.Advertisements.Platform.Unsupported.UnsupportedBanner::get_IsLoaded()
 extern void UnsupportedBanner_get_IsLoaded_mE8AC0AB40796C11895D5D10198AAB8B78D6BFD70 (void);
-// 0x0000009F System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedBanner::SetupBanner(UnityEngine.Advertisements.IBanner)
+// 0x000000A0 System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedBanner::SetupBanner(UnityEngine.Advertisements.IBanner)
 extern void UnsupportedBanner_SetupBanner_mABEF7CC1B545E9B38BAAC23F746BDDD3E7CB1CB9 (void);
-// 0x000000A0 System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedBanner::Show(System.String,UnityEngine.Advertisements.BannerOptions)
+// 0x000000A1 System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedBanner::Show(System.String,UnityEngine.Advertisements.BannerOptions)
 extern void UnsupportedBanner_Show_m5E4EBD678692FF29482D48FBF98A95F9CB116295 (void);
-// 0x000000A1 System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedBanner::Hide(System.Boolean)
+// 0x000000A2 System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedBanner::Hide(System.Boolean)
 extern void UnsupportedBanner_Hide_m84DC685029818C61BB2D3B74AF562BF96CB1A146 (void);
-// 0x000000A2 System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedBanner::SetPosition(UnityEngine.Advertisements.BannerPosition)
+// 0x000000A3 System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedBanner::SetPosition(UnityEngine.Advertisements.BannerPosition)
 extern void UnsupportedBanner_SetPosition_m30F1A4F80278E1007A93305ACD0298DE08FBDEAE (void);
-// 0x000000A3 System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedBanner::.ctor()
+// 0x000000A4 System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedBanner::.ctor()
 extern void UnsupportedBanner__ctor_m438F1E085E534BD57AB519D449A6EC8F9D274246 (void);
-// 0x000000A4 System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedPlatform::SetupPlatform(UnityEngine.Advertisements.Platform.IPlatform)
+// 0x000000A5 System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedPlatform::SetupPlatform(UnityEngine.Advertisements.Platform.IPlatform)
 extern void UnsupportedPlatform_SetupPlatform_mAE4F436A677F0018A54275C2D5D15D49A3E67AD3 (void);
-// 0x000000A5 System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedPlatform::Initialize(System.String,System.Boolean,System.Boolean,UnityEngine.Advertisements.IUnityAdsInitializationListener)
+// 0x000000A6 System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedPlatform::Initialize(System.String,System.Boolean,System.Boolean,UnityEngine.Advertisements.IUnityAdsInitializationListener)
 extern void UnsupportedPlatform_Initialize_mB963A6610E8A4F78D1637E97B7296AD5558CF5C2 (void);
-// 0x000000A6 System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedPlatform::Show(System.String,UnityEngine.Advertisements.IUnityAdsShowListener)
+// 0x000000A7 System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedPlatform::Show(System.String,UnityEngine.Advertisements.IUnityAdsShowListener)
 extern void UnsupportedPlatform_Show_mC3BCF27080E48DB7D0EDC50A806C1037B1396ED5 (void);
-// 0x000000A7 System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedPlatform::SetMetaData(UnityEngine.Advertisements.MetaData)
+// 0x000000A8 System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedPlatform::SetMetaData(UnityEngine.Advertisements.MetaData)
 extern void UnsupportedPlatform_SetMetaData_mC58DD5B86F8973F79411046EF74DA64AB5EEA2DE (void);
-// 0x000000A8 System.String UnityEngine.Advertisements.Platform.Unsupported.UnsupportedPlatform::GetVersion()
+// 0x000000A9 System.String UnityEngine.Advertisements.Platform.Unsupported.UnsupportedPlatform::GetVersion()
 extern void UnsupportedPlatform_GetVersion_m09FED2D3C4FDD5E041AEB3C2A4D6709742ADE38C (void);
-// 0x000000A9 System.Boolean UnityEngine.Advertisements.Platform.Unsupported.UnsupportedPlatform::IsInitialized()
+// 0x000000AA System.Boolean UnityEngine.Advertisements.Platform.Unsupported.UnsupportedPlatform::IsInitialized()
 extern void UnsupportedPlatform_IsInitialized_mCBCC729DAD4D4DFE3D208C3BB7007C4D3DF48036 (void);
-// 0x000000AA System.Boolean UnityEngine.Advertisements.Platform.Unsupported.UnsupportedPlatform::IsReady(System.String)
+// 0x000000AB System.Boolean UnityEngine.Advertisements.Platform.Unsupported.UnsupportedPlatform::IsReady(System.String)
 extern void UnsupportedPlatform_IsReady_m2E6013C9EF89E80206A4A5818A3F7587363E05F3 (void);
-// 0x000000AB System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedPlatform::.ctor()
+// 0x000000AC System.Void UnityEngine.Advertisements.Platform.Unsupported.UnsupportedPlatform::.ctor()
 extern void UnsupportedPlatform__ctor_mD2AB31CC9591F51340AE7DFFDDFC53AF23D35ED6 (void);
-// 0x000000AC System.Void UnityEngine.Advertisements.Platform.Editor.BannerPlaceholder::Awake()
+// 0x000000AD System.Void UnityEngine.Advertisements.Platform.Editor.BannerPlaceholder::Awake()
 extern void BannerPlaceholder_Awake_mC91F24FD02F2EBA65D54E8203896D524D8C39E08 (void);
-// 0x000000AD System.Void UnityEngine.Advertisements.Platform.Editor.BannerPlaceholder::OnGUI()
+// 0x000000AE System.Void UnityEngine.Advertisements.Platform.Editor.BannerPlaceholder::OnGUI()
 extern void BannerPlaceholder_OnGUI_mCA8AD18DFEB7FB97C42600B64E273673F9C8F890 (void);
-// 0x000000AE System.Void UnityEngine.Advertisements.Platform.Editor.BannerPlaceholder::ShowBanner(UnityEngine.Advertisements.BannerPosition,UnityEngine.Advertisements.BannerOptions)
+// 0x000000AF System.Void UnityEngine.Advertisements.Platform.Editor.BannerPlaceholder::ShowBanner(UnityEngine.Advertisements.BannerPosition,UnityEngine.Advertisements.BannerOptions)
 extern void BannerPlaceholder_ShowBanner_m10FF4E0DBC0E2B1852589371C3B31737E3ACB05C (void);
-// 0x000000AF System.Void UnityEngine.Advertisements.Platform.Editor.BannerPlaceholder::HideBanner()
+// 0x000000B0 System.Void UnityEngine.Advertisements.Platform.Editor.BannerPlaceholder::HideBanner()
 extern void BannerPlaceholder_HideBanner_m39E19D11C89B1ECDC7161FAACC7D0A668BAAF5CC (void);
-// 0x000000B0 UnityEngine.Texture2D UnityEngine.Advertisements.Platform.Editor.BannerPlaceholder::BackgroundTexture(System.Int32,System.Int32,UnityEngine.Color)
+// 0x000000B1 UnityEngine.Texture2D UnityEngine.Advertisements.Platform.Editor.BannerPlaceholder::BackgroundTexture(System.Int32,System.Int32,UnityEngine.Color)
 extern void BannerPlaceholder_BackgroundTexture_mA1C83D534C3005BCE9A50A66E48EE53654DFEE1E (void);
-// 0x000000B1 UnityEngine.Rect UnityEngine.Advertisements.Platform.Editor.BannerPlaceholder::GetBannerRect(UnityEngine.Advertisements.BannerPosition)
+// 0x000000B2 UnityEngine.Rect UnityEngine.Advertisements.Platform.Editor.BannerPlaceholder::GetBannerRect(UnityEngine.Advertisements.BannerPosition)
 extern void BannerPlaceholder_GetBannerRect_mE3DD03B1E8CF6EA072A70F995D7D01BF2942C94F (void);
-// 0x000000B2 System.Void UnityEngine.Advertisements.Platform.Editor.BannerPlaceholder::.ctor()
+// 0x000000B3 System.Void UnityEngine.Advertisements.Platform.Editor.BannerPlaceholder::.ctor()
 extern void BannerPlaceholder__ctor_m924CEA544C2BB6BB1FB1B5F720EC76081D508828 (void);
-// 0x000000B3 System.Boolean UnityEngine.Advertisements.Platform.Android.AndroidBanner::get_IsLoaded()
+// 0x000000B4 System.Boolean UnityEngine.Advertisements.Platform.Android.AndroidBanner::get_IsLoaded()
 extern void AndroidBanner_get_IsLoaded_mA90E42EA6594C68EFDD0AFFDC94A74A80C902B09 (void);
-// 0x000000B4 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::.ctor()
+// 0x000000B5 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::.ctor()
 extern void AndroidBanner__ctor_m8E723E99310838DADEF2F9B71484400282829E59 (void);
-// 0x000000B5 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::SetupBanner(UnityEngine.Advertisements.IBanner)
+// 0x000000B6 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::SetupBanner(UnityEngine.Advertisements.IBanner)
 extern void AndroidBanner_SetupBanner_m84E942C2FDB8B3C4E8077CCFFC05335A8C0516FB (void);
-// 0x000000B6 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::Load(System.String,UnityEngine.Advertisements.BannerLoadOptions)
+// 0x000000B7 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::Load(System.String,UnityEngine.Advertisements.BannerLoadOptions)
 extern void AndroidBanner_Load_m8423A122726BD342EAEC2C8E312C24F00E9613C4 (void);
-// 0x000000B7 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::Show(System.String,UnityEngine.Advertisements.BannerOptions)
+// 0x000000B8 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::Show(System.String,UnityEngine.Advertisements.BannerOptions)
 extern void AndroidBanner_Show_m06CF344B822E045EFA05982F3A10774C3A3EE132 (void);
-// 0x000000B8 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::Hide(System.Boolean)
+// 0x000000B9 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::Hide(System.Boolean)
 extern void AndroidBanner_Hide_mFFC62E2BF6ED3E27135D830DD56F8213625AAECE (void);
-// 0x000000B9 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::SetPosition(UnityEngine.Advertisements.BannerPosition)
+// 0x000000BA System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::SetPosition(UnityEngine.Advertisements.BannerPosition)
 extern void AndroidBanner_SetPosition_m1370055994F0B01C4EC807BACB09C66CA6636560 (void);
-// 0x000000BA System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::onUnityBannerShow(System.String)
+// 0x000000BB System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::onUnityBannerShow(System.String)
 extern void AndroidBanner_onUnityBannerShow_mCB47141A40C6E6EFC046BB4023F272DAA716C54B (void);
-// 0x000000BB System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::onUnityBannerHide(System.String)
+// 0x000000BC System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::onUnityBannerHide(System.String)
 extern void AndroidBanner_onUnityBannerHide_m79062BDF8A0C2EF344B74827BD2EB3232DF73663 (void);
-// 0x000000BC System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::onUnityBannerLoaded(System.String,UnityEngine.AndroidJavaObject)
+// 0x000000BD System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::onUnityBannerLoaded(System.String,UnityEngine.AndroidJavaObject)
 extern void AndroidBanner_onUnityBannerLoaded_m77D16A54777CCF59CA929166B1A6D33B01533763 (void);
-// 0x000000BD System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::onUnityBannerUnloaded(System.String)
+// 0x000000BE System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::onUnityBannerUnloaded(System.String)
 extern void AndroidBanner_onUnityBannerUnloaded_mCF7398E2DF04D901135C06930007BBE942A57C6C (void);
-// 0x000000BE System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::onUnityBannerClick(System.String)
+// 0x000000BF System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::onUnityBannerClick(System.String)
 extern void AndroidBanner_onUnityBannerClick_mBC9DA7FEAB2FAC2FC61BDFA1D930536130110FF0 (void);
-// 0x000000BF System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::onUnityBannerError(System.String)
+// 0x000000C0 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::onUnityBannerError(System.String)
 extern void AndroidBanner_onUnityBannerError_m4379E165441326ACEB9CC6509E736DDACDBDEBF5 (void);
-// 0x000000C0 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::<Hide>b__13_0()
+// 0x000000C1 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::<Hide>b__13_0()
 extern void AndroidBanner_U3CHideU3Eb__13_0_mA234986168275EA7EA56F38B9EBD4CE4F0533D22 (void);
-// 0x000000C1 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::<Hide>b__13_1()
+// 0x000000C2 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::<Hide>b__13_1()
 extern void AndroidBanner_U3CHideU3Eb__13_1_m1B3C913F757872839F338243CC43EDF2CE3FE9AC (void);
-// 0x000000C2 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::<onUnityBannerLoaded>b__17_1()
+// 0x000000C3 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::<onUnityBannerLoaded>b__17_1()
 extern void AndroidBanner_U3ConUnityBannerLoadedU3Eb__17_1_m915883D9CAE36E2821426AC509039ACE1C84CAEC (void);
-// 0x000000C3 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::<onUnityBannerLoaded>b__17_0()
+// 0x000000C4 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::<onUnityBannerLoaded>b__17_0()
 extern void AndroidBanner_U3ConUnityBannerLoadedU3Eb__17_0_mD37D62D5FB74CA7BA2259162802D8DC0C5649988 (void);
-// 0x000000C4 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::<onUnityBannerClick>b__19_0()
+// 0x000000C5 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner::<onUnityBannerClick>b__19_0()
 extern void AndroidBanner_U3ConUnityBannerClickU3Eb__19_0_m3E31000AD8114381FF258F7B217EB1FBB3D35CD6 (void);
-// 0x000000C5 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner/<>c__DisplayClass11_0::.ctor()
+// 0x000000C6 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner/<>c__DisplayClass11_0::.ctor()
 extern void U3CU3Ec__DisplayClass11_0__ctor_mB4749FC4347BDA5F4935149B71E84CA043C5B7EE (void);
-// 0x000000C6 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner/<>c__DisplayClass11_0::<Load>b__0()
+// 0x000000C7 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner/<>c__DisplayClass11_0::<Load>b__0()
 extern void U3CU3Ec__DisplayClass11_0_U3CLoadU3Eb__0_m7EF8C1F9F5714B3B9D1B80347365F02DB275BAE2 (void);
-// 0x000000C7 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner/<>c__DisplayClass12_0::.ctor()
+// 0x000000C8 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner/<>c__DisplayClass12_0::.ctor()
 extern void U3CU3Ec__DisplayClass12_0__ctor_m7BB527763F003875E638B7256DD3BD3788435943 (void);
-// 0x000000C8 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner/<>c__DisplayClass12_0::<Show>b__0()
+// 0x000000C9 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner/<>c__DisplayClass12_0::<Show>b__0()
 extern void U3CU3Ec__DisplayClass12_0_U3CShowU3Eb__0_mE626FA2BC0E938A69C142BBFA43DB8861832567A (void);
-// 0x000000C9 System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner/<>c__DisplayClass12_0::<Show>b__1()
+// 0x000000CA System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner/<>c__DisplayClass12_0::<Show>b__1()
 extern void U3CU3Ec__DisplayClass12_0_U3CShowU3Eb__1_m6C46CDF641CEE4172AEDF5695048ACC3F890364F (void);
-// 0x000000CA System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner/<>c__DisplayClass20_0::.ctor()
+// 0x000000CB System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner/<>c__DisplayClass20_0::.ctor()
 extern void U3CU3Ec__DisplayClass20_0__ctor_mF43AD6D592B49CA9F9FCF85EA3AEDAAAD7252731 (void);
-// 0x000000CB System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner/<>c__DisplayClass20_0::<onUnityBannerError>b__0()
+// 0x000000CC System.Void UnityEngine.Advertisements.Platform.Android.AndroidBanner/<>c__DisplayClass20_0::<onUnityBannerError>b__0()
 extern void U3CU3Ec__DisplayClass20_0_U3ConUnityBannerErrorU3Eb__0_m0DD98663AF155A5809120293E2B451CF67DF47DC (void);
-// 0x000000CC System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::.ctor()
+// 0x000000CD System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::.ctor()
 extern void AndroidPlatform__ctor_mAD4B3465710A8E295F30F1872045D1DEF696A2EC (void);
-// 0x000000CD System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::SetupPlatform(UnityEngine.Advertisements.Platform.IPlatform)
+// 0x000000CE System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::SetupPlatform(UnityEngine.Advertisements.Platform.IPlatform)
 extern void AndroidPlatform_SetupPlatform_m39E6D013E149BED8ABB45D6B35D568B37E508466 (void);
-// 0x000000CE System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::Initialize(System.String,System.Boolean,System.Boolean,UnityEngine.Advertisements.IUnityAdsInitializationListener)
+// 0x000000CF System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::Initialize(System.String,System.Boolean,System.Boolean,UnityEngine.Advertisements.IUnityAdsInitializationListener)
 extern void AndroidPlatform_Initialize_mC01942AE3744497333D71410DA8CF5E8501B7FE2 (void);
-// 0x000000CF System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::Load(System.String,UnityEngine.Advertisements.IUnityAdsLoadListener)
+// 0x000000D0 System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::Load(System.String,UnityEngine.Advertisements.IUnityAdsLoadListener)
 extern void AndroidPlatform_Load_m44B5EF9945174C5681BEAD595361D433EDADE3AF (void);
-// 0x000000D0 System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::Show(System.String,UnityEngine.Advertisements.IUnityAdsShowListener)
+// 0x000000D1 System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::Show(System.String,UnityEngine.Advertisements.IUnityAdsShowListener)
 extern void AndroidPlatform_Show_m21C060B4C4A142EC3F017E4F546C8D623E467BF4 (void);
-// 0x000000D1 System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::SetMetaData(UnityEngine.Advertisements.MetaData)
+// 0x000000D2 System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::SetMetaData(UnityEngine.Advertisements.MetaData)
 extern void AndroidPlatform_SetMetaData_m188743603BA4C26155853CC315E917148711C15C (void);
-// 0x000000D2 System.Boolean UnityEngine.Advertisements.Platform.Android.AndroidPlatform::GetDebugMode()
+// 0x000000D3 System.Boolean UnityEngine.Advertisements.Platform.Android.AndroidPlatform::GetDebugMode()
 extern void AndroidPlatform_GetDebugMode_m7B4B9EAD4419187F00CBA0FCB006C8A1316CE12A (void);
-// 0x000000D3 System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::SetDebugMode(System.Boolean)
+// 0x000000D4 System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::SetDebugMode(System.Boolean)
 extern void AndroidPlatform_SetDebugMode_m8594612A19A42929D78F88EDBECC9A9DA135E23D (void);
-// 0x000000D4 System.String UnityEngine.Advertisements.Platform.Android.AndroidPlatform::GetVersion()
+// 0x000000D5 System.String UnityEngine.Advertisements.Platform.Android.AndroidPlatform::GetVersion()
 extern void AndroidPlatform_GetVersion_m3BA0BBDBF5FAEA9684782B8F6BF5F3A7B1B1BDD8 (void);
-// 0x000000D5 System.Boolean UnityEngine.Advertisements.Platform.Android.AndroidPlatform::IsInitialized()
+// 0x000000D6 System.Boolean UnityEngine.Advertisements.Platform.Android.AndroidPlatform::IsInitialized()
 extern void AndroidPlatform_IsInitialized_m442E73B0DC39E3F0D718CFBD58CFE8AA60973A6B (void);
-// 0x000000D6 System.Boolean UnityEngine.Advertisements.Platform.Android.AndroidPlatform::IsReady(System.String)
+// 0x000000D7 System.Boolean UnityEngine.Advertisements.Platform.Android.AndroidPlatform::IsReady(System.String)
 extern void AndroidPlatform_IsReady_m91607D5E1D0DC4581070187E70037F234AF7525E (void);
-// 0x000000D7 System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::RemoveListener()
+// 0x000000D8 System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::RemoveListener()
 extern void AndroidPlatform_RemoveListener_m9A4EABC678741E097A73D50DD4D8D92715CAAE8A (void);
-// 0x000000D8 UnityEngine.Advertisements.PlacementState UnityEngine.Advertisements.Platform.Android.AndroidPlatform::GetPlacementState(System.String)
+// 0x000000D9 UnityEngine.Advertisements.PlacementState UnityEngine.Advertisements.Platform.Android.AndroidPlatform::GetPlacementState(System.String)
 extern void AndroidPlatform_GetPlacementState_m2BE96C9504C163BCFA14F17878A9A2FCB22AA2BB (void);
-// 0x000000D9 System.String UnityEngine.Advertisements.Platform.Android.AndroidPlatform::GetDefaultPlacement()
+// 0x000000DA System.String UnityEngine.Advertisements.Platform.Android.AndroidPlatform::GetDefaultPlacement()
 extern void AndroidPlatform_GetDefaultPlacement_mCDB78AE8A89C9B3976DE7E705F7711C5369AE723 (void);
-// 0x000000DA UnityEngine.AndroidJavaObject UnityEngine.Advertisements.Platform.Android.AndroidPlatform::GetCurrentAndroidActivity()
+// 0x000000DB UnityEngine.AndroidJavaObject UnityEngine.Advertisements.Platform.Android.AndroidPlatform::GetCurrentAndroidActivity()
 extern void AndroidPlatform_GetCurrentAndroidActivity_mCD9F343253ECB4F4D2515733504948D596EFC1D1 (void);
-// 0x000000DB System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::UnityEngine.Advertisements.Purchasing.IPurchasingEventSender.SendPurchasingEvent(System.String)
+// 0x000000DC System.Void UnityEngine.Advertisements.Platform.Android.AndroidPlatform::UnityEngine.Advertisements.Purchasing.IPurchasingEventSender.SendPurchasingEvent(System.String)
 extern void AndroidPlatform_UnityEngine_Advertisements_Purchasing_IPurchasingEventSender_SendPurchasingEvent_m0ECB4B1DF3C566E2FD08A8844F2AE0B8151A976D (void);
-// 0x000000DC UnityEngine.AndroidJavaObject UnityEngine.Advertisements.Platform.Android.BannerBundle::get_bannerView()
+// 0x000000DD UnityEngine.AndroidJavaObject UnityEngine.Advertisements.Platform.Android.BannerBundle::get_bannerView()
 extern void BannerBundle_get_bannerView_m981F7CB1C3C1CA95AF72D95108A42C797AEAF9D3 (void);
-// 0x000000DD System.String UnityEngine.Advertisements.Platform.Android.BannerBundle::get_bannerPlacementId()
+// 0x000000DE System.String UnityEngine.Advertisements.Platform.Android.BannerBundle::get_bannerPlacementId()
 extern void BannerBundle_get_bannerPlacementId_mA4916C42EA50108B4D553776443460B1C664C26E (void);
-// 0x000000DE System.Void UnityEngine.Advertisements.Platform.Android.BannerBundle::.ctor(System.String,UnityEngine.AndroidJavaObject)
+// 0x000000DF System.Void UnityEngine.Advertisements.Platform.Android.BannerBundle::.ctor(System.String,UnityEngine.AndroidJavaObject)
 extern void BannerBundle__ctor_mA358F4E6ED2021BD4D86AE8C55BD6B13C4DD3322 (void);
-// 0x000000DF UnityEngine.Advertisements.ShowResult UnityEngine.Advertisements.Events.FinishEventArgs::get_showResult()
+// 0x000000E0 UnityEngine.Advertisements.ShowResult UnityEngine.Advertisements.Events.FinishEventArgs::get_showResult()
 extern void FinishEventArgs_get_showResult_mD1DB487FE3FBD9041BFD08693DF423D346E30E15 (void);
-// 0x000000E0 System.Void UnityEngine.Advertisements.Events.FinishEventArgs::.ctor(System.String,UnityEngine.Advertisements.ShowResult)
+// 0x000000E1 System.Void UnityEngine.Advertisements.Events.FinishEventArgs::.ctor(System.String,UnityEngine.Advertisements.ShowResult)
 extern void FinishEventArgs__ctor_m10A53772C9FACCF970D9130DD2F5AEF46F7918EA (void);
-// 0x000000E1 System.Void UnityEngine.Advertisements.Events.StartEventArgs::.ctor(System.String)
+// 0x000000E2 System.Void UnityEngine.Advertisements.Events.StartEventArgs::.ctor(System.String)
 extern void StartEventArgs__ctor_m341397FC4E0939236327A2F51FECD7CBCCC71334 (void);
-static Il2CppMethodPointer s_methodPointers[225] = 
+static Il2CppMethodPointer s_methodPointers[226] = 
 {
 	Advertisement__cctor_mCC6272BAAF27A9D700E13D1DE3EF7CCA19A6BA48,
 	Advertisement_get_isInitialized_m91E4922DA136C2D13868A1B8F4BDC5CDEFBA6284,
@@ -566,7 +568,8 @@ static Il2CppMethodPointer s_methodPointers[225] =
 	Platform_U3CInitializeU3Eb__30_0_mEB796C951E73BA0B537422A268247B3E04DE3193,
 	Platform_U3CInitializeU3Eb__30_1_m9423FFBD93E8054A2A2D245B3A6D93EBACABA182,
 	U3CU3Ec__DisplayClass33_0__ctor_m9CCDD02EEBBDF0F18974FA9C74EC75BC6EF10914,
-	U3CU3Ec__DisplayClass33_0_U3CShowU3Eb__0_m3C2E994E6364D292BDBCC266C701698A3C9DB199,
+	U3CU3Ec__DisplayClass33_1__ctor_mE258917C5DC6CA9D2D79F54414CAABCE49E34914,
+	U3CU3Ec__DisplayClass33_1_U3CShowU3Eb__0_mA05B3DD0F62B40C9DF93147D4D42FF47C33E4E26,
 	U3CU3Ec__DisplayClass40_0__ctor_mF8EAC7E8597F90ADEBB36AC6F58A1DE742461C07,
 	U3CU3Ec__DisplayClass40_0_U3CUnityAdsReadyU3Eb__0_mCD6BA7D8645C3C88EBC2FF7757D1B442ACC062CE,
 	U3CU3Ec__DisplayClass41_0__ctor_m438E35F00618700EA08CB7B7C00FF62B272E78E9,
@@ -644,43 +647,43 @@ static Il2CppMethodPointer s_methodPointers[225] =
 	FinishEventArgs__ctor_m10A53772C9FACCF970D9130DD2F5AEF46F7918EA,
 	StartEventArgs__ctor_m341397FC4E0939236327A2F51FECD7CBCCC71334,
 };
-static const int32_t s_InvokerIndices[225] = 
+static const int32_t s_InvokerIndices[226] = 
 {
-	12615,
-	12546,
-	11615,
-	10763,
-	10013,
-	12546,
-	12431,
-	10783,
-	12574,
-	12431,
-	11623,
-	12421,
-	12427,
-	12546,
-	8375,
-	8375,
-	8222,
-	8112,
-	8112,
-	6663,
-	3970,
-	3970,
-	6663,
-	6739,
-	8222,
-	8222,
-	3966,
-	8375,
-	3966,
-	6773,
-	8222,
-	8222,
-	8222,
-	3966,
-	8375,
+	12708,
+	12639,
+	11680,
+	10816,
+	10066,
+	12639,
+	12512,
+	10836,
+	12667,
+	12512,
+	11688,
+	12502,
+	12508,
+	12639,
+	8425,
+	8425,
+	8271,
+	8161,
+	8161,
+	6688,
+	3975,
+	3975,
+	6688,
+	6764,
+	8271,
+	8271,
+	3971,
+	8425,
+	3971,
+	6798,
+	8271,
+	8271,
+	8271,
+	3971,
+	8425,
 	0,
 	0,
 	0,
@@ -705,22 +708,22 @@ static const int32_t s_InvokerIndices[225] =
 	0,
 	0,
 	0,
-	8222,
-	6773,
-	6773,
-	3970,
-	8222,
-	3970,
-	8375,
-	3970,
-	3970,
-	6773,
-	2194,
-	3970,
-	2194,
-	6773,
-	6773,
-	3970,
+	8271,
+	6798,
+	6798,
+	3975,
+	8271,
+	3975,
+	8425,
+	3975,
+	3975,
+	6798,
+	2195,
+	3975,
+	2195,
+	6798,
+	6798,
+	3975,
 	0,
 	0,
 	0,
@@ -728,149 +731,150 @@ static const int32_t s_InvokerIndices[225] =
 	0,
 	0,
 	0,
-	8222,
-	8222,
-	6773,
-	6773,
-	8375,
-	8375,
-	8375,
-	8375,
-	12003,
+	8271,
+	8271,
+	6798,
+	6798,
+	8425,
+	8425,
+	8425,
+	8425,
+	12083,
 	0,
 	0,
 	0,
-	8375,
-	8375,
-	6773,
-	8375,
-	6773,
+	8425,
+	8425,
+	6798,
+	8425,
+	6798,
 	0,
 	0,
 	0,
-	6773,
-	8375,
-	8375,
-	8375,
-	6773,
-	6773,
-	8375,
-	11876,
-	11876,
-	12574,
-	12574,
-	12615,
-	0,
-	0,
-	0,
-	0,
+	6798,
+	8425,
+	8425,
+	8425,
+	6798,
+	6798,
+	8425,
+	11956,
+	11956,
+	12667,
+	12667,
+	12708,
 	0,
 	0,
 	0,
 	0,
 	0,
-	6773,
-	6773,
-	6773,
-	6773,
-	8222,
-	8222,
-	8222,
-	8112,
-	8112,
-	6663,
-	8222,
-	8222,
-	2194,
+	0,
+	0,
+	0,
+	0,
+	6798,
+	6798,
+	6798,
+	6798,
+	8271,
+	8271,
+	8271,
+	8161,
+	8161,
+	6688,
+	8271,
+	8271,
+	2195,
 	1441,
-	2194,
-	4964,
-	6773,
-	6773,
-	6773,
-	6773,
-	3963,
-	12133,
-	3970,
-	3970,
-	8375,
-	3970,
-	8375,
-	8375,
-	8375,
-	8375,
-	8375,
-	8375,
-	8375,
-	8375,
-	8112,
-	6773,
-	3970,
-	6663,
-	6739,
-	8375,
-	6773,
+	2195,
+	4977,
+	6798,
+	6798,
+	6798,
+	6798,
+	3968,
+	12214,
+	3975,
+	3975,
+	8425,
+	8425,
+	3975,
+	8425,
+	8425,
+	8425,
+	8425,
+	8425,
+	8425,
+	8425,
+	8425,
+	8161,
+	6798,
+	3975,
+	6688,
+	6764,
+	8425,
+	6798,
 	1441,
-	3970,
-	6773,
-	8222,
-	8112,
-	4964,
-	8375,
-	8375,
-	8375,
-	3655,
-	8375,
-	10391,
-	12181,
-	8375,
-	8112,
-	8375,
-	6773,
-	3970,
-	3970,
-	6663,
-	6739,
-	6773,
-	6773,
-	3970,
-	6773,
-	6773,
-	6773,
-	8375,
-	8375,
-	8375,
-	8375,
-	8375,
-	8375,
-	8375,
-	8375,
-	8375,
-	8375,
-	8375,
-	8375,
-	8375,
-	6773,
+	3975,
+	6798,
+	8271,
+	8161,
+	4977,
+	8425,
+	8425,
+	8425,
+	3659,
+	8425,
+	10444,
+	12262,
+	8425,
+	8161,
+	8425,
+	6798,
+	3975,
+	3975,
+	6688,
+	6764,
+	6798,
+	6798,
+	3975,
+	6798,
+	6798,
+	6798,
+	8425,
+	8425,
+	8425,
+	8425,
+	8425,
+	8425,
+	8425,
+	8425,
+	8425,
+	8425,
+	8425,
+	8425,
+	8425,
+	6798,
 	1441,
-	3970,
-	3970,
-	6773,
-	8112,
-	6663,
-	8222,
-	8112,
-	4964,
-	8375,
-	5732,
-	8222,
-	12574,
-	6773,
-	8222,
-	8222,
-	3970,
-	8185,
-	3963,
-	6773,
+	3975,
+	3975,
+	6798,
+	8161,
+	6688,
+	8271,
+	8161,
+	4977,
+	8425,
+	5746,
+	8271,
+	12667,
+	6798,
+	8271,
+	8271,
+	3975,
+	8234,
+	3968,
+	6798,
 };
 static const Il2CppTokenRangePair s_rgctxIndices[1] = 
 {
@@ -887,7 +891,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_UnityEngine_Advertisements_CodeGenMo
 const Il2CppCodeGenModule g_UnityEngine_Advertisements_CodeGenModule = 
 {
 	"UnityEngine.Advertisements.dll",
-	225,
+	226,
 	s_methodPointers,
 	0,
 	NULL,
