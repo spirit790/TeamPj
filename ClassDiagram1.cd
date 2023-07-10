@@ -3,9 +3,9 @@
   <Class Name="GameManager" Collapsed="true">
     <Position X="8.5" Y="1.5" Width="1.5" />
     <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Properties" Collapsed="true" />
       <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <NestedTypes>
       <Enum Name="GameManager.Modes" Collapsed="true">
@@ -91,14 +91,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="InviteSystem" Collapsed="true">
-    <Position X="12.75" Y="2" Width="1.5" />
+    <Position X="10.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IIACQEAARGAkQJACAgQNAEIgiAAICEgEmABUAgiAUAg=</HashCode>
       <FileName>Assets\01_Scripts\Network\InviteSystem.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MatchSystem" Collapsed="true">
-    <Position X="12.75" Y="2.75" Width="1.5" />
+    <Position X="12.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAgAAAEAAAAACEAEQgAIEAAJYACAC0CAEgAAAIII=</HashCode>
       <FileName>Assets\01_Scripts\Network\MatchSystem.cs</FileName>
@@ -162,14 +162,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Launcher" Collapsed="true">
-    <Position X="12.75" Y="0.5" Width="1.5" />
+    <Position X="7.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAACAAAAAAAEEAAIAAAAAAAAAIgAAAgAAAAEA=</HashCode>
       <FileName>Assets\01_Scripts\Network\Launcher.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PrefabPool" Collapsed="true">
-    <Position X="12.75" Y="1.25" Width="1.5" />
+    <Position X="9" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\01_Scripts\Network\PrefabPool.cs</FileName>
