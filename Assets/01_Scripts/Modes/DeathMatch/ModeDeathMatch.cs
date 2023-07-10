@@ -30,8 +30,7 @@ public class ModeDeathMatch : Mode
 
     protected override void GameOverControl()
     {
-        txtTimeLimit.text = targetKill.ToString();
-        txtTimeLimit.text += "\n" + GameManager.Instance.playerKills;
+        txtTimeLimit.text = GameManager.Instance.playerKills + " / "+ targetKill.ToString() + " Kills";
     }
 
     protected override void PlayerKillControl()
@@ -39,7 +38,7 @@ public class ModeDeathMatch : Mode
         base.PlayerKillControl();
         if (targetKill == GameManager.Instance.playerKills)
         {
-            txtTimeLimit.text += "\n" + GameManager.Instance.playerKills;
+            txtTimeLimit.text += GameManager.Instance.playerKills + " / " + targetKill.ToString() + " Kills";
             GameManager.Instance.IsWin = true;
             photonView.RPC(nameof(PunGameOver), RpcTarget.All);
         }
