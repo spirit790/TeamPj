@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="8.5" Y="1.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="GameManager.Modes" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\01_Scripts\GameManagers\GameManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>CBAAgQiAEqAAEIACABBgUQgAURHEBAACaAEUYAoIIEg=</HashCode>
+      <FileName>Assets\01_Scripts\GameManagers\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOptionManager" Collapsed="true">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BASAACQAiAwIAAQCAAAgAEAAABBEgAAaUAAAAABJhEA=</HashCode>
+      <FileName>Assets\01_Scripts\GameManagers\GameOptionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoogleManager" Collapsed="true">
+    <Position X="6.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwQAgEACAABQIADgAAACAQRABAABAAQAAQAAHAEMA=</HashCode>
+      <FileName>Assets\01_Scripts\GameManagers\GoogleManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapGenerator" Collapsed="true">
+    <Position X="1.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACgBEIAEAgJwcAXAbBgwAJAAIAggIAAQWAAAACUBiMA=</HashCode>
+      <FileName>Assets\01_Scripts\GameManagers\MapGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mode" Collapsed="true">
+    <Position X="2.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAUhAUBAAADxQAIQAAEAICAAABAAKCEBAQkUEKIEDE=</HashCode>
+      <FileName>Assets\01_Scripts\Modes\Mode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModeAreaConquer" Collapsed="true">
+    <Position X="2.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACASAACAEBAAAAAACAAAAIAAAAAAAAAAAAE=</HashCode>
+      <FileName>Assets\01_Scripts\Modes\AreaConquer\ModeAreaConquer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModeBattleRoyal" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACADAAAEABAEAAMAAAAAAIAAGAAAAAAAAAA=</HashCode>
+      <FileName>Assets\01_Scripts\Modes\BattleRoyal\ModeBattleRoyal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModeDeathMatch" Collapsed="true">
+    <Position X="4.5" Y="2.75" Width="1.5" />
+    <InheritanceLine Type="Mode" ManuallyRouted="true">
+      <Path>
+        <Point X="3.25" Y="1.941" />
+        <Point X="3.25" Y="2.438" />
+        <Point X="5.25" Y="2.438" />
+        <Point X="5.25" Y="2.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAQAFQAQDBAABAAAAAABAAAIAAIAAEABgAAAAQAA=</HashCode>
+      <FileName>Assets\01_Scripts\Modes\DeathMatch\ModeDeathMatch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TargetArea" Collapsed="true">
+    <Position X="2.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAAAAAIAAAAAAAEAAQIAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\01_Scripts\Modes\AreaConquer\TargetArea.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeadZone" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACDAAAACAACAAAAAgAAAAAIAAQACAAAAAAAA=</HashCode>
+      <FileName>Assets\01_Scripts\Modes\BattleRoyal\DeadZone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InviteSystem" Collapsed="true">
+    <Position X="12.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIACQEAARGAkQJACAgQNAEIgiAAICEgEmABUAgiAUAg=</HashCode>
+      <FileName>Assets\01_Scripts\Network\InviteSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MatchSystem" Collapsed="true">
+    <Position X="12.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAgAAAEAAAAACEAEQgAIEAAJYACAC0CAEgAAAIII=</HashCode>
+      <FileName>Assets\01_Scripts\Network\MatchSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerController" Collapsed="true">
+    <Position X="9" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQBAgABMCKgIABBIAAgEAgAAJQACAhAAQAACAQACGg=</HashCode>
+      <FileName>Assets\01_Scripts\PlayerScript\PlayerController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FollowCam" Collapsed="true">
+    <Position X="7.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAEAAAAAAAAAAAAAAAAAAAAAAAgSAAAAAAAA=</HashCode>
+      <FileName>Assets\01_Scripts\PlayerScript\FollowCam.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerAttack" Collapsed="true">
+    <Position X="10.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAMAAAAAAIAACAFAAAAGACIAAAAAAAwABAAAAAJAA=</HashCode>
+      <FileName>Assets\01_Scripts\PlayerScript\PlayerAttack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JoyStick" Collapsed="true">
+    <Position X="10.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACggAAAACDIAAAAAABAAAJAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\01_Scripts\PlayerScript\JoyStick.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CharacterAnimation" Collapsed="true">
+    <Position X="9" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARxBEAAACAAEAAAAAAABAAAkgAAhQAAAABAAAAAAIA=</HashCode>
+      <FileName>Assets\01_Scripts\AnimationScripts\CharacterAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AIPattern" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQRACAEEAAAAQEAAAACQABAADAISAAIIAAAUAAACEA=</HashCode>
+      <FileName>Assets\01_Scripts\AI\AIPattern.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BannerAds" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAACACCQAAAAEAAAAAAAAAAEAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Assets\01_Scripts\Ads\BannerAds.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InterstitialAds" Collapsed="true">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACCAAAAAAAAAAAAAAAAEAQAQAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\01_Scripts\Ads\InterstitialAds.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Launcher" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAACAAAAAAAEEAAIAAAAAAAAAIgAAAgAAAAEA=</HashCode>
+      <FileName>Assets\01_Scripts\Network\Launcher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PrefabPool" Collapsed="true">
+    <Position X="12.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\01_Scripts\Network\PrefabPool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DashBtn" Collapsed="true">
+    <Position X="12.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAABCAAAAAAAACACAAAAAABAAAAAAAAAAQAAEA=</HashCode>
+      <FileName>Assets\01_Scripts\PlayerScript\DashBtn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DashGauge" Collapsed="true">
+    <Position X="12.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAMAAAAAAAAAAAAAAAAAAACBACAQAQEA=</HashCode>
+      <FileName>Assets\01_Scripts\PlayerScript\DashGauge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>
