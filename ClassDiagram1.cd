@@ -7,13 +7,6 @@
       <Compartment Name="Methods" Collapsed="true" />
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
-    <NestedTypes>
-      <Enum Name="GameManager.Modes" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Assets\01_Scripts\GameManagers\GameManager.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>CBAAgQiAEqAAEIACABBgUQgAURHEBAACaAEUYAoIIEg=</HashCode>
       <FileName>Assets\01_Scripts\GameManagers\GameManager.cs</FileName>
@@ -187,6 +180,48 @@
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAMAAAAAAAAAAAAAAAAAAACBACAQAQEA=</HashCode>
       <FileName>Assets\01_Scripts\PlayerScript\DashGauge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SilhouetteRadar" Collapsed="true">
+    <Position X="3" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEACACAAAEAAAAAUAAAAAQAAAIIAAAAAAEAAAAA=</HashCode>
+      <FileName>Assets\01_Scripts\EnvScripts\SilhouetteRadar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MeshVisionGen" Collapsed="true">
+    <Position X="3" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAACAAAAAAAgAAAQgSSAAwIAQYAAABgQAAQAA=</HashCode>
+      <FileName>Assets\01_Scripts\EnvScripts\MeshVisionGen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainThemeChanger" Collapsed="true">
+    <Position X="1.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACQAAgCAAAAIAgEAQIAAAAIEAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\01_Scripts\EnvScripts\MainThemeChanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StartRot" Collapsed="true">
+    <Position X="1.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\01_Scripts\EnvScripts\StartRot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThroughWallVision" Collapsed="true">
+    <Position X="4.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAECEAACgAAAAAAAAAACAIAABAAAAAAAAAAAAgQAA=</HashCode>
+      <FileName>Assets\01_Scripts\EnvScripts\ThroughWallVision.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WheatherChanger" Collapsed="true">
+    <Position X="4.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAYAAgCAAAAIAgEAQIAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\01_Scripts\EnvScripts\WheatherChanger.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="맑은 고딕" Size="9" />
