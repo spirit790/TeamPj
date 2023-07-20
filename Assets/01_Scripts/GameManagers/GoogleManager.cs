@@ -106,6 +106,58 @@ public class GoogleManager : MonoBehaviour
         });
     }
 
+    IEnumerator CheckNicknames(string nickName)
+    {
+        FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
+        yield return db.Collection("users").GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            QuerySnapshot snapshot = task.Result;
+            List<string> nickNames = new List<string>();
+            foreach (var s in snapshot)
+            {
+                nickNames.Add(s.ToDictionary()["NickName"].ToString());
+            }
+            nickNames.Sort();
+            if(BinarySearch(nickNames, nickName))
+            {
+                // 회원가입 실패, 중복 닉네임
+            }
+            else
+            {
+                // 회원가입 성공
+            }
+        });
+
+
+    }
+
+    bool BinarySearch(List<string> list, string target)
+    {
+        int firstIndex = 0;
+        int lastIndex = list.Count - 1;
+        int middleIndex;
+        while(firstIndex<= lastIndex)
+        {
+            middleIndex = (firstIndex + lastIndex) / 2;
+            if (target.Equals(list[middleIndex]))
+            {
+                return true;
+            }
+            else
+            {
+                if (target.CompareTo(list[middleIndex])<0)
+                {
+                    lastIndex = middleIndex - 1;
+                }
+                else
+                {
+                    firstIndex = middleIndex + 1;
+                }
+            }
+        }
+        return false;
+    }
+
     public void OnCreateUser()
     {
         StartCoroutine(CreateUserInfo(nickNameInput.text));
