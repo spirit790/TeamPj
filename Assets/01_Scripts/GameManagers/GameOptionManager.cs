@@ -53,14 +53,7 @@ public class GameOptionManager : MonoBehaviour
     {
         if (scene.buildIndex > 0)
         {
-            bgmPlayer = GameObject.FindWithTag("BgmPlayer").GetComponent<AudioSource>();
-            optionPanel = GameObject.FindWithTag("OptionPanel").transform.GetChild(0).gameObject;
-            bgmSlider = optionPanel.transform.GetChild(1).GetComponent<Slider>();
-            sfxSlider = optionPanel.transform.GetChild(2).GetComponent<Slider>();
-            localEngBtn = optionPanel.transform.GetChild(3).Find("Eng").GetComponent<Button>();
-            localKorBtn = optionPanel.transform.GetChild(3).Find("Kor").GetComponent<Button>();
-            closeBtn = optionPanel.transform.GetChild(4).GetComponent<Button>();
-            quitBtn = optionPanel.transform.GetChild(5).GetComponent<Button>();
+            FindOptionPenal();
 
             quitBtn.onClick.AddListener(AppQuitBtn);
             closeBtn.onClick.AddListener(CloseOptionPanelBtn);
@@ -70,41 +63,22 @@ public class GameOptionManager : MonoBehaviour
             localKorBtn.onClick.AddListener(() => ChangeLocale(1));
 
             PlayerPrefabLoad();
+
+            optionPanel.SetActive(false);
         }
 
-        
-        if (scene.buildIndex == 1)
-        {
-            Debug.Log("introBgm");
-            bgmPlayer.clip = bgmClips[0];
-            bgmPlayer.volume = bgmVol;
-            bgmPlayer.loop = true;
-            bgmPlayer.Play();
-        }
-        if (scene.buildIndex == 2)
-        {
-            Debug.Log("정글BGM");
-            bgmPlayer.clip = bgmClips[1];
-            bgmPlayer.volume = bgmVol;
-            bgmPlayer.loop = true;
-            bgmPlayer.Play();
-        }
-        if (scene.buildIndex == 3)
-        {
-            Debug.Log("스쿨BGM");
-            bgmPlayer.clip = bgmClips[2];
-            bgmPlayer.volume = bgmVol;
-            bgmPlayer.loop = true;
-            bgmPlayer.Play();
-        }
-        if (scene.buildIndex == 4)
-        {
-            Debug.Log("타워BGM");
-            bgmPlayer.clip = bgmClips[3];
-            bgmPlayer.volume = bgmVol;
-            bgmPlayer.loop = true;
-            bgmPlayer.Play();
-        }
+        BgmSoundChang(scene);
+    }
+    private void FindOptionPenal()
+    {
+        bgmPlayer = GameObject.FindWithTag("BgmPlayer").GetComponent<AudioSource>();
+        optionPanel = GameObject.FindWithTag("OptionPanel").gameObject;
+        bgmSlider = optionPanel.transform.GetChild(1).GetComponent<Slider>();
+        sfxSlider = optionPanel.transform.GetChild(2).GetComponent<Slider>();
+        localEngBtn = optionPanel.transform.GetChild(3).Find("Eng").GetComponent<Button>();
+        localKorBtn = optionPanel.transform.GetChild(3).Find("Kor").GetComponent<Button>();
+        closeBtn = optionPanel.transform.GetChild(4).GetComponent<Button>();
+        quitBtn = optionPanel.transform.GetChild(5).GetComponent<Button>();
     }
 
 
@@ -170,7 +144,7 @@ public class GameOptionManager : MonoBehaviour
     /// case추가하시고 소리가 나야하는 스크립트 위치에 가져오셔서 PlayBgmSound("???")로 쓰면됩니다.
     /// </summary>
     /// <param name="type"></param>
-    public void PlayBgmSound(string type,float vol)
+    void PlayBgmSound(string type,float vol)
     {
         int index = 0;
 
@@ -189,11 +163,48 @@ public class GameOptionManager : MonoBehaviour
         bgmPlayer.loop = true;
         bgmPlayer.Play();        
     }
+
+    void BgmSoundChang(Scene scene)
+    {
+        if (scene.buildIndex == 1)
+        {
+            Debug.Log("introBgm");
+            bgmPlayer.clip = bgmClips[0];
+            bgmPlayer.volume = bgmVol;
+            bgmPlayer.loop = true;
+            bgmPlayer.Play();
+        }
+        if (scene.buildIndex == 2)
+        {
+            Debug.Log("정글BGM");
+            bgmPlayer.clip = bgmClips[1];
+            bgmPlayer.volume = bgmVol;
+            bgmPlayer.loop = true;
+            bgmPlayer.Play();
+        }
+        if (scene.buildIndex == 3)
+        {
+            Debug.Log("스쿨BGM");
+            bgmPlayer.clip = bgmClips[2];
+            bgmPlayer.volume = bgmVol;
+            bgmPlayer.loop = true;
+            bgmPlayer.Play();
+        }
+        if (scene.buildIndex == 4)
+        {
+            Debug.Log("타워BGM");
+            bgmPlayer.clip = bgmClips[3];
+            bgmPlayer.volume = bgmVol;
+            bgmPlayer.loop = true;
+            bgmPlayer.Play();
+        }
+    }
+
+
     /// <summary>
     /// case추가하시고 소리가 나야하는 스크립트 위치에 가져오셔서 PlaySfxSound("???")로 쓰면됩니다.
     /// </summary>
     /// <param name="type"></param>
-
     public void PlaySfxSound(string type, Vector3 position,float vol)
     {
         int index = 0;
