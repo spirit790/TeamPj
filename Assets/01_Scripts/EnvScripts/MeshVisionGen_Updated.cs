@@ -202,7 +202,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
      * note:
      * 0 == 모델링
      * 1 == 표정
-     * 2 == 아웃라인
+     * length-1 == 아웃라인
      * 
      * acc 0 == 무기
      * acc 1 == 그림자

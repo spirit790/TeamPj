@@ -31,13 +31,12 @@ public class SilhouetteRadar : MonoBehaviour
     {
         while (playerTr != null)
         {
-
             Debug.DrawLine(playerTr.position, playerTr.position + Vector3.right * radarRange, Color.red, 2f, true);
             var actors = Physics.OverlapSphere(playerTr.position, radarRange, layerMask);
 
             foreach (var actor in actors)
             {
-                if (actor.transform.parent.gameObject.GetPhotonView().IsMine) continue;
+                //if (actor.transform.parent.gameObject.GetPhotonView().IsMine) continue;
 
                 StartCoroutine(RadarFade(actor.transform, radarTime));
             }
@@ -47,8 +46,7 @@ public class SilhouetteRadar : MonoBehaviour
     }
 
     IEnumerator RadarFade(Transform actor, float freq)
-    {
-        
+    {      
         if (actor == null) yield break;
 
         float rnd = Random.Range(5, 15) * 0.1f;
