@@ -6,7 +6,7 @@ using Photon.Pun;
 
 public class SilhouetteRadar : MonoBehaviour
 {
-    private Transform playerTr;
+    public Transform playerTr;
     public int radarMaskNum = 6;
     private int layerMask;
     public float radarTime = 2f;
@@ -19,16 +19,15 @@ public class SilhouetteRadar : MonoBehaviour
         DOTween.Init();
         layerMask = 1 << radarMaskNum;
 
-
         yield return null;
 
         actorRenderers = GameObject.Find("Vision").GetComponent<MeshVisionGen_Updated>().actorRenderers;
 
-        StartCoroutine(InvisibleRadar());
+        StartCoroutine(VisionRadar());
     }
 
 
-    IEnumerator InvisibleRadar()
+    IEnumerator VisionRadar()
     {
         while (playerTr != null)
         {
@@ -56,14 +55,12 @@ public class SilhouetteRadar : MonoBehaviour
 
         yield return new WaitForSeconds(rnd);
 
-        actorRenderers[actor][0].material.DOFade(1, freq * 0.5f);
         actorRenderers[actor][2].material.DOFade(1, freq * 0.5f);
 
         //Debug.Log(actor.name + "¹à¾ÆÁø´Ù~");
 
         yield return new WaitForSeconds(freq * 0.5f);
 
-        actorRenderers[actor][0].material.DOFade(0, freq * 0.5f);
         actorRenderers[actor][2].material.DOFade(0, freq * 0.5f);
         //Debug.Log(actor.name + "Èå·ÁÁø´Ù~");
 

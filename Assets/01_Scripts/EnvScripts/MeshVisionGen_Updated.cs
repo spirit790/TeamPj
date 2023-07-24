@@ -187,14 +187,10 @@ public class MeshVisionGen_Updated : MonoBehaviour
         {
             if (Mathf.Acos(Vector3.Dot(targetTr.forward, (trs[i].position - transform.position).normalized)) * Mathf.Rad2Deg >= lightAngle * 0.5f)
             {
-
                 ChangeMeshVisiblity(trs[i], false, 6);
                 actorRenderers[trs[i]][0].material.renderQueue = invisibleRenderQueue;
 
-
                 trs[i].gameObject.layer = 6;
-
-                FadeActors(actorRenderers[trs[i]][2], 0, 1f);
 
                 trs.Remove(trs[i]);
             }
@@ -202,21 +198,33 @@ public class MeshVisionGen_Updated : MonoBehaviour
 
     }
 
+    /*
+     * note:
+     * 0 == 모델링
+     * 1 == 표정
+     * 2 == 아웃라인
+     * 
+     * acc 0 == 무기
+     * acc 1 == 그림자
+     */
+
     private void ChangeMeshVisiblity(Transform actors, bool isVisible, int targetLayer)
     {
         if (actors == null) return;
 
-        for (int i = 0; i < actorRenderers[actors].Length; i++)
+        for (int i = 0; i < actorRenderers[actors].Length - 1; i++)
         {
             actorRenderers[actors][i].enabled = isVisible;
-            actorRenderers[actors][i].gameObject.layer = targetLayer;
+            //actorRenderers[actors][i].gameObject.layer = targetLayer;
         }
+
+        actorRenderers[actors][actorRenderers[actors].Length - 1].enabled = !isVisible;
+        actorRenderers[actors][actorRenderers[actors].Length - 1].material.DOFade(isVisible? 1 : 0, 1f);
 
         for (int j = 0; j < accRenderers[actors].Length; j++)
         {
             accRenderers[actors][j].enabled = isVisible;
-            accRenderers[actors][j].gameObject.layer = targetLayer;
-
+            //accRenderers[actors][j].gameObject.layer = targetLayer;
         }
     }
 
