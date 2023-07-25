@@ -275,7 +275,7 @@ public class Mode : MonoBehaviourPunCallbacks
     {
         GameManager.Instance.IsDead = true;
         photonView.RPC(nameof(RpcPlayerDie), RpcTarget.All);
-        myPlayerObject = Instantiate(GhostPlyaerPrefab, new Vector3(mapWidth / 2, 0, mapHeight / 2), Quaternion.identity);
+        myPlayerObject = Instantiate(GhostPlyaerPrefab, new Vector3(mapWidth / 2, 1f, mapHeight / 2), Quaternion.identity);
         Camera.main.GetComponent<FollowCam>().SetCamTarget(myPlayerObject);
     }
 
