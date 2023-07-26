@@ -143,6 +143,11 @@ public class PlayerController : MonoBehaviourPun
 
     void OnClickAtk()
     {
+        Debug.Log("AttackBtn");
+        if (attackCoroutine != null)
+            Debug.Log("attackCoroutine not null");
+        else
+            Debug.Log("attackCoroutine is null");
         if(photonView.IsMine && attackCoroutine == null && !isStun)
             attackCoroutine = StartCoroutine(Attack());
     }
