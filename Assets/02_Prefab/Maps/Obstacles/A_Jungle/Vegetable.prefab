@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5866190841540663563}
   m_Layer: 9
   m_Name: Vegetable
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 91
