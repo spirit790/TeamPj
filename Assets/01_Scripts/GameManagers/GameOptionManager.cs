@@ -14,7 +14,7 @@ public class GameOptionManager : MonoBehaviour
     {
         return instance;
     }
-   
+
     Slider bgmSlider;
     Slider sfxSlider;
     GameObject optionPanel;
@@ -25,7 +25,7 @@ public class GameOptionManager : MonoBehaviour
     Button localKorBtn;
 
     public GameObject touchImage;
-    
+
     public float sfxVol;
     public float bgmVol;
     public int loCalIndex;
@@ -36,7 +36,7 @@ public class GameOptionManager : MonoBehaviour
 
     private void Awake()
     {
-        
+
         if (instance == null)
         {
             instance = this;
@@ -47,7 +47,7 @@ public class GameOptionManager : MonoBehaviour
             Destroy(gameObject);
         }
         SceneManager.sceneLoaded += OnSceneLoaded;
-        
+
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -109,7 +109,7 @@ public class GameOptionManager : MonoBehaviour
         }
 #endif
     }
-    
+
 
 
     //현지화 변수와 함수
@@ -144,7 +144,7 @@ public class GameOptionManager : MonoBehaviour
     /// case추가하시고 소리가 나야하는 스크립트 위치에 가져오셔서 PlayBgmSound("???")로 쓰면됩니다.
     /// </summary>
     /// <param name="type"></param>
-    void PlayBgmSound(string type,float vol)
+    void PlayBgmSound(string type, float vol)
     {
         int index = 0;
 
@@ -161,7 +161,7 @@ public class GameOptionManager : MonoBehaviour
         bgmPlayer.clip = bgmClips[index];
         bgmPlayer.volume = vol;
         bgmPlayer.loop = true;
-        bgmPlayer.Play();        
+        bgmPlayer.Play();
     }
 
     void BgmSoundChang(Scene scene)
@@ -205,7 +205,7 @@ public class GameOptionManager : MonoBehaviour
     /// case추가하시고 소리가 나야하는 스크립트 위치에 가져오셔서 PlaySfxSound("???")로 쓰면됩니다.
     /// </summary>
     /// <param name="type"></param>
-    public void PlaySfxSound(string type, Vector3 position,float vol)
+    public void PlaySfxSound(string type, Vector3 position, float vol)
     {
         int index = 0;
 
@@ -220,7 +220,7 @@ public class GameOptionManager : MonoBehaviour
         }
         GameObject soundObject = new GameObject("SfxSound");
         soundObject.transform.position = position;
-        
+
         AudioSource sfxPlayer = soundObject.AddComponent<AudioSource>();
         sfxPlayer.clip = sfxClips[index];
         sfxPlayer.volume = vol;
@@ -237,7 +237,7 @@ public class GameOptionManager : MonoBehaviour
     }
     void ChangeSfxVol(float sfxVol)
     {
-        this.sfxVol = sfxVol;        
+        this.sfxVol = sfxVol;
     }
     /// <summary>
     /// 확률적 터치소리변경
@@ -250,14 +250,14 @@ public class GameOptionManager : MonoBehaviour
         {
             PlaySfxSound("Touch", transform.position, sfxVol);
         }
-        else if(randomSfx >=50 && randomSfx <=80)
+        else if (randomSfx >= 50 && randomSfx <= 80)
         {
             PlaySfxSound("Touch1", transform.position, sfxVol);
         }
-        else if(randomSfx > 80)
+        else if (randomSfx > 80)
         {
             PlaySfxSound("Touch2", transform.position, sfxVol);
-        }        
+        }
     }
     #endregion
     void TouchImage()

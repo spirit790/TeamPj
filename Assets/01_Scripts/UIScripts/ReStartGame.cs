@@ -6,16 +6,6 @@ using Photon.Pun;
 
 public class ReStartGame : MonoBehaviourPun
 {
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void BtnReStartGame()
     {
         if(int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeySystem].ToString()) == 0)
