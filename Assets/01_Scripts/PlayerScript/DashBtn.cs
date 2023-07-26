@@ -11,10 +11,7 @@ public class DashBtn : MonoBehaviour
     float sfxLength;
 
     public bool IsCheck;
-    private void Awake()
-    {
-        
-    }
+ 
     private void Start()
     {
         gameOptionManager = GameOptionManager.Instance();

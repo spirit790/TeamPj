@@ -20,6 +20,7 @@ public class TargetArea : MonoBehaviourPun
             if (!isOwnerStay)
             {
                 PlayerController owner = other.gameObject.GetComponentInParent<PlayerController>();
+                Debug.Log(owner.photonView.ViewID);
                 photonView.RPC(nameof(SetAreaOwnerRPC), RpcTarget.All, owner.photonView.ViewID);
                 photonView.RPC(nameof(SetIsOwnerStayRPC), RpcTarget.All, true);
             }
@@ -27,10 +28,16 @@ public class TargetArea : MonoBehaviourPun
     }
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject == modeArea.AreaOwner)
+        if (other.gameObject.CompareTag("Player"))
         {
-            photonView.RPC(nameof(SetIsOwnerStayRPC), RpcTarget.All, false);
+            Debug.Log(other.gameObject.name);
+            if (other.gameObject.GetComponentInParent<PlayerController>() == modeArea.AreaOwner)
+            {
+                Debug.Log(other.gameObject.name);
+                photonView.RPC(nameof(SetIsOwnerStayRPC), RpcTarget.All, false);
+            }
         }
+
     }
     [PunRPC]
     void SetAreaOwnerRPC(int ownerViewId)
