@@ -251,8 +251,6 @@ struct IComparer_1_tAF8360BADED7DF82BE0044A6EAD9E96EDA1A57DE;
 struct IComparer_1_t46501DC9B3E110842C88D4C9E39AC99B3ACA538C;
 // System.Collections.Generic.IComparer`1<UnityEngine.Rendering.Universal.DecalEntityManager/CombinedChunks>
 struct IComparer_1_t3E858919FA7B1FF37B45A1C81BC058E7012B1419;
-// System.Collections.Generic.IComparer`1<UnityEngine.ResourceManagement.Util.DelayedActionManager/DelegateInfo>
-struct IComparer_1_tD7CE42F68B9558E2FA960684389165142A85568B;
 // System.Collections.Generic.IComparer`1<UnityEngine.Localization.Pseudo.Expander/ExpansionRule>
 struct IComparer_1_tC3FD273E5E00F68ED75C49937C9A99A8107B9C0B;
 // System.Collections.Generic.IComparer`1<UnityEngine.UIElements.FocusController/FocusedElement>
@@ -593,8 +591,6 @@ struct CharTransformU5BU5D_t027CA846E6C48A4EDD42A279BB9702B4381DDD35;
 struct DecalEntityItemU5BU5D_t4667E6B7E7BCD5313A0D07A782F44A8954080359;
 // UnityEngine.Rendering.Universal.DecalEntityManager/CombinedChunks[]
 struct CombinedChunksU5BU5D_tE1B967C0ED5D0439978E22BAE927DAB629A4E5DD;
-// UnityEngine.ResourceManagement.Util.DelayedActionManager/DelegateInfo[]
-struct DelegateInfoU5BU5D_tBCC10C3DD4D55DB1585CC2DB859B317633BC3EBC;
 // UnityEngine.UIElements.EventDispatcher/DispatchContext[]
 struct DispatchContextU5BU5D_t23932F8BEADFC827A9CA5636867F6721AD971757;
 // UnityEngine.UIElements.EventDispatcher/EventRecord[]
@@ -725,8 +721,6 @@ struct DecalCulledChunk_tFD4472F0ADDD173C7B13E8B0529983E745F12ED3;
 struct DecalDrawCallChunk_tBD0491A1B0B7D19DF01A5C9EDE0A40CBEDBF7A3A;
 // UnityEngine.Rendering.Universal.DecalEntityChunk
 struct DecalEntityChunk_t2CDCBFA35711DA074631D26572EF9755A3AD740C;
-// System.Delegate
-struct Delegate_t;
 // System.DelegateData
 struct DelegateData_t9B286B493293CD2D23A5B2B5EF0E5B1324C2B77E;
 // UnityEngine.UIElements.EventBase
@@ -917,7 +911,6 @@ IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisDebugLogEntryTimestam
 IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisDecalEntityItem_tE2209120E111E679725F7022B0C54DEC6783EA5D_m3D70C1C745D8C46668D9F94BAE932C42D435F10D_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisDecimal_tDA6C877282B2D789CF97C0949661CC11D643969F_mD60EDDCF5F6F5E9C54B47E6B83671344E82E2004_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisDeferredCallbackRegisterRequest_tA5BE4066185FD0EB6B33A28B02B58660CE4A22AD_m5590C5DD2DA20D3916BC396D86A051AD282797CD_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisDelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232_mCE25B26EDB89CEB8BD8613F5E7C7CCFB711BB701_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisDiagnosticEvent_t33E1175DA005D137D20535AB25ACE16837A3A274_m7D8DB52506FEA4611555DDD1C8A5B4ABC1D4F2B8_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisDictionaryEntry_t171080F37B311C25AA9E75888F9C9D703FA721BB_mB3EE72E8B5424AAE711969FEBAB73D47C30D5B29_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisDoublePoint_t446FD90BD115DB77200658E482706463B1E514AF_mA1A0D5EABCEBACB97C77632F60C22F6CFC28DD8D_RuntimeMethod_var;
@@ -1183,7 +1176,6 @@ struct PolygonSolutionU5BU5D_tDC8E369D0146C6CC52FC6AFA33D7B376F270FC0F;
 struct CharTransformU5BU5D_t027CA846E6C48A4EDD42A279BB9702B4381DDD35;
 struct DecalEntityItemU5BU5D_t4667E6B7E7BCD5313A0D07A782F44A8954080359;
 struct CombinedChunksU5BU5D_tE1B967C0ED5D0439978E22BAE927DAB629A4E5DD;
-struct DelegateInfoU5BU5D_tBCC10C3DD4D55DB1585CC2DB859B317633BC3EBC;
 struct DispatchContextU5BU5D_t23932F8BEADFC827A9CA5636867F6721AD971757;
 struct EventRecordU5BU5D_tB7CC04280192D9B2B4980F107F93ABBBE4E4DCA8;
 struct ExpansionRuleU5BU5D_tD6429BA9F0B8FC966BE920711510C3311D9903DC;
@@ -1795,11 +1787,6 @@ struct ArraySortHelper_1_t9B3A2E95A7236D4B4F51BE856CB74423A2EC2C47  : public Run
 
 // System.Collections.Generic.ArraySortHelper`1<UnityEngine.Rendering.Universal.DecalEntityManager/CombinedChunks>
 struct ArraySortHelper_1_t28C623504EEFAB918E547EAEE6A20A5078F194FA  : public RuntimeObject
-{
-};
-
-// System.Collections.Generic.ArraySortHelper`1<UnityEngine.ResourceManagement.Util.DelayedActionManager/DelegateInfo>
-struct ArraySortHelper_1_tC4A6EDEF657210F0F6EC84913C71D42242F71172  : public RuntimeObject
 {
 };
 
@@ -4004,35 +3991,6 @@ struct CombinedChunks_tCFB3356163B9F9B0E31E0B194E9B415F83340ED9_marshaled_com
 	DecalDrawCallChunk_tBD0491A1B0B7D19DF01A5C9EDE0A40CBEDBF7A3A* ___drawCallChunk_3;
 	int32_t ___previousChunkIndex_4;
 	int32_t ___valid_5;
-};
-
-// UnityEngine.ResourceManagement.Util.DelayedActionManager/DelegateInfo
-struct DelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232 
-{
-	// System.Int32 UnityEngine.ResourceManagement.Util.DelayedActionManager/DelegateInfo::m_Id
-	int32_t ___m_Id_1;
-	// System.Delegate UnityEngine.ResourceManagement.Util.DelayedActionManager/DelegateInfo::m_Delegate
-	Delegate_t* ___m_Delegate_2;
-	// System.Object[] UnityEngine.ResourceManagement.Util.DelayedActionManager/DelegateInfo::m_Target
-	ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* ___m_Target_3;
-	// System.Single UnityEngine.ResourceManagement.Util.DelayedActionManager/DelegateInfo::<InvocationTime>k__BackingField
-	float ___U3CInvocationTimeU3Ek__BackingField_4;
-};
-// Native definition for P/Invoke marshalling of UnityEngine.ResourceManagement.Util.DelayedActionManager/DelegateInfo
-struct DelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232_marshaled_pinvoke
-{
-	int32_t ___m_Id_1;
-	Delegate_t_marshaled_pinvoke* ___m_Delegate_2;
-	ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* ___m_Target_3;
-	float ___U3CInvocationTimeU3Ek__BackingField_4;
-};
-// Native definition for COM marshalling of UnityEngine.ResourceManagement.Util.DelayedActionManager/DelegateInfo
-struct DelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232_marshaled_com
-{
-	int32_t ___m_Id_1;
-	Delegate_t_marshaled_com* ___m_Delegate_2;
-	ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* ___m_Target_3;
-	float ___U3CInvocationTimeU3Ek__BackingField_4;
 };
 
 // UnityEngine.UIElements.EventDispatcher/DispatchContext
@@ -7490,15 +7448,6 @@ struct ArraySortHelper_1_t28C623504EEFAB918E547EAEE6A20A5078F194FA_StaticFields
 
 // System.Collections.Generic.ArraySortHelper`1<UnityEngine.Rendering.Universal.DecalEntityManager/CombinedChunks>
 
-// System.Collections.Generic.ArraySortHelper`1<UnityEngine.ResourceManagement.Util.DelayedActionManager/DelegateInfo>
-struct ArraySortHelper_1_tC4A6EDEF657210F0F6EC84913C71D42242F71172_StaticFields
-{
-	// System.Collections.Generic.ArraySortHelper`1<T> System.Collections.Generic.ArraySortHelper`1::s_defaultArraySortHelper
-	ArraySortHelper_1_tC4A6EDEF657210F0F6EC84913C71D42242F71172* ___s_defaultArraySortHelper_0;
-};
-
-// System.Collections.Generic.ArraySortHelper`1<UnityEngine.ResourceManagement.Util.DelayedActionManager/DelegateInfo>
-
 // System.Collections.Generic.ArraySortHelper`1<UnityEngine.Localization.Pseudo.Expander/ExpansionRule>
 struct ArraySortHelper_1_t602466EC3501F07596C397FF7110F890957A4DFD_StaticFields
 {
@@ -8674,15 +8623,6 @@ struct Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3_StaticFields
 // UnityEngine.Rendering.Universal.DecalEntityManager/CombinedChunks
 
 // UnityEngine.Rendering.Universal.DecalEntityManager/CombinedChunks
-
-// UnityEngine.ResourceManagement.Util.DelayedActionManager/DelegateInfo
-struct DelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232_StaticFields
-{
-	// System.Int32 UnityEngine.ResourceManagement.Util.DelayedActionManager/DelegateInfo::s_Id
-	int32_t ___s_Id_0;
-};
-
-// UnityEngine.ResourceManagement.Util.DelayedActionManager/DelegateInfo
 
 // UnityEngine.UIElements.EventDispatcher/DispatchContext
 
@@ -12842,47 +12782,6 @@ struct CombinedChunksU5BU5D_tE1B967C0ED5D0439978E22BAE927DAB629A4E5DD  : public 
 		#endif
 		#if IL2CPP_ENABLE_STRICT_WRITE_BARRIERS
 		Il2CppCodeGenWriteBarrier((void**)&((m_Items + index)->___drawCallChunk_3), (void*)NULL);
-		#endif
-	}
-};
-// UnityEngine.ResourceManagement.Util.DelayedActionManager/DelegateInfo[]
-struct DelegateInfoU5BU5D_tBCC10C3DD4D55DB1585CC2DB859B317633BC3EBC  : public RuntimeArray
-{
-	ALIGN_FIELD (8) DelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232 m_Items[1];
-
-	inline DelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232 GetAt(il2cpp_array_size_t index) const
-	{
-		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
-		return m_Items[index];
-	}
-	inline DelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232* GetAddressAt(il2cpp_array_size_t index)
-	{
-		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
-		return m_Items + index;
-	}
-	inline void SetAt(il2cpp_array_size_t index, DelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232 value)
-	{
-		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
-		m_Items[index] = value;
-		Il2CppCodeGenWriteBarrier((void**)&((m_Items + index)->___m_Delegate_2), (void*)NULL);
-		#if IL2CPP_ENABLE_STRICT_WRITE_BARRIERS
-		Il2CppCodeGenWriteBarrier((void**)&((m_Items + index)->___m_Target_3), (void*)NULL);
-		#endif
-	}
-	inline DelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232 GetAtUnchecked(il2cpp_array_size_t index) const
-	{
-		return m_Items[index];
-	}
-	inline DelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232* GetAddressAtUnchecked(il2cpp_array_size_t index)
-	{
-		return m_Items + index;
-	}
-	inline void SetAtUnchecked(il2cpp_array_size_t index, DelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232 value)
-	{
-		m_Items[index] = value;
-		Il2CppCodeGenWriteBarrier((void**)&((m_Items + index)->___m_Delegate_2), (void*)NULL);
-		#if IL2CPP_ENABLE_STRICT_WRITE_BARRIERS
-		Il2CppCodeGenWriteBarrier((void**)&((m_Items + index)->___m_Target_3), (void*)NULL);
 		#endif
 	}
 };
@@ -21952,187 +21851,115 @@ IL_03c0:
 // System.Action`1<T> GooglePlayGames.Android.AndroidNearbyConnectionClient::ToOnGameThread<GooglePlayGames.BasicApi.Nearby.AdvertisingResult>(System.Action`1<T>)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Action_1_t6D874687563E16B654D295ECDA220ED3E0DF68FE* AndroidNearbyConnectionClient_ToOnGameThread_TisAdvertisingResult_t2F2AC397C9B13D4CB235212DDED875C8BE5E7CFC_mAE6EF9D222A621C06E215956A0E8ABE602DDC58E_gshared (Action_1_t6D874687563E16B654D295ECDA220ED3E0DF68FE* ___0_toConvert, const RuntimeMethod* method) 
 {
-	U3CU3Ec__DisplayClass31_0_1_t626166E20D99571D81511FD437D0BA45790DC674* V_0 = NULL;
-	Action_1_t6D874687563E16B654D295ECDA220ED3E0DF68FE* V_1 = NULL;
 	{
 		U3CU3Ec__DisplayClass31_0_1_t626166E20D99571D81511FD437D0BA45790DC674* L_0 = (U3CU3Ec__DisplayClass31_0_1_t626166E20D99571D81511FD437D0BA45790DC674*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 0));
 		NullCheck(L_0);
 		((  void (*) (U3CU3Ec__DisplayClass31_0_1_t626166E20D99571D81511FD437D0BA45790DC674*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 1)))(L_0, il2cpp_rgctx_method(method->rgctx_data, 1));
-		V_0 = L_0;
-		U3CU3Ec__DisplayClass31_0_1_t626166E20D99571D81511FD437D0BA45790DC674* L_1 = V_0;
+		U3CU3Ec__DisplayClass31_0_1_t626166E20D99571D81511FD437D0BA45790DC674* L_1 = L_0;
 		Action_1_t6D874687563E16B654D295ECDA220ED3E0DF68FE* L_2 = ___0_toConvert;
 		NullCheck(L_1);
 		L_1->___toConvert_0 = L_2;
 		Il2CppCodeGenWriteBarrier((void**)(&L_1->___toConvert_0), (void*)L_2);
 		// return (val) => PlayGamesHelperObject.RunOnGameThread(() => toConvert(val));
-		U3CU3Ec__DisplayClass31_0_1_t626166E20D99571D81511FD437D0BA45790DC674* L_3 = V_0;
-		Action_1_t6D874687563E16B654D295ECDA220ED3E0DF68FE* L_4 = (Action_1_t6D874687563E16B654D295ECDA220ED3E0DF68FE*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
-		NullCheck(L_4);
-		((  void (*) (Action_1_t6D874687563E16B654D295ECDA220ED3E0DF68FE*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_4, (RuntimeObject*)L_3, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
-		V_1 = L_4;
-		goto IL_001d;
-	}
-
-IL_001d:
-	{
-		// }
-		Action_1_t6D874687563E16B654D295ECDA220ED3E0DF68FE* L_5 = V_1;
-		return L_5;
+		Action_1_t6D874687563E16B654D295ECDA220ED3E0DF68FE* L_3 = (Action_1_t6D874687563E16B654D295ECDA220ED3E0DF68FE*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
+		NullCheck(L_3);
+		((  void (*) (Action_1_t6D874687563E16B654D295ECDA220ED3E0DF68FE*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_3, (RuntimeObject*)L_1, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
+		return L_3;
 	}
 }
 // System.Action`1<T> GooglePlayGames.Android.AndroidNearbyConnectionClient::ToOnGameThread<GooglePlayGames.BasicApi.Nearby.ConnectionRequest>(System.Action`1<T>)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Action_1_tC40E26186DDE2EA6C05B44317E07B118EA5107E3* AndroidNearbyConnectionClient_ToOnGameThread_TisConnectionRequest_t4EA9B003366D32C2178CD48CD3954D22E5E56391_m7C598E4EC37721A2D61169EA61C506A0FA9AF5C7_gshared (Action_1_tC40E26186DDE2EA6C05B44317E07B118EA5107E3* ___0_toConvert, const RuntimeMethod* method) 
 {
-	U3CU3Ec__DisplayClass31_0_1_t3FE956CB50AA3D5DCAE92FB18AD908340FB8C246* V_0 = NULL;
-	Action_1_tC40E26186DDE2EA6C05B44317E07B118EA5107E3* V_1 = NULL;
 	{
 		U3CU3Ec__DisplayClass31_0_1_t3FE956CB50AA3D5DCAE92FB18AD908340FB8C246* L_0 = (U3CU3Ec__DisplayClass31_0_1_t3FE956CB50AA3D5DCAE92FB18AD908340FB8C246*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 0));
 		NullCheck(L_0);
 		((  void (*) (U3CU3Ec__DisplayClass31_0_1_t3FE956CB50AA3D5DCAE92FB18AD908340FB8C246*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 1)))(L_0, il2cpp_rgctx_method(method->rgctx_data, 1));
-		V_0 = L_0;
-		U3CU3Ec__DisplayClass31_0_1_t3FE956CB50AA3D5DCAE92FB18AD908340FB8C246* L_1 = V_0;
+		U3CU3Ec__DisplayClass31_0_1_t3FE956CB50AA3D5DCAE92FB18AD908340FB8C246* L_1 = L_0;
 		Action_1_tC40E26186DDE2EA6C05B44317E07B118EA5107E3* L_2 = ___0_toConvert;
 		NullCheck(L_1);
 		L_1->___toConvert_0 = L_2;
 		Il2CppCodeGenWriteBarrier((void**)(&L_1->___toConvert_0), (void*)L_2);
 		// return (val) => PlayGamesHelperObject.RunOnGameThread(() => toConvert(val));
-		U3CU3Ec__DisplayClass31_0_1_t3FE956CB50AA3D5DCAE92FB18AD908340FB8C246* L_3 = V_0;
-		Action_1_tC40E26186DDE2EA6C05B44317E07B118EA5107E3* L_4 = (Action_1_tC40E26186DDE2EA6C05B44317E07B118EA5107E3*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
-		NullCheck(L_4);
-		((  void (*) (Action_1_tC40E26186DDE2EA6C05B44317E07B118EA5107E3*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_4, (RuntimeObject*)L_3, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
-		V_1 = L_4;
-		goto IL_001d;
-	}
-
-IL_001d:
-	{
-		// }
-		Action_1_tC40E26186DDE2EA6C05B44317E07B118EA5107E3* L_5 = V_1;
-		return L_5;
+		Action_1_tC40E26186DDE2EA6C05B44317E07B118EA5107E3* L_3 = (Action_1_tC40E26186DDE2EA6C05B44317E07B118EA5107E3*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
+		NullCheck(L_3);
+		((  void (*) (Action_1_tC40E26186DDE2EA6C05B44317E07B118EA5107E3*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_3, (RuntimeObject*)L_1, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
+		return L_3;
 	}
 }
 // System.Action`1<T> GooglePlayGames.Android.AndroidNearbyConnectionClient::ToOnGameThread<System.Object>(System.Action`1<T>)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* AndroidNearbyConnectionClient_ToOnGameThread_TisRuntimeObject_mC424455860B6E4DE92F4CCCA11A2F2DF0C074B6A_gshared (Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* ___0_toConvert, const RuntimeMethod* method) 
 {
-	U3CU3Ec__DisplayClass31_0_1_t4B1FA6910CF43DC9038C02B311302E155EBA7853* V_0 = NULL;
-	Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* V_1 = NULL;
 	{
 		U3CU3Ec__DisplayClass31_0_1_t4B1FA6910CF43DC9038C02B311302E155EBA7853* L_0 = (U3CU3Ec__DisplayClass31_0_1_t4B1FA6910CF43DC9038C02B311302E155EBA7853*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 0));
 		NullCheck(L_0);
 		((  void (*) (U3CU3Ec__DisplayClass31_0_1_t4B1FA6910CF43DC9038C02B311302E155EBA7853*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 1)))(L_0, il2cpp_rgctx_method(method->rgctx_data, 1));
-		V_0 = L_0;
-		U3CU3Ec__DisplayClass31_0_1_t4B1FA6910CF43DC9038C02B311302E155EBA7853* L_1 = V_0;
+		U3CU3Ec__DisplayClass31_0_1_t4B1FA6910CF43DC9038C02B311302E155EBA7853* L_1 = L_0;
 		Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* L_2 = ___0_toConvert;
 		NullCheck(L_1);
 		L_1->___toConvert_0 = L_2;
 		Il2CppCodeGenWriteBarrier((void**)(&L_1->___toConvert_0), (void*)L_2);
 		// return (val) => PlayGamesHelperObject.RunOnGameThread(() => toConvert(val));
-		U3CU3Ec__DisplayClass31_0_1_t4B1FA6910CF43DC9038C02B311302E155EBA7853* L_3 = V_0;
-		Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* L_4 = (Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
-		NullCheck(L_4);
-		((  void (*) (Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_4, (RuntimeObject*)L_3, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
-		V_1 = L_4;
-		goto IL_001d;
-	}
-
-IL_001d:
-	{
-		// }
-		Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* L_5 = V_1;
-		return L_5;
+		Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* L_3 = (Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
+		NullCheck(L_3);
+		((  void (*) (Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_3, (RuntimeObject*)L_1, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
+		return L_3;
 	}
 }
 // System.Action`2<T1,T2> GooglePlayGames.Android.AndroidNearbyConnectionClient::ToOnGameThread<System.Object,System.Object>(System.Action`2<T1,T2>)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* AndroidNearbyConnectionClient_ToOnGameThread_TisRuntimeObject_TisRuntimeObject_m32980211E831F028A89D25F49D9914A10B98D335_gshared (Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* ___0_toConvert, const RuntimeMethod* method) 
 {
-	U3CU3Ec__DisplayClass32_0_2_t93496A11EE53556C0770A87AFE67A369905858AC* V_0 = NULL;
-	Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* V_1 = NULL;
 	{
 		U3CU3Ec__DisplayClass32_0_2_t93496A11EE53556C0770A87AFE67A369905858AC* L_0 = (U3CU3Ec__DisplayClass32_0_2_t93496A11EE53556C0770A87AFE67A369905858AC*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 0));
 		NullCheck(L_0);
 		((  void (*) (U3CU3Ec__DisplayClass32_0_2_t93496A11EE53556C0770A87AFE67A369905858AC*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 1)))(L_0, il2cpp_rgctx_method(method->rgctx_data, 1));
-		V_0 = L_0;
-		U3CU3Ec__DisplayClass32_0_2_t93496A11EE53556C0770A87AFE67A369905858AC* L_1 = V_0;
+		U3CU3Ec__DisplayClass32_0_2_t93496A11EE53556C0770A87AFE67A369905858AC* L_1 = L_0;
 		Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* L_2 = ___0_toConvert;
 		NullCheck(L_1);
 		L_1->___toConvert_0 = L_2;
 		Il2CppCodeGenWriteBarrier((void**)(&L_1->___toConvert_0), (void*)L_2);
 		// return (val1, val2) => PlayGamesHelperObject.RunOnGameThread(() => toConvert(val1, val2));
-		U3CU3Ec__DisplayClass32_0_2_t93496A11EE53556C0770A87AFE67A369905858AC* L_3 = V_0;
-		Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* L_4 = (Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
-		NullCheck(L_4);
-		((  void (*) (Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_4, (RuntimeObject*)L_3, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
-		V_1 = L_4;
-		goto IL_001d;
-	}
-
-IL_001d:
-	{
-		// }
-		Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* L_5 = V_1;
-		return L_5;
+		Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* L_3 = (Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
+		NullCheck(L_3);
+		((  void (*) (Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_3, (RuntimeObject*)L_1, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
+		return L_3;
 	}
 }
 // System.Action`2<T1,T2> GooglePlayGames.Android.AndroidSavedGameClient::ToOnGameThread<System.Int32Enum,System.Object>(System.Action`2<T1,T2>)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F* AndroidSavedGameClient_ToOnGameThread_TisInt32Enum_tCBAC8BA2BFF3A845FA599F303093BBBA374B6F0C_TisRuntimeObject_m4CD8B1BA3629A1512681AF1249E04E1E16C836AE_gshared (Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F* ___0_toConvert, const RuntimeMethod* method) 
 {
-	U3CU3Ec__DisplayClass17_0_2_t4DE7C5A5E5F6A28404E755BBCAE7A78EB8D348D9* V_0 = NULL;
-	Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F* V_1 = NULL;
 	{
 		U3CU3Ec__DisplayClass17_0_2_t4DE7C5A5E5F6A28404E755BBCAE7A78EB8D348D9* L_0 = (U3CU3Ec__DisplayClass17_0_2_t4DE7C5A5E5F6A28404E755BBCAE7A78EB8D348D9*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 0));
 		NullCheck(L_0);
 		((  void (*) (U3CU3Ec__DisplayClass17_0_2_t4DE7C5A5E5F6A28404E755BBCAE7A78EB8D348D9*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 1)))(L_0, il2cpp_rgctx_method(method->rgctx_data, 1));
-		V_0 = L_0;
-		U3CU3Ec__DisplayClass17_0_2_t4DE7C5A5E5F6A28404E755BBCAE7A78EB8D348D9* L_1 = V_0;
+		U3CU3Ec__DisplayClass17_0_2_t4DE7C5A5E5F6A28404E755BBCAE7A78EB8D348D9* L_1 = L_0;
 		Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F* L_2 = ___0_toConvert;
 		NullCheck(L_1);
 		L_1->___toConvert_0 = L_2;
 		Il2CppCodeGenWriteBarrier((void**)(&L_1->___toConvert_0), (void*)L_2);
 		// return (val1, val2) => PlayGamesHelperObject.RunOnGameThread(() => toConvert(val1, val2));
-		U3CU3Ec__DisplayClass17_0_2_t4DE7C5A5E5F6A28404E755BBCAE7A78EB8D348D9* L_3 = V_0;
-		Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F* L_4 = (Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
-		NullCheck(L_4);
-		((  void (*) (Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_4, (RuntimeObject*)L_3, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
-		V_1 = L_4;
-		goto IL_001d;
-	}
-
-IL_001d:
-	{
-		// }
-		Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F* L_5 = V_1;
-		return L_5;
+		Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F* L_3 = (Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
+		NullCheck(L_3);
+		((  void (*) (Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_3, (RuntimeObject*)L_1, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
+		return L_3;
 	}
 }
 // System.Action`2<T1,T2> GooglePlayGames.Android.AndroidSavedGameClient::ToOnGameThread<System.Object,System.Object>(System.Action`2<T1,T2>)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* AndroidSavedGameClient_ToOnGameThread_TisRuntimeObject_TisRuntimeObject_m6064D32D376D42A59415E6A70440C40E48B63148_gshared (Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* ___0_toConvert, const RuntimeMethod* method) 
 {
-	U3CU3Ec__DisplayClass17_0_2_t8A1546B2521954320663F5A75990D59C6DF57646* V_0 = NULL;
-	Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* V_1 = NULL;
 	{
 		U3CU3Ec__DisplayClass17_0_2_t8A1546B2521954320663F5A75990D59C6DF57646* L_0 = (U3CU3Ec__DisplayClass17_0_2_t8A1546B2521954320663F5A75990D59C6DF57646*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 0));
 		NullCheck(L_0);
 		((  void (*) (U3CU3Ec__DisplayClass17_0_2_t8A1546B2521954320663F5A75990D59C6DF57646*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 1)))(L_0, il2cpp_rgctx_method(method->rgctx_data, 1));
-		V_0 = L_0;
-		U3CU3Ec__DisplayClass17_0_2_t8A1546B2521954320663F5A75990D59C6DF57646* L_1 = V_0;
+		U3CU3Ec__DisplayClass17_0_2_t8A1546B2521954320663F5A75990D59C6DF57646* L_1 = L_0;
 		Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* L_2 = ___0_toConvert;
 		NullCheck(L_1);
 		L_1->___toConvert_0 = L_2;
 		Il2CppCodeGenWriteBarrier((void**)(&L_1->___toConvert_0), (void*)L_2);
 		// return (val1, val2) => PlayGamesHelperObject.RunOnGameThread(() => toConvert(val1, val2));
-		U3CU3Ec__DisplayClass17_0_2_t8A1546B2521954320663F5A75990D59C6DF57646* L_3 = V_0;
-		Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* L_4 = (Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
-		NullCheck(L_4);
-		((  void (*) (Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_4, (RuntimeObject*)L_3, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
-		V_1 = L_4;
-		goto IL_001d;
-	}
-
-IL_001d:
-	{
-		// }
-		Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* L_5 = V_1;
-		return L_5;
+		Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* L_3 = (Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
+		NullCheck(L_3);
+		((  void (*) (Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_3, (RuntimeObject*)L_1, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
+		return L_3;
 	}
 }
 // System.Void GooglePlayGames.Android.AndroidTaskUtils::AddOnCompleteListener<System.Object>(UnityEngine.AndroidJavaObject,System.Action`1<T>)
@@ -22169,13 +21996,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AndroidTaskUtils_AddOnCompleteListener_T
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_001f:
+FINALLY_001d:
 			{// begin finally (depth: 1)
 				{
 					AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_6 = V_0;
 					if (!L_6)
 					{
-						goto IL_0029;
+						goto IL_0026;
 					}
 				}
 				{
@@ -22184,7 +22011,7 @@ FINALLY_001f:
 					InterfaceActionInvoker0::Invoke(0 /* System.Void System.IDisposable::Dispose() */, IDisposable_t030E0496B4E0E4E4F086825007979AF51F7248C5_il2cpp_TypeInfo_var, (RuntimeObject*)L_7);
 				}
 
-IL_0029:
+IL_0026:
 				{
 					return;
 				}
@@ -22192,7 +22019,8 @@ IL_0029:
 		});
 		try
 		{// begin try (depth: 1)
-			goto IL_002a;
+			// using (task.Call<AndroidJavaObject>("addOnCompleteListener", new TaskOnCompleteProxy<T>(callback))) ;
+			goto IL_0027;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -22200,7 +22028,7 @@ IL_0029:
 		}
 	}
 
-IL_002a:
+IL_0027:
 	{
 		// }
 		return;
@@ -22241,13 +22069,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AndroidTaskUtils_AddOnSuccessListener_Ti
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_0020:
+FINALLY_001e:
 			{// begin finally (depth: 1)
 				{
 					AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_6 = V_0;
 					if (!L_6)
 					{
-						goto IL_002a;
+						goto IL_0027;
 					}
 				}
 				{
@@ -22256,7 +22084,7 @@ FINALLY_0020:
 					InterfaceActionInvoker0::Invoke(0 /* System.Void System.IDisposable::Dispose() */, IDisposable_t030E0496B4E0E4E4F086825007979AF51F7248C5_il2cpp_TypeInfo_var, (RuntimeObject*)L_7);
 				}
 
-IL_002a:
+IL_0027:
 				{
 					return;
 				}
@@ -22264,7 +22092,8 @@ IL_002a:
 		});
 		try
 		{// begin try (depth: 1)
-			goto IL_002b;
+			// new TaskOnSuccessProxy<T>(callback, /* disposeResult= */ true))) ;
+			goto IL_0028;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -22272,7 +22101,7 @@ IL_002a:
 		}
 	}
 
-IL_002b:
+IL_0028:
 	{
 		// }
 		return;
@@ -22313,13 +22142,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AndroidTaskUtils_AddOnSuccessListener_Ti
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_0020:
+FINALLY_001e:
 			{// begin finally (depth: 1)
 				{
 					AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_6 = V_0;
 					if (!L_6)
 					{
-						goto IL_002a;
+						goto IL_0027;
 					}
 				}
 				{
@@ -22328,7 +22157,7 @@ FINALLY_0020:
 					InterfaceActionInvoker0::Invoke(0 /* System.Void System.IDisposable::Dispose() */, IDisposable_t030E0496B4E0E4E4F086825007979AF51F7248C5_il2cpp_TypeInfo_var, (RuntimeObject*)L_7);
 				}
 
-IL_002a:
+IL_0027:
 				{
 					return;
 				}
@@ -22336,7 +22165,8 @@ IL_002a:
 		});
 		try
 		{// begin try (depth: 1)
-			goto IL_002b;
+			// new TaskOnSuccessProxy<T>(callback, /* disposeResult= */ true))) ;
+			goto IL_0028;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -22344,7 +22174,7 @@ IL_002a:
 		}
 	}
 
-IL_002b:
+IL_0028:
 	{
 		// }
 		return;
@@ -22385,13 +22215,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AndroidTaskUtils_AddOnSuccessListener_Ti
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_0020:
+FINALLY_001e:
 			{// begin finally (depth: 1)
 				{
 					AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_6 = V_0;
 					if (!L_6)
 					{
-						goto IL_002a;
+						goto IL_0027;
 					}
 				}
 				{
@@ -22400,7 +22230,7 @@ FINALLY_0020:
 					InterfaceActionInvoker0::Invoke(0 /* System.Void System.IDisposable::Dispose() */, IDisposable_t030E0496B4E0E4E4F086825007979AF51F7248C5_il2cpp_TypeInfo_var, (RuntimeObject*)L_7);
 				}
 
-IL_002a:
+IL_0027:
 				{
 					return;
 				}
@@ -22408,7 +22238,8 @@ IL_002a:
 		});
 		try
 		{// begin try (depth: 1)
-			goto IL_002b;
+			// new TaskOnSuccessProxy<T>(callback, /* disposeResult= */ true))) ;
+			goto IL_0028;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -22416,7 +22247,7 @@ IL_002a:
 		}
 	}
 
-IL_002b:
+IL_0028:
 	{
 		// }
 		return;
@@ -22458,13 +22289,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AndroidTaskUtils_AddOnSuccessListener_Ti
 		auto __finallyBlock = il2cpp::utils::Finally([&]
 		{
 
-FINALLY_0020:
+FINALLY_001e:
 			{// begin finally (depth: 1)
 				{
 					AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_7 = V_0;
 					if (!L_7)
 					{
-						goto IL_002a;
+						goto IL_0027;
 					}
 				}
 				{
@@ -22473,7 +22304,7 @@ FINALLY_0020:
 					InterfaceActionInvoker0::Invoke(0 /* System.Void System.IDisposable::Dispose() */, IDisposable_t030E0496B4E0E4E4F086825007979AF51F7248C5_il2cpp_TypeInfo_var, (RuntimeObject*)L_8);
 				}
 
-IL_002a:
+IL_0027:
 				{
 					return;
 				}
@@ -22481,7 +22312,8 @@ IL_002a:
 		});
 		try
 		{// begin try (depth: 1)
-			goto IL_002b;
+			// new TaskOnSuccessProxy<T>(callback, disposeResult))) ;
+			goto IL_0028;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
 		{
@@ -22489,7 +22321,7 @@ IL_002a:
 		}
 	}
 
-IL_002b:
+IL_0028:
 	{
 		// }
 		return;
@@ -22498,94 +22330,58 @@ IL_002b:
 // System.Action`2<T1,T2> GooglePlayGames.Android.AndroidVideoClient::ToOnGameThread<System.Int32Enum,System.Boolean>(System.Action`2<T1,T2>)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Action_2_tDAF49DC01D1289DFA5F837D90BCC3C9C08C024F9* AndroidVideoClient_ToOnGameThread_TisInt32Enum_tCBAC8BA2BFF3A845FA599F303093BBBA374B6F0C_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_mDAFE870DD00A1FF83E2CD48B1D2977916C976037_gshared (Action_2_tDAF49DC01D1289DFA5F837D90BCC3C9C08C024F9* ___0_toConvert, const RuntimeMethod* method) 
 {
-	U3CU3Ec__DisplayClass12_0_2_t517BF5C447BDFDC2BE290353DDFAE016B4AAEE25* V_0 = NULL;
-	Action_2_tDAF49DC01D1289DFA5F837D90BCC3C9C08C024F9* V_1 = NULL;
 	{
 		U3CU3Ec__DisplayClass12_0_2_t517BF5C447BDFDC2BE290353DDFAE016B4AAEE25* L_0 = (U3CU3Ec__DisplayClass12_0_2_t517BF5C447BDFDC2BE290353DDFAE016B4AAEE25*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 0));
 		NullCheck(L_0);
 		((  void (*) (U3CU3Ec__DisplayClass12_0_2_t517BF5C447BDFDC2BE290353DDFAE016B4AAEE25*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 1)))(L_0, il2cpp_rgctx_method(method->rgctx_data, 1));
-		V_0 = L_0;
-		U3CU3Ec__DisplayClass12_0_2_t517BF5C447BDFDC2BE290353DDFAE016B4AAEE25* L_1 = V_0;
+		U3CU3Ec__DisplayClass12_0_2_t517BF5C447BDFDC2BE290353DDFAE016B4AAEE25* L_1 = L_0;
 		Action_2_tDAF49DC01D1289DFA5F837D90BCC3C9C08C024F9* L_2 = ___0_toConvert;
 		NullCheck(L_1);
 		L_1->___toConvert_0 = L_2;
 		Il2CppCodeGenWriteBarrier((void**)(&L_1->___toConvert_0), (void*)L_2);
 		// return (val1, val2) => PlayGamesHelperObject.RunOnGameThread(() => toConvert(val1, val2));
-		U3CU3Ec__DisplayClass12_0_2_t517BF5C447BDFDC2BE290353DDFAE016B4AAEE25* L_3 = V_0;
-		Action_2_tDAF49DC01D1289DFA5F837D90BCC3C9C08C024F9* L_4 = (Action_2_tDAF49DC01D1289DFA5F837D90BCC3C9C08C024F9*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
-		NullCheck(L_4);
-		((  void (*) (Action_2_tDAF49DC01D1289DFA5F837D90BCC3C9C08C024F9*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_4, (RuntimeObject*)L_3, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
-		V_1 = L_4;
-		goto IL_001d;
-	}
-
-IL_001d:
-	{
-		// }
-		Action_2_tDAF49DC01D1289DFA5F837D90BCC3C9C08C024F9* L_5 = V_1;
-		return L_5;
+		Action_2_tDAF49DC01D1289DFA5F837D90BCC3C9C08C024F9* L_3 = (Action_2_tDAF49DC01D1289DFA5F837D90BCC3C9C08C024F9*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
+		NullCheck(L_3);
+		((  void (*) (Action_2_tDAF49DC01D1289DFA5F837D90BCC3C9C08C024F9*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_3, (RuntimeObject*)L_1, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
+		return L_3;
 	}
 }
 // System.Action`2<T1,T2> GooglePlayGames.Android.AndroidVideoClient::ToOnGameThread<System.Int32Enum,System.Object>(System.Action`2<T1,T2>)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F* AndroidVideoClient_ToOnGameThread_TisInt32Enum_tCBAC8BA2BFF3A845FA599F303093BBBA374B6F0C_TisRuntimeObject_m4B01AFDC5D063768A6FE3456DA95D60A5E83F56A_gshared (Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F* ___0_toConvert, const RuntimeMethod* method) 
 {
-	U3CU3Ec__DisplayClass12_0_2_tA977371524BB3F8A7250B4EC74D677B452412CC5* V_0 = NULL;
-	Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F* V_1 = NULL;
 	{
 		U3CU3Ec__DisplayClass12_0_2_tA977371524BB3F8A7250B4EC74D677B452412CC5* L_0 = (U3CU3Ec__DisplayClass12_0_2_tA977371524BB3F8A7250B4EC74D677B452412CC5*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 0));
 		NullCheck(L_0);
 		((  void (*) (U3CU3Ec__DisplayClass12_0_2_tA977371524BB3F8A7250B4EC74D677B452412CC5*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 1)))(L_0, il2cpp_rgctx_method(method->rgctx_data, 1));
-		V_0 = L_0;
-		U3CU3Ec__DisplayClass12_0_2_tA977371524BB3F8A7250B4EC74D677B452412CC5* L_1 = V_0;
+		U3CU3Ec__DisplayClass12_0_2_tA977371524BB3F8A7250B4EC74D677B452412CC5* L_1 = L_0;
 		Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F* L_2 = ___0_toConvert;
 		NullCheck(L_1);
 		L_1->___toConvert_0 = L_2;
 		Il2CppCodeGenWriteBarrier((void**)(&L_1->___toConvert_0), (void*)L_2);
 		// return (val1, val2) => PlayGamesHelperObject.RunOnGameThread(() => toConvert(val1, val2));
-		U3CU3Ec__DisplayClass12_0_2_tA977371524BB3F8A7250B4EC74D677B452412CC5* L_3 = V_0;
-		Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F* L_4 = (Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
-		NullCheck(L_4);
-		((  void (*) (Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_4, (RuntimeObject*)L_3, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
-		V_1 = L_4;
-		goto IL_001d;
-	}
-
-IL_001d:
-	{
-		// }
-		Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F* L_5 = V_1;
-		return L_5;
+		Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F* L_3 = (Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
+		NullCheck(L_3);
+		((  void (*) (Action_2_t829FF86EEA250A853DF3A95B2C4DAC034707E20F*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_3, (RuntimeObject*)L_1, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
+		return L_3;
 	}
 }
 // System.Action`2<T1,T2> GooglePlayGames.Android.AndroidVideoClient::ToOnGameThread<System.Object,System.Object>(System.Action`2<T1,T2>)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* AndroidVideoClient_ToOnGameThread_TisRuntimeObject_TisRuntimeObject_m0865D735BD192FB9BCAB02F6BF7885F507360D85_gshared (Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* ___0_toConvert, const RuntimeMethod* method) 
 {
-	U3CU3Ec__DisplayClass12_0_2_tE9B15CC18F423C59499119E675A30CF112AE2B4B* V_0 = NULL;
-	Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* V_1 = NULL;
 	{
 		U3CU3Ec__DisplayClass12_0_2_tE9B15CC18F423C59499119E675A30CF112AE2B4B* L_0 = (U3CU3Ec__DisplayClass12_0_2_tE9B15CC18F423C59499119E675A30CF112AE2B4B*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 0));
 		NullCheck(L_0);
 		((  void (*) (U3CU3Ec__DisplayClass12_0_2_tE9B15CC18F423C59499119E675A30CF112AE2B4B*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 1)))(L_0, il2cpp_rgctx_method(method->rgctx_data, 1));
-		V_0 = L_0;
-		U3CU3Ec__DisplayClass12_0_2_tE9B15CC18F423C59499119E675A30CF112AE2B4B* L_1 = V_0;
+		U3CU3Ec__DisplayClass12_0_2_tE9B15CC18F423C59499119E675A30CF112AE2B4B* L_1 = L_0;
 		Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* L_2 = ___0_toConvert;
 		NullCheck(L_1);
 		L_1->___toConvert_0 = L_2;
 		Il2CppCodeGenWriteBarrier((void**)(&L_1->___toConvert_0), (void*)L_2);
 		// return (val1, val2) => PlayGamesHelperObject.RunOnGameThread(() => toConvert(val1, val2));
-		U3CU3Ec__DisplayClass12_0_2_tE9B15CC18F423C59499119E675A30CF112AE2B4B* L_3 = V_0;
-		Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* L_4 = (Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
-		NullCheck(L_4);
-		((  void (*) (Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_4, (RuntimeObject*)L_3, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
-		V_1 = L_4;
-		goto IL_001d;
-	}
-
-IL_001d:
-	{
-		// }
-		Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* L_5 = V_1;
-		return L_5;
+		Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C* L_3 = (Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C*)il2cpp_codegen_object_new(il2cpp_rgctx_data(method->rgctx_data, 3));
+		NullCheck(L_3);
+		((  void (*) (Action_2_t156C43F079E7E68155FCDCD12DC77DD11AEF7E3C*, RuntimeObject*, intptr_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 4)))(L_3, (RuntimeObject*)L_1, (intptr_t)((void*)il2cpp_rgctx_method(method->rgctx_data, 2)), il2cpp_rgctx_method(method->rgctx_data, 4));
+		return L_3;
 	}
 }
 // System.Void UnityEngine.Animations.AnimationPlayableExtensions::SetAnimatedProperties<UnityEngine.Playables.Playable>(U,UnityEngine.AnimationClip)
@@ -32081,100 +31877,6 @@ IL_0044:
 		NullCheck(L_10);
 		int32_t L_16;
 		L_16 = ((  int32_t (*) (ArraySortHelper_1_t28C623504EEFAB918E547EAEE6A20A5078F194FA*, CombinedChunksU5BU5D_tE1B967C0ED5D0439978E22BAE927DAB629A4E5DD*, int32_t, int32_t, CombinedChunks_tCFB3356163B9F9B0E31E0B194E9B415F83340ED9, RuntimeObject*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 3)))(L_10, L_11, L_12, L_13, L_14, L_15, il2cpp_rgctx_method(method->rgctx_data, 3));
-		return L_16;
-	}
-}
-// System.Int32 System.Array::BinarySearch<UnityEngine.ResourceManagement.Util.DelayedActionManager/DelegateInfo>(T[],System.Int32,System.Int32,T,System.Collections.Generic.IComparer`1<T>)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Array_BinarySearch_TisDelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232_mCE25B26EDB89CEB8BD8613F5E7C7CCFB711BB701_gshared (DelegateInfoU5BU5D_tBCC10C3DD4D55DB1585CC2DB859B317633BC3EBC* ___0_array, int32_t ___1_index, int32_t ___2_length, DelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232 ___3_value, RuntimeObject* ___4_comparer, const RuntimeMethod* method) 
-{
-	String_t* G_B7_0 = NULL;
-	{
-		DelegateInfoU5BU5D_tBCC10C3DD4D55DB1585CC2DB859B317633BC3EBC* L_0 = ___0_array;
-		if (L_0)
-		{
-			goto IL_000e;
-		}
-	}
-	{
-		ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129* L_1 = (ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129_il2cpp_TypeInfo_var)));
-		NullCheck(L_1);
-		ArgumentNullException__ctor_m444AE141157E333844FC1A9500224C2F9FD24F4B(L_1, ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteralB829404B947F7E1629A30B5E953A49EB21CCD2ED)), NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_1, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Array_BinarySearch_TisDelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232_mCE25B26EDB89CEB8BD8613F5E7C7CCFB711BB701_RuntimeMethod_var)));
-	}
-
-IL_000e:
-	{
-		int32_t L_2 = ___1_index;
-		if ((((int32_t)L_2) < ((int32_t)0)))
-		{
-			goto IL_0016;
-		}
-	}
-	{
-		int32_t L_3 = ___2_length;
-		if ((((int32_t)L_3) >= ((int32_t)0)))
-		{
-			goto IL_0031;
-		}
-	}
-
-IL_0016:
-	{
-		int32_t L_4 = ___1_index;
-		if ((((int32_t)L_4) < ((int32_t)0)))
-		{
-			goto IL_0021;
-		}
-	}
-	{
-		G_B7_0 = ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteralE8744A8B8BD390EB66CA0CAE2376C973E6904FFB));
-		goto IL_0026;
-	}
-
-IL_0021:
-	{
-		G_B7_0 = ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral2B6D6F48C27C60C3B55391AB377D9DC8F5639AA1));
-	}
-
-IL_0026:
-	{
-		ArgumentOutOfRangeException_tEA2822DAF62B10EEED00E0E3A341D4BAF78CF85F* L_5 = (ArgumentOutOfRangeException_tEA2822DAF62B10EEED00E0E3A341D4BAF78CF85F*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ArgumentOutOfRangeException_tEA2822DAF62B10EEED00E0E3A341D4BAF78CF85F_il2cpp_TypeInfo_var)));
-		NullCheck(L_5);
-		ArgumentOutOfRangeException__ctor_mE5B2755F0BEA043CACF915D5CE140859EE58FA66(L_5, G_B7_0, ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral38E3DBC7FC353425EF3A98DC8DAC6689AF5FD1BE)), NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_5, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Array_BinarySearch_TisDelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232_mCE25B26EDB89CEB8BD8613F5E7C7CCFB711BB701_RuntimeMethod_var)));
-	}
-
-IL_0031:
-	{
-		DelegateInfoU5BU5D_tBCC10C3DD4D55DB1585CC2DB859B317633BC3EBC* L_6 = ___0_array;
-		NullCheck(L_6);
-		int32_t L_7 = ___1_index;
-		int32_t L_8 = ___2_length;
-		if ((((int32_t)((int32_t)il2cpp_codegen_subtract(((int32_t)(((RuntimeArray*)L_6)->max_length)), L_7))) >= ((int32_t)L_8)))
-		{
-			goto IL_0044;
-		}
-	}
-	{
-		ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263* L_9 = (ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263_il2cpp_TypeInfo_var)));
-		NullCheck(L_9);
-		ArgumentException__ctor_m026938A67AF9D36BB7ED27F80425D7194B514465(L_9, ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral7F4C724BD10943E8B0B17A6E069F992E219EF5E8)), NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_9, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Array_BinarySearch_TisDelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232_mCE25B26EDB89CEB8BD8613F5E7C7CCFB711BB701_RuntimeMethod_var)));
-	}
-
-IL_0044:
-	{
-		il2cpp_codegen_runtime_class_init_inline(il2cpp_rgctx_data(method->rgctx_data, 1));
-		ArraySortHelper_1_tC4A6EDEF657210F0F6EC84913C71D42242F71172* L_10;
-		L_10 = ((  ArraySortHelper_1_tC4A6EDEF657210F0F6EC84913C71D42242F71172* (*) (const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 0)))(il2cpp_rgctx_method(method->rgctx_data, 0));
-		DelegateInfoU5BU5D_tBCC10C3DD4D55DB1585CC2DB859B317633BC3EBC* L_11 = ___0_array;
-		int32_t L_12 = ___1_index;
-		int32_t L_13 = ___2_length;
-		DelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232 L_14 = ___3_value;
-		RuntimeObject* L_15 = ___4_comparer;
-		NullCheck(L_10);
-		int32_t L_16;
-		L_16 = ((  int32_t (*) (ArraySortHelper_1_tC4A6EDEF657210F0F6EC84913C71D42242F71172*, DelegateInfoU5BU5D_tBCC10C3DD4D55DB1585CC2DB859B317633BC3EBC*, int32_t, int32_t, DelegateInfo_t718C124E89FB2703D642911A3CEC87D645D62232, RuntimeObject*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 3)))(L_10, L_11, L_12, L_13, L_14, L_15, il2cpp_rgctx_method(method->rgctx_data, 3));
 		return L_16;
 	}
 }
