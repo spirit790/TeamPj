@@ -7,7 +7,7 @@ using Cinemachine;
 public class FollowCam : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera virtualCamera;
-    [SerializeField] MeshVisionGen vision;
+    [SerializeField] MeshVisionGen_Updated vision;
     [SerializeField] ThroughWallVision wallVision;
     [SerializeField] SilhouetteRadar radar;
 
