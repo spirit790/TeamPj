@@ -19,7 +19,8 @@ public class SilhouetteRadar : MonoBehaviour
         DOTween.Init();
         layerMask = 1 << radarMaskNum;
 
-        yield return null;
+        yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
+        yield return new WaitForSeconds(0.5f);
 
         actorRenderers = GameObject.Find("Vision").GetComponent<MeshVisionGen_Updated>().actorRenderers;
 

@@ -29,6 +29,8 @@ public class ThroughWallVision : MonoBehaviour
         DOTween.Init();
         camTr = Camera.main.transform;
 
+        yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
+
         wallNum = GameObject.FindGameObjectsWithTag("WALL");
 
         for (int i = 0; i < wallNum.Length; i++)

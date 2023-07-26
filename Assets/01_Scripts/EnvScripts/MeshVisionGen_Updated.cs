@@ -41,13 +41,15 @@ public class MeshVisionGen_Updated : MonoBehaviour
     {
         DOTween.Init();
 
-        targetTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        // targetTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
         lightMesh = GetComponent<MeshFilter>().mesh;
 
         /*
         Wait 'til loading done; 
         */
 
+        yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
+        
         playerNum = GameObject.FindGameObjectsWithTag("Player");
         aiNum = GameObject.FindGameObjectsWithTag("AI");
 
