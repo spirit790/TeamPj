@@ -11,6 +11,7 @@ public class Mode : MonoBehaviourPunCallbacks
     [Header("Prefab")]
     [SerializeField] protected GameObject aiPrefab;
     [SerializeField] protected GameObject playerPrefab;
+    [SerializeField] protected GameObject GhostPlyaerPrefab;
 
     [Header("Init Value")]
     [SerializeField] protected int playerCount;
@@ -59,7 +60,6 @@ public class Mode : MonoBehaviourPunCallbacks
             {
                 OnGameOver();
                 AIBehaviourStop(true);
-                PhotonNetwork.AutomaticallySyncScene = false;
                 StartCoroutine(GameOver());
             }
         }
@@ -98,17 +98,12 @@ public class Mode : MonoBehaviourPunCallbacks
         PlayerController.OnPlayerDie += PlayerDieControl;
         PlayerAttack.OnPlayerKill += PlayerKillControl;
         PlayerAttack.OnAIKill += AIKillControl;
+        
+        PhotonNetwork.AutomaticallySyncScene = false;
         photonView.ViewID = 997;
         GameStart();
     }
-    /// <summary>
-    /// 맵 생성
-    /// </summary>
-    protected void CreateMap()
-    {
-
-    }
-
+    
     /// <summary>
     /// 플레이어 생성
     /// </summary>
@@ -280,6 +275,8 @@ public class Mode : MonoBehaviourPunCallbacks
     {
         GameManager.Instance.IsDead = true;
         photonView.RPC(nameof(RpcPlayerDie), RpcTarget.All);
+        myPlayerObject = Instantiate(GhostPlyaerPrefab, new Vector3(mapWidth / 2, 1f, mapHeight / 2), Quaternion.identity);
+        Camera.main.GetComponent<FollowCam>().SetCamTarget(myPlayerObject);
     }
 
     protected virtual void AIDieControl()

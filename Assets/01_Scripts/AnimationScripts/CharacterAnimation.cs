@@ -8,8 +8,8 @@ public class CharacterAnimation : MonoBehaviour
     Animator characterAnim;
     NavMeshAgent characterAgent;
 
-    public float speed;
-    public float speedRatio = 0.1f;
+    float speed;
+    float speedRatio = 0.2f;
 
     // 애니메이션 시간 정보
     float atk1;
@@ -26,8 +26,11 @@ public class CharacterAnimation : MonoBehaviour
 
     private void Start()
     {
+        if(gameObject.CompareTag("Player") || gameObject.CompareTag("AI"))
+        {
+            characterAgent = GetComponent<NavMeshAgent>();
+        }
         characterAnim = GetComponentInChildren<Animator>();
-        characterAgent = GetComponent<NavMeshAgent>();
 
         if (GetComponent<PlayerController>())
         {
@@ -56,16 +59,24 @@ public class CharacterAnimation : MonoBehaviour
     }
     private void Update()
     {
-        if(characterAgent.speed >= speed)
+        CharacterAnim();
+    }
+
+    void CharacterAnim()
+    {
+        if (gameObject.CompareTag("Player") || gameObject.CompareTag("AI"))
         {
-            speed += speedRatio;
-            characterAnim.SetFloat(PARAM_MOVE, speed);
-        }
-        else if (speed >= 0 || characterAgent.speed == 0)
-        {
-            if (speed < 0) return;
-            speed -= speedRatio;
-            characterAnim.SetFloat(PARAM_MOVE, speed);
+            if (characterAgent.speed >= speed)
+            {
+                speed += speedRatio;
+                characterAnim.SetFloat(PARAM_MOVE, speed);
+            }
+            else if (speed >= 0 || characterAgent.speed == 0)
+            {
+                if (speed < 0) return;
+                speed -= speedRatio;
+                characterAnim.SetFloat(PARAM_MOVE, speed);
+            }
         }
     }
 

@@ -50,6 +50,8 @@ MonoBehaviour:
     type: 3}
   playerPrefab: {fileID: 7591189770289149691, guid: 970a65f158b18b84e8f5dcb377dc668d,
     type: 3}
+  GhostPlyaerPrefab: {fileID: 7591189770289149691, guid: 5a5e782e04368c14286fe451ee81cd94,
+    type: 3}
   playerCount: 0
   timeLimit: 0
   aiRatio: 0
@@ -58,10 +60,12 @@ MonoBehaviour:
   txtTimeLimit: {fileID: 0}
   txtWaitStartTime: {fileID: 0}
   loadingPanel: {fileID: 0}
+  resultPanel: {fileID: 0}
   myPlayerObject: {fileID: 0}
   modeName: 
-  isDead: 0
   isGameOver: 0
+  bannerAds: {fileID: 0}
+  interAds: {fileID: 0}
   deadZone: {fileID: 1744176586615899344, guid: 7774da88258183241b7058e4f7f54048,
     type: 3}
   shrinkTime: 5

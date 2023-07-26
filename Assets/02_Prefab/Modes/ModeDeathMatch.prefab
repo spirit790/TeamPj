@@ -49,6 +49,8 @@ MonoBehaviour:
     type: 3}
   playerPrefab: {fileID: 7591189770289149691, guid: 970a65f158b18b84e8f5dcb377dc668d,
     type: 3}
+  GhostPlyaerPrefab: {fileID: 7591189770289149691, guid: 5a5e782e04368c14286fe451ee81cd94,
+    type: 3}
   playerCount: 0
   timeLimit: 0
   aiRatio: 0
@@ -56,9 +58,13 @@ MonoBehaviour:
   mapHeight: 27
   txtTimeLimit: {fileID: 0}
   txtWaitStartTime: {fileID: 0}
+  loadingPanel: {fileID: 0}
+  resultPanel: {fileID: 0}
   myPlayerObject: {fileID: 0}
   modeName: 
   isGameOver: 0
+  bannerAds: {fileID: 0}
+  interAds: {fileID: 0}
 --- !u!114 &-4369053556987942707
 MonoBehaviour:
   m_ObjectHideFlags: 0
