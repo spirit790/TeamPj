@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 1763601615011000422}
   - component: {fileID: 1763601615011000423}
   - component: {fileID: 1763601615011000424}
-  - component: {fileID: 1763601616056620338}
+  - component: {fileID: 7054112022266311053}
   m_Layer: 8
   m_Name: Vision
   m_TagString: Untagged
@@ -278,7 +278,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1763601616056620338
+--- !u!114 &7054112022266311053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,11 +287,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1763601615011000420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0676aa93a1e1d2742b715392882ce7b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 191a75978d4fa3448a0f6c16ab44708b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightAngle: 120
-  lightRange: 15
-  visionDensity: 3
+  targetTr: {fileID: 0}
+  lightAngle: 160
+  lightRange: 10
+  visionDensity: 2
   visibleRenderQueue: 3001
   invisibleRenderQueue: 3000
+  visionFreq: 0.1
