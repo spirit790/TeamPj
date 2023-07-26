@@ -985,7 +985,7 @@ GameObject:
   - component: {fileID: 8563052129833535689}
   - component: {fileID: 7988971074179234051}
   - component: {fileID: 4628031992565336284}
-  - component: {fileID: 9032213465119006489}
+  - component: {fileID: 3275557952818705763}
   m_Layer: 6
   m_Name: Cat
   m_TagString: Player
@@ -1083,7 +1083,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 0.5, z: 0.3}
   m_Center: {x: 0, y: 0.3, z: 0}
---- !u!114 &9032213465119006489
+--- !u!114 &3275557952818705763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1103,9 +1103,6 @@ MonoBehaviour:
     Name: Move
   - Type: 4
     SynchronizeType: 2
-    Name: Stun
-  - Type: 4
-    SynchronizeType: 2
     Name: Attack
   - Type: 3
     SynchronizeType: 2
@@ -1113,6 +1110,9 @@ MonoBehaviour:
   - Type: 9
     SynchronizeType: 2
     Name: Dead
+  - Type: 1
+    SynchronizeType: 2
+    Name: Stun
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
