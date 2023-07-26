@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviourPun
     [Header("Stun")]
     [SerializeField] private float stunTime;
     private bool isStun = false;
-    private bool isAttack = false;
+    [SerializeField] private bool isAttack = false;
     
 
     private bool isDead = false;
@@ -128,6 +128,7 @@ public class PlayerController : MonoBehaviourPun
         IsDead = false;
         isStun = false;
         isAttack = false;
+        attackCoroutine = null;
     }
 
     public void PlayerDead()
