@@ -135,6 +135,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public bool isLoaded = false;
     
 
     List<Dictionary<string, object>> gameDatas = new List<Dictionary<string, object>>();

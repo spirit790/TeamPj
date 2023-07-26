@@ -189,6 +189,7 @@ public class Mode : MonoBehaviourPunCallbacks
 
         // AI 생성 대기
         yield return new WaitUntil(() => isCreatedAI);
+        GameManager.Instance.isLoaded = isCreatedAI;
         yield return new WaitForSeconds(5f);
 
         bannerAds.Hide();
