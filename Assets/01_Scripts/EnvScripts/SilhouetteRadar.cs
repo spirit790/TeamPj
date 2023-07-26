@@ -55,12 +55,12 @@ public class SilhouetteRadar : MonoBehaviour
 
         actorRenderers[actor][2].material.DOFade(1, freq * 0.5f);
 
-        //Debug.Log(actor.name + "¹à¾ÆÁø´Ù~");
+        //Debug.Log(actor.name + "ë°ì•„ì§„ë‹¤~");
 
         yield return new WaitForSeconds(freq * 0.5f);
 
         actorRenderers[actor][2].material.DOFade(0, freq * 0.5f);
-        //Debug.Log(actor.name + "Èå·ÁÁø´Ù~");
+        //Debug.Log(actor.name + "íë ¤ì§„ë‹¤~");
 
         yield return new WaitForSeconds(radarTime * 0.5f);
     }
