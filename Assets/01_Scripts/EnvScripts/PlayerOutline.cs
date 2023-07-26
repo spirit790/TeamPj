@@ -19,11 +19,12 @@ public class PlayerOutline : MonoBehaviour
     void Start()
     {
         //outlineRenderer = CreateOutline(outlineModel, outlineMat, outLineScale, outlineColor);
-        outlineRenderer.material.renderQueue = 3000;
+        // outlineRenderer.material.renderQueue = 3000;
         outlineColor.a = 1;
         outlineRenderer.material.color = outlineColor;
     }
 
+#if UNITY_EDITOR
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F))
@@ -38,14 +39,19 @@ public class PlayerOutline : MonoBehaviour
 
         }
     }
+#endif
 
     public Renderer CreateOutline(GameObject model, Material outlineMat, float scaleFactor, Color color)
     {
+
+#if UNITY_EDITOR
         GameObject outlineObject = Instantiate(model, model.transform.position, model.transform.rotation, model.transform);
         outlineObject.name = "Outline";
         outlineObject.layer = 13;
         Renderer rend = outlineObject.GetComponent<Renderer>();
+#endif
 
+        
         rend.material = outlineMat;
         rend.material.SetColor("_OutlineColor", color);
         rend.material.SetFloat("_Scale", scaleFactor);
