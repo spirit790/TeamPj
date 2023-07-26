@@ -23,6 +23,7 @@ TagManager:
   - FxTemporaire
   - NickNameText
   - Env
+  - WALL
   layers:
   - Default
   - TransparentFX

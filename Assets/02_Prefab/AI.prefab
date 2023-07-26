@@ -6486,9 +6486,9 @@ GameObject:
   - component: {fileID: 163846760661133029}
   - component: {fileID: 4125176384930898155}
   - component: {fileID: 2589729015458713651}
-  m_Layer: 6
-  m_Name: Bunny
-  m_TagString: AI
+  m_Layer: 0
+  m_Name: Model
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
