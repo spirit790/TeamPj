@@ -38,7 +38,7 @@ public class DashBtn : MonoBehaviour
         IsCheck = true;
         while (IsCheck)
         {            
-            gameOptionManager.PlaySfxSound("Dash", gameOptionManager.sfxVol);
+            gameOptionManager.PlaySfxSound("Dash",transform.position, gameOptionManager.sfxVol);
             yield return new WaitForSeconds(sfxLength);
         }
     }
