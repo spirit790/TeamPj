@@ -4624,6 +4624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de39c8eceaed05244b481bd4b39e8034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wallFreq: 0.1
   wallFadeTime: 0.33
 --- !u!114 &1849628643
 MonoBehaviour:
@@ -4637,6 +4638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b82bd1724e2ef524cbae6cf6b90344c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTr: {fileID: 0}
   radarMaskNum: 6
   radarTime: 2
   radarRange: 5
@@ -4725,14 +4727,14 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 85d39f62c732c394c9cd5a1c2fa00c5a, type: 3}
 --- !u!114 &1865975787 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1763601616056620338, guid: 85d39f62c732c394c9cd5a1c2fa00c5a,
+  m_CorrespondingSourceObject: {fileID: 7054112022266311053, guid: 85d39f62c732c394c9cd5a1c2fa00c5a,
     type: 3}
   m_PrefabInstance: {fileID: 1865975786}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0676aa93a1e1d2742b715392882ce7b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 191a75978d4fa3448a0f6c16ab44708b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1906343704
