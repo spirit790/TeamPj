@@ -11,14 +11,13 @@ GameObject:
   - component: {fileID: 6667656430815508886}
   - component: {fileID: 5053392085471645178}
   - component: {fileID: 9144933299191697974}
-  - component: {fileID: 1299976587463729192}
   - component: {fileID: 4181213599501965854}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: block_stone1_head_LOD0
-  m_TagString: WALL
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 91
+  m_StaticEditorFlags: 127
   m_IsActive: 1
 --- !u!4 &6667656430815508886
 Transform:
@@ -85,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1299976587463729192
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299976587463729193}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4181213599501965854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,9 +105,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5100911261983560169}
-  m_Layer: 0
+  - component: {fileID: 327398145800590967}
+  - component: {fileID: 1440896856852460521}
+  m_Layer: 9
   m_Name: Totem
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -144,6 +132,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &327398145800590967
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100911261983560170}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!208 &1440896856852460521
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100911261983560170}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &5922354767902849676
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,15 +255,13 @@ GameObject:
   - component: {fileID: 6130066033371591422}
   - component: {fileID: 9082608791667678112}
   - component: {fileID: 2057066429319675634}
-  - component: {fileID: 2057066429319675632}
   - component: {fileID: 4335383519178692372}
-  - component: {fileID: 2057066429319675633}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: block_stone_large3_LOD0
-  m_TagString: WALL
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 91
+  m_StaticEditorFlags: 127
   m_IsActive: 1
 --- !u!4 &6130066033371591422
 Transform:
@@ -313,19 +328,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2057066429319675632
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7354369377427783256}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4335383519178692372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,19 +340,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6c1f729f86b1b4c9cb820ce192504a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!208 &2057066429319675633
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7354369377427783256}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
