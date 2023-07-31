@@ -3961,6 +3961,7 @@ MonoBehaviour:
   dashSpeed: 5
   roteSpeed: 5
   stunTime: 3
+  isAttack: 0
   isDeadZoneStarted: 0
 --- !u!114 &1771760296972148195
 MonoBehaviour:
@@ -3982,7 +3983,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 2327792985695116953}
-  - {fileID: 6629944156319601989}
+  - {fileID: 878074132850720575}
   - {fileID: 1548723706546694271}
   sceneViewId: 0
   InstantiationId: 0
@@ -4569,17 +4570,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9032213465119006489, guid: dcdfb7660290eec499733f644bd39cbd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dcdfb7660290eec499733f644bd39cbd, type: 3}
---- !u!4 &6256007063422872037 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8614075575504987065, guid: dcdfb7660290eec499733f644bd39cbd,
-    type: 3}
-  m_PrefabInstance: {fileID: 2403397590670395996}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6629944156319601989 stripped
+--- !u!114 &878074132850720575 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9032213465119006489, guid: dcdfb7660290eec499733f644bd39cbd,
+  m_CorrespondingSourceObject: {fileID: 3275557952818705763, guid: dcdfb7660290eec499733f644bd39cbd,
     type: 3}
   m_PrefabInstance: {fileID: 2403397590670395996}
   m_PrefabAsset: {fileID: 0}
@@ -4589,6 +4585,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6256007063422872037 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8614075575504987065, guid: dcdfb7660290eec499733f644bd39cbd,
+    type: 3}
+  m_PrefabInstance: {fileID: 2403397590670395996}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8202769459705997992
 PrefabInstance:
   m_ObjectHideFlags: 0

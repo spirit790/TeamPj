@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviourPun
     [Header("Stun")]
     [SerializeField] private float stunTime;
     private bool isStun = false;
-    private bool isAttack = false;
+    [SerializeField] private bool isAttack = false;
     
 
     private bool isDead = false;
@@ -128,6 +128,7 @@ public class PlayerController : MonoBehaviourPun
         IsDead = false;
         isStun = false;
         isAttack = false;
+        attackCoroutine = null;
     }
 
     public void PlayerDead()
@@ -142,8 +143,16 @@ public class PlayerController : MonoBehaviourPun
 
     void OnClickAtk()
     {
-        if(photonView.IsMine && attackCoroutine == null && !isStun)
+        Debug.Log("AttackBtn");
+        if (attackCoroutine != null)
+            Debug.Log("attackCoroutine not null");
+        else
+            Debug.Log("attackCoroutine is null");
+        if(photonView.IsMine && attackCoroutine == null && !isStun && !IsDead)
+        {
             attackCoroutine = StartCoroutine(Attack());
+            Debug.Log("In Onclick ATK");
+        }
     }
 
     IEnumerator PlayerDeadControl()

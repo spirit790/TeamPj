@@ -65,7 +65,7 @@ public class PlayerAttack : MonoBehaviourPun
                 int viewId = targets[0].transform.parent.gameObject.GetPhotonView().ViewID;
                 photonView.RPC(nameof(KillAI), RpcTarget.MasterClient, viewId);
             }
-            else if (targets[0].transform.CompareTag("Player") && !targets[0].transform.parent.gameObject.GetPhotonView().IsMine)
+            else if (targets[0].transform.CompareTag("Player") && !targets[0].transform.parent.gameObject.GetPhotonView().IsMine && !targets[0].parent.gameObject.GetComponent<PlayerController>().IsDead)
             {
                 Debug.Log("Player Kill");
                 OnPlayerKill();
