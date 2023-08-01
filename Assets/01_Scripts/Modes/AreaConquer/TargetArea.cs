@@ -21,6 +21,13 @@ public class TargetArea : MonoBehaviourPun
         {
             playersInArea.Remove(player);
         }
+        if(player == modeArea.AreaOwner)
+        {
+            if (playersInArea.Count > 0)
+            {
+                modeArea.AreaOwner = playersInArea[0];
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,10 +50,15 @@ public class TargetArea : MonoBehaviourPun
         {
             PlayerController player = other.gameObject.GetComponentInParent<PlayerController>();
             playersInArea.Remove(player);
-            if (other.gameObject.GetComponentInParent<PlayerController>() == modeArea.AreaOwner)
+            if (player == modeArea.AreaOwner)
             {
                 Debug.Log(other.gameObject.name);
                 photonView.RPC(nameof(SetIsOwnerStayRPC), RpcTarget.All, false);
+                if (playersInArea.Count > 0)
+                {
+                    modeArea.AreaOwner = playersInArea[0];
+                    photonView.RPC(nameof(SetIsOwnerStayRPC), RpcTarget.All, true);
+                }
             }
         }
 

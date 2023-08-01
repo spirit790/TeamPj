@@ -15,9 +15,12 @@ public class ModeAreaConquer : Mode
         }
         set
         {
-            areaOwner = value;
-            if (timeLimit <= areaTimeLimit)
-                timeLimit = areaTimeLimit;
+            if(areaOwner != value)
+            {
+                areaOwner = value;
+                if (timeLimit <= areaTimeLimit)
+                    timeLimit = areaTimeLimit;
+            }
         }
     }
     public MapGenerator mapGen;
@@ -30,7 +33,7 @@ public class ModeAreaConquer : Mode
     }
     public override void GameStart()
     {
-        PlayerController.OnPlayerDie += AreaOwnerDie;
+        // PlayerController.OnPlayerDie += AreaOwnerDie;
         base.GameStart();
     }
 
