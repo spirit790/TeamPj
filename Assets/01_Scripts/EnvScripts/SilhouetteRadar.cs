@@ -71,4 +71,20 @@ public class SilhouetteRadar : MonoBehaviour
         playerTr = target;
         playerTr.gameObject.layer = 0;
     }
+
+
+    /*
+     * call when my player died
+     */
+
+    public void ActivatePlayersOutline()
+    {
+        foreach (var actorKeys in actorRenderers.Keys)
+        {
+            if(actorKeys.CompareTag("Player"))
+            {
+                actorKeys.GetComponent<OutlineMarker>().PlayersOutline();
+            }
+        }
+    }
 }
