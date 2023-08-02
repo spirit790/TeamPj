@@ -28706,7 +28706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a81e80e42d682c47a1488119b42b528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxLength: 0.6
+  sfxLength: 0.1
   IsCheck: 0
 --- !u!114 &1866651445
 MonoBehaviour:
