@@ -325,7 +325,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks
     {
         GameObject structure;
         yield return structure = Instantiate(prefab, pos, rot);
-        structure.layer = 12;
         structure.isStatic = true;
         structure.transform.SetParent(gameObject.transform);
         //if (chunkCount == chunkX * chunkZ - 1 && i == chunkHeight - 1 && j == chunkWidth - 1)
