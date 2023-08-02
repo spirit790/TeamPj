@@ -36,6 +36,7 @@ public class ThroughWallVision : MonoBehaviour
         for (int i = 0; i < wallNum.Length; i++)
         {
             wallRenderers.Add(wallNum[i].transform, wallNum[i].GetComponents<Renderer>());
+            wallNum[i].layer = 9;
         }
 
         yield return new WaitForSeconds(1f);

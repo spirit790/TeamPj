@@ -5,7 +5,6 @@ using DG.Tweening;
 using System.Linq;
 using Photon.Pun;
 
-
 [System.Serializable]
 public class MeshVisionGen_Updated : MonoBehaviour
 {  
