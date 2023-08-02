@@ -62,15 +62,15 @@ public class PlayerAttack : MonoBehaviourPun
                 Debug.Log("AI Kill");
                 OnAIKill();
                 photonView.RPC(nameof(InstantiateAIHitEffect), RpcTarget.MasterClient, targets[0].position);
-                int viewId = targets[0].transform.parent.gameObject.GetPhotonView().ViewID;
+                int viewId = targets[0].transform.gameObject.GetPhotonView().ViewID;
                 photonView.RPC(nameof(KillAI), RpcTarget.MasterClient, viewId);
             }
-            else if (targets[0].transform.CompareTag("Player") && !targets[0].transform.parent.gameObject.GetPhotonView().IsMine && !targets[0].parent.gameObject.GetComponent<PlayerController>().IsDead)
+            else if (targets[0].transform.CompareTag("Player") && !targets[0].transform.gameObject.GetPhotonView().IsMine && !targets[0].gameObject.GetComponent<PlayerController>().IsDead)
             {
                 Debug.Log("Player Kill");
                 OnPlayerKill();
                 photonView.RPC(nameof(InstantiatePlayerHitEffect), RpcTarget.MasterClient, targets[0].position);
-                int viewId = targets[0].transform.parent.gameObject.GetPhotonView().ViewID;
+                int viewId = targets[0].transform.gameObject.GetPhotonView().ViewID;
                 photonView.RPC(nameof(KillPlyaer), RpcTarget.All, viewId);
             }
         }
