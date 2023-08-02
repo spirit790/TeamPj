@@ -110,7 +110,7 @@ public class AIPattern : MonoBehaviourPun
     {
         agent.isStopped = true;
         GetComponentInChildren<BoxCollider>().enabled = false;
-        photonView.RPC(nameof(AIDead), RpcTarget.MasterClient);
+        photonView.RPC(nameof(AIDead), RpcTarget.All,photonView.ViewID);
     }
 
     private void OnEnable()
@@ -142,9 +142,9 @@ public class AIPattern : MonoBehaviourPun
     }
 
     [PunRPC]
-    public void AIDead()
+    public void AIDead(int viewId)
     {
-        PhotonNetwork.Destroy(gameObject);
+        PhotonView.Find(viewId).gameObject.SetActive(false);
     }
 
 }
