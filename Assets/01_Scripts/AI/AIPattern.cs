@@ -110,7 +110,7 @@ public class AIPattern : MonoBehaviourPun
     {
         agent.isStopped = true;
         GetComponentInChildren<BoxCollider>().enabled = false;
-        photonView.RPC(nameof(AIDead), RpcTarget.All,photonView);
+        photonView.RPC(nameof(AIDead), RpcTarget.All,photonView.ViewID);
     }
 
     private void OnEnable()
