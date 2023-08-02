@@ -278,6 +278,7 @@ public class Mode : MonoBehaviourPunCallbacks
         photonView.RPC(nameof(RpcPlayerDie), RpcTarget.All);
         myPlayerObject = Instantiate(GhostPlyaerPrefab, new Vector3(mapWidth / 2, 1f, mapHeight / 2), Quaternion.identity);
         Camera.main.GetComponent<FollowCam>().SetCamTarget(myPlayerObject);
+        Camera.main.GetComponent<SilhouetteRadar>().ActivatePlayersOutline();
     }
 
     protected virtual void AIDieControl()

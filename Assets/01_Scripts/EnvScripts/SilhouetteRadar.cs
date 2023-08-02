@@ -13,20 +13,20 @@ public class SilhouetteRadar : MonoBehaviour
     public float radarRange = 5f;
 
     private Dictionary<Transform, SkinnedMeshRenderer[]> actorRenderers;
-
+    private MeshVisionGen_Updated vision;
     IEnumerator Start()
     {
         DOTween.Init();
         layerMask = 1 << radarMaskNum;
 
-        yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
-        yield return new WaitForSeconds(0.5f);
+        vision = GameObject.Find("Vision").GetComponent<MeshVisionGen_Updated>();
 
-        actorRenderers = GameObject.Find("Vision").GetComponent<MeshVisionGen_Updated>().actorRenderers;
+        yield return new WaitUntil(()=> vision.isCashed);
+
+        actorRenderers = vision.actorRenderers;
 
         StartCoroutine(VisionRadar());
     }
-
 
     IEnumerator VisionRadar()
     {

@@ -37,6 +37,8 @@ public class MeshVisionGen_Updated : MonoBehaviour
     public Dictionary<Transform, SkinnedMeshRenderer[]> actorRenderers = new Dictionary<Transform, SkinnedMeshRenderer[]>();
     public Dictionary<Transform, MeshRenderer[]> accRenderers = new Dictionary<Transform, MeshRenderer[]>();
 
+    public bool isCashed = false;
+
     IEnumerator Start()
     {
         DOTween.Init();
@@ -67,6 +69,8 @@ public class MeshVisionGen_Updated : MonoBehaviour
             accRenderers.Add(aiNum[i].transform, aiNum[i].GetComponentsInChildren<MeshRenderer>());
         }
 
+        isCashed = true;
+        
         yield return new WaitForSeconds(1f);
 
         StartCoroutine(DrawMeshByAngle());
