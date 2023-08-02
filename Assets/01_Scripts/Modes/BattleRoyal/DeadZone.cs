@@ -49,9 +49,9 @@ public class DeadZone : MonoBehaviourPun
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (other.transform.parent.gameObject.GetPhotonView().IsMine)
+            if (other.transform.gameObject.GetPhotonView().IsMine)
             {
-                PlayerController player = other.transform.parent.gameObject.GetComponent<PlayerController>();
+                PlayerController player = other.transform.gameObject.GetComponent<PlayerController>();
                 if (player.isDeadZoneStarted)
                 {
                     StopCoroutine(PlayerDeadByDeadZone(player));
