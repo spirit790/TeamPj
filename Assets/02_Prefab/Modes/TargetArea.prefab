@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOwnerStay: 0
+  playersInArea: []
 --- !u!114 &3740802038171883809
 MonoBehaviour:
   m_ObjectHideFlags: 0

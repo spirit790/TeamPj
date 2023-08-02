@@ -89,13 +89,12 @@ public class ThroughWallVision : MonoBehaviour
 
     private void WallAlphaChange(Transform wall, float alpha)
     {
-        if (wallRenderers[wall] != null)
+        if (wallRenderers[wall][0] == null) return;
+
+        // Material의 Alpha를 바꾼다.
+        for (int i = 0; i < wallRenderers[wall].Length; i++)
         {
-            // Material의 Alpha를 바꾼다.
-            for (int i = 0; i < wallRenderers[wall].Length; i++)
-            {
-                ChangeMatAlpha(wallRenderers[wall][i], alpha);
-            }
+            ChangeMatAlpha(wallRenderers[wall][i], alpha);
         }
     }
 

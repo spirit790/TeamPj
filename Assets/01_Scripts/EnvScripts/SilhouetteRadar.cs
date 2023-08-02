@@ -21,7 +21,7 @@ public class SilhouetteRadar : MonoBehaviour
 
         vision = GameObject.Find("Vision").GetComponent<MeshVisionGen_Updated>();
 
-        yield return new WaitUntil(()=> vision.isCashed);
+        yield return new WaitUntil(()=> vision.isDataSaved);
 
         actorRenderers = vision.actorRenderers;
 
