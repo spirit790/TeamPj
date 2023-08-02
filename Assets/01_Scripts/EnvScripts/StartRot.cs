@@ -10,6 +10,8 @@ public class StartRot : MonoBehaviour
         int rnd = Random.Range(0, 8) * 45;
 
         transform.localRotation = Quaternion.Euler(new Vector3(0, rnd, 0));
+        
+        transform.gameObject.isStatic = true; 
     }
 
 }

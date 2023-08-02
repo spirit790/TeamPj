@@ -32575,7 +32575,7 @@ GameObject:
   - component: {fileID: 675376283082393464}
   m_Layer: 9
   m_Name: vine_horizontal_curve_big_brown_LOD0
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -36559,7 +36559,7 @@ GameObject:
   - component: {fileID: 3731966533697699753}
   m_Layer: 9
   m_Name: vine_vertical_curled_green_LOD0
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -40664,7 +40664,7 @@ GameObject:
   - component: {fileID: 1186475092578343623}
   m_Layer: 9
   m_Name: vine_vertical_straight_green_LOD0
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -40779,7 +40779,7 @@ GameObject:
   - component: {fileID: 6851175948861569101}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_brown_LOD0
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -47447,7 +47447,7 @@ GameObject:
   - component: {fileID: 506393637047103835}
   m_Layer: 9
   m_Name: vine_vertical_curled_brown_LOD0
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -47739,7 +47739,7 @@ GameObject:
   - component: {fileID: 7266641965429007378}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_green_LOD0_04
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -47933,7 +47933,7 @@ GameObject:
   - component: {fileID: 7266641965501096459}
   m_Layer: 9
   m_Name: vine_horizontal_curve_big_brown_LOD0_06
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -48126,7 +48126,7 @@ GameObject:
   - component: {fileID: 7266641965523578802}
   m_Layer: 9
   m_Name: vine_horizontal_curve_big_brown_LOD0_01
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -48145,7 +48145,7 @@ GameObject:
   - component: {fileID: 7266641965541812008}
   m_Layer: 9
   m_Name: vine_horizontal_curve_big_brown_LOD0_05
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -48307,7 +48307,7 @@ GameObject:
   - component: {fileID: 7266641965566906183}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_brown_LOD0_02
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -48553,7 +48553,7 @@ GameObject:
   - component: {fileID: 7266641965636618934}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_brown_LOD0_07
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -49029,7 +49029,7 @@ GameObject:
   - component: {fileID: 7266641965747788655}
   m_Layer: 9
   m_Name: vine_vertical_straight_green_LOD0_02
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -49157,7 +49157,7 @@ GameObject:
   - component: {fileID: 7266641965828699852}
   m_Layer: 9
   m_Name: vine_horizontal_curve_big_brown_LOD0_04
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -49428,7 +49428,7 @@ GameObject:
   - component: {fileID: 7266641965866001984}
   m_Layer: 9
   m_Name: vine_vertical_curled_brown_LOD0_05
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -49641,7 +49641,7 @@ GameObject:
   - component: {fileID: 7266641965951665837}
   m_Layer: 9
   m_Name: vine_vertical_curled_brown_LOD0_06
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -49738,7 +49738,7 @@ GameObject:
   - component: {fileID: 7266641965997232441}
   m_Layer: 9
   m_Name: vine_vertical_straight_green_LOD0_03
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -49877,7 +49877,7 @@ GameObject:
   - component: {fileID: 7266641966002477078}
   m_Layer: 9
   m_Name: vine_vertical_straight_brown_LOD0_03
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -50079,7 +50079,7 @@ GameObject:
   - component: {fileID: 7266641966010179007}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_brown_LOD0_03
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -50396,7 +50396,7 @@ GameObject:
   - component: {fileID: 7266641966123382624}
   m_Layer: 9
   m_Name: vine_horizontal_curve_big_brown_LOD0_09
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -50639,7 +50639,7 @@ GameObject:
   - component: {fileID: 7266641966164983688}
   m_Layer: 9
   m_Name: vine_vertical_curled_green_LOD0_01
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -50673,7 +50673,7 @@ GameObject:
   - component: {fileID: 7266641966217403029}
   m_Layer: 9
   m_Name: vine_vertical_straight_brown_LOD0_07
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -50770,7 +50770,7 @@ GameObject:
   - component: {fileID: 7266641966221256829}
   m_Layer: 9
   m_Name: vine_horizontal_curve_big_green_LOD0_03
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -50852,7 +50852,7 @@ GameObject:
   - component: {fileID: 7266641966247231924}
   m_Layer: 9
   m_Name: vine_vertical_straight_brown_LOD0_05
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -51193,7 +51193,7 @@ GameObject:
   - component: {fileID: 7266641966288115727}
   m_Layer: 9
   m_Name: vine_horizontal_curve_big_green_LOD0_01
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -51290,7 +51290,7 @@ GameObject:
   - component: {fileID: 7266641966292123327}
   m_Layer: 9
   m_Name: vine_horizontal_curve_big_brown_LOD0_02
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -51387,7 +51387,7 @@ GameObject:
   - component: {fileID: 7266641966312777967}
   m_Layer: 9
   m_Name: vine_vertical_straight_brown_LOD0_04
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -51595,7 +51595,7 @@ GameObject:
   - component: {fileID: 7266641966341942000}
   m_Layer: 9
   m_Name: vine_vertical_curled_brown_LOD0_04
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -51692,7 +51692,7 @@ GameObject:
   - component: {fileID: 7266641966383383074}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_green_LOD0_07
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -51960,7 +51960,7 @@ GameObject:
   - component: {fileID: 7266641966436167626}
   m_Layer: 9
   m_Name: vine_horizontal_curve_big_green_LOD0_02
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -52000,7 +52000,7 @@ GameObject:
   - component: {fileID: 7266641966456228502}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_brown_LOD0_08
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -52223,7 +52223,7 @@ GameObject:
   - component: {fileID: 7266641966482182760}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_brown_LOD0_09
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -52403,7 +52403,7 @@ GameObject:
   - component: {fileID: 7266641966501159204}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_brown_LOD0_10
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -52743,7 +52743,7 @@ GameObject:
   - component: {fileID: 7266641966561975314}
   m_Layer: 9
   m_Name: vine_vertical_straight_brown_LOD0_08
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -52936,7 +52936,7 @@ GameObject:
   - component: {fileID: 7266641966654334739}
   m_Layer: 9
   m_Name: vine_horizontal_curve_big_brown_LOD0_08
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -53147,7 +53147,7 @@ GameObject:
   - component: {fileID: 7266641966691308138}
   m_Layer: 9
   m_Name: vine_horizontal_curve_big_brown_LOD0_07
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -53259,7 +53259,7 @@ GameObject:
   - component: {fileID: 7266641966727039145}
   m_Layer: 9
   m_Name: vine_vertical_curled_green_LOD0_03
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -53356,7 +53356,7 @@ GameObject:
   - component: {fileID: 7266641966729674665}
   m_Layer: 9
   m_Name: vine_vertical_curled_green_LOD0_02
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -53534,7 +53534,7 @@ GameObject:
   - component: {fileID: 7266641966762021092}
   m_Layer: 9
   m_Name: vine_vertical_straight_brown_LOD0_02
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -53936,7 +53936,7 @@ GameObject:
   - component: {fileID: 7266641966797067001}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_green_LOD0_02
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -54308,7 +54308,7 @@ GameObject:
   - component: {fileID: 7266641966846800143}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_green_LOD0_09
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -54501,7 +54501,7 @@ GameObject:
   - component: {fileID: 7266641966886368877}
   m_Layer: 9
   m_Name: vine_horizontal_curve_big_brown_LOD0_03
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -54633,7 +54633,7 @@ GameObject:
   - component: {fileID: 7266641966968127422}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_brown_LOD0_01
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -54730,7 +54730,7 @@ GameObject:
   - component: {fileID: 7266641966972439982}
   m_Layer: 9
   m_Name: vine_vertical_straight_brown_LOD0_01
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -54792,7 +54792,7 @@ GameObject:
   - component: {fileID: 7266641967026325237}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_brown_LOD0_05
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -55149,7 +55149,7 @@ GameObject:
   - component: {fileID: 7266641967144329192}
   m_Layer: 9
   m_Name: vine_vertical_curled_brown_LOD0_02
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -55316,7 +55316,7 @@ GameObject:
   - component: {fileID: 7266641967162433697}
   m_Layer: 9
   m_Name: vine_vertical_straight_brown_LOD0_06
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -55517,7 +55517,7 @@ GameObject:
   - component: {fileID: 7266641967175939900}
   m_Layer: 9
   m_Name: vine_vertical_curled_brown_LOD0_07
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -55960,7 +55960,7 @@ GameObject:
   - component: {fileID: 7266641967204841083}
   m_Layer: 9
   m_Name: vine_vertical_straight_green_LOD0_01
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -56116,7 +56116,7 @@ GameObject:
   - component: {fileID: 7266641967243043464}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_green_LOD0_08
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -56290,7 +56290,7 @@ GameObject:
   - component: {fileID: 7266641967253682198}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_green_LOD0_03
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -56637,7 +56637,7 @@ GameObject:
   - component: {fileID: 7266641967311959282}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_brown_LOD0_04
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -57056,7 +57056,7 @@ GameObject:
   - component: {fileID: 7266641967355679737}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_green_LOD0_05
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -57203,7 +57203,7 @@ GameObject:
   - component: {fileID: 7266641967427065531}
   m_Layer: 9
   m_Name: vine_vertical_curled_brown_LOD0_03
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -57292,7 +57292,7 @@ GameObject:
   - component: {fileID: 7266641967428243214}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_green_LOD0_06
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -57347,7 +57347,7 @@ GameObject:
   - component: {fileID: 7266641967464807637}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_brown_LOD0_06
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -57603,7 +57603,7 @@ GameObject:
   - component: {fileID: 7266641967474355786}
   m_Layer: 9
   m_Name: vine_vertical_curled_brown_LOD0_01
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -57700,7 +57700,7 @@ GameObject:
   - component: {fileID: 7266641967482247869}
   m_Layer: 9
   m_Name: vine_vertical_straight_brown_LOD0_09
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -57852,7 +57852,7 @@ GameObject:
   - component: {fileID: 7266641967494905958}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_green_LOD0_01
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -58111,7 +58111,7 @@ GameObject:
   - component: {fileID: 1366347016085844511}
   m_Layer: 9
   m_Name: vine_horizontal_curve_small_green_LOD0
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -58130,7 +58130,7 @@ GameObject:
   - component: {fileID: 5888817070739189060}
   m_Layer: 9
   m_Name: vine_horizontal_curve_big_green_LOD0
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
@@ -58646,7 +58646,7 @@ GameObject:
   - component: {fileID: 1941085184450440568}
   m_Layer: 9
   m_Name: vine_vertical_straight_brown_LOD0
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 126
