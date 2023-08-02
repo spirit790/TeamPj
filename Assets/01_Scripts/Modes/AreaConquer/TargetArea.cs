@@ -2,26 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System;
 
 public class TargetArea : MonoBehaviourPun
 {
     public bool isOwnerStay = false;
     ModeAreaConquer modeArea;
+    public List<PlayerController> playersInArea = new List<PlayerController>();
     void Start()
     {
         modeArea = FindAnyObjectByType<ModeAreaConquer>();
+        PlayerController.OnPlayerDie += PlayerDieInArea;
+    }
+
+    private void PlayerDieInArea(PlayerController player)
+    {
+        if (playersInArea.Contains(player))
+        {
+            playersInArea.Remove(player);
+        }
+        if(player == modeArea.AreaOwner)
+        {
+            if (playersInArea.Count > 0)
+            {
+                modeArea.AreaOwner = playersInArea[0];
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-
+            PlayerController player = other.gameObject.GetComponentInParent<PlayerController>();
+            playersInArea.Add(player);
             if (!isOwnerStay)
             {
-                PlayerController owner = other.gameObject.GetComponentInParent<PlayerController>();
-                Debug.Log(owner.photonView.ViewID);
-                photonView.RPC(nameof(SetAreaOwnerRPC), RpcTarget.All, owner.photonView.ViewID);
+                Debug.Log(player.photonView.ViewID);
+                photonView.RPC(nameof(SetAreaOwnerRPC), RpcTarget.All, player.photonView.ViewID);
                 photonView.RPC(nameof(SetIsOwnerStayRPC), RpcTarget.All, true);
             }
         }
@@ -30,11 +48,17 @@ public class TargetArea : MonoBehaviourPun
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log(other.gameObject.name);
-            if (other.gameObject.GetComponentInParent<PlayerController>() == modeArea.AreaOwner)
+            PlayerController player = other.gameObject.GetComponentInParent<PlayerController>();
+            playersInArea.Remove(player);
+            if (player == modeArea.AreaOwner)
             {
                 Debug.Log(other.gameObject.name);
                 photonView.RPC(nameof(SetIsOwnerStayRPC), RpcTarget.All, false);
+                if (playersInArea.Count > 0)
+                {
+                    modeArea.AreaOwner = playersInArea[0];
+                    photonView.RPC(nameof(SetIsOwnerStayRPC), RpcTarget.All, true);
+                }
             }
         }
 
