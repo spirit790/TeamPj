@@ -7,7 +7,16 @@ using Photon.Pun;
 
 [System.Serializable]
 public class MeshVisionGen_Updated : MonoBehaviour
-{  
+{ 
+    private static MeshVisionGen_Updated instance;
+    public static MeshVisionGen_Updated Instance
+    {
+        get { return instance; }
+        set
+        {
+
+        }
+    }
     private List<Vector3> vertices = new List<Vector3>();
     private List<int> triangles = new List<int>();
 
@@ -80,7 +89,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
     ///range 만큼 레이캐스팅, 정점 생성, 연결 후 메시화 
     ///</summary>
     IEnumerator DrawMeshByAngle()
-    {
+    {        
         while (targetTr != null)
         {
             transform.position = targetTr.position + Vector3.up * 0.2f;
@@ -119,7 +128,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
 
                         actorRenderers[hit.transform][0].material.renderQueue = visibleRenderQueue;
 
-                        ChangeMeshVisiblity(hit.transform, true, 7);
+                        ChangeMeshVisiblity(hit.transform, true);
 
                         hit.transform.gameObject.layer = 7;
 
@@ -192,7 +201,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
         {
             if (Mathf.Acos(Vector3.Dot(targetTr.forward, (trs[i].position - transform.position).normalized)) * Mathf.Rad2Deg >= lightAngle * 0.5f)
             {
-                ChangeMeshVisiblity(trs[i], false, 6);
+                ChangeMeshVisiblity(trs[i], false);
                 actorRenderers[trs[i]][0].material.renderQueue = invisibleRenderQueue;
 
                 trs[i].gameObject.layer = 6;
@@ -213,7 +222,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
      * acc 1 == 그림자
      */
 
-    private void ChangeMeshVisiblity(Transform actors, bool isVisible, int targetLayer)
+    private void ChangeMeshVisiblity(Transform actors, bool isVisible)
     {
         if (actors == null) return;
 
@@ -251,6 +260,20 @@ public class MeshVisionGen_Updated : MonoBehaviour
     {
         targetTr = target;
         lightMesh = GetComponent<MeshFilter>().mesh;
+    }
+
+    public void InitActors()
+    {
+        StopAllCoroutines();
+        visibleActors.Clear();
+
+        foreach (var actors in actorRenderers.Keys)
+        {
+            actors.gameObject.layer = 7;
+            actorRenderers[actors][0].material.renderQueue = visibleRenderQueue;
+
+            ChangeMeshVisiblity(actors, true);
+        }
     }
 }
 

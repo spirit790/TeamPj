@@ -87,6 +87,8 @@ public class SilhouetteRadar : MonoBehaviour
             {
                 actorKeys.GetComponent<OutlineMarker>().PlayersOutline();
             }
+
+            actorRenderers[actorKeys][2].material.DOFade(1, radarTime * 0.5f);
         }
     }
 }

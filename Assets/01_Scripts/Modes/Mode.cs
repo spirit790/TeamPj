@@ -275,8 +275,18 @@ public class Mode : MonoBehaviourPunCallbacks
     protected virtual void PlayerDieControl(PlayerController player)
     {
         GameManager.Instance.IsDead = true;
+
+        MeshVisionGen_Updated.Instance.actorRenderers.Remove(myPlayerObject.transform);
+        MeshVisionGen_Updated.Instance.accRenderers.Remove(myPlayerObject.transform);
+
         photonView.RPC(nameof(RpcPlayerDie), RpcTarget.All);
         myPlayerObject = Instantiate(GhostPlyaerPrefab, new Vector3(mapWidth / 2, 1f, mapHeight / 2), Quaternion.identity);
+
+        MeshVisionGen_Updated.Instance.actorRenderers.Add(myPlayerObject.transform, myPlayerObject.GetComponentsInChildren<SkinnedMeshRenderer>());
+        MeshVisionGen_Updated.Instance.accRenderers.Add(myPlayerObject.transform, myPlayerObject.GetComponentsInChildren<MeshRenderer>());
+        
+        MeshVisionGen_Updated.Instance.InitActors();
+
         Camera.main.GetComponent<FollowCam>().SetCamTarget(myPlayerObject);
         Camera.main.GetComponent<SilhouetteRadar>().ActivatePlayersOutline();
     }
