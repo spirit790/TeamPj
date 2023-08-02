@@ -79,6 +79,8 @@ public class SilhouetteRadar : MonoBehaviour
 
     public void ActivatePlayersOutline()
     {
+        StopAllCoroutines();
+        
         foreach (var actorKeys in actorRenderers.Keys)
         {
             if(actorKeys.CompareTag("Player"))
