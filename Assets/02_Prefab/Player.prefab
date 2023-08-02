@@ -4084,6 +4084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineWidth: 0.03
   lineColor: {r: 1, g: 0, b: 1, a: 1}
+  outlineRenderer: {fileID: 0}
 --- !u!1 &8020368945769058509
 GameObject:
   m_ObjectHideFlags: 0

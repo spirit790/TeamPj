@@ -26,7 +26,7 @@ public class GameOptionManager : MonoBehaviour
     Button localKorBtn;
 
     public GameObject touchImage;
-
+    public float dahsSfxLength;
     public float sfxVol;
     public float bgmVol;
     public int loCalIndex;
