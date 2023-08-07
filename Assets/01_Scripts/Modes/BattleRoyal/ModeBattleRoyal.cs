@@ -32,16 +32,7 @@ public class ModeBattleRoyal : Mode
     {
         base.GameOverControl();
     }
-    public void DeSpawnAI()
-    {
-        
-    }
-
-    protected override void PlayerKillControl()
-    {
-        base.PlayerKillControl();
-    }
-
+   
     public void SetDeadZonePos(Vector3 pos)
     {
         deadZone.gameObject.transform.localPosition = pos;
