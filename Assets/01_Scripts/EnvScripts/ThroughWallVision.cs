@@ -15,8 +15,9 @@ public class ThroughWallVision : MonoBehaviour
     private Transform camTr;
     public Transform characterTr;
     private int detectingLayer = 1 << 9 | 1 << 10;
+    private int myRenderQueue;
     public float wallFreq = 0.1f;
-
+    
     [Range(0.1f, 1f)]
     public float wallFadeTime = 0.33f;
 
@@ -33,7 +34,17 @@ public class ThroughWallVision : MonoBehaviour
 
         //yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
 
+        yield return StartCoroutine(GetWallDatas());
+
+        yield return new WaitForSeconds(1f);
+
+        StartCoroutine(DetectingByCam());
+    }
+
+    IEnumerator GetWallDatas()
+    {
         wallNum = GameObject.FindGameObjectsWithTag("WALL");
+        myRenderQueue = GameObject.Find("Vision").GetComponent<MeshVisionGen_Updated>().myRenderQueue;
 
         for (int i = 0; i < wallNum.Length; i++)
         {
@@ -41,9 +52,7 @@ public class ThroughWallVision : MonoBehaviour
             wallNum[i].layer = 9;
         }
 
-        yield return new WaitForSeconds(1f);
-
-        StartCoroutine(DetectingByCam());
+        yield return null;
     }
 
     IEnumerator DetectingByCam()
@@ -101,6 +110,7 @@ public class ThroughWallVision : MonoBehaviour
         {
             //ChangeMatAlpha(wallRenderers[wall][i], alpha);
             wallRenderers[wall][i].material.DOFade(alpha, wallFadeTime);
+            wallRenderers[wall][i].material.renderQueue = myRenderQueue + 1;
 
         }
     }

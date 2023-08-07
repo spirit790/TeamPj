@@ -31,6 +31,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
     [Header("VisionQueue")]
     public int visibleRenderQueue = 3001;
     public int invisibleRenderQueue = 3000;
+    public int myRenderQueue = 3002;
     public float visionFreq = 0.1f;
 
     [Header("LightMesh")]
@@ -47,6 +48,8 @@ public class MeshVisionGen_Updated : MonoBehaviour
 
     public bool isDataSaved = false;
 
+
+
     IEnumerator Start()
     {
         DOTween.Init();
@@ -58,19 +61,63 @@ public class MeshVisionGen_Updated : MonoBehaviour
         Wait 'til loading done; 
         */
 
-        //yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
+        //***************yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
 
+        yield return StartCoroutine(GetRenderDatas());
+
+        isDataSaved = true;
+
+        yield return new WaitForSeconds(1f);
+
+        StartCoroutine(DrawMeshByAngle());
+    }
+
+     /*
+     * *******************************
+     * note:
+     * 0 == 모델링
+     * 1 == 표정
+     * length-1 == 아웃라인
+     * 
+     * acc 0 == 무기
+     * acc 1 == 그림자
+     * *******************************
+     */
+    IEnumerator GetRenderDatas()
+    {
         playerNum = GameObject.FindGameObjectsWithTag("Player");
         aiNum = GameObject.FindGameObjectsWithTag("AI");
 
+        //players' datas
         for (int i = 0; i < playerNum.Length; i++)
         {
-            //if (playerNum[i].transform.gameObject.GetPhotonView().IsMine) continue;
+            //my character always goes front
+            //***************if (playerNum[i].transform.gameObject.GetPhotonView().IsMine)
+            if (i == 0)
+            {
+                SkinnedMeshRenderer[] myRenderers = playerNum[i].transform.gameObject.GetComponentsInChildren<SkinnedMeshRenderer>();
+
+                for (int j = 0; j < myRenderers.Length - 1; j++)
+                {
+                    SkinnedMeshRenderer myRender = myRenderers[j];
+                    myRender.material.renderQueue = j == 0 || j == 1 ? myRenderQueue + 1 : myRenderQueue;
+                }
+
+                MeshRenderer[] meshAccRenderers = playerNum[i].transform.gameObject.GetComponentsInChildren<MeshRenderer>();
+                for (int k = 0; k < meshAccRenderers.Length; k++)
+                {
+                    MeshRenderer myRender = meshAccRenderers[k];
+                    myRender.material.renderQueue = myRenderQueue;
+                }
+                continue;
+            }
+
             actorRenderers.Add(playerNum[i].transform, playerNum[i].GetComponentsInChildren<SkinnedMeshRenderer>());
             accRenderers.Add(playerNum[i].transform, playerNum[i].GetComponentsInChildren<MeshRenderer>());
             ChangeMeshVisiblity(playerNum[i].transform, false);
         }
 
+        //AIs' datas
         for (int i = 0; i < aiNum.Length; i++)
         {
             actorRenderers.Add(aiNum[i].transform, aiNum[i].GetComponentsInChildren<SkinnedMeshRenderer>());
@@ -79,11 +126,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
 
         }
 
-        isDataSaved = true;
-
-        yield return new WaitForSeconds(1f);
-
-        StartCoroutine(DrawMeshByAngle());
+        yield return null;
     }
 
 
@@ -214,15 +257,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
 
     }
 
-    /*
-     * note:
-     * 0 == 모델링
-     * 1 == 표정
-     * length-1 == 아웃라인
-     * 
-     * acc 0 == 무기
-     * acc 1 == 그림자
-     */
+
 
     private void ChangeMeshVisiblity(Transform actors, bool isVisible)
     {

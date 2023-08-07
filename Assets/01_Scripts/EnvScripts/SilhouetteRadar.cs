@@ -37,8 +37,8 @@ public class SilhouetteRadar : MonoBehaviour
 
             foreach (var actor in actors)
             {
-                //if (actor.transform.parent.gameObject.GetPhotonView().IsMine) continue;
-
+                //********if (actor.transform.parent.gameObject.GetPhotonView().IsMine) continue;
+                if (actor.transform == playerTr) continue;
                 StartCoroutine(RadarFade(actor.transform, radarTime));
             }
 
