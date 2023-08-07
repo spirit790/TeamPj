@@ -7,7 +7,7 @@ using Photon.Pun;
 
 [System.Serializable]
 public class MeshVisionGen_Updated : MonoBehaviour
-{ 
+{
     private static MeshVisionGen_Updated instance;
     public static MeshVisionGen_Updated Instance
     {
@@ -58,27 +58,29 @@ public class MeshVisionGen_Updated : MonoBehaviour
         Wait 'til loading done; 
         */
 
-        yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
-        
+        //yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
+
         playerNum = GameObject.FindGameObjectsWithTag("Player");
         aiNum = GameObject.FindGameObjectsWithTag("AI");
 
         for (int i = 0; i < playerNum.Length; i++)
         {
             //if (playerNum[i].transform.gameObject.GetPhotonView().IsMine) continue;
-
             actorRenderers.Add(playerNum[i].transform, playerNum[i].GetComponentsInChildren<SkinnedMeshRenderer>());
             accRenderers.Add(playerNum[i].transform, playerNum[i].GetComponentsInChildren<MeshRenderer>());
+            ChangeMeshVisiblity(playerNum[i].transform, false);
         }
 
         for (int i = 0; i < aiNum.Length; i++)
         {
             actorRenderers.Add(aiNum[i].transform, aiNum[i].GetComponentsInChildren<SkinnedMeshRenderer>());
             accRenderers.Add(aiNum[i].transform, aiNum[i].GetComponentsInChildren<MeshRenderer>());
+            ChangeMeshVisiblity(aiNum[i].transform, false);
+
         }
 
         isDataSaved = true;
-        
+
         yield return new WaitForSeconds(1f);
 
         StartCoroutine(DrawMeshByAngle());
@@ -89,7 +91,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
     ///range 만큼 레이캐스팅, 정점 생성, 연결 후 메시화 
     ///</summary>
     IEnumerator DrawMeshByAngle()
-    {        
+    {
         while (targetTr != null)
         {
             transform.position = targetTr.position + Vector3.up * 0.2f;
@@ -102,7 +104,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
             triangleIdx = 1;
 
             int searchAngle = (int)(lightAngle * 0.5f) * visionDensity;
-     
+
             for (int i = -searchAngle; i < searchAngle; i++)
             {
                 RaycastHit hit;
@@ -233,7 +235,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
         }
 
         actorRenderers[actors][actorRenderers[actors].Length - 1].enabled = !isVisible;
-        actorRenderers[actors][actorRenderers[actors].Length - 1].material.DOFade(isVisible? 1 : 0, 1f);
+        actorRenderers[actors][actorRenderers[actors].Length - 1].material.DOFade(isVisible ? 1 : 0, 1f);
 
         for (int j = 0; j < accRenderers[actors].Length; j++)
         {
@@ -266,6 +268,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
     {
         StopAllCoroutines();
         visibleActors.Clear();
+        gameObject.SetActive(false);
 
         foreach (var actors in actorRenderers.Keys)
         {
@@ -275,5 +278,20 @@ public class MeshVisionGen_Updated : MonoBehaviour
             ChangeMeshVisiblity(actors, true);
         }
     }
+
+#if UNITY_EDITOR
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            InitActors();
+
+        }
+        else if (Input.GetKeyDown(KeyCode.G))
+        {
+            StartCoroutine(DrawMeshByAngle());
+        }
+    }
+#endif
 }
 
