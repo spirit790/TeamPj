@@ -6,7 +6,7 @@ using Photon.Realtime;
 
 public class PlayerAttack : MonoBehaviourPun
 {
-    public delegate void PlayerKill();
+    public delegate void PlayerKill(string name);
     public static event PlayerKill OnPlayerKill;
 
     public delegate void AIKill();
@@ -68,7 +68,7 @@ public class PlayerAttack : MonoBehaviourPun
             else if (targets[0].transform.CompareTag("Player") && !targets[0].gameObject.GetPhotonView().IsMine && !targets[0].gameObject.GetComponent<PlayerController>().IsDead)
             {
                 Debug.Log("Player Kill");
-                OnPlayerKill();
+                OnPlayerKill(targets[0].name);
                 photonView.RPC(nameof(InstantiatePlayerHitEffect), RpcTarget.MasterClient, targets[0].position);
                 int viewId = targets[0].gameObject.GetPhotonView().ViewID;
                 photonView.RPC(nameof(KillPlyaer), RpcTarget.All, viewId);

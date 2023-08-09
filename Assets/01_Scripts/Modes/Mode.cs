@@ -26,11 +26,14 @@ public class Mode : MonoBehaviourPunCallbacks
     [Header("UI")]
     [SerializeField] protected Text txtTimeLimit;
     [SerializeField] protected Text txtWaitStartTime;
+    [SerializeField] protected Image killLog;
     [SerializeField] protected Image loadingPanel;
     [SerializeField] protected GameObject resultPanel;
+    [SerializeField] protected GameObject killLogContent;
 
     public GameObject myPlayerObject;
-    List<GameObject> aiList = new List<GameObject>();
+    protected List<GameObject> playerList = new List<GameObject>();
+    protected List<GameObject> aiList = new List<GameObject>();
     public string modeName;
 
     bool isCreatedAI = false;
@@ -91,6 +94,8 @@ public class Mode : MonoBehaviourPunCallbacks
         loadingPanel = GameObject.FindGameObjectWithTag("Loading").GetComponent<Image>();
         // 결과창
         resultPanel = GameObject.FindGameObjectWithTag("Result");
+        // 킬로그
+        killLogContent = GameObject.FindGameObjectWithTag("KillLog");
         resultPanel.SetActive(false);
         GameManager.Instance.startTime = Firebase.Firestore.FieldValue.ServerTimestamp;
         // 이벤트 함수 등록
@@ -113,7 +118,7 @@ public class Mode : MonoBehaviourPunCallbacks
 
         // 이름 동기화
         int viewId = myPlayerObject.GetPhotonView().ViewID;
-        string playerName = PhotonNetwork.LocalPlayer.ActorNumber.ToString();
+        string playerName = PhotonNetwork.LocalPlayer.NickName;
         photonView.RPC(nameof(RpcSetPlayerName), RpcTarget.All,viewId, playerName);
 
         // 캠 팔로우, 비전 설정
@@ -253,8 +258,6 @@ public class Mode : MonoBehaviourPunCallbacks
                 mostKiller["NickName"].ToString(), mostKiller["PlayerKills"].ToString(),
                 winner["NickName"].ToString(), winner["PlayerKills"].ToString(),
                 mostAIKiller["NickName"].ToString(), mostAIKiller["AIKills"].ToString());
-
-
         }
     }
 
@@ -290,22 +293,40 @@ public class Mode : MonoBehaviourPunCallbacks
 
     }
 
-    protected virtual void PlayerKillControl()
+    protected virtual void PlayerKillControl(string name)
     {
         GameManager.Instance.playerKills += 1;
-        
+        photonView.RPC(nameof(RpcPlayerKill), RpcTarget.All, myPlayerObject.name,name);
     }
 
     protected virtual void AIKillControl()
     {
         GameManager.Instance.aiKills += 1;
+        photonView.RPC(nameof(RpcAIKill), RpcTarget.All, myPlayerObject.name);
     }
     #endregion
+
+    [PunRPC]
+    protected void RpcPlayerKill(string killerName, string deathName)
+    {
+        GameObject kill = Instantiate(killLog).gameObject;
+        kill.transform.GetChild(0).GetComponent<Text>().text = killerName;
+        kill.transform.GetChild(1).GetComponent<Text>().text = deathName;
+        kill.transform.SetParent(killLogContent.transform);
+    }
+    [PunRPC]
+    protected void RpcAIKill(string killerName)
+    {
+        GameObject kill = Instantiate(killLog).gameObject;
+        kill.transform.GetChild(0).GetComponent<Text>().text = killerName;
+        kill.transform.GetChild(1).GetComponent<Text>().text = "AI";
+        kill.transform.SetParent(killLogContent.transform);
+    }
     [PunRPC]
     protected void RpcPlayerDie()
     {
         GameManager.Instance.PlayersLeft -= 1;
-        
+        playerList.Remove(myPlayerObject);
         if (GameManager.Instance.PlayersLeft == 1)
         {
             if (!GameManager.Instance.IsDead)
@@ -345,6 +366,7 @@ public class Mode : MonoBehaviourPunCallbacks
     protected void RpcCreatePlayer()
     {
         GameManager.Instance.createPlayercount++;
+        playerList.Add(myPlayerObject);
     }
 
     [PunRPC]

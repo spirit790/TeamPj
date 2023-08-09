@@ -34,8 +34,6 @@ public class DeadZone : MonoBehaviourPun
         }
         else if (other.gameObject.CompareTag("AI"))
         {
-            // AI óġ
-            mode.DeSpawnAI();
         }
     }
 
