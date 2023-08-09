@@ -37,6 +37,13 @@ public class Textwork : MonoBehaviour
 
     public Shader fontShader;
 
+    public GameObject KillText;
+    public float txtSpeed = 1f;
+    private Image KillImage;
+    private TextMeshProUGUI killTxt;
+    private Vector3 originTextPos;
+    private bool isTexting = false;
+
     [Header("Test")]
     public int testKillCnt = 7;
     public Button sqBtn;
@@ -58,6 +65,12 @@ public class Textwork : MonoBehaviour
     {
 
         DOTween.Init();
+
+        KillImage = KillText.GetComponentInChildren<Image>();
+        killTxt = KillText.GetComponentInChildren<TextMeshProUGUI>();
+        KillImage.DOFade(0, 0.5f);
+        killTxt.DOFade(0, 0.5f);
+        originTextPos = killTxt.rectTransform.position;
 
         //mainCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         //sqBtn.onClick.AddListener(OnClickCountDown);
@@ -88,6 +101,10 @@ public class Textwork : MonoBehaviour
         TextMeshProUGUI txt = InitText(Color.white, 1200, 0.4f);
 
         StartCoroutine(LinearTextwork(txt, "COPYCAT", 0.8f, 1, 3, 0, 0.8f, 0.4f));
+    }
+    public void OnClickKillCall()
+    {
+        StartCoroutine(KillCall("tester1", "tester2")) ;
     }
 
     /// <summary>
@@ -328,4 +345,35 @@ public class Textwork : MonoBehaviour
         Destroy(txt.gameObject);
     }
 
+    public IEnumerator KillCall(string killer, string victim)
+    {
+        //Init
+        //KillImage.color = Color.clear;
+        //killTxt.color = Color.clear;
+
+        if(isTexting)
+        {
+            yield return new WaitWhile(() => isTexting);
+        }
+
+        isTexting = true;
+
+        KillText.transform.position = originTextPos+ Vector3.down * 50f;
+        killTxt.text = killer + " kills " + victim;
+
+        KillImage.DOFade(1, txtSpeed);
+        killTxt.DOFade(1, txtSpeed);
+        KillText.transform.DOMove(originTextPos, txtSpeed);
+
+        yield return new WaitForSeconds(txtSpeed);
+        yield return new WaitForSeconds(txtSpeed);
+
+        KillImage.DOFade(0, txtSpeed);
+        killTxt.DOFade(0, txtSpeed);
+        KillText.transform.DOMove(originTextPos + Vector3.up * 50f, txtSpeed);
+
+        yield return new WaitForSeconds(txtSpeed);
+
+        isTexting = false;
+    }
 }

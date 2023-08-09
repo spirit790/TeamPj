@@ -7,7 +7,7 @@ using Photon.Pun;
 
 [System.Serializable]
 public class MeshVisionGen_Updated : MonoBehaviour
-{ 
+{
     private static MeshVisionGen_Updated instance;
     public static MeshVisionGen_Updated Instance
     {
@@ -21,7 +21,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
     private List<int> triangles = new List<int>();
 
     [Header("VisionArea")]
-    public Transform targetTr;
+    private Transform targetTr;
     public int lightAngle = 160;
     public float lightRange = 10f;
     public int visionDensity = 2;
@@ -31,6 +31,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
     [Header("VisionQueue")]
     public int visibleRenderQueue = 3001;
     public int invisibleRenderQueue = 3000;
+    public int myRenderQueue = 3002;
     public float visionFreq = 0.1f;
 
     [Header("LightMesh")]
@@ -47,6 +48,8 @@ public class MeshVisionGen_Updated : MonoBehaviour
 
     public bool isDataSaved = false;
 
+
+
     IEnumerator Start()
     {
         DOTween.Init();
@@ -59,29 +62,71 @@ public class MeshVisionGen_Updated : MonoBehaviour
         */
 
         yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
-        
+
+        yield return StartCoroutine(GetRenderDatas());
+
+        isDataSaved = true;
+
+        yield return new WaitForSeconds(1f);
+
+        StartCoroutine(DrawMeshByAngle());
+    }
+
+     /*
+     * *******************************
+     * note:
+     * 0 == 모델링
+     * 1 == 표정
+     * length-1 == 아웃라인
+     * 
+     * acc 0 == 무기
+     * acc 1 == 그림자
+     * *******************************
+     */
+    IEnumerator GetRenderDatas()
+    {
         playerNum = GameObject.FindGameObjectsWithTag("Player");
         aiNum = GameObject.FindGameObjectsWithTag("AI");
 
+        //players' datas
         for (int i = 0; i < playerNum.Length; i++)
         {
-            //if (playerNum[i].transform.gameObject.GetPhotonView().IsMine) continue;
+            //my character always goes front
+            if (playerNum[i].transform.gameObject.GetPhotonView().IsMine)
+            // if (i == 0)
+            {
+                SkinnedMeshRenderer[] myRenderers = playerNum[i].transform.gameObject.GetComponentsInChildren<SkinnedMeshRenderer>();
+
+                for (int j = 0; j < myRenderers.Length - 1; j++)
+                {
+                    SkinnedMeshRenderer myRender = myRenderers[j];
+                    myRender.material.renderQueue = j == 0 || j == 1 ? myRenderQueue + 1 : myRenderQueue;
+                }
+
+                MeshRenderer[] meshAccRenderers = playerNum[i].transform.gameObject.GetComponentsInChildren<MeshRenderer>();
+                for (int k = 0; k < meshAccRenderers.Length; k++)
+                {
+                    MeshRenderer myRender = meshAccRenderers[k];
+                    myRender.material.renderQueue = myRenderQueue;
+                }
+                continue;
+            }
 
             actorRenderers.Add(playerNum[i].transform, playerNum[i].GetComponentsInChildren<SkinnedMeshRenderer>());
             accRenderers.Add(playerNum[i].transform, playerNum[i].GetComponentsInChildren<MeshRenderer>());
+            ChangeMeshVisiblity(playerNum[i].transform, false);
         }
 
+        //AIs' datas
         for (int i = 0; i < aiNum.Length; i++)
         {
             actorRenderers.Add(aiNum[i].transform, aiNum[i].GetComponentsInChildren<SkinnedMeshRenderer>());
             accRenderers.Add(aiNum[i].transform, aiNum[i].GetComponentsInChildren<MeshRenderer>());
+            ChangeMeshVisiblity(aiNum[i].transform, false);
+
         }
 
-        isDataSaved = true;
-        
-        yield return new WaitForSeconds(1f);
-
-        StartCoroutine(DrawMeshByAngle());
+        yield return null;
     }
 
 
@@ -89,7 +134,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
     ///range 만큼 레이캐스팅, 정점 생성, 연결 후 메시화 
     ///</summary>
     IEnumerator DrawMeshByAngle()
-    {        
+    {
         while (targetTr != null)
         {
             transform.position = targetTr.position + Vector3.up * 0.2f;
@@ -102,7 +147,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
             triangleIdx = 1;
 
             int searchAngle = (int)(lightAngle * 0.5f) * visionDensity;
-     
+
             for (int i = -searchAngle; i < searchAngle; i++)
             {
                 RaycastHit hit;
@@ -212,15 +257,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
 
     }
 
-    /*
-     * note:
-     * 0 == 모델링
-     * 1 == 표정
-     * length-1 == 아웃라인
-     * 
-     * acc 0 == 무기
-     * acc 1 == 그림자
-     */
+
 
     private void ChangeMeshVisiblity(Transform actors, bool isVisible)
     {
@@ -233,7 +270,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
         }
 
         actorRenderers[actors][actorRenderers[actors].Length - 1].enabled = !isVisible;
-        actorRenderers[actors][actorRenderers[actors].Length - 1].material.DOFade(isVisible? 1 : 0, 1f);
+        actorRenderers[actors][actorRenderers[actors].Length - 1].material.DOFade(isVisible ? 1 : 0, 1f);
 
         for (int j = 0; j < accRenderers[actors].Length; j++)
         {
@@ -266,6 +303,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
     {
         StopAllCoroutines();
         visibleActors.Clear();
+        gameObject.SetActive(false);
 
         foreach (var actors in actorRenderers.Keys)
         {
@@ -275,5 +313,20 @@ public class MeshVisionGen_Updated : MonoBehaviour
             ChangeMeshVisiblity(actors, true);
         }
     }
+
+#if UNITY_EDITOR
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            InitActors();
+
+        }
+        else if (Input.GetKeyDown(KeyCode.G))
+        {
+            StartCoroutine(DrawMeshByAngle());
+        }
+    }
+#endif
 }
 

@@ -37,8 +37,9 @@ public class SilhouetteRadar : MonoBehaviour
 
             foreach (var actor in actors)
             {
-                //if (actor.transform.parent.gameObject.GetPhotonView().IsMine) continue;
-
+                //******************************
+                if (actor.transform.parent.gameObject.GetPhotonView().IsMine) continue;
+                // if (actor.transform == playerTr) continue;
                 StartCoroutine(RadarFade(actor.transform, radarTime));
             }
 
@@ -91,4 +92,24 @@ public class SilhouetteRadar : MonoBehaviour
             actorRenderers[actorKeys][2].material.DOFade(1, radarTime * 0.5f);
         }
     }
+    
+    public void InitSilhouette()
+    {
+
+    }
+
+#if UNITY_EDITOR
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            ActivatePlayersOutline();
+
+        }
+        else if (Input.GetKeyDown(KeyCode.G))
+        {
+            StartCoroutine(VisionRadar());
+        }
+    }
+#endif
 }
