@@ -23,7 +23,7 @@ public class PlayerOutline : MonoBehaviour
         outlineColor.a = 1;
         outlineRenderer.material.color = outlineColor;
     }
-
+    /*
 #if UNITY_EDITOR
     void Update()
     {
@@ -41,9 +41,10 @@ public class PlayerOutline : MonoBehaviour
     }
 #endif
 
+    
     public Renderer CreateOutline(GameObject model, Material outlineMat, float scaleFactor, Color color)
     {
-
+        
 #if UNITY_EDITOR
         GameObject outlineObject = Instantiate(model, model.transform.position, model.transform.rotation, model.transform);
         outlineObject.name = "Outline";
@@ -65,5 +66,6 @@ public class PlayerOutline : MonoBehaviour
 
         return rend;
     }
+    */
 
 }

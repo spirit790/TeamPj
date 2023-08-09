@@ -303,8 +303,6 @@ public class MeshVisionGen_Updated : MonoBehaviour
     {
         StopAllCoroutines();
         visibleActors.Clear();
-        gameObject.SetActive(false);
-
         foreach (var actors in actorRenderers.Keys)
         {
             actors.gameObject.layer = 7;
@@ -312,21 +310,23 @@ public class MeshVisionGen_Updated : MonoBehaviour
 
             ChangeMeshVisiblity(actors, true);
         }
+
+        //gameObject.SetActive(false);
     }
 
-#if UNITY_EDITOR
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            InitActors();
+    //#if UNITY_EDITOR
+    //    void Update()
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.F))
+    //        {
+    //            InitActors();
 
-        }
-        else if (Input.GetKeyDown(KeyCode.G))
-        {
-            StartCoroutine(DrawMeshByAngle());
-        }
-    }
-#endif
+    //        }
+    //        else if (Input.GetKeyDown(KeyCode.G))
+    //        {
+    //            StartCoroutine(DrawMeshByAngle());
+    //        }
+    //    }
+    //#endif
 }
 

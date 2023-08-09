@@ -17,20 +17,20 @@ public class OutlineMarker : MonoBehaviour
         outlineRenderer = GetComponentsInChildren<Renderer>()[2];
     }
 
-#if UNITY_EDITOR
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            ActivateOutline(outlineRenderer, lineWidth, Color.magenta, true);
+//#if UNITY_EDITOR
+//    void Update()
+//    {
+//        if (Input.GetKeyDown(KeyCode.F))
+//        {
+//            ActivateOutline(outlineRenderer, lineWidth, Color.magenta, true);
 
-        }
-        else if (Input.GetKeyDown(KeyCode.G))
-        {
-            ActivateOutline(outlineRenderer, lineWidth, Color.black, false);
-        }
-    }
-#endif
+//        }
+//        else if (Input.GetKeyDown(KeyCode.G))
+//        {
+//            ActivateOutline(outlineRenderer, lineWidth, Color.black, false);
+//        }
+//    }
+//#endif
 
     public void PlayersOutline()
     {
