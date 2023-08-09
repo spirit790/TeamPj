@@ -24,6 +24,7 @@ TagManager:
   - NickNameText
   - Env
   - WALL
+  - KillLog
   layers:
   - Default
   - TransparentFX

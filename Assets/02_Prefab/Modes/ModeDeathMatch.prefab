@@ -58,8 +58,10 @@ MonoBehaviour:
   mapHeight: 27
   txtTimeLimit: {fileID: 0}
   txtWaitStartTime: {fileID: 0}
+  killLog: {fileID: 5745957419331163041, guid: aa510f23bb3a4f8438294e73517bb1f8, type: 3}
   loadingPanel: {fileID: 0}
   resultPanel: {fileID: 0}
+  killLogContent: {fileID: 0}
   myPlayerObject: {fileID: 0}
   modeName: 
   isGameOver: 0

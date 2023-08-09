@@ -126,7 +126,6 @@ public class AIPattern : MonoBehaviourPun
 
     private void OnDestroy()
     {
-        OnAIDie();
     }
     
     public bool IsAiDead
@@ -136,6 +135,7 @@ public class AIPattern : MonoBehaviourPun
         {
             if(value == true)
             {
+                OnAIDie();
                 AIDeadControl();
             }
         }

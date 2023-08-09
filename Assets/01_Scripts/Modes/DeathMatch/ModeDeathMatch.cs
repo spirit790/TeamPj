@@ -10,7 +10,7 @@ public class ModeDeathMatch : Mode
     int targetKillRatio = 2;
 
     float playerRespawnTime = 2f;
-    float AIRespawnTime { get { return Random.Range(1, 5f); } }
+    float AIRespawnTime { get { return Random.Range(3, 5f); } }
 
     int diedAICount;
     int DiedAICount
@@ -35,9 +35,9 @@ public class ModeDeathMatch : Mode
         txtTimeLimit.text = GameManager.Instance.playerKills + " / " + targetKill.ToString();
     }
 
-    protected override void PlayerKillControl()
+    protected override void PlayerKillControl(string name)
     {
-        base.PlayerKillControl();
+        base.PlayerKillControl(name);
         if (targetKill == GameManager.Instance.playerKills)
         {
             txtTimeLimit.text += GameManager.Instance.playerKills + " / " + targetKill.ToString();
@@ -77,9 +77,24 @@ public class ModeDeathMatch : Mode
         if(DiedAICount > 0)
         {
             yield return new WaitForSeconds(AIRespawnTime);
-            SpawnAI();
+            //SpawnAI();
+            foreach (var item in aiList)
+            {
+                if (!item.activeInHierarchy)
+                {
+                    item.transform.position = SpawnPos;
+                    photonView.RPC(nameof(RpcAIRespawn), RpcTarget.All, item.GetPhotonView().ViewID);
+                    break;
+                }
+            }
             DiedAICount--;
         }
+    }
+
+    [PunRPC]
+    void RpcAIRespawn(int viewId)
+    {
+        PhotonView.Find(viewId).gameObject.SetActive(true);
     }
 
     [PunRPC]
