@@ -21,7 +21,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
     private List<int> triangles = new List<int>();
 
     [Header("VisionArea")]
-    public Transform targetTr;
+    private Transform targetTr;
     public int lightAngle = 160;
     public float lightRange = 10f;
     public int visionDensity = 2;
@@ -61,7 +61,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
         Wait 'til loading done; 
         */
 
-        //***************yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
+        yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
 
         yield return StartCoroutine(GetRenderDatas());
 
@@ -92,8 +92,8 @@ public class MeshVisionGen_Updated : MonoBehaviour
         for (int i = 0; i < playerNum.Length; i++)
         {
             //my character always goes front
-            //***************if (playerNum[i].transform.gameObject.GetPhotonView().IsMine)
-            if (i == 0)
+            if (playerNum[i].transform.gameObject.GetPhotonView().IsMine)
+            // if (i == 0)
             {
                 SkinnedMeshRenderer[] myRenderers = playerNum[i].transform.gameObject.GetComponentsInChildren<SkinnedMeshRenderer>();
 

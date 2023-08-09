@@ -32,7 +32,7 @@ public class ThroughWallVision : MonoBehaviour
         DOTween.Init();
         camTr = Camera.main.transform;
 
-        //yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
+        yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
 
         yield return StartCoroutine(GetWallDatas());
 
