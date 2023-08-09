@@ -87,6 +87,8 @@ MonoBehaviour:
   - RpcPlayerDead
   - RpcPlayerRespawn
   - RpcAIRespawn
+  - RpcAIKill
+  - RpcPlayerKill
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
