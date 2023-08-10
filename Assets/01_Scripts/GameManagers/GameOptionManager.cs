@@ -93,7 +93,7 @@ public class GameOptionManager : MonoBehaviour
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 OnTouchBegan();
-                TouchImage();
+                //TouchImage();
             }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
