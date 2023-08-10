@@ -1263,6 +1263,11 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5832768439407017522, guid: 970a65f158b18b84e8f5dcb377dc668d,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7591189770289149689, guid: 970a65f158b18b84e8f5dcb377dc668d,
         type: 3}
       propertyPath: m_RootOrder
@@ -2524,6 +2529,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f8a499545867b74b8fe0416a53f43d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchImage: {fileID: 0}
+  dahsSfxLength: 0
   sfxVol: 0
   bgmVol: 0
   loCalIndex: 0
