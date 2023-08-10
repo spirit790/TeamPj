@@ -44,12 +44,10 @@ public class PlayerOutline : MonoBehaviour
     public Renderer CreateOutline(GameObject model, Material outlineMat, float scaleFactor, Color color)
     {
 
-#if UNITY_EDITOR
         GameObject outlineObject = Instantiate(model, model.transform.position, model.transform.rotation, model.transform);
         outlineObject.name = "Outline";
         outlineObject.layer = 13;
         Renderer rend = outlineObject.GetComponent<Renderer>();
-#endif
 
         
         rend.material = outlineMat;
