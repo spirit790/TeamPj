@@ -98,18 +98,18 @@ public class SilhouetteRadar : MonoBehaviour
 
     }
 
-#if UNITY_EDITOR
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            ActivatePlayersOutline();
+//#if UNITY_EDITOR
+//    void Update()
+//    {
+//        if (Input.GetKeyDown(KeyCode.F))
+//        {
+//            ActivatePlayersOutline();
 
-        }
-        else if (Input.GetKeyDown(KeyCode.G))
-        {
-            StartCoroutine(VisionRadar());
-        }
-    }
-#endif
+//        }
+//        else if (Input.GetKeyDown(KeyCode.G))
+//        {
+//            StartCoroutine(VisionRadar());
+//        }
+//    }
+//#endif
 }

@@ -11,22 +11,34 @@ public class ModelChanger : MonoBehaviour
     public Image face;
     public GameObject effect;
 
-    public int characterIdx;
+    private int characterIdx;
+
+    public int CharacterIdx
+    {
+        get { return characterIdx; }
+        set 
+        { 
+            characterIdx = value;
+            modelManager.modelNum = characterIdx;
+        }
+    }
 
     [Header("Prefabs")]
     public GameObject[] models;
     public Sprite[] faces;
 
+    private ModelManager modelManager;
 
     void Start()
     {
         DOTween.Init();
+        modelManager = GameObject.Find("ModelManager").GetComponent<ModelManager>();
     }
 
     public void ModelFaceChange()
     {
-        characterIdx++;
-        if (characterIdx >= models.Length) characterIdx = 0;
+        CharacterIdx++;
+        if (CharacterIdx >= models.Length) characterIdx = 0;
         ModelChange();
         FaceChange();
     }
@@ -43,13 +55,13 @@ public class ModelChanger : MonoBehaviour
         GameObject efx = Instantiate(effect, modelPos.transform.position, modelPos.transform.rotation);
         efx.transform.localScale = 0.5f * Vector3.one;
         efx.transform.position = new Vector3(-0.2f, 0, - 0.5f);
-        models[characterIdx].SetActive(true);
+        models[CharacterIdx].SetActive(true);
     }
 
     public void FaceChange()
     {
         if (modelPos == null) return;
 
-        face.sprite = faces[characterIdx];
+        face.sprite = faces[CharacterIdx];
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
 public class ColorSetter : MonoBehaviour
@@ -15,10 +16,16 @@ public class ColorSetter : MonoBehaviour
 
     public Renderer weaponModel;
     public Material[] weaponMatter;
+    private ModelSetter modelSetter;
 
+    public bool isColorSet = false;
 
     void Start()
     {
+        modelSetter = GetComponentInParent<ModelSetter>();
+
+        //yield return new WaitUntil(() => modelSetter.isModelSet);
+
         if (modelNum < 0 || modelNum > modelsMatter.Length) modelNum = 0;
         if (weaponNum < 0 || weaponNum > weaponMatter.Length) modelNum = 0;
 
@@ -44,6 +51,8 @@ public class ColorSetter : MonoBehaviour
             weaponModel.GetComponent<Renderer>().material = weaponMatter[rndW];
 
         }
+
+        isColorSet = true;
     }
 
 }

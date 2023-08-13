@@ -984,7 +984,6 @@ GameObject:
   - component: {fileID: 8614075575504987065}
   - component: {fileID: 8563052129833535689}
   - component: {fileID: 7988971074179234051}
-  - component: {fileID: 4628031992565336284}
   - component: {fileID: 3275557952818705763}
   m_Layer: 0
   m_Name: Cat
@@ -1070,19 +1069,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: cdb6b504d80800d4d9cd8ec82da51bad, type: 2}
   - {fileID: 2100000, guid: 73b74f3da6dbc4745b5108c2e12b458b, type: 2}
   - {fileID: 2100000, guid: 98a6a464422e47d47b667c3db61cdc6f, type: 2}
---- !u!65 &4628031992565336284
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8611056954457721079}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.5, z: 0.3}
-  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!114 &3275557952818705763
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,12 +17,12 @@ public class ModelAttackBtn : MonoBehaviour
     IEnumerator ModelAttack()
     {
         int rnd = Random.Range(0, 3);
-        anim[mC.characterIdx].SetInteger("AttackCoin", rnd);
-        anim[mC.characterIdx].SetBool("Attack", true);
+        anim[mC.CharacterIdx].SetInteger("AttackCoin", rnd);
+        anim[mC.CharacterIdx].SetBool("Attack", true);
 
         yield return new WaitForSeconds(0.5f);
 
-        anim[mC.characterIdx].SetBool("Attack", false);
+        anim[mC.CharacterIdx].SetBool("Attack", false);
     }
 
 }

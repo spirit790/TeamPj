@@ -40,6 +40,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
     private int triangleIdx = 1;
 
     [Header("MeshDatas")]
+    private ColorSetter ColorSetter;
     private GameObject[] playerNum;
     private GameObject[] aiNum;
 
@@ -57,11 +58,13 @@ public class MeshVisionGen_Updated : MonoBehaviour
         // targetTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
         lightMesh = GetComponent<MeshFilter>().mesh;
 
+        ColorSetter = GameObject.FindWithTag("Player").GetComponentInChildren<ColorSetter>();
         /*
         Wait 'til loading done; 
         */
 
-        yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
+        yield return new WaitUntil(() => GameManager.Instance.isLoaded);
+        yield return new WaitUntil(() => ColorSetter.isColorSet);
 
         yield return StartCoroutine(GetRenderDatas());
 
