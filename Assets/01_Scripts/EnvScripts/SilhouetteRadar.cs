@@ -92,11 +92,6 @@ public class SilhouetteRadar : MonoBehaviour
             actorRenderers[actorKeys][2].material.DOFade(1, radarTime * 0.5f);
         }
     }
-    
-    public void InitSilhouette()
-    {
-
-    }
 
 //#if UNITY_EDITOR
 //    void Update()

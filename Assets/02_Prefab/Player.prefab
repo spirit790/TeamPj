@@ -284,6 +284,7 @@ MonoBehaviour:
   - {fileID: 6258327769464980139}
   - {fileID: 5268323995187969403}
   - {fileID: 5484861572357459905}
+  isModelSet: 0
 --- !u!1001 &2403397590670395996
 PrefabInstance:
   m_ObjectHideFlags: 0

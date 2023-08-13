@@ -22,7 +22,7 @@ public class ModelSetter : MonoBehaviour
         models[modelMagager.modelNum].SetActive(true);
 
         colorSetter = models[modelMagager.modelNum].GetComponent<ColorSetter>();
-        colorSetter.modelNum = modelMagager.modelNum;
+        colorSetter.modelNum = modelMagager.modelColor;
         colorSetter.weaponNum = modelMagager.weaponColor;
 
         isModelSet = true;

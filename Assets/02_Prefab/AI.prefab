@@ -164,6 +164,7 @@ MonoBehaviour:
   - {fileID: 4737775641652598376}
   - {fileID: 477933681731480934}
   - {fileID: 6284075512191912502}
+  isModelSet: 0
 --- !u!1 &9038751696834077127
 GameObject:
   m_ObjectHideFlags: 0

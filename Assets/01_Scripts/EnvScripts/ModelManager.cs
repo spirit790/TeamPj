@@ -36,14 +36,4 @@ public class ModelManager : MonoBehaviour
     public int weaponColor = 0;
 
 
-
-
-
-    void Start()
-    {
-
-
-
-    }
-
 }
