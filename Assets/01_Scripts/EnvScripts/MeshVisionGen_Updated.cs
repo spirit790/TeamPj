@@ -58,12 +58,14 @@ public class MeshVisionGen_Updated : MonoBehaviour
         // targetTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
         lightMesh = GetComponent<MeshFilter>().mesh;
 
-        ColorSetter = GameObject.FindWithTag("Player").GetComponentInChildren<ColorSetter>();
         /*
         Wait 'til loading done; 
         */
 
         yield return new WaitUntil(() => GameManager.Instance.isLoaded);
+
+        ColorSetter = GameObject.FindWithTag("Player").GetComponentInChildren<ColorSetter>();
+
         yield return new WaitUntil(() => ColorSetter.isColorSet);
 
         yield return StartCoroutine(GetRenderDatas());
