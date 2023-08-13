@@ -12,7 +12,6 @@ public class ModelChanger : MonoBehaviour
     public GameObject effect;
 
     private int characterIdx;
-
     public int CharacterIdx
     {
         get { return characterIdx; }
@@ -20,6 +19,29 @@ public class ModelChanger : MonoBehaviour
         { 
             characterIdx = value;
             modelManager.modelNum = characterIdx;
+        }
+    }
+
+    private int modelColorIdx;
+    public int ModelColorIdx
+    {
+        get { return modelColorIdx; }
+        set
+        {
+            modelColorIdx = value;
+            modelManager.modelColor = modelColorIdx;
+        }
+    }
+
+
+    private int weaponColorIdx;
+    public int WeaponColorIdx
+    {
+        get { return weaponColorIdx; }
+        set
+        {
+            weaponColorIdx = value;
+            modelManager.weaponColor = weaponColorIdx;
         }
     }
 
@@ -42,10 +64,10 @@ public class ModelChanger : MonoBehaviour
         ModelChange();
         FaceChange();
     }
+
     public void ModelChange()
     {
         if (modelPos == null) return;
-
 
         for (int i = 0; i < models.Length; i++)
         {
@@ -63,5 +85,15 @@ public class ModelChanger : MonoBehaviour
         if (modelPos == null) return;
 
         face.sprite = faces[CharacterIdx];
+    }
+
+    public void ModelColorChange()
+    {
+        if (modelPos == null) return;
+
+        ColorSetter colorSetter = models[CharacterIdx].GetComponent<ColorSetter>();
+        colorSetter.model.GetComponent<Renderer>().material = colorSetter.modelsMatter[ModelColorIdx++];
+
+        if(ModelColorIdx >= colorSetter.modelsMatter.Length) ModelColorIdx = 0;
     }
 }

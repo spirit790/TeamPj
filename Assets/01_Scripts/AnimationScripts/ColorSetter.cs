@@ -20,11 +20,11 @@ public class ColorSetter : MonoBehaviour
 
     public bool isColorSet = false;
 
-    void Start()
+    IEnumerator Start()
     {
         modelSetter = GetComponentInParent<ModelSetter>();
 
-        //yield return new WaitUntil(() => modelSetter.isModelSet);
+        yield return new WaitUntil(() => modelSetter.isModelSet);
 
         if (modelNum < 0 || modelNum > modelsMatter.Length) modelNum = 0;
         if (weaponNum < 0 || weaponNum > weaponMatter.Length) modelNum = 0;
