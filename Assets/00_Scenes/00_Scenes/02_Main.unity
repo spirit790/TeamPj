@@ -26804,8 +26804,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1898587589}
-  - {fileID: 761223310565154241}
   - {fileID: 6188068064976936884}
+  - {fileID: 761223310565154241}
   m_Father: {fileID: 1269510886}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31133,8 +31133,8 @@ MonoBehaviour:
   effect: {fileID: 1793880329535160, guid: b287b69cd25b44f4fafc46daddba9419, type: 3}
   models:
   - {fileID: 1898587586}
-  - {fileID: 757742730467791559}
   - {fileID: 6190747146417310442}
+  - {fileID: 757742730467791559}
   faces:
   - {fileID: 21300000, guid: 484fa66059cb6c44ca54c2635d9a8875, type: 3}
   - {fileID: 21300000, guid: 22affe86b789541438bc2945e02ab953, type: 3}
@@ -50305,7 +50305,7 @@ Transform:
   - {fileID: 760873481314676875}
   - {fileID: 761504348882320599}
   m_Father: {fileID: 1117450266}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -202.342, z: 0}
 --- !u!4 &761225559365634501
 Transform:
@@ -55412,7 +55412,7 @@ Transform:
   - {fileID: 6188038389363220628}
   - {fileID: 6196861512049347430}
   m_Father: {fileID: 1117450266}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -202.342, z: 0}
 --- !u!4 &6188068493784111612
 Transform:
