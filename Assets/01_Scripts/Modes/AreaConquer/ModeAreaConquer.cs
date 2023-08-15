@@ -64,7 +64,11 @@ public class ModeAreaConquer : Mode
     {
         IsGameOver = true;
         Debug.Log($"WinGameByArea : {AreaOwner.name}");
-        GameManager.Instance.winnerId = AreaOwner.name;
-        GameManager.Instance.IsWin = true;
+        if (AreaOwner.gameObject.GetPhotonView().IsMine)
+        {
+            GameManager.Instance.winnerId = AreaOwner.name;
+            GameManager.Instance.IsWin = true;
+        }
+
     }
 }
