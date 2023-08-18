@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 
-public class ReStartGame : MonoBehaviourPun
+public class ReStartGame : MonoBehaviourPunCallbacks
 {
     public void BtnReStartGame()
     {
@@ -12,7 +12,6 @@ public class ReStartGame : MonoBehaviourPun
         {
             PhotonNetwork.LeaveRoom();
             GameManager.Instance.isReMatch = true;
-            SceneManager.LoadScene(1);
         }
         else if(int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeySystem].ToString()) == 1)
         {
@@ -23,7 +22,12 @@ public class ReStartGame : MonoBehaviourPun
 
     public void BtnExitGame()
     {
+        PhotonNetwork.AutomaticallySyncScene = false;
         PhotonNetwork.LeaveRoom();
+    }
+
+    public override void OnLeftRoom()
+    {
         SceneManager.LoadScene(1);
     }
 }

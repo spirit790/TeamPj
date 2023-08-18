@@ -129,7 +129,7 @@ public class InviteSystem : MonoBehaviourPunCallbacks
         {
             if (CheckIsAllReady())
             {
-                Debug.Log("Master");
+                PhotonNetwork.CurrentRoom.IsOpen = false;
                 if (int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMap].ToString()) == 0)
                     PhotonNetwork.LoadLevel(2);
                 else if (int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[GameManager.Instance.KeyMap].ToString()) == 1)

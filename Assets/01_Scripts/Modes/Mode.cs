@@ -17,7 +17,16 @@ public class Mode : MonoBehaviourPunCallbacks
     [SerializeField] protected int playerCount;
     [SerializeField] protected float timeLimit;
     [SerializeField] protected int aiRatio;
-    int AICount { get { return playerCount * aiRatio; } }
+    int AICount 
+    { 
+        get 
+        {
+            if (playerCount >= 6)
+                return 30;
+            else
+                return playerCount * aiRatio;
+        } 
+    }
 
     [Header("Map Size")]
     public float mapWidth;
@@ -104,7 +113,6 @@ public class Mode : MonoBehaviourPunCallbacks
         PlayerAttack.OnPlayerKill += PlayerKillControl;
         PlayerAttack.OnAIKill += AIKillControl;
         
-        PhotonNetwork.AutomaticallySyncScene = false;
         photonView.ViewID = 997;
         GameStart();
     }
