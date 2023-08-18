@@ -10,7 +10,7 @@ public class ModelChanger : MonoBehaviour
     public GameObject modelPos;
     public Image face;
     public GameObject effect;
-
+    public Transform effectPos;
     private int characterIdx;
     public int CharacterIdx
     {
@@ -74,9 +74,8 @@ public class ModelChanger : MonoBehaviour
             models[i].SetActive(false);
         }
 
-        GameObject efx = Instantiate(effect, modelPos.transform.position, modelPos.transform.rotation);
-        efx.transform.localScale = 0.5f * Vector3.one;
-        efx.transform.position = new Vector3(-0.2f, 0, - 0.5f);
+        GameObject efx = Instantiate(effect, effectPos);
+  
         models[CharacterIdx].SetActive(true);
     }
 
