@@ -98,7 +98,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
         {
             //my character always goes front
             if (playerNum[i].transform.gameObject.GetPhotonView().IsMine)
-            // if (i == 0)
+            // if (i == 0) for self-test
             {
                 SkinnedMeshRenderer[] myRenderers = playerNum[i].transform.gameObject.GetComponentsInChildren<SkinnedMeshRenderer>();
 
