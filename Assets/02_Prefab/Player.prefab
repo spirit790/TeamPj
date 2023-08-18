@@ -304,6 +304,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8611056954457721079, guid: dcdfb7660290eec499733f644bd39cbd,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611056954457721079, guid: dcdfb7660290eec499733f644bd39cbd,
+        type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
@@ -427,6 +432,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bunny
       objectReference: {fileID: 0}
+    - target: {fileID: 3201460549650672273, guid: 6a6a3ebc3efce1e44be9cc5047c650cc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3204800445936280983, guid: 6a6a3ebc3efce1e44be9cc5047c650cc,
         type: 3}
       propertyPath: m_RootOrder
@@ -534,6 +544,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bear
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866181471422668051, guid: cbd6538232876e5438b57add8e8311c6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2868551588012640333, guid: cbd6538232876e5438b57add8e8311c6,
         type: 3}
