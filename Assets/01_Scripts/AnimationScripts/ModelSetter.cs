@@ -14,10 +14,10 @@ public class ModelSetter : MonoBehaviour
     {
         modelMagager = GameObject.Find("ModelManager").GetComponent<ModelManager>();
 
-        for (int i = 0; i < models.Length; i++) 
-        {
-            models[i].SetActive(false);
-        }
+        // for (int i = 0; i < models.Length; i++) 
+        // {
+        //     models[i].SetActive(false);
+        // }
 
         models[modelMagager.modelNum].SetActive(true);
 

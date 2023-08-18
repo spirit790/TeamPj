@@ -35,5 +35,4 @@ public class ModelManager : MonoBehaviour
     public int modelColor = 0;
     public int weaponColor = 0;
 
-
 }

@@ -92,8 +92,11 @@ public class ModelChanger : MonoBehaviour
         if (modelPos == null) return;
 
         ColorSetter colorSetter = models[CharacterIdx].GetComponent<ColorSetter>();
-        colorSetter.model.GetComponent<Renderer>().material = colorSetter.modelsMatter[ModelColorIdx++];
-
+        
+        ModelColorIdx++;
         if(ModelColorIdx >= colorSetter.modelsMatter.Length) ModelColorIdx = 0;
+
+        colorSetter.model.GetComponent<Renderer>().material = colorSetter.modelsMatter[ModelColorIdx];
+
     }
 }
