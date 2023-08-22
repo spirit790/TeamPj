@@ -25,7 +25,7 @@ public class ModelSetter : MonoBehaviour
         colorSetter.modelNum = modelManager.modelColor;
         colorSetter.weaponNum = modelManager.weaponColor;
 
-        isModelSet = true;
+        modelManager.modelNumbs++;
     }
 
 
