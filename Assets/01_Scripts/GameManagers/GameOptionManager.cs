@@ -303,4 +303,5 @@ public class GameOptionManager : MonoBehaviour
     {
         Application.Quit();
     }
+    
 }

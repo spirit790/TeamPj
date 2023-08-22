@@ -2259,7 +2259,7 @@ PrefabInstance:
     - target: {fileID: 6408837131483756151, guid: a48017c1851afd64c86af89d85404cc2,
         type: 3}
       propertyPath: dahsSfxLength
-      value: 0.2
+      value: 0.095
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a48017c1851afd64c86af89d85404cc2, type: 3}
