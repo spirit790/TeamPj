@@ -15,6 +15,11 @@ public class ModelManager : MonoBehaviour
 
     void Awake()
     {
+        modelNum = 0;
+        modelColor = 0;
+        weaponColor = 0;
+        modelNumbs = 0;
+
         if (null == instance)
         {
             instance = this;
@@ -34,5 +39,15 @@ public class ModelManager : MonoBehaviour
     public int modelNum = 0;
     public int modelColor = 0;
     public int weaponColor = 0;
+
+    public int modelNumbs = 0;
+    public bool isModelSet = false;
+
+    IEnumerator Start() 
+    {
+        yield return new WaitUntil(()=> modelNumbs == GameManager.Instance.PlayerCount * 6);
+
+        isModelSet = true;
+    }
 
 }

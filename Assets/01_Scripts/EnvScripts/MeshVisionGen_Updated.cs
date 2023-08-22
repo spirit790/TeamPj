@@ -40,7 +40,6 @@ public class MeshVisionGen_Updated : MonoBehaviour
     private int triangleIdx = 1;
 
     [Header("MeshDatas")]
-    private ColorSetter ColorSetter;
     private GameObject[] playerNum;
     private GameObject[] aiNum;
 
@@ -62,11 +61,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
         Wait 'til loading done; 
         */
 
-        yield return new WaitUntil(() => GameManager.Instance.isLoaded);
-
-        ColorSetter = GameObject.FindWithTag("Player").GetComponentInChildren<ColorSetter>();
-
-        yield return new WaitUntil(() => ColorSetter.isColorSet);
+        yield return new WaitUntil(() => ModelManager.Instance.isModelSet);
 
         yield return StartCoroutine(GetRenderDatas());
 

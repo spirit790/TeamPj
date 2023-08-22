@@ -12,8 +12,14 @@ public class OutlineMarker : MonoBehaviour
     public Color lineColor = Color.magenta;
     public Renderer outlineRenderer;
 
-    void Start()
+    private ModelSetter modelSetter;
+
+    IEnumerator Start()
     {
+        modelSetter = GetComponent<ModelSetter>();
+
+        yield return new WaitUntil(() => modelSetter.isModelSet);
+
         outlineRenderer = GetComponentsInChildren<Renderer>()[2];
     }
 

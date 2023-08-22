@@ -319,7 +319,7 @@ public class Mode : MonoBehaviourPunCallbacks
     {
         GameObject kill = Instantiate(killLog).gameObject;
         kill.transform.GetChild(0).GetComponent<Text>().text = killerName;
-        kill.transform.GetChild(1).GetComponent<Text>().text = deathName;
+        kill.transform.GetChild(2).GetComponent<Text>().text = deathName;
         kill.transform.SetParent(killLogContent.transform);
     }
     [PunRPC]
@@ -327,7 +327,7 @@ public class Mode : MonoBehaviourPunCallbacks
     {
         GameObject kill = Instantiate(killLog).gameObject;
         kill.transform.GetChild(0).GetComponent<Text>().text = killerName;
-        kill.transform.GetChild(1).GetComponent<Text>().text = "AI";
+        kill.transform.GetChild(2).GetComponent<Text>().text = "AI";
         kill.transform.SetParent(killLogContent.transform);
     }
     [PunRPC]

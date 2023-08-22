@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: -6400907249197992670}
   - component: {fileID: 1095880143415955319}
   - component: {fileID: 1172896530}
+  - component: {fileID: 7279682017662257950}
   m_Layer: 6
   m_Name: GhostPlayer
   m_TagString: Untagged
@@ -168,6 +169,23 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7279682017662257950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7591189770289149691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79496c3e8e91a46118e951b472c44b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  models:
+  - {fileID: 6258327769464980139}
+  - {fileID: 6550962760072185928}
+  - {fileID: 4049957543964252521}
+  isModelSet: 0
 --- !u!1001 &1466354361553515512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -182,8 +200,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4753741185120438533, guid: 6a6a3ebc3efce1e44be9cc5047c650cc,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4753741185120438533, guid: 6a6a3ebc3efce1e44be9cc5047c650cc,
+        type: 3}
       propertyPath: weaponNum
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4156076082141612147, guid: 6a6a3ebc3efce1e44be9cc5047c650cc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4156076082141612147, guid: 6a6a3ebc3efce1e44be9cc5047c650cc,
         type: 3}
@@ -214,6 +242,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bunny
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201460549650672273, guid: 6a6a3ebc3efce1e44be9cc5047c650cc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3204800445936280983, guid: 6a6a3ebc3efce1e44be9cc5047c650cc,
         type: 3}
@@ -293,6 +326,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1466354361553515512}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4049957543964252521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3201460549650672273, guid: 6a6a3ebc3efce1e44be9cc5047c650cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1466354361553515512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3764289915422716829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4049957543964252521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a8090f4e5f6f74ab7d6717a84ce21c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isModelFixed: 1
+  modelNum: 5
+  isWeaponFixed: 1
+  weaponNum: 1
+  model: {fileID: 0}
+  modelsMatter: []
+  weaponModel: {fileID: 0}
+  weaponMatter: []
 --- !u!1001 &2403397590670395996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -300,6 +359,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7591189770289149689}
     m_Modifications:
+    - target: {fileID: 3275557952818705763, guid: dcdfb7660290eec499733f644bd39cbd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7988971074179234051, guid: dcdfb7660290eec499733f644bd39cbd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8189992331127469166, guid: dcdfb7660290eec499733f644bd39cbd,
         type: 3}
       propertyPath: sceneViewId
@@ -313,6 +382,11 @@ PrefabInstance:
     - target: {fileID: 8611056954457721079, guid: dcdfb7660290eec499733f644bd39cbd,
         type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611056954457721079, guid: dcdfb7660290eec499733f644bd39cbd,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8611056954457721079, guid: dcdfb7660290eec499733f644bd39cbd,
@@ -541,6 +615,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4069408814534744844, guid: cbd6538232876e5438b57add8e8311c6,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4069408814534744844, guid: cbd6538232876e5438b57add8e8311c6,
+        type: 3}
       propertyPath: weaponNum
       value: 1
       objectReference: {fileID: 0}
@@ -548,6 +627,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bear
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866181471422668051, guid: cbd6538232876e5438b57add8e8311c6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2868551588012640333, guid: cbd6538232876e5438b57add8e8311c6,
         type: 3}
@@ -621,6 +705,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6264271225346746870, guid: cbd6538232876e5438b57add8e8311c6,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264271225346746870, guid: cbd6538232876e5438b57add8e8311c6,
+        type: 3}
       propertyPath: m_SynchronizeParameters.Array.data[0].SynchronizeType
       value: 2
       objectReference: {fileID: 0}
@@ -652,3 +741,29 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 9020438711197635931}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6550962760072185928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2866181471422668051, guid: cbd6538232876e5438b57add8e8311c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 9020438711197635931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7169957668104036277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6550962760072185928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a8090f4e5f6f74ab7d6717a84ce21c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isModelFixed: 1
+  modelNum: 5
+  isWeaponFixed: 1
+  weaponNum: 1
+  model: {fileID: 0}
+  modelsMatter: []
+  weaponModel: {fileID: 0}
+  weaponMatter: []

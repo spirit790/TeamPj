@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ModelSetter : MonoBehaviour
+public class GhostModelSetter : MonoBehaviour
 {
     public GameObject[] models;
 
     private ModelManager modelManager;
-    private ColorSetter colorSetter;
+    private GhostColorSetter gColorSetter;
 
     public bool isModelSet = false;
     private void Start()
@@ -21,11 +21,9 @@ public class ModelSetter : MonoBehaviour
 
         models[modelManager.modelNum].SetActive(true);
 
-        colorSetter = models[modelManager.modelNum].GetComponent<ColorSetter>();
-        colorSetter.modelNum = modelManager.modelColor;
-        colorSetter.weaponNum = modelManager.weaponColor;
-
-        modelManager.modelNumbs++;
+        gColorSetter = models[modelManager.modelNum].GetComponent<GhostColorSetter>();
+        gColorSetter.modelNum = modelManager.modelColor;
+        gColorSetter.weaponNum = modelManager.weaponColor;
     }
 
 

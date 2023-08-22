@@ -15,15 +15,13 @@ public class ColorSetter : MonoBehaviour
 
     public Renderer weaponModel;
     public Material[] weaponMatter;
-    private ModelSetter modelSetter;
 
     public bool isColorSet = false;
 
     IEnumerator Start()
     {
-        modelSetter = GetComponentInParent<ModelSetter>();
 
-        yield return new WaitUntil(() => modelSetter.isModelSet);
+        yield return new WaitUntil(() => ModelManager.Instance.isModelSet);
 
         if (modelNum < 0 || modelNum > modelsMatter.Length) modelNum = 0;
         if (weaponNum < 0 || weaponNum > weaponMatter.Length) modelNum = 0;

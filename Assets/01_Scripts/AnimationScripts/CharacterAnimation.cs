@@ -24,12 +24,17 @@ public class CharacterAnimation : MonoBehaviour
     const string PARAM_ATTACK_COIN = "AttackCoin";
     const string PARAM_DEAD = "Dead";
 
-    private void Start()
+    private bool isAnimSet = false;
+    IEnumerator Start()
     {
+
+        yield return new WaitUntil(() => ModelManager.Instance.isModelSet);
+
         if(gameObject.CompareTag("Player") || gameObject.CompareTag("AI"))
         {
             characterAgent = GetComponent<NavMeshAgent>();
         }
+
         characterAnim = GetComponentInChildren<Animator>();
 
         if (GetComponent<PlayerController>())
@@ -56,10 +61,13 @@ public class CharacterAnimation : MonoBehaviour
                 }
             }
         }
+
+        isAnimSet = true;
+
     }
     private void Update()
     {
-        CharacterAnim();
+        if(isAnimSet) CharacterAnim();
     }
 
     void CharacterAnim()
