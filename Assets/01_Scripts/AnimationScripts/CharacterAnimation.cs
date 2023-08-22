@@ -24,6 +24,7 @@ public class CharacterAnimation : MonoBehaviour
     const string PARAM_ATTACK_COIN = "AttackCoin";
     const string PARAM_DEAD = "Dead";
 
+    private bool isAnimSet = false;
     IEnumerator Start()
     {
 
@@ -60,10 +61,13 @@ public class CharacterAnimation : MonoBehaviour
                 }
             }
         }
+
+        isAnimSet = true;
+
     }
     private void Update()
     {
-        CharacterAnim();
+        if(isAnimSet) CharacterAnim();
     }
 
     void CharacterAnim()
