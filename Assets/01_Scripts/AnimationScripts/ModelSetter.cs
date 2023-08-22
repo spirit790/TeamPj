@@ -6,24 +6,24 @@ public class ModelSetter : MonoBehaviour
 {
     public GameObject[] models;
 
-    private ModelManager modelMagager;
+    private ModelManager modelManager;
     private ColorSetter colorSetter;
 
     public bool isModelSet = false;
     private void Start()
     {
-        modelMagager = GameObject.Find("ModelManager").GetComponent<ModelManager>();
+        modelManager = GameObject.Find("ModelManager").GetComponent<ModelManager>();
 
         // for (int i = 0; i < models.Length; i++) 
         // {
         //     models[i].SetActive(false);
         // }
 
-        models[modelMagager.modelNum].SetActive(true);
+        models[modelManager.modelNum].SetActive(true);
 
-        colorSetter = models[modelMagager.modelNum].GetComponent<ColorSetter>();
-        colorSetter.modelNum = modelMagager.modelColor;
-        colorSetter.weaponNum = modelMagager.weaponColor;
+        colorSetter = models[modelManager.modelNum].GetComponent<ColorSetter>();
+        colorSetter.modelNum = modelManager.modelColor;
+        colorSetter.weaponNum = modelManager.weaponColor;
 
         isModelSet = true;
     }
