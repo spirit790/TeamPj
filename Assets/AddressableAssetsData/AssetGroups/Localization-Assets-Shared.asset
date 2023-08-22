@@ -33,18 +33,6 @@ MonoBehaviour:
     m_Address: Assets/06_Localization/CountryFlag Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
-  - m_GUID: 642b488e5fa1d3948993564dd5984715
-    m_Address: Assets/03_Images/country/USA.PNG
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en-US
-    - Locale-ko-KR
-  - m_GUID: bd4b7a6d53dfbf34f8affd08875cf216
-    m_Address: Assets/03_Images/country/Korea.PNG
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-ko-KR
-    - Locale-en-US
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 49831b6d4d91486409165362a3053f10, type: 2}
   m_SchemaSet:
