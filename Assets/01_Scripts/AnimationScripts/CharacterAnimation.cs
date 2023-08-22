@@ -24,8 +24,14 @@ public class CharacterAnimation : MonoBehaviour
     const string PARAM_ATTACK_COIN = "AttackCoin";
     const string PARAM_DEAD = "Dead";
 
-    private void Start()
+    private ModelSetter modelSetter;
+
+    IEnumerator Start()
     {
+        modelSetter = GetComponent<ModelSetter>();
+
+        yield return new WaitUntil(()=>modelSetter.isModelSet);
+
         if(gameObject.CompareTag("Player") || gameObject.CompareTag("AI"))
         {
             characterAgent = GetComponent<NavMeshAgent>();
