@@ -45,7 +45,7 @@ public class ModelManager : MonoBehaviour
 
     IEnumerator Start() 
     {
-        yield return new WaitUntil(()=> modelNumbs == GameManager.Instance.PlayerCount * 6);
+        yield return new WaitUntil(() => modelNumbs == GameManager.Instance.PlayerCount * 6);
 
         isModelSet = true;
     }
