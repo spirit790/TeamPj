@@ -217,7 +217,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             isReInvite = false;
             isReMatch = false;
-            playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
+            PlayerCount = PhotonNetwork.CurrentRoom.PlayerCount;
+            Debug.Log("PLAyers::: " + PlayerCount);
             PlayersLeft = PlayerCount;
             int modeNum = int.Parse(PhotonNetwork.CurrentRoom.CustomProperties[KeyMode].ToString());
             //int modeNum = 0;
