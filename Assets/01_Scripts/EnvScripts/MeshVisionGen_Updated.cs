@@ -48,8 +48,6 @@ public class MeshVisionGen_Updated : MonoBehaviour
 
     public bool isDataSaved = false;
 
-
-
     IEnumerator Start()
     {
         DOTween.Init();
@@ -85,8 +83,8 @@ public class MeshVisionGen_Updated : MonoBehaviour
      */
     IEnumerator GetRenderDatas()
     {
-        playerNum = GameObject.FindGameObjectsWithTag("Player");
-        aiNum = GameObject.FindGameObjectsWithTag("AI");
+        yield return playerNum = GameObject.FindGameObjectsWithTag("Player");
+        yield return aiNum = GameObject.FindGameObjectsWithTag("AI");
 
         //players' datas
         for (int i = 0; i < playerNum.Length; i++)
@@ -163,7 +161,6 @@ public class MeshVisionGen_Updated : MonoBehaviour
 
                 if (Physics.Raycast(originPos, rayDir, out hit, lightRange, visionLayer))
                 {
-
                     if (hit.transform.gameObject.layer == 6)
                     {
                         /*
