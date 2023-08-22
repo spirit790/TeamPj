@@ -290,10 +290,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191a75978d4fa3448a0f6c16ab44708b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTr: {fileID: 0}
   lightAngle: 160
   lightRange: 10
   visionDensity: 2
   visibleRenderQueue: 3001
   invisibleRenderQueue: 3000
-  visionFreq: 0.1
+  myRenderQueue: 3002
+  visionFreq: 0.017
+  isDataSaved: 0
