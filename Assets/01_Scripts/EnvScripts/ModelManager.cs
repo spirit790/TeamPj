@@ -25,6 +25,12 @@ public class ModelManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+    }
+
+    private void OnEnable() 
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     public GameObject[] modelRefs;
@@ -40,38 +46,37 @@ public class ModelManager : MonoBehaviour
     public bool isModelSet = false;
 
 
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        InitModel();
+
         if(scene.name == "02_Main" || scene.name == "01_Login") return;
-        
+
         StartCoroutine(ModelSetting());
     }
 
-    IEnumerator ModelSetting() 
-    {
-        yield return new WaitUntil(() => GameManager.Instance.isLoaded);
-        Debug.Log("PlayerCount1 : " + GameManager.Instance.PlayerCount);
-
-        yield return new WaitUntil(() => modelNumbs == GameManager.Instance.PlayerCount * 6);
-        Debug.Log("model Numbs : " + modelNumbs);
-        Debug.Log("PlayerCount2 : " + GameManager.Instance.PlayerCount);
-        isModelSet = true;
-    }
-
-    private void OnDisable() 
+    private void InitModel()
     {
         modelNum = 0;
         modelColor = 0;
         weaponColor = 0;
         modelNumbs = 0;
         isModelSet = false;
-
-        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    IEnumerator ModelSetting() 
+    {
+        yield return new WaitUntil(() => GameManager.Instance.isLoaded);
+        // Debug.Log("PlayerCount1 : " + GameManager.Instance.PlayerCount);
+
+        yield return new WaitUntil(() => modelNumbs == GameManager.Instance.PlayerCount * 6);
+        // Debug.Log("model Numbs : " + modelNumbs);
+        // Debug.Log("PlayerCount2 : " + GameManager.Instance.PlayerCount);
+        isModelSet = true;
+    }
+
+    private void OnDisable() 
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 }
