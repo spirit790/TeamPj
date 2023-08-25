@@ -25,7 +25,6 @@ public class ModelManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
     }
 
     private void OnEnable() 
@@ -50,16 +49,11 @@ public class ModelManager : MonoBehaviour
     {
         InitModel();
 
-        if(scene.name == "02_Main" || scene.name == "01_Login") return;
-
-        StartCoroutine(ModelSetting());
+        if(scene.buildIndex >= 2) StartCoroutine(ModelSetting());
     }
 
     private void InitModel()
     {
-        modelNum = 0;
-        modelColor = 0;
-        weaponColor = 0;
         modelNumbs = 0;
         isModelSet = false;
     }
