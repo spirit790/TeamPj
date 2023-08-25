@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ModelManager : MonoBehaviour
 {
@@ -15,11 +16,6 @@ public class ModelManager : MonoBehaviour
 
     void Awake()
     {
-        modelNum = 0;
-        modelColor = 0;
-        weaponColor = 0;
-        modelNumbs = 0;
-
         if (null == instance)
         {
             instance = this;
@@ -43,7 +39,20 @@ public class ModelManager : MonoBehaviour
     public int modelNumbs = 0;
     public bool isModelSet = false;
 
-    IEnumerator Start() 
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.name == "02_Main" || scene.name == "01_Login") return;
+        
+        StartCoroutine(ModelSetting());
+    }
+
+    IEnumerator ModelSetting() 
     {
         yield return new WaitUntil(() => GameManager.Instance.isLoaded);
         Debug.Log("PlayerCount1 : " + GameManager.Instance.PlayerCount);
@@ -52,6 +61,17 @@ public class ModelManager : MonoBehaviour
         Debug.Log("model Numbs : " + modelNumbs);
         Debug.Log("PlayerCount2 : " + GameManager.Instance.PlayerCount);
         isModelSet = true;
+    }
+
+    private void OnDisable() 
+    {
+        modelNum = 0;
+        modelColor = 0;
+        weaponColor = 0;
+        modelNumbs = 0;
+        isModelSet = false;
+
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
 }
