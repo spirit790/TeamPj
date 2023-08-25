@@ -14,15 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: CountryFlag
   m_TableCollectionNameGuidString: dfa0b1775ece2904b88696e7181fe11d
-  m_Entries:
-  - m_Id: 36959182848
-    m_Key: EngFlag
-    m_Metadata:
-      m_Items: []
-  - m_Id: 782127620096
-    m_Key: KorFlag
-    m_Metadata:
-      m_Items: []
+  m_Entries: []
   m_Metadata:
     m_Items:
     - rid: 5908993417587720195
