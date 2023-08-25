@@ -32,6 +32,18 @@ public class ModelManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {        
+        InitModel();
+
+        if(scene.buildIndex >= 2) StartCoroutine(ModelSetting());
+    }
+
+    private void OnDisable() 
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     public GameObject[] modelRefs;
     //public Dictionary<GameObject[], Material[]> modelColors;
     //public Dictionary<GameObject[], Material[]> weaponColors;
@@ -43,14 +55,6 @@ public class ModelManager : MonoBehaviour
 
     public int modelNumbs = 0;
     public bool isModelSet = false;
-
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {        
-        InitModel();
-
-        if(scene.buildIndex >= 2) StartCoroutine(ModelSetting());
-    }
 
     private void InitModel()
     {
@@ -69,8 +73,4 @@ public class ModelManager : MonoBehaviour
         isModelSet = true;
     }
 
-    private void OnDisable() 
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
 }
