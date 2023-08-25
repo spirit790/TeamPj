@@ -46,7 +46,7 @@ public class ModelManager : MonoBehaviour
 
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
+    {        
         InitModel();
 
         if(scene.buildIndex >= 2) StartCoroutine(ModelSetting());
