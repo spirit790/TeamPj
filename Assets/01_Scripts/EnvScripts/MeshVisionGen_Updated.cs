@@ -86,6 +86,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
         yield return playerNum = GameObject.FindGameObjectsWithTag("Player");
         yield return aiNum = GameObject.FindGameObjectsWithTag("AI");
 
+        Debug.Log("Player::: " + playerNum.Length);
         //players' datas
         for (int i = 0; i < playerNum.Length; i++)
         {
@@ -115,6 +116,8 @@ public class MeshVisionGen_Updated : MonoBehaviour
             ChangeMeshVisiblity(playerNum[i].transform, false);
         }
 
+        Debug.Log("AI::: " + aiNum.Length);
+
         //AIs' datas
         for (int i = 0; i < aiNum.Length; i++)
         {
@@ -123,7 +126,7 @@ public class MeshVisionGen_Updated : MonoBehaviour
             ChangeMeshVisiblity(aiNum[i].transform, false);
 
         }
-
+        Debug.Log("Renderer::: " + actorRenderers.Count);
         yield return null;
     }
 

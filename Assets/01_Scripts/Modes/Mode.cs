@@ -139,12 +139,13 @@ public class Mode : MonoBehaviourPunCallbacks
     /// <summary>
     /// AI 생성 함수
     /// </summary>
-    protected void SpawnAI()
+    protected void SpawnAI(int i)
     {
         GameObject ai = null;
         if (PhotonNetwork.IsMasterClient)
         {
             ai = PhotonNetwork.InstantiateRoomObject(aiPrefab.name, SpawnPos, Quaternion.identity);
+            ai.name = i.ToString();
         }
         aiList.Add(ai);
     }
@@ -156,7 +157,7 @@ public class Mode : MonoBehaviourPunCallbacks
     {
         for (int i = 0; i < AICount; i++)
         {
-            SpawnAI();
+            SpawnAI(i);
         }
         if(PhotonNetwork.IsMasterClient)
             photonView.RPC(nameof(RpcCreateAI), RpcTarget.AllBufferedViaServer);
