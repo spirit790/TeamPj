@@ -9,9 +9,10 @@ public class ModelSetter : MonoBehaviour
     private ModelManager modelManager;
     private ColorSetter colorSetter;
 
-    public bool isModelSet = false;
-    private void Start()
+    IEnumerator Start()
     {
+        yield return new WaitUntil(() => GameManager.Instance.isLoaded);
+
         modelManager = GameObject.Find("ModelManager").GetComponent<ModelManager>();
 
         // for (int i = 0; i < models.Length; i++) 
@@ -25,6 +26,7 @@ public class ModelSetter : MonoBehaviour
         colorSetter.modelNum = modelManager.modelColor;
         colorSetter.weaponNum = modelManager.weaponColor;
 
+        Debug.Log("modelnumbs " + modelManager.modelNumbs + " from " + name);
         modelManager.modelNumbs++;
     }
 

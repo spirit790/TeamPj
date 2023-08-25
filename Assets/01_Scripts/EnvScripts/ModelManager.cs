@@ -45,11 +45,12 @@ public class ModelManager : MonoBehaviour
 
     IEnumerator Start() 
     {
-        Debug.Log(GameManager.Instance.PlayerCount);
+        yield return new WaitUntil(() => GameManager.Instance.isLoaded);
+        Debug.Log("PlayerCount1 : " + GameManager.Instance.PlayerCount);
 
         yield return new WaitUntil(() => modelNumbs == GameManager.Instance.PlayerCount * 6);
-        Debug.Log(modelNumbs);
-        Debug.Log(GameManager.Instance.PlayerCount);
+        Debug.Log("model Numbs : " + modelNumbs);
+        Debug.Log("PlayerCount2 : " + GameManager.Instance.PlayerCount);
         isModelSet = true;
     }
 

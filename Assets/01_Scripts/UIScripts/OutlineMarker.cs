@@ -12,13 +12,11 @@ public class OutlineMarker : MonoBehaviour
     public Color lineColor = Color.magenta;
     public Renderer outlineRenderer;
 
-    private ModelSetter modelSetter;
 
     IEnumerator Start()
     {
-        modelSetter = GetComponent<ModelSetter>();
 
-        yield return new WaitUntil(() => modelSetter.isModelSet);
+        yield return new WaitUntil(() => ModelManager.Instance.isModelSet);
 
         outlineRenderer = GetComponentsInChildren<Renderer>()[2];
     }
